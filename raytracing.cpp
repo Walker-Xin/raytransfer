@@ -23,7 +23,7 @@ void raytrace(long double xscr, long double yscr, long double traced[4], long do
   int i;
 
   /* ----- Set computational parameters ----- */
-  dscr = 1.0e+8;    /* distance of the observer */
+  dscr = 1.0e+8;    /* distance of the observer */ // effectively at infinity
   errmin = 1.0e-9;  /* error bounds for RK45 */
   errmax = 1.0e-7;
   long double cross_tol = 1.0e-8;   /* sought accuracy at disk crossing */

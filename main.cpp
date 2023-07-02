@@ -46,7 +46,7 @@ int main(int argc, char *argv[])
 
 		/* GAULEG COMPUTE THE EMISSION RADII */
 
-		gauleg(rdisk_i, rdisk_f, rdisk);
+		gauleg(rdisk_i, rdisk_f, rdisk); // a grid of 100 emission radii stored in rdisk; c.f. Section 3.4 in Public Release
 
 		/* Open output file */
 		sprintf(filename_o,"photons/photons4trf_a%.05Le.i%.02Le.Mdl_%.02Le.dp_%.02Le.dat",spin,cosinc,defpar);

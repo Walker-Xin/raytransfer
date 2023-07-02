@@ -119,7 +119,7 @@ long double specific_energy(long double r)
 	dgppdr = 0.4e1 * t26 * (t4 * t23 * t13 * t11 + t12 * t22 + (0.7e1 / 0.2e1 * (-0.4e1 / 0.7e1 * r + 0.1e1) * r - 0.3e1 / 0.2e1 * t6) * t6 * t2) + t4 * t24 * (-t14 * t9 + 0.3e1 * r);
 	dgtpdr = spin * (t17 * (epsi3 * t14 - t19 + (double) t7 * t20 * t21 * ((double) t7 * (r * t16 + t27 * t15) - 0.3e1 * t10 * a13 * pow(t14, 0.2e1))) + 0.5e1 * t26 * (a13 * (t1 * (t1 / 0.5e1 + (a22 + t6) * t28) + t27) - 0.2e1 / 0.5e1 * t3 * (-t27 + t3)) * t11);
 
-    Omega  = (-dgtpdr + sqrt(dgtpdr*dgtpdr - dgttdr*dgppdr))/dgppdr; //angular velocity
+    Omega  = (-dgtpdr + sqrt(dgtpdr*dgtpdr - dgttdr*dgppdr))/dgppdr; //angular velocity; c.f. Eq (13) in Public Release
 
     se = -1.0*(gtt + Omega*gtp)/sqrt(-1.0*gtt - 2.0*Omega*gtp - Omega*Omega*gpp); //specific energy
 

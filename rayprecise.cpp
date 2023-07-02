@@ -42,7 +42,7 @@ void rayprecise(long double rdisk, long double rerrtol, long double pscr, long d
 
         rscr = 0.5*(rlow+rhigh); //Next r_screen value is average of low and high values
 
-        if((rhigh-rlow)<rerrtol/10.0) //Lower error tolerance if can't find correct value
+        if((rhigh-rlow)<rerrtol/10.0) //Lower (Higher?) error tolerance if can't find correct value
             rerrtol *= 2.0;
 
         xyfromrphi(rscr,pscr,rdisk);
