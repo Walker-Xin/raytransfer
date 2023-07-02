@@ -117,15 +117,11 @@ void diffeqs(long double b, long double vars[], long double diffs[])
 	ch_ththth = hguthth*dgththdth;
 	ch_thpp = -hguthth*dgppdth;
 
-	denom = (gtt*gpp-gtp*gtp);
+	denom = (gtt*gpp-gtp*gtp); // common denominator in Eq (26) and Eq (27) in Public Release
 
 	/* t and phi photon 4-momentum */
-	kt = -(gpp+b*gtp)/denom;
-	kphi = (gtp+b*gtt)/denom;
-
-	diffs[0] = vars[3];
-	diffs[1] = vars[4];
-	diffs[2] = kphi;
+	kt = -(gpp+b*gtp)/denom; // c.f Eq (26)
+	kphi = (gtp+b*gtt)/denom; // c.f Eq (27)
 
 	kt2 = kt*kt;
 	kr2 = vars[3]*vars[3];
@@ -134,7 +130,12 @@ void diffeqs(long double b, long double vars[], long double diffs[])
 	ktp = kt*kphi;
 	krth = vars[3]*vars[4];
 
-	/* 2nd order diff eqs for r and theta */
+	/* 1st order diff eqs for r, theta and phi */
+	diffs[0] = vars[3]; // kr
+	diffs[1] = vars[4]; // kth
+	diffs[2] = kphi;
+
+	/* 2nd order diff eqs for r and theta; c.f. Eq (28) and Eq (29) */
 	diffs[3] = -(ch_rtt*kt2+ch_rrr*kr2+ch_rthth*kth2+ch_rpp*kp2+2.0*(ch_rtp*ktp+ch_rrth*krth));
 	diffs[4] = -(ch_thtt*kt2+ch_thrr*kr2+ch_ththth*kth2+ch_thpp*kp2+2.0*(ch_thtp*ktp+ch_thrth*krth));
 }
