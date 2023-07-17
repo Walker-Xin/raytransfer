@@ -1,3 +1,5 @@
+// TODO: check validity of fact3
+
 void raytrace(long double xscr, long double yscr, long double traced[4], long double rdisk)
 {
     long double dscr, xscr2, yscr2;
@@ -23,24 +25,24 @@ void raytrace(long double xscr, long double yscr, long double traced[4], long do
     int i;
 
     /* ----- Set computational parameters ----- */
-    dscr = 1.0e+8; /* distance of the observer */ // effectively at infinity
-    errmin = 1.0e-9;                              /* error bounds for RK45 */
+    dscr = 1.0e+8; // distance of the observer, effectively at infinity
+    errmin = 1.0e-9; // error bounds for RK45
     errmax = 1.0e-7;
-    long double cross_tol = 1.0e-8; /* sought accuracy at disk crossing */
+    long double cross_tol = 1.0e-8; // sought accuracy at disk crossing
 
-    // set disk height
+    // Set disk height
     if (rdisk >= isco)
         height = 3.0 * Mdl * (1.0 - sqrt(isco / rdisk)) / eta;
     else
         height = 0.0;
 
-    h = -1.0; /* initial step size */
+    h = -1.0; // initial step size
 
-    /* ----- compute photon initial conditions ----- */
+    /* ----- Compute photon initial conditions ----- */
     xscr2 = xscr * xscr;
     yscr2 = yscr * yscr;
 
-    // variables used for convenience; c.f. numerator of Eq (31), denominator of Eq(31)
+    // Variables used for convenience; c.f. numerator of Eq (31), denominator of Eq(31)
     fact1 = yscr * sin(inc) + dscr * cos(inc);
     fact2 = dscr * sin(inc) - yscr * cos(inc);
 
@@ -49,7 +51,7 @@ void raytrace(long double xscr, long double yscr, long double traced[4], long do
     // Initial r, theta, and phi; c.f. Eqs (30)-(32)
     r0 = sqrt(r02);
     th0 = acos(fact1 / r0);
-    phi0 = atan2(xscr, fact2); // atan2 used for principal value
+    phi0 = atan2(xscr, fact2); // atan2 used to get principal value
 
     s0 = sin(th0);
     s02 = s0 * s0;
@@ -185,7 +187,7 @@ void raytrace(long double xscr, long double yscr, long double traced[4], long do
         th = vars_4th[1];
         phi = vars_4th[2];
 
-        if (r * cos(th) < height) /* check if photon has crossed disk */
+        if (r * cos(th) < height) // check if photon has crossed disk
         {
             /* check if accuracy achieved; if so, move on to setting final values */
             if (sqrt(r * r + rau * rau - 2.0 * r * rau * (cos(th) * cos(thau) + sin(th) * sin(thau) * cos(phi - phiau))) <= cross_tol)
@@ -229,9 +231,9 @@ void raytrace(long double xscr, long double yscr, long double traced[4], long do
                 h /= 2.0;
             }
         }
-        else if (r <= 1. + sqrt(1. - spin2) + 0.001)
+        else if (r <= 1. + sqrt(1. - spin2) + 0.001) // check if photon has crossed horizon
         {
-            stop_integration = 2; /* photon crosses event horizon */
+            stop_integration = 2;
             // printf("Photon crossed horizon\n");
             break;
         }

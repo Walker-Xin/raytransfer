@@ -1,5 +1,6 @@
 /* Metric and derivative of metric used throughout code */
 /* If possible, use Maple or Mathematica to optimize code */
+// TODO: use python to optimise code
 
 void metric(long double r, long double th, long double g[][4])
 {
