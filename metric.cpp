@@ -2,10 +2,8 @@
 /* If possible, use Maple or Mathematica to optimize code */
 // TODO: use python to optimise code
 
-void metric(long double r, long double th, long double g[][4])
+void metric(long double r, long double th, long double g[4][4])
 {
-	long double gtt, grr, gthth, gpp, gtp, gtr, grp;
-
 	long double t1 = pow(r,2);
 	long double t2 = pow(spin,2);
 	long double t3 = cos(th);
@@ -19,27 +17,31 @@ void metric(long double r, long double th, long double g[][4])
 	long double t12 = pow(t11,-2);
 	long double t15 = sin(th);
 	long double t16 = pow(t15,2);
+	long double t20 = 1/r;
+	long double t21 = b1*spin*t20;
+	long double t22 = 2 + r;
+	long double t23 = r*t22;
+	long double t24 = t2 + t23;
+	long double t25 = -(spin*t12*t16*t24*t6);
 	long double t13 = -2 + r;
 	long double t14 = r*t13;
 
-	gtt = t12*(t14 + t2 - 4*t16*t2)*t6;
-	grr = t6/(-2*r + t1 + t2);
-	gthth = t6;
-	gpp = t12*t16*(pow(t1 + t2,2) - t16*t2*(t14 + t2))*t6;
-	gtp = -(spin*t12*t16*(r*(2 + r) + t2)*t6);
-	gtr = (b1*spin)/r;
-	grp = 0;
-
-	g[0][0] = gtt;
-	g[0][1] = gtr;
-	g[0][3] = gtp;
-	g[1][0] = g[0][1];
-	g[1][1] = grr;
-	g[1][3] = grp;
-	g[2][2] = gthth;
-	g[3][0] = g[0][3];
-	g[3][1] = g[1][3];
-	g[3][3] = gpp;
+	g[0][0] = t12*(t14 + t2 - 4*t16*t2)*t6;
+	g[0][1] = t21;
+	g[0][2] = 0;
+	g[0][3] = t25;
+	g[1][0] = t21;
+	g[1][1] = t6/(-2*r + t1 + t2);
+	g[1][2] = 0;
+	g[1][3] = 0;
+	g[2][0] = 0;
+	g[2][1] = 0;
+	g[2][2] = t6;
+	g[2][3] = 0;
+	g[3][0] = t25;
+	g[3][1] = 0;
+	g[3][2] = 0;
+	g[3][3] = t12*t16*(pow(t1 + t2,2) - t16*t2*(t14 + t2))*t6;
 }
 
 void metric_rderivatives(long double r, long double th, long double dg[][4])
@@ -135,10 +137,8 @@ void metric_r2derivatives(long double r, long double th, long double dg2[][4])
 	dg2[3][3] = dgppdr2;
 }
 
-void uppermetric(long double r, long double th, long double rth[])
+void uppermetric(long double r, long double th, long double gu[4][4])
 {
-	long double gutt, gurr, guthth, gupp, gutp, gurp;
-
 	long double t1 = pow(r,2);
 	long double t2 = pow(spin,2);
 	long double t14 = sin(th);
@@ -159,35 +159,51 @@ void uppermetric(long double r, long double th, long double rth[])
 	long double t11 = t2*t9;
 	long double t12 = t1 + t11;
 	long double t13 = pow(t12,2);
-	long double t7 = pow(t6,2);
+	long double t31 = -2*r;
+	long double t32 = t1 + t2 + t31;
 	long double t23 = 2 + r;
 	long double t24 = r*t23;
 	long double t25 = t2 + t24;
 	long double t26 = pow(t25,2);
-	long double t36 = -4*t15*t2;
-	long double t37 = t19 + t2 + t36;
 	long double t27 = pow(t6,3);
 	long double t28 = pow(t14,4);
 	long double t29 = t1*t2*t26*t27*t28;
 	long double t30 = pow(b1,2);
-	long double t31 = t13*t2*t20*t30;
-	long double t32 = pow(r,3);
-	long double t33 = r*t2*t4;
-	long double t34 = t32 + t33;
-	long double t35 = pow(t34,2);
-	long double t38 = -(t35*t37);
-	long double t39 = t31 + t38;
-	long double t40 = t15*t22*t39*t6;
-	long double t41 = t29 + t40;
-	long double t42 = 1/t41;
-	
-	gutt = -(t1*t13*t15*t22*t42*t7);
-	gurr = -(t1*t15*t20*(-(t15*t2*t26) + t22*t37)*t42*t7);
-	guthth = 1/t6;
-	gupp = -(t1*pow(t12,4)*t20*t42*(-((t2*t30)/pow(r,2)) + (t37*t7)/(pow(t12,2)*t20)));
-	gutp = -(spin*t1*t13*t15*t25*t42*t7);
-	gurp = b1*r*t13*t15*t2*t20*t25*t42*t6;
+	long double t33 = -(t13*t2*t30*t32);
+	long double t34 = pow(r,3);
+	long double t35 = r*t2*t4;
+	long double t36 = t34 + t35;
+	long double t37 = pow(t36,2);
+	long double t38 = -4*t15*t2;
+	long double t39 = t19 + t2 + t38;
+	long double t40 = t37*t39;
+	long double t41 = t33 + t40;
+	long double t42 = -(t15*t22*t41*t6);
+	long double t43 = t29 + t42;
+	long double t44 = 1/t43;
+	long double t7 = pow(t6,2);
+	long double t46 = b1*r*spin;
+	long double t47 = 1/r;
+	long double t48 = pow(spin,3);
+	long double t49 = b1*t4*t47*t48;
+	long double t50 = t46 + t49;
+	long double t51 = t1*t13*t15*t22*t32*t44*t50;
+	long double t52 = -(spin*t1*t13*t15*t25*t44*t7);
 
-	rth[0] = gurr;
-	rth[1] = guthth;
+	gu[0][0] = -(t1*t13*t15*t22*t44*t7);
+	gu[0][1] = t51;
+	gu[0][2] = 0;
+	gu[0][3] = t52;
+	gu[1][0] = t51;
+	gu[1][1] = -(t1*t15*t32*(-(t15*t2*t26) + t22*t39)*t44*t7);
+	gu[1][2] = 0;
+	gu[1][3] = b1*r*t13*t15*t2*t25*t32*t44*t6;
+	gu[2][0] = 0;
+	gu[2][1] = 0;
+	gu[2][2] = 1/t6;
+	gu[2][3] = 0;
+	gu[3][0] = t52;
+	gu[3][1] = spin*t1*t13*t15*t25*t32*t44*t50;
+	gu[3][2] = 0;
+	gu[3][3] = -(t1*pow(t12,4)*t32*t44*(-((t2*t30)/pow(r,2)) + (t39*t7)/(pow(t12,2)*t32)));
 }
