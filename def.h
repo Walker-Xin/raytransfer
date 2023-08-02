@@ -50,7 +50,7 @@ long double Mdl, eta;
 void xyfromrphi(long double rscr, long double pscr, long double rdisk);
 void raytrace(long double xscr, long double yscr, long double traced[], long double rdisk);
 void rayprecise(long double rdisk, long double germtol, long double pscr, long double traced[]);
-void diffeqs(long double b, long double vars[], long double diffs[]);
+void diffeqs(long double vars[], long double diffs[]);
 void redshift(long double r, long double th, long double ktkp, long double& gg);
 long double specific_energy(long double r);
 long double emis_angle(long double r, long double th, long double kr, long double kth);

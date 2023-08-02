@@ -3,10 +3,10 @@
 void raytrace(long double xscr, long double yscr, long double traced[4], long double rdisk)
 {
     long double dscr, xscr2, yscr2;
-    long double r, th, phi, rau, thau, phiau, r0, th0, phi0;
-    long double kr, kth, kt0, kr0, kth0, kphi0;
-    long double r02, s0, s02;
-    long double fact1, fact2, fact3, omega;
+    long double t, r, th, phi, rau, thau, phiau, t0, r0, th0, phi0;
+    long double kt, kr, kth, kphi, kt0, kr0, kth0, kphi0;
+    long double s0, r02, s02;
+    long double fact1, fact2, fact3, B, C, omega;
     long double h;
 
     long double height;
@@ -15,10 +15,12 @@ void raytrace(long double xscr, long double yscr, long double traced[4], long do
     long double b;
 
     long double g[4][4]; // metric tensor
-    long double diffs[5], vars[5], vars_temp[5], vars_4th[5], vars_5th[5], k1[5], k2[5], k3[5], k4[5], k5[5], k6[5];
+    // long double diffs[5], vars[5], vars_temp[5], vars_4th[5], vars_5th[5], k1[5], k2[5], k3[5], k4[5], k5[5], k6[5];
+    long double diffs[8], vars[8], vars_temp[8], vars_4th[8], vars_5th[8], k1[8], k2[8], k3[8], k4[8], k5[8], k6[8];
     long double rgap, rmid, thmid;
     long double gfactor;
     long double err, errmin, errmax;
+    long double cross_tol;
 
     int errcheck, crosscheck = 0, acccheck = 0, blockcheck = 0;
     int stop_integration = 0;
@@ -28,7 +30,7 @@ void raytrace(long double xscr, long double yscr, long double traced[4], long do
     dscr = 1.0e+8; // distance of the observer, effectively at infinity
     errmin = 1.0e-9; // error bounds for RK45
     errmax = 1.0e-7;
-    long double cross_tol = 1.0e-8; // sought accuracy at disk crossing
+    cross_tol = 1.0e-8; // sought accuracy at disk crossing
 
     // Set disk height
     if (rdisk >= isco)
@@ -36,41 +38,35 @@ void raytrace(long double xscr, long double yscr, long double traced[4], long do
     else
         height = 0.0;
 
-    h = -1.0; // initial step size
+    h = -1.0; // initial step size, negative sign for backwards integration
 
     /* ----- Compute photon initial conditions ----- */
+
+    // Variables used for convenience
     xscr2 = xscr * xscr;
     yscr2 = yscr * yscr;
-
-    // Variables used for convenience; c.f. numerator of Eq (31), denominator of Eq(31)
-    fact1 = yscr * sin(inc) + dscr * cos(inc);
-    fact2 = dscr * sin(inc) - yscr * cos(inc);
-
+    fact1 = yscr * sin(inc) + dscr * cos(inc); // c.f. numerator of Eq (31)
+    fact2 = dscr * sin(inc) - yscr * cos(inc); // c.f. denominator of Eq(32)
     r02 = xscr2 + yscr2 + dscr * dscr; // c.f. Eq (30)
 
-    // Initial r, theta, and phi; c.f. Eqs (30)-(32)
-    r0 = sqrt(r02);
+    // Initial t, r, theta, and phi; c.f. Eqs (30)-(32)
+    t0 = 0.0;
+    r0 = sqrt(r02); 
     th0 = acos(fact1 / r0);
     phi0 = atan2(xscr, fact2); // atan2 used to get principal value
-
-    s0 = sin(th0);
-    s02 = s0 * s0;
-
-    metric(r0, th0, g); // compute initial metric tensor
 
     // Initial r, theta, and phi momentum; c.f. Eqs (33)-(35)
     kr0 = dscr / r0;
     kth0 = -(cos(inc) - dscr * fact1 / r02) / sqrt(r02 - fact1 * fact1);
     kphi0 = -xscr * sin(inc) / (xscr2 + fact2 * fact2);
 
-    // Energy used to scale affine parameter; c.f. second term of Eq (36)
-    fact3 = sqrt(g[0][3] * g[0][3] * kphi0 * kphi0 - g[0][0] * (g[1][1] * kr0 * kr0 + g[2][2] * kth0 * kth0 + g[3][3] * kphi0 * kphi0)); // (missing a g[0][0]?)
+    metric(r0, th0, g); // compute initial metric tensor
+    fact3 = sqrt(g[0][3] * g[0][3] * kphi0 * kphi0 - g[0][0] * (g[1][1] * kr0 * kr0 + g[2][2] * kth0 * kth0 + g[3][3] * kphi0 * kphi0));
+    B = 2.0*g[0][1]*kr0 + 2*g[0][3]*kphi0; // B
+    C = g[1][1]*kr0*kr0 + 2*g[1][3]*kr0*kphi0 + g[2][2]*kth0*kth0 + g[3][3]*kphi0*kphi0; // C
 
-    // Should be:
-    // fact3 = sqrt(g[0][3] * g[0][3] * kphi0 * kphi0 - g[0][0] * g[0][0] * (g[1][1] * kr0 * kr0 + g[2][2] * kth0 * kth0 + g[3][3] * kphi0 * kphi0));
-
-    // Initial t momentum; c.f. Eq (36)
-    kt0 = -(g[0][3] * kphi0 + fact3) / g[0][0];
+    // Initial t momentum
+    kt0 = (B - sqrt(B*B - 4.0*C*g[0][0])) / (2.0*g[0][0]);
 
     // Impact parameter, b=L/E
     b = -(g[3][3] * kphi0 + g[0][3] * kt0) / (g[0][0] * kt0 + g[0][3] * kphi0);
@@ -82,23 +78,32 @@ void raytrace(long double xscr, long double yscr, long double traced[4], long do
     /* ----- RK45 ----- */
 
     /* set initial values */
+    t = t0;
     r = r0;
     th = th0;
     phi = phi0;
 
+    kt = kt0;
     kr = kr0;
     kth = kth0;
+    kphi = kphi0;
+
+    s0 = sin(th0);
+    s02 = s0 * s0;
 
     omega = r02 * s02 * kphi0 / kt0; /* disk angular velocity */
 
     do
     {
 
-        vars[0] = r;
-        vars[1] = th;
-        vars[2] = phi;
-        vars[3] = kr;
-        vars[4] = kth;
+        vars[0] = t;
+        vars[1] = r;
+        vars[2] = th;
+        vars[3] = phi;
+        vars[4] = kt;
+        vars[5] = kr;
+        vars[6] = kth;
+        vars[7] = kphi;
 
         do
         {
@@ -107,8 +112,8 @@ void raytrace(long double xscr, long double yscr, long double traced[4], long do
 
             /* ----- compute RK1 ----- */
 
-            diffeqs(b, vars, diffs);
-            for (i = 0; i <= 4; i++)
+            diffeqs(vars, diffs);
+            for (i = 0; i <= 7; i++)
             {
                 k1[i] = h * diffs[i];
                 vars_temp[i] = vars[i] + a1 * k1[i];
@@ -116,8 +121,8 @@ void raytrace(long double xscr, long double yscr, long double traced[4], long do
 
             /* ----- compute RK2 ----- */
 
-            diffeqs(b, vars_temp, diffs);
-            for (i = 0; i <= 4; i++)
+            diffeqs(vars_temp, diffs);
+            for (i = 0; i <= 7; i++)
             {
                 k2[i] = h * diffs[i];
                 vars_temp[i] = vars[i] + b1 * k1[i] + b2 * k2[i];
@@ -125,8 +130,8 @@ void raytrace(long double xscr, long double yscr, long double traced[4], long do
 
             /* ----- compute RK3 ----- */
 
-            diffeqs(b, vars_temp, diffs);
-            for (i = 0; i <= 4; i++)
+            diffeqs(vars_temp, diffs);
+            for (i = 0; i <= 7; i++)
             {
                 k3[i] = h * diffs[i];
                 vars_temp[i] = vars[i] + c1 * k1[i] + c2 * k2[i] + c3 * k3[i];
@@ -134,8 +139,8 @@ void raytrace(long double xscr, long double yscr, long double traced[4], long do
 
             /* ----- compute RK4 ----- */
 
-            diffeqs(b, vars_temp, diffs);
-            for (i = 0; i <= 4; i++)
+            diffeqs(vars_temp, diffs);
+            for (i = 0; i <= 7; i++)
             {
                 k4[i] = h * diffs[i];
                 vars_temp[i] = vars[i] + d1 * k1[i] + d2 * k2[i] + d3 * k3[i] + d4 * k4[i];
@@ -143,8 +148,8 @@ void raytrace(long double xscr, long double yscr, long double traced[4], long do
 
             /* ----- compute RK5 ----- */
 
-            diffeqs(b, vars_temp, diffs);
-            for (i = 0; i <= 4; i++)
+            diffeqs(vars_temp, diffs);
+            for (i = 0; i <= 7; i++)
             {
                 k5[i] = h * diffs[i];
                 vars_temp[i] = vars[i] + e1 * k1[i] + e2 * k2[i] + e3 * k3[i] + e4 * k4[i] + e5 * k5[i];
@@ -152,13 +157,13 @@ void raytrace(long double xscr, long double yscr, long double traced[4], long do
 
             /* ----- compute RK6 ----- */
 
-            diffeqs(b, vars_temp, diffs);
-            for (i = 0; i <= 4; i++)
+            diffeqs(vars_temp, diffs);
+            for (i = 0; i <= 7; i++)
                 k6[i] = h * diffs[i];
 
             /* ----- local error ----- */
 
-            for (i = 0; i <= 4; i++)
+            for (i = 0; i <= 7; i++)
             {
                 vars_4th[i] = vars[i] + f1 * k1[i] + f2 * k2[i] + f3 * k3[i] + f4 * k4[i] + f5 * k5[i];
                 vars_5th[i] = vars[i] + g1 * k1[i] + g2 * k2[i] + g3 * k3[i] + g4 * k4[i] + g5 * k5[i] + g6 * k6[i];
@@ -183,9 +188,9 @@ void raytrace(long double xscr, long double yscr, long double traced[4], long do
         rau = r;
         thau = th;
         phiau = phi;
-        r = vars_4th[0];
-        th = vars_4th[1];
-        phi = vars_4th[2];
+        r = vars_4th[1];
+        th = vars_4th[2];
+        phi = vars_4th[3];
 
         if (r * cos(th) < height) // check if photon has crossed disk
         {
@@ -201,10 +206,11 @@ void raytrace(long double xscr, long double yscr, long double traced[4], long do
                 crosscheck = 1;
                 // printf("Crossed disk near desired radius but not within error tolerance. Continue.\n");
             }
+            
             if (acccheck == 1) /* set final values */
             {
-                kr = vars_4th[3];
-                kth = vars_4th[4];
+                kr = vars_4th[5];
+                kth = vars_4th[6];
 
                 /* calculate average/midpoint values */
                 rmid = 0.5 * (r + rau);
@@ -245,8 +251,8 @@ void raytrace(long double xscr, long double yscr, long double traced[4], long do
         }
         else /* not done, take a step */
         {
-            kr = vars_4th[3];
-            kth = vars_4th[4];
+            kr = vars_4th[5];
+            kth = vars_4th[6];
         }
     } while (stop_integration == 0);
 
