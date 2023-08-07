@@ -123,7 +123,7 @@ long double specific_energy(long double r)
 
 	Omega = (-dgtpdr + sqrt(dgtpdr * dgtpdr - dgttdr * dgppdr)) / dgppdr; // angular velocity; c.f. Eq (13) in Public Release
 
-	se = -1.0 * (gtt + Omega * gtp) / sqrt(-1.0 * gtt - 2.0 * Omega * gtp - Omega * Omega * gpp); // specific energy
+	se = -(gtt + Omega * gtp) / sqrt(-gtt - 2.0 * Omega * gtp - Omega * Omega * gpp); // specific energy; c.f. Eq (11)
 
 	return se;
 }
@@ -145,7 +145,7 @@ long double emis_angle(long double r, long double th, long double kr, long doubl
 
 	uppermetric(r, th, gurth);
 
-	angle = 1.0 / sqrt(gurth[0] * Zr * Zr + gurth[1] * Zth * Zth) * (Zr * kr + Zth * kth);
+	angle = 1.0 / sqrt(gurth[0] * Zr * Zr + gurth[1] * Zth * Zth) * (Zr * kr + Zth * kth); // c.f. Eq (16) in Abdiakamalov 2020
 
 	if (angle < 0.0)
 		angle *= -1.0;
