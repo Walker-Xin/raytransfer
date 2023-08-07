@@ -101,6 +101,8 @@ int main(int argc, char *argv[])
 					pscrmax -= pstep / 2.0;
 				}
 
+				// Can skip next rayprecise if gmax is updated?
+
 				rayprecise(rdisk[ii], rerrtol, pscrmax + pstep / 2.0, traced); // search at values of phi_screen higher than estimated
 
 				if (traced[2] > gmax)
@@ -131,6 +133,8 @@ int main(int argc, char *argv[])
 					rscrmin = traced[3];
 					pscrmin -= pstep / 2.0;
 				}
+
+				// Can skip next rayprecise if gmin is updated?
 
 				rayprecise(rdisk[ii], rerrtol, pscrmin + pstep / 2.0, traced); // search at values of phi_screen higher than estimated
 
