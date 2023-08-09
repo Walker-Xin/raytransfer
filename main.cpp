@@ -7,11 +7,12 @@ int main(int argc, char *argv[])
 	char filename_o[128];
 	FILE *foutput;
 
-	/* Set free parameters */
+	/* Set free parameters from user input */
 	// spin = atof(argv[1]); // spin parameter
 	// Mdl = atof(argv[2]);  // accretion rate parameter - disk thickness
 	// defpar = atof(argv[3]);
 
+	/* Set free parameters for testing */
 	long double spin = 0.5;
 	long double Mdl = 0.1;
 	long double defpar = 0.0;
