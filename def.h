@@ -57,7 +57,7 @@ long double emis_angle(long double r, long double th, long double kr, long doubl
 void metric(long double r, long double th, long double g[][4]);
 void metric_rderivatives(long double r, long double th, long double dg[][4]);
 void metric_r2derivatives(long double r, long double th, long double dg2[][4]);
-void uppermetric(long double r, long double th, long double rth[]);
+void uppermetric(long double r, long double th, long double gu[4][4]);
 void find_isco();
 void gauleg(long double rdisk_i, long double rdisk_f, long double rdisk[]);
 void christoffel(long double r, long double th, long double christ[4][4][4]);
