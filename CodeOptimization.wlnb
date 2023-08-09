@@ -70,7 +70,7 @@
   },
   {
    "kind": 2,
-   "value": "gtt = Sigmavar*(Delta - a^2*A2^2*Sin[theta]^2)/B^2;\r\ngrr = Sigmavar/(Delta*A5);\r\ngthth = Sigmavar;\r\ngpp = ((r^2 + a^2)^2*A1^2 - a^2*Delta*Sin[theta]^2)*Sigmavar*\r\n   Sin[theta]^2/B^2;\r\ngtp = -a*((r^2 + a^2)*A1*A2 - Delta)*Sigmavar*Sin[theta]^2/B^2;\r\ngtr = b1*a/r + b2*a*M/r^2;\r\ngrp = c1*a*Sin[theta]^2/r + c2*a*M*Sin[theta]^2/r^2;\r\n\r\ngtt = Simplify[gtt];\r\ngrr = Simplify[grr];\r\ngthth = Simplify[gthth];\r\ngpp = Simplify[gpp];\r\ngtp = Simplify[gtp];\r\ngtr = Simplify[gtr];\r\ngrp = Simplify[grp];",
+   "value": "gtt = Sigmavar*(Delta - a^2*A2^2*Sin[theta]^2)/B^2;\r\ngrr = Sigmavar/(Delta*A5);\r\ngthth = Sigmavar;\r\ngpp = ((r^2 + a^2)^2*A1^2 - a^2*Delta*Sin[theta]^2)*Sigmavar*\r\n   Sin[theta]^2/B^2;\r\ngtp = -a*((r^2 + a^2)*A1*A2 - Delta)*Sigmavar*Sin[theta]^2/B^2;\r\ngtr = b1*a/r + b2*a*M/r^2;\r\ngrp = c1*a*Sin[theta]^2/r + c2*a*M*Sin[theta]^2/r^2;\r\n\r\nG = Simplify[{{gtt, gtr, 0, gtp}, {gtr, grr, 0, grp}, {0, 0, gthth, \r\n     0}, {gtp, grp, 0, gpp}}];\r\nG // MatrixForm",
    "languageId": "wolfram",
    "outputs": [],
    "metadata": {},
@@ -93,7 +93,7 @@
   },
   {
    "kind": 2,
-   "value": "G = Simplify[{{gtt, gtr, 0, gtp}, {gtr, grr, 0, grp}, {0, 0, gthth, \r\n     0}, {gtp, grp, 0, gpp}}];\r\nG // MatrixForm\r\n\r\nGinv = Simplify[Inverse[G]];\r\n(* Ginv // MatrixForm *)",
+   "value": "Ginv = Simplify[Inverse[G]];\r\n(* Ginv // MatrixForm *)",
    "languageId": "wolfram",
    "outputs": [
     {
