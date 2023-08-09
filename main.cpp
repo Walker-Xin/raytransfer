@@ -262,7 +262,7 @@ int main(int argc, char *argv[])
 			xyfromrphi(rscrmin, pscrmin, rdisk[ii]);
 
 			fprintf(foutput, "%.15Le %.15Le %.15Le %.15Le %.15Le 0.0 0.0 0.0 0.0 0.0 0.0\n", rdiskmin, gmin, xscr, yscr, cosemmin);
-			// printf("%d B2:MIN %.6Le %.6Le %.6Le %.6Le %.6Le\n",ii,rdiskmin,gmin,xscr,yscr,cosemmin);
+			printf("%d B2:MIN %.6Le %.6Le %.6Le %.6Le %.6Le\n",ii,rdiskmin,gmin,xscr,yscr,cosemmin);
 
 			// set values for phi_screen variables
 			pstep = fabs(pscrmax - pscrmin) / 39.0;
