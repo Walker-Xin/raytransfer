@@ -12,10 +12,10 @@ using namespace std;
 
 /* RK45 constants */
 #define a1 1.0/4.0
-#define b1 3.0/32.0
-#define b2 9.0/32.0
-#define c1 1932.0/2197.0
-#define c2 -7200.0/2197.0
+#define b1_rk 3.0/32.0
+#define b2_rk 9.0/32.0
+#define c1_rk 1932.0/2197.0
+#define c2_rk -7200.0/2197.0
 #define c3 7296.0/2197.0
 #define d1 439.0/216.0
 #define d2 -8.0
