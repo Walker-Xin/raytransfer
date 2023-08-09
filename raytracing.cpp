@@ -125,7 +125,7 @@ void raytrace(long double xscr, long double yscr, long double traced[4], long do
             for (i = 0; i <= 7; i++)
             {
                 k2[i] = h * diffs[i];
-                vars_temp[i] = vars[i] + b1 * k1[i] + b2 * k2[i];
+                vars_temp[i] = vars[i] + b1_rk * k1[i] + b2_rk * k2[i];
             }
 
             /* ----- compute RK3 ----- */
@@ -134,7 +134,7 @@ void raytrace(long double xscr, long double yscr, long double traced[4], long do
             for (i = 0; i <= 7; i++)
             {
                 k3[i] = h * diffs[i];
-                vars_temp[i] = vars[i] + c1 * k1[i] + c2 * k2[i] + c3 * k3[i];
+                vars_temp[i] = vars[i] + c1_rk * k1[i] + c2_rk * k2[i] + c3 * k3[i];
             }
 
             /* ----- compute RK4 ----- */
