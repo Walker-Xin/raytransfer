@@ -8,10 +8,10 @@
    "metadata": {},
    "executionSummary": {
     "timing": {
-     "startTime": 1690886857365,
-     "endTime": 1690886857444
+     "startTime": 1691549063025,
+     "endTime": 1691549063108
     },
-    "executionOrder": 351,
+    "executionOrder": 16,
     "success": true
    }
   },
@@ -23,10 +23,10 @@
    "metadata": {},
    "executionSummary": {
     "timing": {
-     "startTime": 1690886857935,
-     "endTime": 1690886859061
+     "startTime": 1691549063109,
+     "endTime": 1691549064155
     },
-    "executionOrder": 352,
+    "executionOrder": 17,
     "success": true
    }
   },
@@ -46,10 +46,10 @@
    "metadata": {},
    "executionSummary": {
     "timing": {
-     "startTime": 1690886859721,
-     "endTime": 1690886860732
+     "startTime": 1691549064156,
+     "endTime": 1691549065559
     },
-    "executionOrder": 367,
+    "executionOrder": 32,
     "success": true
    }
   },
@@ -77,9 +77,9 @@
        "mime": "text/plain"
       }
      ],
-     "id": "dd8ee13a-488a-459b-99f0-483d63f688ab",
+     "id": "7bd1e072-406f-4de6-a473-8e66a1666e07",
      "metadata": {
-      "cellLabel": "Out[509]//MatrixForm= ",
+      "cellLabel": "Out[162]//MatrixForm= ",
       "isBoxData": false
      }
     },
@@ -94,9 +94,9 @@
        "mime": "text/plain"
       }
      ],
-     "id": "1851bbb3-6b7e-47e0-83d1-fbc1dbab4572",
+     "id": "5b196011-3189-4536-b7df-3cd40df7dba9",
      "metadata": {
-      "cellLabel": "Out[511]//MatrixForm= ",
+      "cellLabel": "Out[164]//MatrixForm= ",
       "isBoxData": false
      }
     }
@@ -104,10 +104,10 @@
    "metadata": {},
    "executionSummary": {
     "timing": {
-     "startTime": 1690887888970,
-     "endTime": 1690887889592
+     "startTime": 1691549121991,
+     "endTime": 1691549127373
     },
-    "executionOrder": 508,
+    "executionOrder": 161,
     "success": true
    }
   },
@@ -119,10 +119,10 @@
    "metadata": {},
    "executionSummary": {
     "timing": {
-     "startTime": 1690886872681,
-     "endTime": 1690886873169
+     "startTime": 1691549073109,
+     "endTime": 1691549073610
     },
-    "executionOrder": 385,
+    "executionOrder": 50,
     "success": true
    }
   },
@@ -136,16 +136,16 @@
   },
   {
    "kind": 2,
-   "value": "Christ = ResourceFunction[\"ChristoffelSymbol\"][G, {t, r, theta, phi}, \"Kind\" -> \"Second\"];",
+   "value": "Christ = ResourceFunction[\"ChristoffelSymbol\"][G, {t, r, theta, phi}, \"Kind\" -> \"Second\"];\r\nChrist = Simplify[Christ];",
    "languageId": "wolfram",
    "outputs": [],
    "metadata": {},
    "executionSummary": {
     "timing": {
-     "startTime": 1690886886682,
-     "endTime": 1690886886763
+     "startTime": 1691551453083,
+     "endTime": 1691551485932
     },
-    "executionOrder": 393,
+    "executionOrder": 371,
     "success": true
    }
   },
@@ -158,11 +158,11 @@
    "metadata": {},
    "executionSummary": {
     "timing": {
-     "startTime": 1690886891256,
-     "endTime": 1690886912107
+     "startTime": 1691549074896,
+     "endTime": 1691549079100
     },
-    "executionOrder": 394,
-    "success": true
+    "executionOrder": 58,
+    "success": false
    }
   },
   {
@@ -175,16 +175,31 @@
   },
   {
    "kind": 2,
-   "value": "dgttdr = Simplify[D[gtt, r]];\r\ndgrrdr = Simplify[D[grr, r]];\r\ndgththdr = Simplify[D[gthth, r]];\r\ndgppdr = Simplify[D[gpp, r]];\r\ndgtpdr = Simplify[D[gtp, r]];\r\ndgtrdr = Simplify[D[gtr, r]];\r\ndgrpdr = Simplify[D[grp, r]];\r\n\r\ndgttdth = Simplify[D[gtt, theta]];\r\ndgrrdth = Simplify[D[grr, theta]];\r\ndgththdth = Simplify[D[gthth, theta]];\r\ndgppdth = Simplify[D[gpp, theta]];\r\ndgtpdth = Simplify[D[gtp, theta]];\r\ndgtrdth = Simplify[D[gtr, theta]];\r\ndgrpdth = Simplify[D[grp, theta]];\r\n\r\ndgttdr2 = Simplify[D[dgttdr, r]];\r\ndgrrdr2 = Simplify[D[dgrrdr, r]];\r\ndgththdr2 = Simplify[D[dgththdr, r]];\r\ndgppdr2 = Simplify[D[dgppdr, r]];\r\ndgtpdr2 = Simplify[D[dgtpdr, r]];\r\ndgtrdr2 = Simplify[D[dgtrdr, r]];\r\ndgrpdr2 = Simplify[D[dgrpdr, r]];\r\n\r\ndgttdth2 = Simplify[D[dgttdth, theta]];\r\ndgrrdth2 = Simplify[D[dgrrdth, theta]];\r\ndgththdth2 = Simplify[D[dgththdth, theta]];\r\ndgppdth2 = Simplify[D[dgppdth, theta]];\r\ndgtpdth2 = Simplify[D[dgtpdth, theta]];\r\ndgtrdth2 = Simplify[D[dgtrdth, theta]];\r\ndgrpdth2 = Simplify[D[dgrpdth, theta]];",
+   "value": "(* dgttdr = Simplify[D[gtt, r]];\r\ndgrrdr = Simplify[D[grr, r]];\r\ndgththdr = Simplify[D[gthth, r]];\r\ndgppdr = Simplify[D[gpp, r]];\r\ndgtpdr = Simplify[D[gtp, r]];\r\ndgtrdr = Simplify[D[gtr, r]];\r\ndgrpdr = Simplify[D[grp, r]];\r\n\r\ndgttdth = Simplify[D[gtt, theta]];\r\ndgrrdth = Simplify[D[grr, theta]];\r\ndgththdth = Simplify[D[gthth, theta]];\r\ndgppdth = Simplify[D[gpp, theta]];\r\ndgtpdth = Simplify[D[gtp, theta]];\r\ndgtrdth = Simplify[D[gtr, theta]];\r\ndgrpdth = Simplify[D[grp, theta]];\r\n\r\ndgttdr2 = Simplify[D[dgttdr, r]];\r\ndgrrdr2 = Simplify[D[dgrrdr, r]];\r\ndgththdr2 = Simplify[D[dgththdr, r]];\r\ndgppdr2 = Simplify[D[dgppdr, r]];\r\ndgtpdr2 = Simplify[D[dgtpdr, r]];\r\ndgtrdr2 = Simplify[D[dgtrdr, r]];\r\ndgrpdr2 = Simplify[D[dgrpdr, r]];\r\n\r\ndgttdth2 = Simplify[D[dgttdth, theta]];\r\ndgrrdth2 = Simplify[D[dgrrdth, theta]];\r\ndgththdth2 = Simplify[D[dgththdth, theta]];\r\ndgppdth2 = Simplify[D[dgppdth, theta]];\r\ndgtpdth2 = Simplify[D[dgtpdth, theta]];\r\ndgtrdth2 = Simplify[D[dgtrdth, theta]];\r\ndgrpdth2 = Simplify[D[dgrpdth, theta]]; *)",
    "languageId": "wolfram",
    "outputs": [],
    "metadata": {},
    "executionSummary": {
     "timing": {
-     "startTime": 1690886914291,
-     "endTime": 1690886917668
+     "startTime": 1691549088713,
+     "endTime": 1691549093590
     },
-    "executionOrder": 434,
+    "executionOrder": 115,
+    "success": true
+   }
+  },
+  {
+   "kind": 2,
+   "value": "dGdr = Simplify[D[G, r]];\r\ndGdth = Simplify[D[G, theta]];\r\ndGdr2 = Simplify[D[G, {r, 2}]];\r\ndGdth2 = Simplify[D[G, {theta, 2}]];",
+   "languageId": "wolfram",
+   "outputs": [],
+   "metadata": {},
+   "executionSummary": {
+    "timing": {
+     "startTime": 1691549861596,
+     "endTime": 1691549861880
+    },
+    "executionOrder": 222,
     "success": true
    }
   },
@@ -212,9 +227,9 @@
        "mime": "text/plain"
       }
      ],
-     "id": "d1c89d1a-c2af-4323-83f6-a31b6d274ac9",
+     "id": "d384c506-ae93-4c49-8cc6-aaa65724cceb",
      "metadata": {
-      "cellLabel": "Out[462]= ",
+      "cellLabel": "Out[143]= ",
       "isBoxData": false
      }
     },
@@ -229,9 +244,9 @@
        "mime": "text/plain"
       }
      ],
-     "id": "2423329c-ba6f-448f-9dbe-3f31dad22456",
+     "id": "24382539-b2d1-4120-91df-b6a8410c1887",
      "metadata": {
-      "cellLabel": "Out[468]= ",
+      "cellLabel": "Out[149]= ",
       "isBoxData": false
      }
     },
@@ -246,9 +261,9 @@
        "mime": "text/plain"
       }
      ],
-     "id": "c9e4c262-0ad4-4170-abd8-306392cf7372",
+     "id": "84f27cc7-600a-41ad-a604-dc4d6fdab454",
      "metadata": {
-      "cellLabel": "Out[470]= ",
+      "cellLabel": "Out[151]= ",
       "isBoxData": false
      }
     }
@@ -256,10 +271,10 @@
    "metadata": {},
    "executionSummary": {
     "timing": {
-     "startTime": 1690886919626,
-     "endTime": 1690886920824
+     "startTime": 1691549107803,
+     "endTime": 1691549109160
     },
-    "executionOrder": 462,
+    "executionOrder": 143,
     "success": true
    }
   },
@@ -271,10 +286,10 @@
    "metadata": {},
    "executionSummary": {
     "timing": {
-     "startTime": 1690886922679,
-     "endTime": 1690886922916
+     "startTime": 1691549112915,
+     "endTime": 1691549113159
     },
-    "executionOrder": 477,
+    "executionOrder": 158,
     "success": true
    }
   },
@@ -288,23 +303,23 @@
   },
   {
    "kind": 2,
-   "value": "OptimizeExpressionToC[{\r\n   G[[1]][[1]], G[[1]][[2]], G[[1]][[3]], G[[1]][[4]], \r\n   G[[2]][[1]], G[[2]][[2]], G[[2]][[3]], G[[2]][[4]],\r\n   G[[3]][[1]], G[[3]][[2]], G[[3]][[3]], G[[3]][[4]],\r\n   G[[4]][[1]], G[[4]][[2]], G[[4]][[3]], G[[4]][[4]]\r\n   }];\r\nmeat = Column[StringReplace[%, {\r\n   \"Sqrt\" -> \"sqrt\", \"Power(E,\" -> \"exp(\", \"Power\" -> \"pow\", \"Sin\" -> \"sin\", \"Cos\" -> \"cos\", \"double\" -> \"long double\",\r\n   \"out(0)\" -> \"g[0][0]\", \"out(1)\" -> \"g[0][1]\", \"out(2)\" -> \"g[0][2]\", \"out(3)\" -> \"g[0][3]\",\r\n   \"out(4)\" -> \"g[1][0]\", \"out(5)\" -> \"g[1][1]\", \"out(6)\" -> \"g[1][2]\", \"out(7)\" -> \"g[1][3]\",\r\n   \"out(8)\" -> \"g[2][0]\", \"out(9)\" -> \"g[2][1]\", \"out(10)\" -> \"g[2][2]\", \"out(11)\" -> \"g[2][3]\",\r\n   \"out(12)\" -> \"g[3][0]\", \"out(13)\" -> \"g[3][1]\", \"out(14)\" -> \"g[3][2]\", \"out(15)\" -> \"g[3][3]\"\r\n   }]]",
+   "value": "OptimizeExpressionToC[{\r\n   G[[1]][[1]], G[[1]][[2]], G[[1]][[3]], G[[1]][[4]], \r\n   G[[2]][[1]], G[[2]][[2]], G[[2]][[3]], G[[2]][[4]],\r\n   G[[3]][[1]], G[[3]][[2]], G[[3]][[3]], G[[3]][[4]],\r\n   G[[4]][[1]], G[[4]][[2]], G[[4]][[3]], G[[4]][[4]]\r\n   }];\r\nmeat = ToString[Column[StringReplace[%, {\r\n   \"Sqrt\" -> \"sqrt\", \"Power(E,\" -> \"exp(\", \"Power\" -> \"pow\", \"Sin\" -> \"sin\", \"Cos\" -> \"cos\", \"double\" -> \"long double\", \";,\" -> \";\\n    \",\r\n   \"out(0)\" -> \"g[0][0]\", \"out(1)\" -> \"g[0][1]\", \"out(2)\" -> \"g[0][2]\", \"out(3)\" -> \"g[0][3]\",\r\n   \"out(4)\" -> \"g[1][0]\", \"out(5)\" -> \"g[1][1]\", \"out(6)\" -> \"g[1][2]\", \"out(7)\" -> \"g[1][3]\",\r\n   \"out(8)\" -> \"g[2][0]\", \"out(9)\" -> \"g[2][1]\", \"out(10)\" -> \"g[2][2]\", \"out(11)\" -> \"g[2][3]\",\r\n   \"out(12)\" -> \"g[3][0]\", \"out(13)\" -> \"g[3][1]\", \"out(14)\" -> \"g[3][2]\", \"out(15)\" -> \"g[3][3]\"\r\n   }]]];\r\nheader = \"void metric(long double r, long double th, long double g[4][4])\\n{\\n\";\r\nfooter = \"\\n}\";\r\nmetric = header <> meat <> footer",
    "languageId": "wolfram",
    "outputs": [
     {
      "items": [
       {
-       "data": "<div class=\"wexpr\"><wgrid style=\"grid-template-columns:repeat(1,max-content);\"><w><w>long double t1 = pow(r,2);</w></w><w><w>long double t2 = pow(spin,2);</w></w><w><w>long double t3 = cos(th);</w></w><w><w>long double t4 = pow(t3,2);</w></w><w><w>long double t5 = t2*t4;</w></w><w><w>long double t6 = t1 + t5;</w></w><w><w>long double t7 = 2*th;</w></w><w><w>long double t8 = cos(t7);</w></w><w><w>long double t9 = t2*t8;</w></w><w><w>long double t11 = t1 + t9;</w></w><w><w>long double t12 = pow(t11,-2);</w></w><w><w>long double t15 = sin(th);</w></w><w><w>long double t16 = pow(t15,2);</w></w><w><w>long double t20 = 1/r;</w></w><w><w>long double t21 = b1*spin*t20;</w></w><w><w>long double t22 = 2 + r;</w></w><w><w>long double t23 = r*t22;</w></w><w><w>long double t24 = t2 + t23;</w></w><w><w>long double t25 = -(spin*t12*t16*t24*t6);</w></w><w><w>long double t13 = -2 + r;</w></w><w><w>long double t14 = r*t13;</w></w><w><w>g[0][0] = t12*(t14 + t2 - 4*t16*t2)*t6;</w></w><w><w>g[0][1] = t21;</w></w><w><w>g[0][2] = 0;</w></w><w><w>g[0][3] = t25;</w></w><w><w>g[1][0] = t21;</w></w><w><w>g[1][1] = t6/(-2*r + t1 + t2);</w></w><w><w>g[1][2] = 0;</w></w><w><w>g[1][3] = 0;</w></w><w><w>g[2][0] = 0;</w></w><w><w>g[2][1] = 0;</w></w><w><w>g[2][2] = t6;</w></w><w><w>g[2][3] = 0;</w></w><w><w>g[3][0] = t25;</w></w><w><w>g[3][1] = 0;</w></w><w><w>g[3][2] = 0;</w></w><w><w>g[3][3] = t12*t16*(pow(t1 + t2,2) - t16*t2*(t14 + t2))*t6;</w></w></wgrid></div>",
+       "data": "<div class=\"wexpr\"><w>void metric(long double r, long double th, long double g[4][4])</w><br/><w>{</w><br/><w>long double t1 = pow(r,2);</w><br/><w>long double t2 = pow(spin,2);</w><br/><w>long double t3 = cos(th);</w><br/><w>long double t4 = pow(t3,2);</w><br/><w>long double t5 = t2*t4;</w><br/><w>long double t6 = t1 + t5;</w><br/><w>long double t7 = 2*th;</w><br/><w>long double t8 = cos(t7);</w><br/><w>long double t9 = t2*t8;</w><br/><w>long double t11 = t1 + t9;</w><br/><w>long double t12 = pow(t11,-2);</w><br/><w>long double t15 = sin(th);</w><br/><w>long double t16 = pow(t15,2);</w><br/><w>long double t20 = 1/r;</w><br/><w>long double t21 = b1*spin*t20;</w><br/><w>long double t22 = 2 + r;</w><br/><w>long double t23 = r*t22;</w><br/><w>long double t24 = t2 + t23;</w><br/><w>long double t25 = -(spin*t12*t16*t24*t6);</w><br/><w>long double t13 = -2 + r;</w><br/><w>long double t14 = r*t13;</w><br/><w>g[0][0] = t12*(t14 + t2 - 4*t16*t2)*t6;</w><br/><w>g[0][1] = t21;</w><br/><w>g[0][2] = 0;</w><br/><w>g[0][3] = t25;</w><br/><w>g[1][0] = t21;</w><br/><w>g[1][1] = t6/(-2*r + t1 + t2);</w><br/><w>g[1][2] = 0;</w><br/><w>g[1][3] = 0;</w><br/><w>g[2][0] = 0;</w><br/><w>g[2][1] = 0;</w><br/><w>g[2][2] = t6;</w><br/><w>g[2][3] = 0;</w><br/><w>g[3][0] = t25;</w><br/><w>g[3][1] = 0;</w><br/><w>g[3][2] = 0;</w><br/><w>g[3][3] = t12*t16*(pow(t1 + t2,2) - t16*t2*(t14 + t2))*t6;</w><br/><w>}</w></div>",
        "mime": "x-application/wolfram-language-html"
       },
       {
-       "data": "Column[{\"long double t1 = pow(r,2);\", \"long double t2 = pow(spin,2);\", \"long double t3 = cos(th);\", \"long double t4 = pow(t3,2);\", \"long double t5 = t2*t4;\", \"long double t6 = t1 + t5;\", \"long double t7 = 2*th;\", \"long double t8 = cos(t7);\", \"long double t9 = t2*t8;\", \"long double t11 = t1 + t9;\", \"long double t12 = pow(t11,-2);\", \"long double t15 = sin(th);\", \"long double t16 = pow(t15,2);\", \"long double t20 = 1/r;\", \"long double t21 = b1*spin*t20;\", \"long double t22 = 2 + r;\", \"long double t23 = r*t22;\", \"long double t24 = t2 + t23;\", \"long double t25 = -(spin*t12*t16*t24*t6);\", \"long double t13 = -2 + r;\", \"long double t14 = r*t13;\", \"g[0][0] = t12*(t14 + t2 - 4*t16*t2)*t6;\", \"g[0][1] = t21;\", \"g[0][2] = 0;\", \"g[0][3] = t25;\", \"g[1][0] = t21;\", \"g[1][1] = t6/(-2*r + t1 + t2);\", \"g[1][2] = 0;\", \"g[1][3] = 0;\", \"g[2][0] = 0;\", \"g[2][1] = 0;\", \"g[2][2] = t6;\", \"g[2][3] = 0;\", \"g[3][0] = t25;\", \"g[3][1] = 0;\", \"g[3][2] = 0;\", \"g[3][3] = t12*t16*(pow(t1 + t2,2) - t16*t2*(t14 + t2))*t6;\"}]",
+       "data": "\"void metric(long double r, long double th, long double g[4][4])\\n{\\nlong double t1 = pow(r,2);\\nlong double t2 = pow(spin,2);\\nlong double t3 = cos(th);\\nlong double t4 = pow(t3,2);\\nlong double t5 = t2*t4;\\nlong double t6 = t1 + t5;\\nlong double t7 = 2*th;\\nlong double t8 = cos(t7);\\nlong double t9 = t2*t8;\\nlong double t11 = t1 + t9;\\nlong double t12 = pow(t11,-2);\\nlong double t15 = sin(th);\\nlong double t16 = pow(t15,2);\\nlong double t20 = 1/r;\\nlong double t21 = b1*spin*t20;\\nlong double t22 = 2 + r;\\nlong double t23 = r*t22;\\nlong double t24 = t2 + t23;\\nlong double t25 = -(spin*t12*t16*t24*t6);\\nlong double t13 = -2 + r;\\nlong double t14 = r*t13;\\ng[0][0] = t12*(t14 + t2 - 4*t16*t2)*t6;\\ng[0][1] = t21;\\ng[0][2] = 0;\\ng[0][3] = t25;\\ng[1][0] = t21;\\ng[1][1] = t6/(-2*r + t1 + t2);\\ng[1][2] = 0;\\ng[1][3] = 0;\\ng[2][0] = 0;\\ng[2][1] = 0;\\ng[2][2] = t6;\\ng[2][3] = 0;\\ng[3][0] = t25;\\ng[3][1] = 0;\\ng[3][2] = 0;\\ng[3][3] = t12*t16*(pow(t1 + t2,2) - t16*t2*(t14 + t2))*t6;\\n}\"",
        "mime": "text/plain"
       }
      ],
-     "id": "c22ee7bc-cef1-43ff-89a3-5779ff3f011b",
+     "id": "d32f7f2c-d541-4497-9402-187acd97fe83",
      "metadata": {
-      "cellLabel": "Out[502]= ",
+      "cellLabel": "Out[350]= ",
       "isBoxData": false
      }
     }
@@ -312,51 +327,10 @@
    "metadata": {},
    "executionSummary": {
     "timing": {
-     "startTime": 1690887732902,
-     "endTime": 1690887733123
+     "startTime": 1691551316833,
+     "endTime": 1691551317335
     },
-    "executionOrder": 501,
-    "success": true
-   }
-  },
-  {
-   "kind": 1,
-   "value": "### Covariant Metric Components",
-   "languageId": "markdown",
-   "outputs": [],
-   "metadata": {},
-   "executionSummary": {}
-  },
-  {
-   "kind": 2,
-   "value": "OptimizeExpressionToC[{\r\n   Ginv[[1]][[1]], Ginv[[1]][[2]], Ginv[[1]][[3]], Ginv[[1]][[4]], \r\n   Ginv[[2]][[1]], Ginv[[2]][[2]], Ginv[[2]][[3]], Ginv[[2]][[4]],\r\n   Ginv[[3]][[1]], Ginv[[3]][[2]], Ginv[[3]][[3]], Ginv[[3]][[4]],\r\n   Ginv[[4]][[1]], Ginv[[4]][[2]], Ginv[[4]][[3]], Ginv[[4]][[4]]\r\n   }];\r\nColumn[StringReplace[%, {\r\n   \"Sqrt\" -> \"sqrt\", \"Power(E,\" -> \"exp(\", \"Power\" -> \"pow\", \"Sin\" -> \"sin\", \"Cos\" -> \"cos\", \"double\" -> \"long double\",\r\n   \"out(0)\" -> \"gu[0][0]\", \"out(1)\" -> \"gu[0][1]\", \"out(2)\" -> \"gu[0][2]\", \"out(3)\" -> \"gu[0][3]\",\r\n   \"out(4)\" -> \"gu[1][0]\", \"out(5)\" -> \"gu[1][1]\", \"out(6)\" -> \"gu[1][2]\", \"out(7)\" -> \"gu[1][3]\",\r\n   \"out(8)\" -> \"gu[2][0]\", \"out(9)\" -> \"gu[2][1]\", \"out(10)\" -> \"gu[2][2]\", \"out(11)\" -> \"gu[2][3]\",\r\n   \"out(12)\" -> \"gu[3][0]\", \"out(13)\" -> \"gu[3][1]\", \"out(14)\" -> \"gu[3][2]\", \"out(15)\" -> \"gu[3][3]\"\r\n   }]]",
-   "languageId": "wolfram",
-   "outputs": [
-    {
-     "items": [
-      {
-       "data": "<div class=\"wexpr\"><wgrid style=\"grid-template-columns:repeat(1,max-content);\"><w><w>long double t1 = pow(r,2);</w></w><w><w>long double t2 = pow(spin,2);</w></w><w><w>long double t14 = sin(th);</w></w><w><w>long double t15 = pow(t14,2);</w></w><w><w>long double t3 = cos(th);</w></w><w><w>long double t4 = pow(t3,2);</w></w><w><w>long double t5 = t2*t4;</w></w><w><w>long double t6 = t1 + t5;</w></w><w><w>long double t16 = t1 + t2;</w></w><w><w>long double t17 = pow(t16,2);</w></w><w><w>long double t18 = -2 + r;</w></w><w><w>long double t19 = r*t18;</w></w><w><w>long double t20 = t19 + t2;</w></w><w><w>long double t21 = -(t15*t2*t20);</w></w><w><w>long double t22 = t17 + t21;</w></w><w><w>long double t8 = 2*th;</w></w><w><w>long double t9 = cos(t8);</w></w><w><w>long double t11 = t2*t9;</w></w><w><w>long double t12 = t1 + t11;</w></w><w><w>long double t13 = pow(t12,2);</w></w><w><w>long double t31 = -2*r;</w></w><w><w>long double t32 = t1 + t2 + t31;</w></w><w><w>long double t23 = 2 + r;</w></w><w><w>long double t24 = r*t23;</w></w><w><w>long double t25 = t2 + t24;</w></w><w><w>long double t26 = pow(t25,2);</w></w><w><w>long double t27 = pow(t6,3);</w></w><w><w>long double t28 = pow(t14,4);</w></w><w><w>long double t29 = t1*t2*t26*t27*t28;</w></w><w><w>long double t30 = pow(b1,2);</w></w><w><w>long double t33 = -(t13*t2*t30*t32);</w></w><w><w>long double t34 = pow(r,3);</w></w><w><w>long double t35 = r*t2*t4;</w></w><w><w>long double t36 = t34 + t35;</w></w><w><w>long double t37 = pow(t36,2);</w></w><w><w>long double t38 = -4*t15*t2;</w></w><w><w>long double t39 = t19 + t2 + t38;</w></w><w><w>long double t40 = t37*t39;</w></w><w><w>long double t41 = t33 + t40;</w></w><w><w>long double t42 = -(t15*t22*t41*t6);</w></w><w><w>long double t43 = t29 + t42;</w></w><w><w>long double t44 = 1/t43;</w></w><w><w>long double t7 = pow(t6,2);</w></w><w><w>long double t46 = b1*r*spin;</w></w><w><w>long double t47 = 1/r;</w></w><w><w>long double t48 = pow(spin,3);</w></w><w><w>long double t49 = b1*t4*t47*t48;</w></w><w><w>long double t50 = t46 + t49;</w></w><w><w>long double t51 = t1*t13*t15*t22*t32*t44*t50;</w></w><w><w>long double t52 = -(spin*t1*t13*t15*t25*t44*t7);</w></w><w><w>gu[0][0] = -(t1*t13*t15*t22*t44*t7);</w></w><w><w>gu[0][1] = t51;</w></w><w><w>gu[0][2] = 0;</w></w><w><w>gu[0][3] = t52;</w></w><w><w>gu[1][0] = t51;</w></w><w><w>gu[1][1] = -(t1*t15*t32*(-(t15*t2*t26) + t22*t39)*t44*t7);</w></w><w><w>gu[1][2] = 0;</w></w><w><w>gu[1][3] = b1*r*t13*t15*t2*t25*t32*t44*t6;</w></w><w><w>gu[2][0] = 0;</w></w><w><w>gu[2][1] = 0;</w></w><w><w>gu[2][2] = 1/t6;</w></w><w><w>gu[2][3] = 0;</w></w><w><w>gu[3][0] = t52;</w></w><w><w>gu[3][1] = spin*t1*t13*t15*t25*t32*t44*t50;</w></w><w><w>gu[3][2] = 0;</w></w><w><w>gu[3][3] = -(t1*pow(t12,4)*t32*t44*(-((t2*t30)/pow(r,2)) + (t39*t7)/(pow(t12,2)*t32)));</w></w></wgrid></div>",
-       "mime": "x-application/wolfram-language-html"
-      },
-      {
-       "data": "Column[{\"long double t1 = pow(r,2);\", \"long double t2 = pow(spin,2);\", \"long double t14 = sin(th);\", \"long double t15 = pow(t14,2);\", \"long double t3 = cos(th);\", \"long double t4 = pow(t3,2);\", \"long double t5 = t2*t4;\", \"long double t6 = t1 + t5;\", \"long double t16 = t1 + t2;\", \"long double t17 = pow(t16,2);\", \"long double t18 = -2 + r;\", \"long double t19 = r*t18;\", \"long double t20 = t19 + t2;\", \"long double t21 = -(t15*t2*t20);\", \"long double t22 = t17 + t21;\", \"long double t8 = 2*th;\", \"long double t9 = cos(t8);\", \"long double t11 = t2*t9;\", \"long double t12 = t1 + t11;\", \"long double t13 = pow(t12,2);\", \"long double t31 = -2*r;\", \"long double t32 = t1 + t2 + t31;\", \"long double t23 = 2 + r;\", \"long double t24 = r*t23;\", \"long double t25 = t2 + t24;\", \"long double t26 = pow(t25,2);\", \"long double t27 = pow(t6,3);\", \"long double t28 = pow(t14,4);\", \"long double t29 = t1*t2*t26*t27*t28;\", \"long double t30 = pow(b1,2);\", \"long double t33 = -(t13*t2*t30*t32);\", \"long double t34 = pow(r,3);\", \"long double t35 = r*t2*t4;\", \"long double t36 = t34 + t35;\", \"long double t37 = pow(t36,2);\", \"long double t38 = -4*t15*t2;\", \"long double t39 = t19 + t2 + t38;\", \"long double t40 = t37*t39;\", \"long double t41 = t33 + t40;\", \"long double t42 = -(t15*t22*t41*t6);\", \"long double t43 = t29 + t42;\", \"long double t44 = 1/t43;\", \"long double t7 = pow(t6,2);\", \"long double t46 = b1*r*spin;\", \"long double t47 = 1/r;\", \"long double t48 = pow(spin,3);\", \"long double t49 = b1*t4*t47*t48;\", \"long double t50 = t46 + t49;\", \"long double t51 = t1*t13*t15*t22*t32*t44*t50;\", \"long double t52 = -(spin*t1*t13*t15*t25*t44*t7);\", \"gu[0][0] = -(t1*t13*t15*t22*t44*t7);\", \"gu[0][1] = t51;\", \"gu[0][2] = 0;\", \"gu[0][3] = t52;\", \"gu[1][0] = t51;\", \"gu[1][1] = -(t1*t15*t32*(-(t15*t2*t26) + t22*t39)*t44*t7);\", \"gu[1][2] = 0;\", \"gu[1][3] = b1*r*t13*t15*t2*t25*t32*t44*t6;\", \"gu[2][0] = 0;\", \"gu[2][1] = 0;\", \"gu[2][2] = 1/t6;\", \"gu[2][3] = 0;\", \"gu[3][0] = t52;\", \"gu[3][1] = spin*t1*t13*t15*t25*t32*t44*t50;\", \"gu[3][2] = 0;\", \"gu[3][3] = -(t1*pow(t12,4)*t32*t44*(-((t2*t30)/pow(r,2)) + (t39*t7)/(pow(t12,2)*t32)));\"}]",
-       "mime": "text/plain"
-      }
-     ],
-     "id": "51d74b06-e968-4ef3-a65b-77a3fff22a6e",
-     "metadata": {
-      "cellLabel": "Out[513]= ",
-      "isBoxData": false
-     }
-    }
-   ],
-   "metadata": {},
-   "executionSummary": {
-    "timing": {
-     "startTime": 1690887924350,
-     "endTime": 1690887924593
-    },
-    "executionOrder": 512,
+    "executionOrder": 346,
     "success": true
    }
   },
@@ -370,29 +344,36 @@
   },
   {
    "kind": 2,
-   "value": "OptimizeExpressionToC[{dgttdr, dgrrdr, dgththdr, dgppdr, dgtpdr, dgtrdr, dgrpdr}];\r\nColumn[StringReplace[%, {\"Sqrt\" -> \"sqrt\", \"Power(E,\" -> \"exp(\", \r\n   \"Power\" -> \"pow\", \"Sin\" -> \"sin\", \"Cos\" -> \"cos\", \r\n   \"out(0)\" -> \"dgttdr\", \"out(1)\" -> \"dgrrdr\", \"out(2)\" -> \"dgththdr\", \"out(3)\" -> \"dgppdr\",\r\n   \"out(4)\" -> \"dgtpdr\", \"out(5)\" -> \"dgtrdr\", \"out(6)\" -> \"dgrpdr\"}]]",
+   "value": "OptimizeExpressionToC[{\r\n   dGdr[[1]][[1]], dGdr[[1]][[2]], dGdr[[1]][[3]], dGdr[[1]][[4]], \r\n   dGdr[[2]][[1]], dGdr[[2]][[2]], dGdr[[2]][[3]], dGdr[[2]][[4]],\r\n   dGdr[[3]][[1]], dGdr[[3]][[2]], dGdr[[3]][[3]], dGdr[[3]][[4]],\r\n   dGdr[[4]][[1]], dGdr[[4]][[2]], dGdr[[4]][[3]], dGdr[[4]][[4]]\r\n   }];\r\nmeat = ToString[Column[StringReplace[%, {\r\n   \"Sqrt\" -> \"sqrt\", \"Power(E,\" -> \"exp(\", \"Power\" -> \"pow\", \"Sin\" -> \"sin\", \"Cos\" -> \"cos\", \"double\" -> \"long double\", \";,\" -> \";\\n    \",\r\n   \"out(0)\" -> \"dg[0][0]\", \"out(1)\" -> \"dg[0][1]\", \"out(2)\" -> \"dg[0][2]\", \"out(3)\" -> \"dg[0][3]\",\r\n   \"out(4)\" -> \"dg[1][0]\", \"out(5)\" -> \"dg[1][1]\", \"out(6)\" -> \"dg[1][2]\", \"out(7)\" -> \"dg[1][3]\",\r\n   \"out(8)\" -> \"dg[2][0]\", \"out(9)\" -> \"dg[2][1]\", \"out(10)\" -> \"dg[2][2]\", \"out(11)\" -> \"dg[2][3]\",\r\n   \"out(12)\" -> \"dg[3][0]\", \"out(13)\" -> \"dg[3][1]\", \"out(14)\" -> \"dg[3][2]\", \"out(15)\" -> \"dg[3][3]\"\r\n   }]]]\r\nheader = \"void metric_rderivatives(long double r, long double th, long double dg[4][4])\\n{\\n\";\r\nfooter = \"\\n}\";\r\nmetricdr = header <> meat <> footer;",
    "languageId": "wolfram",
    "outputs": [
     {
      "items": [
       {
-       "data": "<div class=\"wexpr\"><wgrid style=\"grid-template-columns:repeat(1,max-content);\"><w><w>double t1 = pow(r,2);</w></w><w><w>double t2 = pow(spin,2);</w></w><w><w>double t14 = pow(spin,4);</w></w><w><w>double t3 = 2*th;</w></w><w><w>double t4 = cos(t3);</w></w><w><w>double t24 = -r;</w></w><w><w>double t25 = 1 + t24;</w></w><w><w>double t5 = t2*t4;</w></w><w><w>double t6 = t1 + t5;</w></w><w><w>double t7 = pow(t6,-3);</w></w><w><w>double t8 = pow(r,4);</w></w><w><w>double t12 = pow(r,3);</w></w><w><w>double t26 = 4*th;</w></w><w><w>double t27 = cos(t26);</w></w><w><w>double t64 = pow(spin,6);</w></w><w><w>double t65 = 6*th;</w></w><w><w>double t66 = cos(t65);</w></w><w><w>double t77 = 1 + r;</w></w><w><w>double t70 = sin(th);</w></w><w><w>double t71 = pow(t70,2);</w></w><w><w>dgttdr = (t7*(-t14 + 5*r*t14 + 6*t1*t2 + 2*t12*t2 - t14*t25*t27 - 2*t2*((3 + r)*t1 + (1 + 3*r)*t2)*t4 + 4*t8))/2.;</w></w><w><w>dgrrdr = (2*(r*(t2 + t24) + t2*t25*pow(cos(th),2)))/pow((-2 + r)*r + t2,2);</w></w><w><w>dgththdr = 2*r;</w></w><w><w>dgppdr = (t7*t71*(16*pow(r,7) - 18*t1*t14 - 6*t12*t14 + 2*r*t14*(-3*r + 7*t1 + 4*t2)*t27 - t64*t66 + r*t64*t66 - 8*t2*t8 + t2*t4*((1 + 7*r)*t14 + 8*(3 + 5*r)*t1*t2 + 8*(1 + 6*r)*t8)))/8.;</w></w><w><w>dgtpdr = -0.5*(spin*t7*t71*(t14 - 3*r*t14 - 6*t1*t2 - 6*t12*t2 + t14*t27*t77 + 2*t2*(3*t1 + t2)*t4*t77 - 4*t8));</w></w><w><w>dgtrdr = -((b1*spin)/pow(r,2));</w></w><w><w>dgrpdr = 0;</w></w></wgrid></div>",
+       "data": "<div class=\"wexpr\"><w>long double t1 = pow(r,2);</w><br/><w>long double t2 = pow(spin,2);</w><br/><w>long double t14 = pow(spin,4);</w><br/><w>long double t12 = pow(r,3);</w><br/><w>long double t3 = 2*th;</w><br/><w>long double t4 = cos(t3);</w><br/><w>long double t5 = t2*t4;</w><br/><w>long double t6 = t1 + t5;</w><br/><w>long double t7 = pow(t6,-3);</w><br/><w>long double t8 = pow(r,4);</w><br/><w>long double t17 = 3*t1;</w><br/><w>long double t33 = 1 + r;</w><br/><w>long double t22 = 4*th;</w><br/><w>long double t23 = cos(t22);</w><br/><w>long double t27 = pow(r,-2);</w><br/><w>long double t28 = -(b1*spin*t27);</w><br/><w>long double t21 = -1 + r;</w><br/><w>long double t29 = -4*t8;</w><br/><w>long double t30 = -6*t1*t2;</w><br/><w>long double t31 = -6*t12*t2;</w><br/><w>long double t32 = -3*r*t14;</w><br/><w>long double t34 = t17 + t2;</w><br/><w>long double t35 = 2*t2*t33*t34*t4;</w><br/><w>long double t36 = t14*t23*t33;</w><br/><w>long double t37 = t14 + t29 + t30 + t31 + t32 + t35 + t36;</w><br/><w>long double t38 = sin(th);</w><br/><w>long double t39 = pow(t38,2);</w><br/><w>long double t40 = -0.5*(spin*t37*t39*t7);</w><br/><w>long double t71 = pow(spin,6);</w><br/><w>long double t72 = 6*th;</w><br/><w>long double t73 = cos(t72);</w><br/><w>dg[0][0] = (t7*(-t14 + 5*r*t14 + 6*t1*t2 + 2*t12*t2 + t14*t21*t23 - 2*t2*(t12 + t17 + t2 + 3*r*t2)*t4 + 4*t8))/2.;</w><br/><w>dg[0][1] = t28;</w><br/><w>dg[0][2] = 0;</w><br/><w>dg[0][3] = t40;</w><br/><w>dg[1][0] = t28;</w><br/><w>dg[1][1] = (-2*(r*(r - t2) + t2*t21*pow(cos(th),2)))/pow(-2*r + t1 + t2,2);</w><br/><w>dg[1][2] = 0;</w><br/><w>dg[1][3] = 0;</w><br/><w>dg[2][0] = 0;</w><br/><w>dg[2][1] = 0;</w><br/><w>dg[2][2] = 2*r;</w><br/><w>dg[2][3] = 0;</w><br/><w>dg[3][0] = t40;</w><br/><w>dg[3][1] = 0;</w><br/><w>dg[3][2] = 0;</w><br/><w>dg[3][3] = (t39*t7*(16*pow(r,7) - 18*t1*t14 - 6*t12*t14 + 2*r*t14*(-3*r + 7*t1 + 4*t2)*t23 - t71*t73 + r*t71*t73 - 8*t2*t8 + t2*t4*(48*pow(r,5) + t14 + 7*r*t14 + 24*t1*t2 + 40*t12*t2 + 8*t8)))/8.;</w></div>",
        "mime": "x-application/wolfram-language-html"
       },
       {
-       "data": "Column[{\"double t1 = pow(r,2);\", \"double t2 = pow(spin,2);\", \"double t14 = pow(spin,4);\", \"double t3 = 2*th;\", \"double t4 = cos(t3);\", \"double t24 = -r;\", \"double t25 = 1 + t24;\", \"double t5 = t2*t4;\", \"double t6 = t1 + t5;\", \"double t7 = pow(t6,-3);\", \"double t8 = pow(r,4);\", \"double t12 = pow(r,3);\", \"double t26 = 4*th;\", \"double t27 = cos(t26);\", \"double t64 = pow(spin,6);\", \"double t65 = 6*th;\", \"double t66 = cos(t65);\", \"double t77 = 1 + r;\", \"double t70 = sin(th);\", \"double t71 = pow(t70,2);\", \"dgttdr = (t7*(-t14 + 5*r*t14 + 6*t1*t2 + 2*t12*t2 - t14*t25*t27 - 2*t2*((3 + r)*t1 + (1 + 3*r)*t2)*t4 + 4*t8))/2.;\", \"dgrrdr = (2*(r*(t2 + t24) + t2*t25*pow(cos(th),2)))/pow((-2 + r)*r + t2,2);\", \"dgththdr = 2*r;\", \"dgppdr = (t7*t71*(16*pow(r,7) - 18*t1*t14 - 6*t12*t14 + 2*r*t14*(-3*r + 7*t1 + 4*t2)*t27 - t64*t66 + r*t64*t66 - 8*t2*t8 + t2*t4*((1 + 7*r)*t14 + 8*(3 + 5*r)*t1*t2 + 8*(1 + 6*r)*t8)))/8.;\", \"dgtpdr = -0.5*(spin*t7*t71*(t14 - 3*r*t14 - 6*t1*t2 - 6*t12*t2 + t14*t27*t77 + 2*t2*(3*t1 + t2)*t4*t77 - 4*t8));\", \"dgtrdr = -((b1*spin)/pow(r,2));\", \"dgrpdr = 0;\"}]",
+       "data": "\"long double t1 = pow(r,2);\\nlong double t2 = pow(spin,2);\\nlong double t14 = pow(spin,4);\\nlong double t12 = pow(r,3);\\nlong double t3 = 2*th;\\nlong double t4 = cos(t3);\\nlong double t5 = t2*t4;\\nlong double t6 = t1 + t5;\\nlong double t7 = pow(t6,-3);\\nlong double t8 = pow(r,4);\\nlong double t17 = 3*t1;\\nlong double t33 = 1 + r;\\nlong double t22 = 4*th;\\nlong double t23 = cos(t22);\\nlong double t27 = pow(r,-2);\\nlong double t28 = -(b1*spin*t27);\\nlong double t21 = -1 + r;\\nlong double t29 = -4*t8;\\nlong double t30 = -6*t1*t2;\\nlong double t31 = -6*t12*t2;\\nlong double t32 = -3*r*t14;\\nlong double t34 = t17 + t2;\\nlong double t35 = 2*t2*t33*t34*t4;\\nlong double t36 = t14*t23*t33;\\nlong double t37 = t14 + t29 + t30 + t31 + t32 + t35 + t36;\\nlong double t38 = sin(th);\\nlong double t39 = pow(t38,2);\\nlong double t40 = -0.5*(spin*t37*t39*t7);\\nlong double t71 = pow(spin,6);\\nlong double t72 = 6*th;\\nlong double t73 = cos(t72);\\ndg[0][0] = (t7*(-t14 + 5*r*t14 + 6*t1*t2 + 2*t12*t2 + t14*t21*t23 - 2*t2*(t12 + t17 + t2 + 3*r*t2)*t4 + 4*t8))/2.;\\ndg[0][1] = t28;\\ndg[0][2] = 0;\\ndg[0][3] = t40;\\ndg[1][0] = t28;\\ndg[1][1] = (-2*(r*(r - t2) + t2*t21*pow(cos(th),2)))/pow(-2*r + t1 + t2,2);\\ndg[1][2] = 0;\\ndg[1][3] = 0;\\ndg[2][0] = 0;\\ndg[2][1] = 0;\\ndg[2][2] = 2*r;\\ndg[2][3] = 0;\\ndg[3][0] = t40;\\ndg[3][1] = 0;\\ndg[3][2] = 0;\\ndg[3][3] = (t39*t7*(16*pow(r,7) - 18*t1*t14 - 6*t12*t14 + 2*r*t14*(-3*r + 7*t1 + 4*t2)*t23 - t71*t73 + r*t71*t73 - 8*t2*t8 + t2*t4*(48*pow(r,5) + t14 + 7*r*t14 + 24*t1*t2 + 40*t12*t2 + 8*t8)))/8.;\"",
        "mime": "text/plain"
       }
      ],
-     "id": "61f0dc44-c2d0-4ff5-b03f-17e22dd4389e",
+     "id": "00c996b9-0818-4e84-aa63-6fb189f27bcc",
      "metadata": {
-      "cellLabel": "Out[128]= ",
+      "cellLabel": "Out[352]= ",
       "isBoxData": false
      }
     }
    ],
    "metadata": {},
-   "executionSummary": {}
+   "executionSummary": {
+    "timing": {
+     "startTime": 1691551318368,
+     "endTime": 1691551318902
+    },
+    "executionOrder": 351,
+    "success": true
+   }
   },
   {
    "kind": 1,
@@ -404,23 +385,23 @@
   },
   {
    "kind": 2,
-   "value": "OptimizeExpressionToC[{dgttdr2, dgrrdr2, dgththdr2, dgppdr2, dgtpdr2, dgtrdr2, dgrpdr2}];\r\nColumn[StringReplace[%, {\"Sqrt\" -> \"sqrt\", \"Power(E,\" -> \"exp(\", \"Power\" -> \"pow\", \"Sin\" -> \"sin\", \"Cos\" -> \"cos\", \"double\" -> \"long double\",\r\n   \"out(0)\" -> \"dgttdr2\", \"out(1)\" -> \"dgrrdr2\", \"out(2)\" -> \"dgththdr2\", \"out(3)\" -> \"dgppdr2\",\r\n   \"out(4)\" -> \"dgtpdr2\", \"out(5)\" -> \"dgtrdr2\", \"out(6)\" -> \"dgrpdr2\"}]]",
+   "value": "OptimizeExpressionToC[{\r\n   dGdr2[[1]][[1]], dGdr2[[1]][[2]], dGdr2[[1]][[3]], dGdr2[[1]][[4]], \r\n   dGdr2[[2]][[1]], dGdr2[[2]][[2]], dGdr2[[2]][[3]], dGdr2[[2]][[4]],\r\n   dGdr2[[3]][[1]], dGdr2[[3]][[2]], dGdr2[[3]][[3]], dGdr2[[3]][[4]],\r\n   dGdr2[[4]][[1]], dGdr2[[4]][[2]], dGdr2[[4]][[3]], dGdr2[[4]][[4]]\r\n   }];\r\nmeat = ToString[Column[StringReplace[%, {\r\n   \"Sqrt\" -> \"sqrt\", \"Power(E,\" -> \"exp(\", \"Power\" -> \"pow\", \"Sin\" -> \"sin\", \"Cos\" -> \"cos\", \"double\" -> \"long double\", \";,\" -> \";\\n    \",\r\n   \"out(0)\" -> \"dg2[0][0]\", \"out(1)\" -> \"dg2[0][1]\", \"out(2)\" -> \"dg2[0][2]\", \"out(3)\" -> \"dg2[0][3]\",\r\n   \"out(4)\" -> \"dg2[1][0]\", \"out(5)\" -> \"dg2[1][1]\", \"out(6)\" -> \"dg2[1][2]\", \"out(7)\" -> \"dg2[1][3]\",\r\n   \"out(8)\" -> \"dg2[2][0]\", \"out(9)\" -> \"dg2[2][1]\", \"out(10)\" -> \"dg2[2][2]\", \"out(11)\" -> \"dg2[2][3]\",\r\n   \"out(12)\" -> \"dg2[3][0]\", \"out(13)\" -> \"dg2[3][1]\", \"out(14)\" -> \"dg2[3][2]\", \"out(15)\" -> \"dg2[3][3]\"\r\n   }]]]\r\nheader = \"void metric_r2derivatives(long double r, long double th, long double dg2[4][4])\\n{\\n\";\r\nfooter = \"\\n}\";\r\nmetricdr2 = header <> meat <> footer;",
    "languageId": "wolfram",
    "outputs": [
     {
      "items": [
       {
-       "data": "<div class=\"wexpr\"><wgrid style=\"grid-template-columns:repeat(1,max-content);\"><w><w>double t1 = pow(r,2);</w></w><w><w>double t2 = pow(a,2);</w></w><w><w>double t11 = pow(a,4);</w></w><w><w>double t13 = pow(r,3);</w></w><w><w>double t21 = 3*r;</w></w><w><w>double t3 = 2*theta;</w></w><w><w>double t4 = cos(t3);</w></w><w><w>double t8 = pow(a,6);</w></w><w><w>double t5 = t2*t4;</w></w><w><w>double t6 = t1 + t5;</w></w><w><w>double t7 = pow(t6,-4);</w></w><w><w>double t15 = pow(r,4);</w></w><w><w>double t17 = pow(r,5);</w></w><w><w>double t24 = 20*M;</w></w><w><w>double t32 = 4*theta;</w></w><w><w>double t33 = cos(t32);</w></w><w><w>double t57 = pow(a,8);</w></w><w><w>double t35 = 6*theta;</w></w><w><w>double t36 = cos(t35);</w></w><w><w>double t14 = 48*M*t13*t2;</w></w><w><w>double t18 = 16*M*t17;</w></w><w><w>double t81 = 6*M;</w></w><w><w>double t96 = sin(theta);</w></w><w><w>double t97 = pow(t96,2);</w></w><w><w>dgttdr2 = -0.25*(t7*(56*t1*t11 + t14 + t18 + 12*t15*t2 + 2*t11*(8*t1 + 3*t2)*t33 - t2*(11*t11 + 24*r*t2*(2*M + t21) + 4*t13*(t21 + t24))*t4 + 6*t8 - t36*t8));</w></w><w><w>dgrrdr2 = (2*(t11 + 2*M*t13 - 3*t1*t2 - t2*(-4*pow(M,2) + 6*M*r - 3*t1 + t2)*pow(cos(theta),2)))/pow(r*(-2*M + r) + t2,3);</w></w><w><w>dgththdr2 = 2;</w></w><w><w>dgppdr2 = (t7*t97*(32*pow(r,8) + 176*M*t11*t13 + 276*t11*t15 + 32*M*t17*t2 + 7*t57 + 8*t36*t57 + 48*M*r*t8 + 120*t1*t8 + 32*t1*t36*t8 + 8*t2*t4*(-4*r*(3*M + 2*r)*t11 + 4*(-M + 4*r)*t17 - 2*(16*M + 15*r)*t13*t2 + t8) + 4*t11*t33*(2*t11 + t13*(39*r + t24) + 2*r*t2*(5*r + t81)) + t57*cos(8*theta)))/16.;</w></w><w><w>dgtpdr2 = -0.25*(a*t7*(48*t1*t11 + t14 + t18 + 36*t15*t2 + 2*t11*(4*t1 + t2)*t33 + 2*t8 + t36*t8 - t2*t4*(5*t11 + 4*t13*(9*r + t24) + 8*r*t2*(7*r + t81)))*t97);</w></w><w><w>dgtrdr2 = (2*a*b1)/pow(r,3);</w></w><w><w>dgrpdr2 = 0;</w></w></wgrid></div>",
+       "data": "<div class=\"wexpr\"><w>long double t2 = pow(spin,2);</w><br/><w>long double t1 = pow(r,2);</w><br/><w>long double t11 = pow(r,3);</w><br/><w>long double t13 = pow(r,4);</w><br/><w>long double t15 = pow(spin,4);</w><br/><w>long double t3 = 2*th;</w><br/><w>long double t4 = cos(t3);</w><br/><w>long double t17 = pow(spin,6);</w><br/><w>long double t5 = t2*t4;</w><br/><w>long double t6 = t1 + t5;</w><br/><w>long double t7 = pow(t6,-4);</w><br/><w>long double t8 = pow(r,5);</w><br/><w>long double t9 = 16*t8;</w><br/><w>long double t12 = 48*t11*t2;</w><br/><w>long double t19 = 80*t11;</w><br/><w>long double t21 = 48*r*t2;</w><br/><w>long double t29 = 4*th;</w><br/><w>long double t30 = cos(t29);</w><br/><w>long double t32 = 6*th;</w><br/><w>long double t33 = cos(t32);</w><br/><w>long double t37 = pow(r,-3);</w><br/><w>long double t38 = 2*b1*spin*t37;</w><br/><w>long double t39 = 36*t13*t2;</w><br/><w>long double t40 = 48*t1*t15;</w><br/><w>long double t41 = 2*t17;</w><br/><w>long double t42 = 36*t13;</w><br/><w>long double t43 = 56*t1*t2;</w><br/><w>long double t44 = 5*t15;</w><br/><w>long double t45 = t19 + t21 + t42 + t43 + t44;</w><br/><w>long double t46 = -(t2*t4*t45);</w><br/><w>long double t47 = 4*t1;</w><br/><w>long double t48 = t2 + t47;</w><br/><w>long double t49 = 2*t15*t30*t48;</w><br/><w>long double t50 = t17*t33;</w><br/><w>long double t51 = t12 + t39 + t40 + t41 + t46 + t49 + t50 + t9;</w><br/><w>long double t52 = sin(th);</w><br/><w>long double t53 = pow(t52,2);</w><br/><w>long double t54 = -0.25*(spin*t51*t53*t7);</w><br/><w>long double t75 = pow(spin,8);</w><br/><w>dg2[0][0] = -0.25*(t7*(t12 + 56*t1*t15 + 6*t17 + 12*t13*t2 + 2*t15*(8*t1 + 3*t2)*t30 - t17*t33 - t2*(12*t13 + 11*t15 + t19 + 72*t1*t2 + t21)*t4 + t9));</w><br/><w>dg2[0][1] = t38;</w><br/><w>dg2[0][2] = 0;</w><br/><w>dg2[0][3] = t54;</w><br/><w>dg2[1][0] = t38;</w><br/><w>dg2[1][1] = (2*(2*t11 + t15 - 3*t1*t2 - t2*(-4 + 6*r - 3*t1 + t2)*pow(cos(th),2)))/pow(-2*r + t1 + t2,3);</w><br/><w>dg2[1][2] = 0;</w><br/><w>dg2[1][3] = 0;</w><br/><w>dg2[2][0] = 0;</w><br/><w>dg2[2][1] = 0;</w><br/><w>dg2[2][2] = 2;</w><br/><w>dg2[2][3] = 0;</w><br/><w>dg2[3][0] = t54;</w><br/><w>dg2[3][1] = 0;</w><br/><w>dg2[3][2] = 0;</w><br/><w>dg2[3][3] = (t53*t7*(32*pow(r,8) + 176*t11*t15 + 276*t13*t15 + 48*r*t17 + 120*t1*t17 + 4*t15*(20*t11 + 39*t13 + 2*t15 + 12*r*t2 + 10*t1*t2)*t30 + 32*t1*t17*t33 + 7*t75 + 8*t33*t75 + 8*t2*t4*(16*pow(r,6) - 12*r*t15 - 8*t1*t15 + t17 - 32*t11*t2 - 30*t13*t2 - 4*t8) + 32*t2*t8 + t75*cos(8*th)))/16.;</w></div>",
        "mime": "x-application/wolfram-language-html"
       },
       {
-       "data": "Column[{\"double t1 = pow(r,2);\", \"double t2 = pow(a,2);\", \"double t11 = pow(a,4);\", \"double t13 = pow(r,3);\", \"double t21 = 3*r;\", \"double t3 = 2*theta;\", \"double t4 = cos(t3);\", \"double t8 = pow(a,6);\", \"double t5 = t2*t4;\", \"double t6 = t1 + t5;\", \"double t7 = pow(t6,-4);\", \"double t15 = pow(r,4);\", \"double t17 = pow(r,5);\", \"double t24 = 20*M;\", \"double t32 = 4*theta;\", \"double t33 = cos(t32);\", \"double t57 = pow(a,8);\", \"double t35 = 6*theta;\", \"double t36 = cos(t35);\", \"double t14 = 48*M*t13*t2;\", \"double t18 = 16*M*t17;\", \"double t81 = 6*M;\", \"double t96 = sin(theta);\", \"double t97 = pow(t96,2);\", \"dgttdr2 = -0.25*(t7*(56*t1*t11 + t14 + t18 + 12*t15*t2 + 2*t11*(8*t1 + 3*t2)*t33 - t2*(11*t11 + 24*r*t2*(2*M + t21) + 4*t13*(t21 + t24))*t4 + 6*t8 - t36*t8));\", \"dgrrdr2 = (2*(t11 + 2*M*t13 - 3*t1*t2 - t2*(-4*pow(M,2) + 6*M*r - 3*t1 + t2)*pow(cos(theta),2)))/pow(r*(-2*M + r) + t2,3);\", \"dgththdr2 = 2;\", \"dgppdr2 = (t7*t97*(32*pow(r,8) + 176*M*t11*t13 + 276*t11*t15 + 32*M*t17*t2 + 7*t57 + 8*t36*t57 + 48*M*r*t8 + 120*t1*t8 + 32*t1*t36*t8 + 8*t2*t4*(-4*r*(3*M + 2*r)*t11 + 4*(-M + 4*r)*t17 - 2*(16*M + 15*r)*t13*t2 + t8) + 4*t11*t33*(2*t11 + t13*(39*r + t24) + 2*r*t2*(5*r + t81)) + t57*cos(8*theta)))/16.;\", \"dgtpdr2 = -0.25*(a*t7*(48*t1*t11 + t14 + t18 + 36*t15*t2 + 2*t11*(4*t1 + t2)*t33 + 2*t8 + t36*t8 - t2*t4*(5*t11 + 4*t13*(9*r + t24) + 8*r*t2*(7*r + t81)))*t97);\", \"dgtrdr2 = (2*a*b1)/pow(r,3);\", \"dgrpdr2 = 0;\"}]",
+       "data": "\"long double t2 = pow(spin,2);\\nlong double t1 = pow(r,2);\\nlong double t11 = pow(r,3);\\nlong double t13 = pow(r,4);\\nlong double t15 = pow(spin,4);\\nlong double t3 = 2*th;\\nlong double t4 = cos(t3);\\nlong double t17 = pow(spin,6);\\nlong double t5 = t2*t4;\\nlong double t6 = t1 + t5;\\nlong double t7 = pow(t6,-4);\\nlong double t8 = pow(r,5);\\nlong double t9 = 16*t8;\\nlong double t12 = 48*t11*t2;\\nlong double t19 = 80*t11;\\nlong double t21 = 48*r*t2;\\nlong double t29 = 4*th;\\nlong double t30 = cos(t29);\\nlong double t32 = 6*th;\\nlong double t33 = cos(t32);\\nlong double t37 = pow(r,-3);\\nlong double t38 = 2*b1*spin*t37;\\nlong double t39 = 36*t13*t2;\\nlong double t40 = 48*t1*t15;\\nlong double t41 = 2*t17;\\nlong double t42 = 36*t13;\\nlong double t43 = 56*t1*t2;\\nlong double t44 = 5*t15;\\nlong double t45 = t19 + t21 + t42 + t43 + t44;\\nlong double t46 = -(t2*t4*t45);\\nlong double t47 = 4*t1;\\nlong double t48 = t2 + t47;\\nlong double t49 = 2*t15*t30*t48;\\nlong double t50 = t17*t33;\\nlong double t51 = t12 + t39 + t40 + t41 + t46 + t49 + t50 + t9;\\nlong double t52 = sin(th);\\nlong double t53 = pow(t52,2);\\nlong double t54 = -0.25*(spin*t51*t53*t7);\\nlong double t75 = pow(spin,8);\\ndg2[0][0] = -0.25*(t7*(t12 + 56*t1*t15 + 6*t17 + 12*t13*t2 + 2*t15*(8*t1 + 3*t2)*t30 - t17*t33 - t2*(12*t13 + 11*t15 + t19 + 72*t1*t2 + t21)*t4 + t9));\\ndg2[0][1] = t38;\\ndg2[0][2] = 0;\\ndg2[0][3] = t54;\\ndg2[1][0] = t38;\\ndg2[1][1] = (2*(2*t11 + t15 - 3*t1*t2 - t2*(-4 + 6*r - 3*t1 + t2)*pow(cos(th),2)))/pow(-2*r + t1 + t2,3);\\ndg2[1][2] = 0;\\ndg2[1][3] = 0;\\ndg2[2][0] = 0;\\ndg2[2][1] = 0;\\ndg2[2][2] = 2;\\ndg2[2][3] = 0;\\ndg2[3][0] = t54;\\ndg2[3][1] = 0;\\ndg2[3][2] = 0;\\ndg2[3][3] = (t53*t7*(32*pow(r,8) + 176*t11*t15 + 276*t13*t15 + 48*r*t17 + 120*t1*t17 + 4*t15*(20*t11 + 39*t13 + 2*t15 + 12*r*t2 + 10*t1*t2)*t30 + 32*t1*t17*t33 + 7*t75 + 8*t33*t75 + 8*t2*t4*(16*pow(r,6) - 12*r*t15 - 8*t1*t15 + t17 - 32*t11*t2 - 30*t13*t2 - 4*t8) + 32*t2*t8 + t75*cos(8*th)))/16.;\"",
        "mime": "text/plain"
       }
      ],
-     "id": "cc612129-dab8-4dcd-b311-4f6f2dd2f600",
+     "id": "a7d46c82-1c21-4cbe-9ec9-6efeba619e85",
      "metadata": {
-      "cellLabel": "Out[236]= ",
+      "cellLabel": "Out[357]= ",
       "isBoxData": false
      }
     }
@@ -428,10 +409,84 @@
    "metadata": {},
    "executionSummary": {
     "timing": {
-     "startTime": 1690883673257,
-     "endTime": 1690883673487
+     "startTime": 1691551319200,
+     "endTime": 1691551319720
     },
-    "executionOrder": 235,
+    "executionOrder": 356,
+    "success": true
+   }
+  },
+  {
+   "kind": 1,
+   "value": "### Covariant Metric Components",
+   "languageId": "markdown",
+   "outputs": [],
+   "metadata": {},
+   "executionSummary": {}
+  },
+  {
+   "kind": 2,
+   "value": "OptimizeExpressionToC[{\r\n   Ginv[[1]][[1]], Ginv[[1]][[2]], Ginv[[1]][[3]], Ginv[[1]][[4]], \r\n   Ginv[[2]][[1]], Ginv[[2]][[2]], Ginv[[2]][[3]], Ginv[[2]][[4]],\r\n   Ginv[[3]][[1]], Ginv[[3]][[2]], Ginv[[3]][[3]], Ginv[[3]][[4]],\r\n   Ginv[[4]][[1]], Ginv[[4]][[2]], Ginv[[4]][[3]], Ginv[[4]][[4]]\r\n   }];\r\nmeet = ToString[Column[StringReplace[%, {\r\n   \"Sqrt\" -> \"sqrt\", \"Power(E,\" -> \"exp(\", \"Power\" -> \"pow\", \"Sin\" -> \"sin\", \"Cos\" -> \"cos\", \"double\" -> \"long double\", \";,\" -> \";\\n   \",\r\n   \"out(0)\" -> \"gu[0][0]\", \"out(1)\" -> \"gu[0][1]\", \"out(2)\" -> \"gu[0][2]\", \"out(3)\" -> \"gu[0][3]\",\r\n   \"out(4)\" -> \"gu[1][0]\", \"out(5)\" -> \"gu[1][1]\", \"out(6)\" -> \"gu[1][2]\", \"out(7)\" -> \"gu[1][3]\",\r\n   \"out(8)\" -> \"gu[2][0]\", \"out(9)\" -> \"gu[2][1]\", \"out(10)\" -> \"gu[2][2]\", \"out(11)\" -> \"gu[2][3]\",\r\n   \"out(12)\" -> \"gu[3][0]\", \"out(13)\" -> \"gu[3][1]\", \"out(14)\" -> \"gu[3][2]\", \"out(15)\" -> \"gu[3][3]\"\r\n   }]]]\r\nheader = \"void uppermetric(long double r, long double th, long double gu[4][4])\\n{\\n\";\r\nfooter = \"\\n}\";\r\nmetricupper = header <> meet <> footer;",
+   "languageId": "wolfram",
+   "outputs": [
+    {
+     "items": [
+      {
+       "data": "<div class=\"wexpr\"><w>long double t1 = pow(r,2);</w><br/><w>long double t2 = pow(spin,2);</w><br/><w>long double t14 = sin(th);</w><br/><w>long double t15 = pow(t14,2);</w><br/><w>long double t3 = cos(th);</w><br/><w>long double t4 = pow(t3,2);</w><br/><w>long double t5 = t2*t4;</w><br/><w>long double t6 = t1 + t5;</w><br/><w>long double t16 = t1 + t2;</w><br/><w>long double t17 = pow(t16,2);</w><br/><w>long double t18 = -2 + r;</w><br/><w>long double t19 = r*t18;</w><br/><w>long double t20 = t19 + t2;</w><br/><w>long double t21 = -(t15*t2*t20);</w><br/><w>long double t22 = t17 + t21;</w><br/><w>long double t8 = 2*th;</w><br/><w>long double t9 = cos(t8);</w><br/><w>long double t11 = t2*t9;</w><br/><w>long double t12 = t1 + t11;</w><br/><w>long double t13 = pow(t12,2);</w><br/><w>long double t31 = -2*r;</w><br/><w>long double t32 = t1 + t2 + t31;</w><br/><w>long double t23 = 2 + r;</w><br/><w>long double t24 = r*t23;</w><br/><w>long double t25 = t2 + t24;</w><br/><w>long double t26 = pow(t25,2);</w><br/><w>long double t27 = pow(t6,3);</w><br/><w>long double t28 = pow(t14,4);</w><br/><w>long double t29 = t1*t2*t26*t27*t28;</w><br/><w>long double t30 = pow(b1,2);</w><br/><w>long double t33 = -(t13*t2*t30*t32);</w><br/><w>long double t34 = pow(r,3);</w><br/><w>long double t35 = r*t2*t4;</w><br/><w>long double t36 = t34 + t35;</w><br/><w>long double t37 = pow(t36,2);</w><br/><w>long double t38 = -4*t15*t2;</w><br/><w>long double t39 = t19 + t2 + t38;</w><br/><w>long double t40 = t37*t39;</w><br/><w>long double t41 = t33 + t40;</w><br/><w>long double t42 = -(t15*t22*t41*t6);</w><br/><w>long double t43 = t29 + t42;</w><br/><w>long double t44 = 1/t43;</w><br/><w>long double t7 = pow(t6,2);</w><br/><w>long double t46 = b1*r*spin;</w><br/><w>long double t47 = 1/r;</w><br/><w>long double t48 = pow(spin,3);</w><br/><w>long double t49 = b1*t4*t47*t48;</w><br/><w>long double t50 = t46 + t49;</w><br/><w>long double t51 = t1*t13*t15*t22*t32*t44*t50;</w><br/><w>long double t52 = -(spin*t1*t13*t15*t25*t44*t7);</w><br/><w>gu[0][0] = -(t1*t13*t15*t22*t44*t7);</w><br/><w>gu[0][1] = t51;</w><br/><w>gu[0][2] = 0;</w><br/><w>gu[0][3] = t52;</w><br/><w>gu[1][0] = t51;</w><br/><w>gu[1][1] = -(t1*t15*t32*(-(t15*t2*t26) + t22*t39)*t44*t7);</w><br/><w>gu[1][2] = 0;</w><br/><w>gu[1][3] = b1*r*t13*t15*t2*t25*t32*t44*t6;</w><br/><w>gu[2][0] = 0;</w><br/><w>gu[2][1] = 0;</w><br/><w>gu[2][2] = 1/t6;</w><br/><w>gu[2][3] = 0;</w><br/><w>gu[3][0] = t52;</w><br/><w>gu[3][1] = spin*t1*t13*t15*t25*t32*t44*t50;</w><br/><w>gu[3][2] = 0;</w><br/><w>gu[3][3] = -(t1*pow(t12,4)*t32*t44*(-((t2*t30)/pow(r,2)) + (t39*t7)/(pow(t12,2)*t32)));</w></div>",
+       "mime": "x-application/wolfram-language-html"
+      },
+      {
+       "data": "\"long double t1 = pow(r,2);\\nlong double t2 = pow(spin,2);\\nlong double t14 = sin(th);\\nlong double t15 = pow(t14,2);\\nlong double t3 = cos(th);\\nlong double t4 = pow(t3,2);\\nlong double t5 = t2*t4;\\nlong double t6 = t1 + t5;\\nlong double t16 = t1 + t2;\\nlong double t17 = pow(t16,2);\\nlong double t18 = -2 + r;\\nlong double t19 = r*t18;\\nlong double t20 = t19 + t2;\\nlong double t21 = -(t15*t2*t20);\\nlong double t22 = t17 + t21;\\nlong double t8 = 2*th;\\nlong double t9 = cos(t8);\\nlong double t11 = t2*t9;\\nlong double t12 = t1 + t11;\\nlong double t13 = pow(t12,2);\\nlong double t31 = -2*r;\\nlong double t32 = t1 + t2 + t31;\\nlong double t23 = 2 + r;\\nlong double t24 = r*t23;\\nlong double t25 = t2 + t24;\\nlong double t26 = pow(t25,2);\\nlong double t27 = pow(t6,3);\\nlong double t28 = pow(t14,4);\\nlong double t29 = t1*t2*t26*t27*t28;\\nlong double t30 = pow(b1,2);\\nlong double t33 = -(t13*t2*t30*t32);\\nlong double t34 = pow(r,3);\\nlong double t35 = r*t2*t4;\\nlong double t36 = t34 + t35;\\nlong double t37 = pow(t36,2);\\nlong double t38 = -4*t15*t2;\\nlong double t39 = t19 + t2 + t38;\\nlong double t40 = t37*t39;\\nlong double t41 = t33 + t40;\\nlong double t42 = -(t15*t22*t41*t6);\\nlong double t43 = t29 + t42;\\nlong double t44 = 1/t43;\\nlong double t7 = pow(t6,2);\\nlong double t46 = b1*r*spin;\\nlong double t47 = 1/r;\\nlong double t48 = pow(spin,3);\\nlong double t49 = b1*t4*t47*t48;\\nlong double t50 = t46 + t49;\\nlong double t51 = t1*t13*t15*t22*t32*t44*t50;\\nlong double t52 = -(spin*t1*t13*t15*t25*t44*t7);\\ngu[0][0] = -(t1*t13*t15*t22*t44*t7);\\ngu[0][1] = t51;\\ngu[0][2] = 0;\\ngu[0][3] = t52;\\ngu[1][0] = t51;\\ngu[1][1] = -(t1*t15*t32*(-(t15*t2*t26) + t22*t39)*t44*t7);\\ngu[1][2] = 0;\\ngu[1][3] = b1*r*t13*t15*t2*t25*t32*t44*t6;\\ngu[2][0] = 0;\\ngu[2][1] = 0;\\ngu[2][2] = 1/t6;\\ngu[2][3] = 0;\\ngu[3][0] = t52;\\ngu[3][1] = spin*t1*t13*t15*t25*t32*t44*t50;\\ngu[3][2] = 0;\\ngu[3][3] = -(t1*pow(t12,4)*t32*t44*(-((t2*t30)/pow(r,2)) + (t39*t7)/(pow(t12,2)*t32)));\"",
+       "mime": "text/plain"
+      }
+     ],
+     "id": "f8e5fb3c-08dd-4cc2-a9a3-4f553589ce37",
+     "metadata": {
+      "cellLabel": "Out[362]= ",
+      "isBoxData": false
+     }
+    }
+   ],
+   "metadata": {},
+   "executionSummary": {
+    "timing": {
+     "startTime": 1691551320132,
+     "endTime": 1691551320606
+    },
+    "executionOrder": 361,
+    "success": true
+   }
+  },
+  {
+   "kind": 2,
+   "value": "output = metric <> \"\\n\\n\" <> metricupper <> \"\\n\\n\" <> metricdr <> \"\\n\\n\" <> metricdr2;\r\n\r\n(* write to metric.cpp file *)\r\nSetDirectory[\"C:\\\\Users\\\\Administrator\\\\Documents\\\\script\\\\raytransfer\"];\r\nExport[\"metric.cpp\", output, \"Text\"]",
+   "languageId": "wolfram",
+   "outputs": [
+    {
+     "items": [
+      {
+       "data": "<div class=\"wexpr\"><w>metric.cpp</w></div>",
+       "mime": "x-application/wolfram-language-html"
+      },
+      {
+       "data": "\"metric.cpp\"",
+       "mime": "text/plain"
+      }
+     ],
+     "id": "2e0cef58-f291-4be2-a7b1-dc6c6e7f0f9a",
+     "metadata": {
+      "cellLabel": "Out[368]= ",
+      "isBoxData": false
+     }
+    }
+   ],
+   "metadata": {},
+   "executionSummary": {
+    "timing": {
+     "startTime": 1691551321597,
+     "endTime": 1691551321932
+    },
+    "executionOrder": 366,
     "success": true
    }
   },
@@ -445,40 +500,23 @@
   },
   {
    "kind": 2,
-   "value": "OptimizeExpressionToC[{chttt, chttr, chttth, chttp, chtrr, chtrth, chtrp, chtthth, chtthp, chtpp, chrtt, chrtr, chrtth, chrtp, chrrr, chrrth, chrrp, chrthth, chrthp, chrpp, chthtt, chthtr, chthtth, chthtp, chthrr, chthrth, chthrp, chththth, chththp, chthpp, chptt, chptr, chptth, chptp, chprr, chprth, chprp, chpthth, chpthp, chppp}];\r\nColumn[StringReplace[%, {\"Sqrt\" -> \"sqrt\", \"Power(E,\" -> \"exp(\", \"Power\" -> \"pow\", \"Sin\" -> \"sin\", \"Cos\" -> \"cos\", \"double\" -> \"long double\",\r\n   \"out(0)\" -> \"christ[0][0][0]\", \"out(1)\" -> \"christ[0][0][1]\", \"out(2)\" -> \"christ[0][0][2]\", \"out(3)\" -> \"christ[0][0][3]\",\r\n   \"out(4)\" -> \"christ[0][1][1]\", \"out(5)\" -> \"christ[0][1][2]\", \"out(6)\" -> \"christ[0][1][3]\", \r\n   \"out(7)\" -> \"christ[0][2][2]\", \"out(8)\" -> \"christ[0][2][3]\", \r\n   \"out(9)\" -> \"christ[0][3][3]\",\r\n   \"out(10)\" -> \"christ[1][0][0]\", \"out(11)\" -> \"christ[1][0][1]\", \"out(12)\" -> \"christ[1][0][2]\", \"out(13)\" -> \"christ[1][0][3]\",\r\n   \"out(14)\" -> \"christ[1][1][1]\", \"out(15)\" -> \"christ[1][1][2]\", \"out(16)\" -> \"christ[1][1][3]\",\r\n   \"out(17)\" -> \"christ[1][2][2]\", \"out(18)\" -> \"christ[1][2][3]\",\r\n   \"out(19)\" -> \"christ[1][3][3]\",\r\n   \"out(20)\" -> \"christ[2][0][0]\", \"out(21)\" -> \"christ[2][0][1]\", \"out(22)\" -> \"christ[2][0][2]\", \"out(23)\" -> \"christ[2][0][3]\",\r\n   \"out(24)\" -> \"christ[2][1][1]\", \"out(25)\" -> \"christ[2][1][2]\", \"out(26)\" -> \"christ[2][1][3]\",\r\n   \"out(27)\" -> \"christ[2][2][2]\", \"out(28)\" -> \"christ[2][2][3]\",\r\n   \"out(29)\" -> \"christ[2][3][3]\",\r\n   \"out(30)\" -> \"christ[3][0][0]\", \"out(31)\" -> \"christ[3][0][1]\", \"out(32)\" -> \"christ[3][0][2]\", \"out(33)\" -> \"christ[3][0][3]\",\r\n   \"out(34)\" -> \"christ[3][1][1]\", \"out(35)\" -> \"christ[3][1][2]\", \"out(36)\" -> \"christ[3][1][3]\",\r\n   \"out(37)\" -> \"christ[3][2][2]\", \"out(38)\" -> \"christ[3][2][3]\",\r\n   \"out(39)\" -> \"christ[3][3][3]\"}]]",
+   "value": "OptimizeExpressionToC[{\r\n   Christ[[1]][[1]][[1]], Christ[[1]][[1]][[2]], Christ[[1]][[1]][[3]], Christ[[1]][[1]][[4]],\r\n   Christ[[1]][[2]][[2]], Christ[[1]][[2]][[3]], Christ[[1]][[2]][[4]],\r\n   Christ[[1]][[3]][[3]], Christ[[1]][[3]][[4]],\r\n   Christ[[1]][[4]][[4]],\r\n   Christ[[2]][[1]][[1]], Christ[[2]][[1]][[2]], Christ[[2]][[1]][[3]], Christ[[2]][[1]][[4]],\r\n   Christ[[2]][[2]][[2]], Christ[[2]][[2]][[3]], Christ[[2]][[2]][[4]],\r\n   Christ[[2]][[3]][[3]], Christ[[2]][[3]][[4]],\r\n   Christ[[2]][[4]][[4]],\r\n   Christ[[3]][[1]][[1]], Christ[[3]][[1]][[2]], Christ[[3]][[1]][[3]], Christ[[3]][[1]][[4]],\r\n   Christ[[3]][[2]][[2]], Christ[[3]][[2]][[3]], Christ[[3]][[2]][[4]],\r\n   Christ[[3]][[3]][[3]], Christ[[3]][[3]][[4]],\r\n   Christ[[3]][[4]][[4]],\r\n   Christ[[4]][[1]][[1]], Christ[[4]][[1]][[2]], Christ[[4]][[1]][[3]], Christ[[4]][[1]][[4]],\r\n   Christ[[4]][[2]][[2]], Christ[[4]][[2]][[3]], Christ[[4]][[2]][[4]],\r\n   Christ[[4]][[3]][[3]], Christ[[4]][[3]][[4]],\r\n   Christ[[4]][[4]][[4]]\r\n   }];\r\nmeat = ToString[Column[StringReplace[%, {\r\n   \"Sqrt\" -> \"sqrt\", \"Power(E,\" -> \"exp(\", \"Power\" -> \"pow\", \"Sin\" -> \"sin\", \"Cos\" -> \"cos\", \"double\" -> \"long double\", \";,\" -> \";\\n    \",\r\n   \"out(0)\" -> \"christ[0][0][0]\", \"out(1)\" -> \"christ[0][0][1]\", \"out(2)\" -> \"christ[0][0][2]\", \"out(3)\" -> \"christ[0][0][3]\",\r\n   \"out(4)\" -> \"christ[0][1][1]\", \"out(5)\" -> \"christ[0][1][2]\", \"out(6)\" -> \"christ[0][1][3]\", \r\n   \"out(7)\" -> \"christ[0][2][2]\", \"out(8)\" -> \"christ[0][2][3]\", \r\n   \"out(9)\" -> \"christ[0][3][3]\",\r\n   \"out(10)\" -> \"christ[1][0][0]\", \"out(11)\" -> \"christ[1][0][1]\", \"out(12)\" -> \"christ[1][0][2]\", \"out(13)\" -> \"christ[1][0][3]\",\r\n   \"out(14)\" -> \"christ[1][1][1]\", \"out(15)\" -> \"christ[1][1][2]\", \"out(16)\" -> \"christ[1][1][3]\",\r\n   \"out(17)\" -> \"christ[1][2][2]\", \"out(18)\" -> \"christ[1][2][3]\",\r\n   \"out(19)\" -> \"christ[1][3][3]\",\r\n   \"out(20)\" -> \"christ[2][0][0]\", \"out(21)\" -> \"christ[2][0][1]\", \"out(22)\" -> \"christ[2][0][2]\", \"out(23)\" -> \"christ[2][0][3]\",\r\n   \"out(24)\" -> \"christ[2][1][1]\", \"out(25)\" -> \"christ[2][1][2]\", \"out(26)\" -> \"christ[2][1][3]\",\r\n   \"out(27)\" -> \"christ[2][2][2]\", \"out(28)\" -> \"christ[2][2][3]\",\r\n   \"out(29)\" -> \"christ[2][3][3]\",\r\n   \"out(30)\" -> \"christ[3][0][0]\", \"out(31)\" -> \"christ[3][0][1]\", \"out(32)\" -> \"christ[3][0][2]\", \"out(33)\" -> \"christ[3][0][3]\",\r\n   \"out(34)\" -> \"christ[3][1][1]\", \"out(35)\" -> \"christ[3][1][2]\", \"out(36)\" -> \"christ[3][1][3]\",\r\n   \"out(37)\" -> \"christ[3][2][2]\", \"out(38)\" -> \"christ[3][2][3]\",\r\n   \"out(39)\" -> \"christ[3][3][3]\"}]]]\r\nheader = \"void christoffel(long double r, long double th, long double christ[4][4][4])\\n{\\n\";\r\nfooter = \"\\n}\";\r\nchristoffel = header <> meat <> footer;",
    "languageId": "wolfram",
    "outputs": [
     {
      "items": [
       {
-       "data": "<div class=\"wexpr\"><wrow><w></w><wb>{</wb><wrow><w></w><w>double t1 = Power(r,2);</w><w>,</w><w>double t2 = Power(a,2);</w><w>,</w><w>double t14 = Power(a,8);</w><w>,</w><w>double t17 = Power(a,6);</w><w>,</w><w>double t19 = Power(r,3);</w><w>,</w><w>double t21 = Power(a,4);</w><w>,</w><w>double t22 = Power(M,2);</w><w>,</w><w>double t26 = Power(r,5);</w><w>,</w><w>double t8 = 2*theta;</w><w>,</w><w>double t9 = Cos(t8);</w><w>,</w><w>double t40 = 3*M*r;</w><w>,</w><w>double t68 = 6*theta;</w><w>,</w><w>double t69 = Cos(t68);</w><w>,</w><w>double t24 = Power(r,4);</w><w>,</w><w>double t76 = -2*M;</w><w>,</w><w>double t77 = r + t76;</w><w>,</w><w>double t78 = r*t77;</w><w>,</w><w>double t79 = t2 + t78;</w><w>,</w><w>double t86 = Sin(theta);</w><w>,</w><w>double t87 = Power(t86,2);</w><w>,</w><w>double t74 = t1 + t2;</w><w>,</w><w>double t75 = Power(t74,2);</w><w>,</w><w>double t80 = t75*t79;</w><w>,</w><w>double t81 = 3*t21;</w><w>,</w><w>double t82 = 6*t1*t2;</w><w>,</w><w>double t83 = 4*t1*t22;</w><w>,</w><w>double t84 = 3*t24;</w><w>,</w><w>double t85 = t81 + t82 + t83 + t84;</w><w>,</w><w>double t88 = -2*t2*t85*t87;</w><w>,</w><w>double t89 = Power(t86,4);</w><w>,</w><w>double t90 = 4*t21*t79*t89;</w><w>,</w><w>double t91 = t80 + t88 + t90;</w><w>,</w><w>double t92 = 1/t91;</w><w>,</w><w>double t3 = Cos(theta);</w><w>,</w><w>double t4 = Power(t3,2);</w><w>,</w><w>double t5 = t2*t4;</w><w>,</w><w>double t6 = t1 + t5;</w><w>,</w><w>double t7 = 1/t6;</w><w>,</w><w>double t11 = t2*t9;</w><w>,</w><w>double t12 = t1 + t11;</w><w>,</w><w>double t94 = 3*M;</w><w>,</w><w>double t95 = r + t94;</w><w>,</w><w>double t65 = 4*theta;</w><w>,</w><w>double t66 = Cos(t65);</w><w>,</w><w>double t113 = Power(t12,-3);</w><w>,</w><w>double t114 = M*t21;</w><w>,</w><w>double t116 = -6*M*t1*t2;</w><w>,</w><w>double t118 = -4*M*t24;</w><w>,</w><w>double t55 = M + r;</w><w>,</w><w>double t125 = -r;</w><w>,</w><w>double t126 = M + t125;</w><w>,</w><w>double t31 = Power(r,7);</w><w>,</w><w>double t36 = 5*r;</w><w>,</w><w>double t45 = 7*t1;</w><w>,</w><w>double t35 = 4*M;</w><w>,</w><w>double t120 = 3*r;</w><w>,</w><w>double t57 = 2*M;</w><w>,</w><w>double t58 = r + t57;</w><w>,</w><w>double t177 = Sin(t8);</w><w>,</w><w>double t138 = 1/t79;</w><w>,</w><w>double t145 = -(t2*t3*t7*t86);</w><w>,</w><w>double t185 = -(t2*t79*t87);</w><w>,</w><w>double t186 = t185 + t75;</w><w>,</w><w>double t107 = Power(a,3);</w><w>,</w><w>double t108 = 2*t1*t2;</w><w>,</w><w>double t109 = -4*t1*t22;</w><w>,</w><w>double t110 = t108 + t109 + t21 + t24;</w><w>,</w><w>double t199 = Csc(theta);</w><w>,</w><w>double t200 = Power(t199,4);</w><w>,</w><w>double t13 = 1/t12;</w><w>,</w><w>double t33 = Power(r,8);</w><w>,</w><w>double t48 = 2*t22;</w><w>,</w><w>double t97 = 2*r;</w><w>,</w><w>double t98 = M + t97;</w><w>,</w><w>double t60 = 6*t22;</w><w>,</w><w>double t251 = 8*theta;</w><w>,</w><w>double t252 = Cos(t251);</w><w>,</w><w>double t61 = 2*t1;</w><w>,</w><w>double t29 = Power(r,6);</w><w>,</w><w>double t240 = -2*M*r;</w><w>,</w><w>double t220 = Power(r,9);</w><w>,</w><w>double t43 = 12*t22;</w><w>,</w><w>double t241 = 17*t1;</w><w>,</w><w>double t272 = Power(a,10);</w><w>,</w><w>double t198 = Cot(theta);</w><w>,</w><w>out(0) = 0;</w><w>,</w><w>out(1) = (t13*t7*(-2*M*t14 + 6*r*t14 + 32*M*t1*t17 + 26*t17*t19 + 36*t19*t21*t22 + 54*M*t21*t24 + 24*t21*t26 + 16*t2*t22*t26 + 28*M*t2*t29 + 4*t2*t31 + 8*M*t33 - 2*t21*(t21*t55 - t1*t2*t58 - t19*(t40 + t60 + t61))*t66 + r*t14*t69 + t17*t19*t69 + 2*r*t17*t22*t69 - t2*(t17*(t35 + t36) + 4*t26*(t1 + 4*t22 + t40) + 4*t19*t2*(15*M*r + t43 + t45) + r*t21*(52*M*r + 29*t1 + t48))*t9)*t92)/8.;</w><w>,</w><w>out(2) = chtth;</w><w>,</w><w>out(3) = 0;</w><w>,</w><w>out(4) = 0;</w><w>,</w><w>out(5) = 0;</w><w>,</w><w>out(6) = a*t87*t92*(-(M*t2*(-t1 + t2)*t9) + r*(t21 + t19*t95 + r*t2*t98));</w><w>,</w><w>out(7) = 0;</w><w>,</w><w>out(8) = -(t107*t110*t3*Power(t86,3)*t92);</w><w>,</w><w>out(9) = 0;</w><w>,</w><w>out(10) = (t113*t7*t79*(t114 + t116 + t118 - 2*t19*t2 - 5*r*t21 + t126*t21*t66 + 2*t2*t9*((M + t120)*t2 + t1*t95)))/4.;</w><w>,</w><w>out(11) = 0;</w><w>,</w><w>out(12) = 0;</w><w>,</w><w>out(13) = (a*t113*t7*t79*t87*(t114 + t116 + t118 - 6*t19*t2 - 3*r*t21 + t21*t55*t66 + 2*t2*(3*t1 + t2)*t55*t9))/4.;</w><w>,</w><w>out(14) = t138*(r*(-(M*r) + t2) + t126*t2*t4)*t7;</w><w>,</w><w>out(15) = t145;</w><w>,</w><w>out(16) = 0;</w><w>,</w><w>out(17) = -(r*t7*t79);</w><w>,</w><w>out(18) = 0;</w><w>,</w><w>out(19) = -0.0625*(t113*t7*t79*t87*(-18*M*t1*t21 - 6*t19*t21 - 8*M*t2*t24 + 16*t31 + 2*r*t21*(-3*M*r + 4*t2 + t45)*t66 - M*t17*t69 + r*t17*t69 + t2*t9*((M + 7*r)*t21 + 8*(M + 6*r)*t24 + 8*t1*t2*(t36 + t94))));</w><w>,</w><w>out(20) = -0.5*(t113*t177*t2*t7*(-((6*M + r)*t19) - 2*t21 - r*t2*(t120 + t35) + t2*t79*t9));</w><w>,</w><w>out(21) = 0;</w><w>,</w><w>out(22) = 0;</w><w>,</w><w>out(23) = (a*t113*t177*(t2 + r*t58)*t7*t75)/2.;</w><w>,</w><w>out(24) = t138*t2*t3*t7*t86;</w><w>,</w><w>out(25) = r*t7;</w><w>,</w><w>out(26) = 0;</w><w>,</w><w>out(27) = t145;</w><w>,</w><w>out(28) = 0;</w><w>,</w><w>out(29) = t113*t86*(-(t12*t186*t3) - 2*t177*t186*t2*t86 + t12*t186*t2*t3*t7*t87 + t12*t2*t3*t79*t87);</w><w>,</w><w>out(30) = 0;</w><w>,</w><w>out(31) = (2*a*M*(t1 - t2) + 4*t107*t55*t87)*t92;</w><w>,</w><w>out(32) = -((a*t110*t198*t200)/(4*(t17 + r*t21*t77) + t200*t75*t79 - 2*Power(t199,2)*t2*t85));</w><w>,</w><w>out(33) = 0;</w><w>,</w><w>out(34) = 0;</w><w>,</w><w>out(35) = 0;</w><w>,</w><w>out(36) = (t13*t7*t92*(M*t14 + 15*r*t14 + 76*M*t1*t17 + 72*t17*t19 + 72*t19*t21*t22 + 16*t220 + 72*M*t21*t24 - M*t14*t252 + r*t14*t252 + 60*t21*t26 + 32*t2*t22*t26 - 16*t2*t31 - 32*M*t33 + 2*M*t14*t69 + 8*r*t14*t69 - 6*M*t1*t17*t69 + 16*t17*t19*t69 + 4*r*t17*t22*t69 - 2*t2*((M + 4*r)*t17 + 16*t19*t2*(5*M*r + t1 + 3*t22) + 8*t26*(6*M*r - 5*t1 + t48) + r*t21*(61*M*r + 32*t1 + t48))*t9 + 4*t1*t21*t66*(r*(t240 + t241 + t60) + 5*t2*t98)))/16.;</w><w>,</w><w>out(37) = 0;</w><w>,</w><w>out(38) = -0.25*(t13*t198*(16*Power(r,10) - 78*M*r*t14 - 51*t1*t14 - 208*M*t17*t19 - 64*t1*t17*t22 - 32*M*t220 - 48*t17*t24 - 120*t21*t22*t24 - 2*M*r*t14*t252 + t1*t14*t252 - 264*M*t21*t26 - 9*t272 + t252*t272 + 2*t21*t29 - 96*t2*t22*t29 - 96*M*t2*t31 + 24*t2*t33 + 6*t1*t14*t69 - 16*M*t17*t19*t69 + 4*t1*t17*t22*t69 + 7*t17*t24*t69 - t272*t69 + 2*t21*t66*(4*t17 + r*t21*(-8*M + t36) + t24*(-28*M*r + 11*t1 + t43) + 4*t19*t2*(t120 + t76)) + t2*(17*t14 + 2*r*(32*M + 57*r)*t17 + t1*t21*(112*M*r + 177*t1 + 60*t22) + 8*t2*t24*(16*M*r + t241 + t43) + 8*t29*(-4*M*r + t43 + t45))*t9))/((t11 + t2 + t61)*(t17 + 8*M*t19*t2 + 10*M*r*t21 + 3*t1*t21 + 8*t1*t2*t22 + 4*M*t26 - 2*t29 - t21*(t1 + t2 + t240)*t66 - 2*t2*(t21 + 4*r*t2*t55 + t83 + t84)*t9));</w><w>,</w><w>out(39) = 0;</w></wrow><wb>}</wb></wrow></div>",
+       "data": "<div class=\"wexpr\"><w>long double t1 = pow(r,2);</w><br/><w>long double t3 = pow(spin,2);</w><br/><w>long double t23 = pow(spin,4);</w><br/><w>long double t21 = pow(r,3);</w><br/><w>long double t13 = 2*th;</w><br/><w>long double t14 = cos(t13);</w><br/><w>long double t35 = sin(th);</w><br/><w>long double t36 = pow(t35,2);</w><br/><w>long double t8 = cos(th);</w><br/><w>long double t9 = pow(t8,2);</w><br/><w>long double t48 = t3*t9;</w><br/><w>long double t49 = t1 + t48;</w><br/><w>long double t37 = t1 + t3;</w><br/><w>long double t38 = pow(t37,2);</w><br/><w>long double t39 = -2 + r;</w><br/><w>long double t40 = r*t39;</w><br/><w>long double t41 = t3 + t40;</w><br/><w>long double t42 = -(t3*t36*t41);</w><br/><w>long double t43 = t38 + t42;</w><br/><w>long double t2 = -2*r;</w><br/><w>long double t4 = t1 + t2 + t3;</w><br/><w>long double t15 = t14*t3;</w><br/><w>long double t16 = t1 + t15;</w><br/><w>long double t17 = 1/t16;</w><br/><w>long double t44 = 2 + r;</w><br/><w>long double t45 = r*t44;</w><br/><w>long double t46 = t3 + t45;</w><br/><w>long double t70 = 3*r;</w><br/><w>long double t18 = pow(r,4);</w><br/><w>long double t19 = 4*t18;</w><br/><w>long double t20 = 6*t1*t3;</w><br/><w>long double t22 = 2*t21*t3;</w><br/><w>long double t24 = -t23;</w><br/><w>long double t25 = 5*r*t23;</w><br/><w>long double t26 = 3*t1;</w><br/><w>long double t27 = 3*r*t3;</w><br/><w>long double t28 = t21 + t26 + t27 + t3;</w><br/><w>long double t29 = -2*t14*t28*t3;</w><br/><w>long double t30 = -1 + r;</w><br/><w>long double t31 = 4*th;</w><br/><w>long double t32 = cos(t31);</w><br/><w>long double t33 = t23*t30*t32;</w><br/><w>long double t34 = t19 + t20 + t22 + t24 + t25 + t29 + t33;</w><br/><w>long double t47 = pow(t46,2);</w><br/><w>long double t50 = pow(t49,3);</w><br/><w>long double t51 = pow(t35,4);</w><br/><w>long double t52 = t1*t3*t47*t50*t51;</w><br/><w>long double t53 = pow(b1,2);</w><br/><w>long double t54 = pow(t16,2);</w><br/><w>long double t55 = -(t3*t4*t53*t54);</w><br/><w>long double t56 = r*t3*t9;</w><br/><w>long double t57 = t21 + t56;</w><br/><w>long double t58 = pow(t57,2);</w><br/><w>long double t59 = -4*t3*t36;</w><br/><w>long double t60 = t3 + t40 + t59;</w><br/><w>long double t61 = t58*t60;</w><br/><w>long double t62 = t55 + t61;</w><br/><w>long double t63 = -(t36*t43*t49*t62);</w><br/><w>long double t64 = t52 + t63;</w><br/><w>long double t65 = 1/t64;</w><br/><w>long double t67 = pow(t49,2);</w><br/><w>long double t97 = t14*t3*t4;</w><br/><w>long double t5 = b1*r*spin;</w><br/><w>long double t6 = 1/r;</w><br/><w>long double t7 = pow(spin,3);</w><br/><w>long double t11 = b1*t6*t7*t9;</w><br/><w>long double t12 = t11 + t5;</w><br/><w>long double t77 = 1 + r;</w><br/><w>long double t74 = 2*t3;</w><br/><w>long double t125 = pow(spin,6);</w><br/><w>long double t138 = pow(r,5);</w><br/><w>long double t71 = 2*t1;</w><br/><w>long double t165 = pow(r,9);</w><br/><w>long double t168 = pow(r,10);</w><br/><w>long double t133 = pow(r,6);</w><br/><w>long double t135 = pow(r,7);</w><br/><w>long double t163 = pow(r,8);</w><br/><w>long double t183 = pow(spin,8);</w><br/><w>long double t189 = pow(spin,10);</w><br/><w>long double t258 = 6*th;</w><br/><w>long double t259 = cos(t258);</w><br/><w>long double t192 = pow(spin,12);</w><br/><w>long double t271 = 8*th;</w><br/><w>long double t272 = cos(t271);</w><br/><w>long double t131 = pow(t35,3);</w><br/><w>long double t117 = -3*r;</w><br/><w>long double t68 = r + t3;</w><br/><w>long double t69 = 2*t21*t68;</w><br/><w>long double t72 = t3 + t70 + t71;</w><br/><w>long double t73 = -2*r*t14*t3*t72;</w><br/><w>long double t75 = t1 + t70 + t74;</w><br/><w>long double t76 = -(r*t75);</w><br/><w>long double t78 = t14*t3*t77;</w><br/><w>long double t79 = t76 + t78;</w><br/><w>long double t80 = -2*t3*t79*t9;</w><br/><w>long double t81 = t69 + t73 + t80;</w><br/><w>long double t107 = -4*t18;</w><br/><w>long double t108 = -6*t1*t3;</w><br/><w>long double t88 = 2*r;</w><br/><w>long double t89 = t1 + t3 + t88;</w><br/><w>long double t90 = pow(t89,2);</w><br/><w>long double t91 = 2*t38*t90;</w><br/><w>long double t92 = -6*t21;</w><br/><w>long double t93 = -t18;</w><br/><w>long double t94 = -4*r*t3;</w><br/><w>long double t95 = -3*t1*t3;</w><br/><w>long double t96 = -2*t23;</w><br/><w>long double t98 = t92 + t93 + t94 + t95 + t96 + t97;</w><br/><w>long double t99 = 2*t18;</w><br/><w>long double t100 = 2*r*t3;</w><br/><w>long double t101 = 3*t1*t3;</w><br/><w>long double t102 = t100 + t101 + t23 + t97 + t99;</w><br/><w>long double t103 = -(t102*t98);</w><br/><w>long double t104 = t103 + t91;</w><br/><w>long double t105 = sin(t13);</w><br/><w>long double t298 = pow(t16,-3);</w><br/><w>long double t109 = -6*t21*t3;</w><br/><w>long double t110 = -3*r*t23;</w><br/><w>long double t111 = t26 + t3;</w><br/><w>long double t112 = 2*t111*t14*t3*t77;</w><br/><w>long double t113 = t23*t32*t77;</w><br/><w>long double t114 = t107 + t108 + t109 + t110 + t112 + t113 + t23;</w><br/><w>long double t299 = -(t3*t36*t47);</w><br/><w>long double t300 = t43*t60;</w><br/><w>long double t301 = t299 + t300;</w><br/><w>long double t83 = -(t3*t36*t4);</w><br/><w>long double t84 = t38 + t83;</w><br/><w>long double t148 = -t3;</w><br/><w>long double t134 = 12*t133;</w><br/><w>long double t136 = 4*t135;</w><br/><w>long double t137 = 10*t18*t3;</w><br/><w>long double t139 = 10*t138*t3;</w><br/><w>long double t140 = 3*t1*t23;</w><br/><w>long double t141 = 8*t21*t23;</w><br/><w>long double t142 = -t125;</w><br/><w>long double t143 = 2*r*t125;</w><br/><w>long double t144 = 5*t18;</w><br/><w>long double t145 = r*t23;</w><br/><w>long double t146 = t138 + t144 + t145 + t22 + t24;</w><br/><w>long double t147 = 2*t14*t146*t3;</w><br/><w>long double t149 = t1 + t148;</w><br/><w>long double t150 = t149*t23*t32;</w><br/><w>long double t151 = t134 + t136 + t137 + t139 + t140 + t141 + t142 + t143 + t147 + t150;</w><br/><w>long double t159 = pow(r,11);</w><br/><w>long double t161 = pow(r,12);</w><br/><w>long double t194 = 32*t165;</w><br/><w>long double t195 = -64*t168;</w><br/><w>long double t196 = -6*t53;</w><br/><w>long double t197 = 1 + t196;</w><br/><w>long double t198 = 16*t135*t197*t3;</w><br/><w>long double t199 = -12*t53;</w><br/><w>long double t200 = 7 + t199;</w><br/><w>long double t201 = 8*t138*t200*t23;</w><br/><w>long double t202 = 3*t53;</w><br/><w>long double t203 = -2 + t202;</w><br/><w>long double t204 = -8*t125*t203*t21;</w><br/><w>long double t205 = -24*r*t183*t53;</w><br/><w>long double t206 = 6*t189*t53;</w><br/><w>long double t207 = -3 + t53;</w><br/><w>long double t208 = 5*t207*t3;</w><br/><w>long double t209 = -8 + t208;</w><br/><w>long double t210 = 8*t163*t209;</w><br/><w>long double t211 = -5*t183;</w><br/><w>long double t212 = 7*t3;</w><br/><w>long double t213 = 6 + t212;</w><br/><w>long double t214 = 4*t125*t213*t53;</w><br/><w>long double t215 = t211 + t214;</w><br/><w>long double t216 = t1*t215;</w><br/><w>long double t217 = -15*t3;</w><br/><w>long double t218 = 39*t3;</w><br/><w>long double t219 = -32 + t218;</w><br/><w>long double t220 = t219*t53;</w><br/><w>long double t221 = 2 + t217 + t220;</w><br/><w>long double t222 = 2*t18*t221*t23;</w><br/><w>long double t223 = -81*t23;</w><br/><w>long double t224 = 3*t23;</w><br/><w>long double t225 = t224 + t3;</w><br/><w>long double t226 = 32*t225*t53;</w><br/><w>long double t227 = t223 + t226;</w><br/><w>long double t228 = t133*t227;</w><br/><w>long double t229 = t194 + t195 + t198 + t201 + t204 + t205 + t206 + t210 + t216 + t222 + t228;</w><br/><w>long double t231 = -10*t135;</w><br/><w>long double t232 = 17*t163;</w><br/><w>long double t233 = 6*t53;</w><br/><w>long double t234 = 1 + t233;</w><br/><w>long double t235 = 4*t138*t234*t3;</w><br/><w>long double t236 = 24*t21*t23*t53;</w><br/><w>long double t237 = -2*t183*t53;</w><br/><w>long double t238 = -8*t53;</w><br/><w>long double t239 = 30 + t238;</w><br/><w>long double t240 = t239*t3;</w><br/><w>long double t241 = 16 + t240;</w><br/><w>long double t242 = t133*t241;</w><br/><w>long double t243 = -8*t3;</w><br/><w>long double t244 = 9*t3;</w><br/><w>long double t245 = 8 + t244;</w><br/><w>long double t246 = t245*t53;</w><br/><w>long double t247 = -2 + t243 + t246;</w><br/><w>long double t248 = -2*t18*t247*t3;</w><br/><w>long double t249 = 3*t125;</w><br/><w>long double t250 = 8*t23;</w><br/><w>long double t251 = -12*t125;</w><br/><w>long double t252 = t250 + t251;</w><br/><w>long double t253 = t252*t53;</w><br/><w>long double t254 = t249 + t253;</w><br/><w>long double t255 = t1*t254;</w><br/><w>long double t256 = t231 + t232 + t235 + t236 + t237 + t242 + t248 + t255;</w><br/><w>long double t279 = 16*t135;</w><br/><w>long double t280 = -8*t18*t3;</w><br/><w>long double t281 = -18*t1*t23;</w><br/><w>long double t282 = -6*t21*t23;</w><br/><w>long double t283 = 8*t18;</w><br/><w>long double t284 = 48*t138;</w><br/><w>long double t285 = 24*t1*t3;</w><br/><w>long double t286 = 40*t21*t3;</w><br/><w>long double t287 = 7*r*t23;</w><br/><w>long double t288 = t23 + t283 + t284 + t285 + t286 + t287;</w><br/><w>long double t289 = t14*t288*t3;</w><br/><w>long double t290 = 7*t1;</w><br/><w>long double t291 = 4*t3;</w><br/><w>long double t292 = t117 + t290 + t291;</w><br/><w>long double t293 = 2*r*t23*t292*t32;</w><br/><w>long double t294 = -(t125*t259);</w><br/><w>long double t295 = r*t125*t259;</w><br/><w>long double t296 = t279 + t280 + t281 + t282 + t289 + t293 + t294 + t295;</w><br/><w>long double t375 = 1/t49;</w><br/><w>long double t116 = 1/t4;</w><br/><w>long double t304 = -2*t21*t3;</w><br/><w>long double t305 = -5*r*t23;</w><br/><w>long double t306 = 2*t14*t28*t3;</w><br/><w>long double t307 = -(t23*t30*t32);</w><br/><w>long double t308 = t107 + t108 + t23 + t304 + t305 + t306 + t307;</w><br/><w>long double t399 = -32*t125*t53;</w><br/><w>long double t118 = t1 + t117 + t74;</w><br/><w>long double t157 = t15 + t3 + t71;</w><br/><w>long double t158 = pow(t157,2);</w><br/><w>christ[0][0][0] = -0.25*(t1*t12*t17*t34*t36*t4*t43*t65);</w><br/><w>christ[0][0][1] = -0.5*(t1*t17*t36*t65*t67*(t3*t36*t46*t81 + (t34*t84)/2.));</w><br/><w>christ[0][0][2] = (t1*t104*t105*t17*t3*t36*t65*t67)/4.;</w><br/><w>christ[0][0][3] = (spin*t1*t114*t12*t17*t4*t43*t51*t65)/4.;</w><br/><w>christ[0][1][1] = b1*spin*t116*t36*t43*t54*t65*(t118*t18 + (t125 - r*t23)*pow(t8,4) + t1*t3*(-4*r + t1 + 3*t3)*t9);</w><br/><w>christ[0][1][2] = -(t1*t12*t131*t3*t43*t54*t65*t8);</w><br/><w>christ[0][1][3] = -0.25*(spin*t151*t51*t58*t65);</w><br/><w>christ[0][2][2] = -(t12*t21*t36*t4*t43*t54*t65);</w><br/><w>christ[0][2][3] = (-8*t1*t131*t158*(t18 + t23 + 2*t1*(-2 + t3))*t7*t8)/(24*t125*t133 - 144*t125*t138 - 64*t159 + 32*t161 - 16*t125*t18 + 15*t18*t183 + 3*t1*t189 - 30*t183*t21 - 64*t133*t23 - 312*t135*t23 + 12*t163*t23 + 14*t125*t133*t259 - 16*t125*t138*t259 + 8*t125*t18*t259 + 20*t18*t183*t259 + 6*t1*t189*t259 + t18*t183*t272 + t1*t189*t272 - 2*t183*t21*t272 - 128*t163*t3 - 192*t165*t3 + 32*t168*t3 - 2*t14*t229*t3 + 4*t23*t256*t32 - 96*t125*t133*t53 + 96*t125*t138*t53 - 64*t125*t18*t53 + 32*t1*t183*t53 - 88*t18*t183*t53 - 48*t1*t189*t53 - 8*t192*t53 + 96*t183*t21*t53 + 64*t133*t23*t53 + 64*t135*t23*t53 - 80*t163*t23*t53 - 16*t1*t183*t259*t53 - 4*t18*t183*t259*t53 + 16*r*t189*t259*t53 - 8*t1*t189*t259*t53 - 4*t192*t259*t53 + 16*t183*t21*t259*t53 + 64*t165*t3*t53 - 32*t168*t3*t53);</w><br/><w>christ[0][3][3] = -0.0625*(t1*t12*t17*t296*t4*t43*t51*t65);</w><br/><w>christ[1][0][0] = (t1*t298*t301*t34*t36*t4*t65*t67)/4.;</w><br/><w>christ[1][0][1] = -0.5*(t1*t12*t17*t36*t4*t65*((t308*t43)/2. - t3*t36*t46*t81));</w><br/><w>christ[1][0][2] = -0.25*(t1*t104*t105*t12*t17*t3*t36*t4*t65);</w><br/><w>christ[1][0][3] = -0.25*(spin*t114*t298*t301*t4*t51*t58*t65);</w><br/><w>christ[1][1][1] = -(t1*t36*t4*t49*t65*((t3*t53*t54*t84)/pow(r,3) - (t301*t49*(r*(r + t148) + t3*t30*t9))/pow(t4,2)));</w><br/><w>christ[1][1][2] = t1*t131*t3*t301*t65*t67*t8;</w><br/><w>christ[1][1][3] = (spin*t1*t12*t151*t4*t51*t65)/4.;</w><br/><w>christ[1][2][2] = t21*t301*t36*t4*t65*t67;</w><br/><w>christ[1][2][3] = (-32*b1*r*t131*t23*pow(t4,2)*t49*t8*t89)/(-24*t125*t133 + 144*t125*t138 + 64*t159 - 32*t161 + 16*t125*t18 - 15*t18*t183 - 3*t1*t189 + 30*t183*t21 + 64*t133*t23 + 312*t135*t23 - 12*t163*t23 - 14*t125*t133*t259 + 16*t125*t138*t259 - 8*t125*t18*t259 - 20*t18*t183*t259 - 6*t1*t189*t259 - t18*t183*t272 - t1*t189*t272 + 2*t183*t21*t272 + 128*t163*t3 + 192*t165*t3 - 32*t168*t3 + 2*t14*t229*t3 - 4*t23*t256*t32 + 96*t125*t133*t53 - 96*t125*t138*t53 + 64*t125*t18*t53 - 32*t1*t183*t53 + 88*t18*t183*t53 + 48*t1*t189*t53 + 8*t192*t53 - 96*t183*t21*t53 - 64*t133*t23*t53 - 64*t135*t23*t53 + 80*t163*t23*t53 + 16*t1*t183*t259*t53 + 4*t18*t183*t259*t53 - 16*r*t189*t259*t53 + 8*t1*t189*t259*t53 + 4*t192*t259*t53 - 16*t183*t21*t259*t53 - 64*t165*t3*t53 + 32*t168*t3*t53);</w><br/><w>christ[1][3][3] = (t296*t298*t301*t4*t51*t58*t65)/16.;</w><br/><w>christ[2][0][0] = -0.5*(t105*t298*t3*t375*t98);</w><br/><w>christ[2][0][1] = 0;</w><br/><w>christ[2][0][2] = 0;</w><br/><w>christ[2][0][3] = (spin*t105*t298*t375*t38*t89)/2.;</w><br/><w>christ[2][1][1] = t116*t3*t35*t375*t8;</w><br/><w>christ[2][1][2] = r*t375;</w><br/><w>christ[2][1][3] = 0;</w><br/><w>christ[2][2][2] = -(t3*t35*t375*t8);</w><br/><w>christ[2][2][3] = 0;</w><br/><w>christ[2][3][3] = t298*t35*(-2*t105*t3*t35*t43 + t16*t3*t36*t41*t8 - t16*t43*t8 + t16*t3*t36*t375*t43*t8);</w><br/><w>christ[3][0][0] = -0.25*(b1*r*t17*t3*t34*t36*t4*t46*t49*t65);</w><br/><w>christ[3][0][1] = (spin*t17*t36*t65*(t308*t46*t58 - 2*t62*t81))/4.;</w><br/><w>christ[3][0][2] = (spin*t105*t4*t65*(t14*t3*(48*t133 + t399 + t1*t23*(15 - 64*t53) + 16*t18*t3*(3 - 2*t53)) + t1*(10*t125 + 32*t133 + 36*t1*t23 + t125*t259 + 48*t18*t3 + t399 - 64*t1*t23*t53 - 32*t18*t3*t53 + 6*t23*t32*(t3 + t71)))*t89)/64.;</w><br/><w>christ[3][0][3] = (b1*r*t114*t17*t4*t46*t49*t51*t65*t7)/4.;</w><br/><w>christ[3][1][1] = (b1*t1*t116*pow(t16,4)*t3*t36*t46*t49*t65*(t1*t118 + (t23 - r*t3)*t9))/pow(t21 + r*t14*t3,2);</w><br/><w>christ[3][1][2] = -(b1*r*t131*t23*t46*t49*t54*t65*t8);</w><br/><w>christ[3][1][3] = -0.5*(t17*t65*(((r*(r*(t110 + 8*t138 - 9*t23 - 4*t1*t3) + t23*t292*t32) + t14*t3*(24*t138 + t19 + t23 + 3*r*t23 + 12*t1*t3 + 20*t21*t3 + t33))*t36*t62)/4. + t1*t3*t46*t51*t67*t81));</w><br/><w>christ[3][2][2] = -(b1*t1*t3*t36*t4*t46*t49*t54*t65);</w><br/><w>christ[3][2][3] = t17*t65*(t35*t62*(-2*t105*t3*t35*t43*t49 + t16*t3*t36*t43*t8 + t16*t3*t36*t41*t49*t8 - t16*t43*t49*t8) + (t1*t131*t158*t3*t38*t8*t90)/4.);</w><br/><w>christ[3][3][3] = -0.0625*(b1*r*t17*t296*t3*t4*t46*t49*t51*t65);</w></div>",
        "mime": "x-application/wolfram-language-html"
       },
       {
-       "data": "{\"double t1 = Power(r,2);\", \"double t2 = Power(a,2);\", \"double t14 = Power(a,8);\", \"double t17 = Power(a,6);\", \"double t19 = Power(r,3);\", \"double t21 = Power(a,4);\", \"double t22 = Power(M,2);\", \"double t26 = Power(r,5);\", \"double t8 = 2*theta;\", \"double t9 = Cos(t8);\", \"double t40 = 3*M*r;\", \"double t68 = 6*theta;\", \"double t69 = Cos(t68);\", \"double t24 = Power(r,4);\", \"double t76 = -2*M;\", \"double t77 = r + t76;\", \"double t78 = r*t77;\", \"double t79 = t2 + t78;\", \"double t86 = Sin(theta);\", \"double t87 = Power(t86,2);\", \"double t74 = t1 + t2;\", \"double t75 = Power(t74,2);\", \"double t80 = t75*t79;\", \"double t81 = 3*t21;\", \"double t82 = 6*t1*t2;\", \"double t83 = 4*t1*t22;\", \"double t84 = 3*t24;\", \"double t85 = t81 + t82 + t83 + t84;\", \"double t88 = -2*t2*t85*t87;\", \"double t89 = Power(t86,4);\", \"double t90 = 4*t21*t79*t89;\", \"double t91 = t80 + t88 + t90;\", \"double t92 = 1/t91;\", \"double t3 = Cos(theta);\", \"double t4 = Power(t3,2);\", \"double t5 = t2*t4;\", \"double t6 = t1 + t5;\", \"double t7 = 1/t6;\", \"double t11 = t2*t9;\", \"double t12 = t1 + t11;\", \"double t94 = 3*M;\", \"double t95 = r + t94;\", \"double t65 = 4*theta;\", \"double t66 = Cos(t65);\", \"double t113 = Power(t12,-3);\", \"double t114 = M*t21;\", \"double t116 = -6*M*t1*t2;\", \"double t118 = -4*M*t24;\", \"double t55 = M + r;\", \"double t125 = -r;\", \"double t126 = M + t125;\", \"double t31 = Power(r,7);\", \"double t36 = 5*r;\", \"double t45 = 7*t1;\", \"double t35 = 4*M;\", \"double t120 = 3*r;\", \"double t57 = 2*M;\", \"double t58 = r + t57;\", \"double t177 = Sin(t8);\", \"double t138 = 1/t79;\", \"double t145 = -(t2*t3*t7*t86);\", \"double t185 = -(t2*t79*t87);\", \"double t186 = t185 + t75;\", \"double t107 = Power(a,3);\", \"double t108 = 2*t1*t2;\", \"double t109 = -4*t1*t22;\", \"double t110 = t108 + t109 + t21 + t24;\", \"double t199 = Csc(theta);\", \"double t200 = Power(t199,4);\", \"double t13 = 1/t12;\", \"double t33 = Power(r,8);\", \"double t48 = 2*t22;\", \"double t97 = 2*r;\", \"double t98 = M + t97;\", \"double t60 = 6*t22;\", \"double t251 = 8*theta;\", \"double t252 = Cos(t251);\", \"double t61 = 2*t1;\", \"double t29 = Power(r,6);\", \"double t240 = -2*M*r;\", \"double t220 = Power(r,9);\", \"double t43 = 12*t22;\", \"double t241 = 17*t1;\", \"double t272 = Power(a,10);\", \"double t198 = Cot(theta);\", \"out(0) = 0;\", \"out(1) = (t13*t7*(-2*M*t14 + 6*r*t14 + 32*M*t1*t17 + 26*t17*t19 + 36*t19*t21*t22 + 54*M*t21*t24 + 24*t21*t26 + 16*t2*t22*t26 + 28*M*t2*t29 + 4*t2*t31 + 8*M*t33 - 2*t21*(t21*t55 - t1*t2*t58 - t19*(t40 + t60 + t61))*t66 + r*t14*t69 + t17*t19*t69 + 2*r*t17*t22*t69 - t2*(t17*(t35 + t36) + 4*t26*(t1 + 4*t22 + t40) + 4*t19*t2*(15*M*r + t43 + t45) + r*t21*(52*M*r + 29*t1 + t48))*t9)*t92)/8.;\", \"out(2) = chtth;\", \"out(3) = 0;\", \"out(4) = 0;\", \"out(5) = 0;\", \"out(6) = a*t87*t92*(-(M*t2*(-t1 + t2)*t9) + r*(t21 + t19*t95 + r*t2*t98));\", \"out(7) = 0;\", \"out(8) = -(t107*t110*t3*Power(t86,3)*t92);\", \"out(9) = 0;\", \"out(10) = (t113*t7*t79*(t114 + t116 + t118 - 2*t19*t2 - 5*r*t21 + t126*t21*t66 + 2*t2*t9*((M + t120)*t2 + t1*t95)))/4.;\", \"out(11) = 0;\", \"out(12) = 0;\", \"out(13) = (a*t113*t7*t79*t87*(t114 + t116 + t118 - 6*t19*t2 - 3*r*t21 + t21*t55*t66 + 2*t2*(3*t1 + t2)*t55*t9))/4.;\", \"out(14) = t138*(r*(-(M*r) + t2) + t126*t2*t4)*t7;\", \"out(15) = t145;\", \"out(16) = 0;\", \"out(17) = -(r*t7*t79);\", \"out(18) = 0;\", \"out(19) = -0.0625*(t113*t7*t79*t87*(-18*M*t1*t21 - 6*t19*t21 - 8*M*t2*t24 + 16*t31 + 2*r*t21*(-3*M*r + 4*t2 + t45)*t66 - M*t17*t69 + r*t17*t69 + t2*t9*((M + 7*r)*t21 + 8*(M + 6*r)*t24 + 8*t1*t2*(t36 + t94))));\", \"out(20) = -0.5*(t113*t177*t2*t7*(-((6*M + r)*t19) - 2*t21 - r*t2*(t120 + t35) + t2*t79*t9));\", \"out(21) = 0;\", \"out(22) = 0;\", \"out(23) = (a*t113*t177*(t2 + r*t58)*t7*t75)/2.;\", \"out(24) = t138*t2*t3*t7*t86;\", \"out(25) = r*t7;\", \"out(26) = 0;\", \"out(27) = t145;\", \"out(28) = 0;\", \"out(29) = t113*t86*(-(t12*t186*t3) - 2*t177*t186*t2*t86 + t12*t186*t2*t3*t7*t87 + t12*t2*t3*t79*t87);\", \"out(30) = 0;\", \"out(31) = (2*a*M*(t1 - t2) + 4*t107*t55*t87)*t92;\", \"out(32) = -((a*t110*t198*t200)/(4*(t17 + r*t21*t77) + t200*t75*t79 - 2*Power(t199,2)*t2*t85));\", \"out(33) = 0;\", \"out(34) = 0;\", \"out(35) = 0;\", \"out(36) = (t13*t7*t92*(M*t14 + 15*r*t14 + 76*M*t1*t17 + 72*t17*t19 + 72*t19*t21*t22 + 16*t220 + 72*M*t21*t24 - M*t14*t252 + r*t14*t252 + 60*t21*t26 + 32*t2*t22*t26 - 16*t2*t31 - 32*M*t33 + 2*M*t14*t69 + 8*r*t14*t69 - 6*M*t1*t17*t69 + 16*t17*t19*t69 + 4*r*t17*t22*t69 - 2*t2*((M + 4*r)*t17 + 16*t19*t2*(5*M*r + t1 + 3*t22) + 8*t26*(6*M*r - 5*t1 + t48) + r*t21*(61*M*r + 32*t1 + t48))*t9 + 4*t1*t21*t66*(r*(t240 + t241 + t60) + 5*t2*t98)))/16.;\", \"out(37) = 0;\", \"out(38) = -0.25*(t13*t198*(16*Power(r,10) - 78*M*r*t14 - 51*t1*t14 - 208*M*t17*t19 - 64*t1*t17*t22 - 32*M*t220 - 48*t17*t24 - 120*t21*t22*t24 - 2*M*r*t14*t252 + t1*t14*t252 - 264*M*t21*t26 - 9*t272 + t252*t272 + 2*t21*t29 - 96*t2*t22*t29 - 96*M*t2*t31 + 24*t2*t33 + 6*t1*t14*t69 - 16*M*t17*t19*t69 + 4*t1*t17*t22*t69 + 7*t17*t24*t69 - t272*t69 + 2*t21*t66*(4*t17 + r*t21*(-8*M + t36) + t24*(-28*M*r + 11*t1 + t43) + 4*t19*t2*(t120 + t76)) + t2*(17*t14 + 2*r*(32*M + 57*r)*t17 + t1*t21*(112*M*r + 177*t1 + 60*t22) + 8*t2*t24*(16*M*r + t241 + t43) + 8*t29*(-4*M*r + t43 + t45))*t9))/((t11 + t2 + t61)*(t17 + 8*M*t19*t2 + 10*M*r*t21 + 3*t1*t21 + 8*t1*t2*t22 + 4*M*t26 - 2*t29 - t21*(t1 + t2 + t240)*t66 - 2*t2*(t21 + 4*r*t2*t55 + t83 + t84)*t9));\", \"out(39) = 0;\"}",
+       "data": "\"long double t1 = pow(r,2);\\nlong double t3 = pow(spin,2);\\nlong double t23 = pow(spin,4);\\nlong double t21 = pow(r,3);\\nlong double t13 = 2*th;\\nlong double t14 = cos(t13);\\nlong double t35 = sin(th);\\nlong double t36 = pow(t35,2);\\nlong double t8 = cos(th);\\nlong double t9 = pow(t8,2);\\nlong double t48 = t3*t9;\\nlong double t49 = t1 + t48;\\nlong double t37 = t1 + t3;\\nlong double t38 = pow(t37,2);\\nlong double t39 = -2 + r;\\nlong double t40 = r*t39;\\nlong double t41 = t3 + t40;\\nlong double t42 = -(t3*t36*t41);\\nlong double t43 = t38 + t42;\\nlong double t2 = -2*r;\\nlong double t4 = t1 + t2 + t3;\\nlong double t15 = t14*t3;\\nlong double t16 = t1 + t15;\\nlong double t17 = 1/t16;\\nlong double t44 = 2 + r;\\nlong double t45 = r*t44;\\nlong double t46 = t3 + t45;\\nlong double t70 = 3*r;\\nlong double t18 = pow(r,4);\\nlong double t19 = 4*t18;\\nlong double t20 = 6*t1*t3;\\nlong double t22 = 2*t21*t3;\\nlong double t24 = -t23;\\nlong double t25 = 5*r*t23;\\nlong double t26 = 3*t1;\\nlong double t27 = 3*r*t3;\\nlong double t28 = t21 + t26 + t27 + t3;\\nlong double t29 = -2*t14*t28*t3;\\nlong double t30 = -1 + r;\\nlong double t31 = 4*th;\\nlong double t32 = cos(t31);\\nlong double t33 = t23*t30*t32;\\nlong double t34 = t19 + t20 + t22 + t24 + t25 + t29 + t33;\\nlong double t47 = pow(t46,2);\\nlong double t50 = pow(t49,3);\\nlong double t51 = pow(t35,4);\\nlong double t52 = t1*t3*t47*t50*t51;\\nlong double t53 = pow(b1,2);\\nlong double t54 = pow(t16,2);\\nlong double t55 = -(t3*t4*t53*t54);\\nlong double t56 = r*t3*t9;\\nlong double t57 = t21 + t56;\\nlong double t58 = pow(t57,2);\\nlong double t59 = -4*t3*t36;\\nlong double t60 = t3 + t40 + t59;\\nlong double t61 = t58*t60;\\nlong double t62 = t55 + t61;\\nlong double t63 = -(t36*t43*t49*t62);\\nlong double t64 = t52 + t63;\\nlong double t65 = 1/t64;\\nlong double t67 = pow(t49,2);\\nlong double t97 = t14*t3*t4;\\nlong double t5 = b1*r*spin;\\nlong double t6 = 1/r;\\nlong double t7 = pow(spin,3);\\nlong double t11 = b1*t6*t7*t9;\\nlong double t12 = t11 + t5;\\nlong double t77 = 1 + r;\\nlong double t74 = 2*t3;\\nlong double t125 = pow(spin,6);\\nlong double t138 = pow(r,5);\\nlong double t71 = 2*t1;\\nlong double t165 = pow(r,9);\\nlong double t168 = pow(r,10);\\nlong double t133 = pow(r,6);\\nlong double t135 = pow(r,7);\\nlong double t163 = pow(r,8);\\nlong double t183 = pow(spin,8);\\nlong double t189 = pow(spin,10);\\nlong double t258 = 6*th;\\nlong double t259 = cos(t258);\\nlong double t192 = pow(spin,12);\\nlong double t271 = 8*th;\\nlong double t272 = cos(t271);\\nlong double t131 = pow(t35,3);\\nlong double t117 = -3*r;\\nlong double t68 = r + t3;\\nlong double t69 = 2*t21*t68;\\nlong double t72 = t3 + t70 + t71;\\nlong double t73 = -2*r*t14*t3*t72;\\nlong double t75 = t1 + t70 + t74;\\nlong double t76 = -(r*t75);\\nlong double t78 = t14*t3*t77;\\nlong double t79 = t76 + t78;\\nlong double t80 = -2*t3*t79*t9;\\nlong double t81 = t69 + t73 + t80;\\nlong double t107 = -4*t18;\\nlong double t108 = -6*t1*t3;\\nlong double t88 = 2*r;\\nlong double t89 = t1 + t3 + t88;\\nlong double t90 = pow(t89,2);\\nlong double t91 = 2*t38*t90;\\nlong double t92 = -6*t21;\\nlong double t93 = -t18;\\nlong double t94 = -4*r*t3;\\nlong double t95 = -3*t1*t3;\\nlong double t96 = -2*t23;\\nlong double t98 = t92 + t93 + t94 + t95 + t96 + t97;\\nlong double t99 = 2*t18;\\nlong double t100 = 2*r*t3;\\nlong double t101 = 3*t1*t3;\\nlong double t102 = t100 + t101 + t23 + t97 + t99;\\nlong double t103 = -(t102*t98);\\nlong double t104 = t103 + t91;\\nlong double t105 = sin(t13);\\nlong double t298 = pow(t16,-3);\\nlong double t109 = -6*t21*t3;\\nlong double t110 = -3*r*t23;\\nlong double t111 = t26 + t3;\\nlong double t112 = 2*t111*t14*t3*t77;\\nlong double t113 = t23*t32*t77;\\nlong double t114 = t107 + t108 + t109 + t110 + t112 + t113 + t23;\\nlong double t299 = -(t3*t36*t47);\\nlong double t300 = t43*t60;\\nlong double t301 = t299 + t300;\\nlong double t83 = -(t3*t36*t4);\\nlong double t84 = t38 + t83;\\nlong double t148 = -t3;\\nlong double t134 = 12*t133;\\nlong double t136 = 4*t135;\\nlong double t137 = 10*t18*t3;\\nlong double t139 = 10*t138*t3;\\nlong double t140 = 3*t1*t23;\\nlong double t141 = 8*t21*t23;\\nlong double t142 = -t125;\\nlong double t143 = 2*r*t125;\\nlong double t144 = 5*t18;\\nlong double t145 = r*t23;\\nlong double t146 = t138 + t144 + t145 + t22 + t24;\\nlong double t147 = 2*t14*t146*t3;\\nlong double t149 = t1 + t148;\\nlong double t150 = t149*t23*t32;\\nlong double t151 = t134 + t136 + t137 + t139 + t140 + t141 + t142 + t143 + t147 + t150;\\nlong double t159 = pow(r,11);\\nlong double t161 = pow(r,12);\\nlong double t194 = 32*t165;\\nlong double t195 = -64*t168;\\nlong double t196 = -6*t53;\\nlong double t197 = 1 + t196;\\nlong double t198 = 16*t135*t197*t3;\\nlong double t199 = -12*t53;\\nlong double t200 = 7 + t199;\\nlong double t201 = 8*t138*t200*t23;\\nlong double t202 = 3*t53;\\nlong double t203 = -2 + t202;\\nlong double t204 = -8*t125*t203*t21;\\nlong double t205 = -24*r*t183*t53;\\nlong double t206 = 6*t189*t53;\\nlong double t207 = -3 + t53;\\nlong double t208 = 5*t207*t3;\\nlong double t209 = -8 + t208;\\nlong double t210 = 8*t163*t209;\\nlong double t211 = -5*t183;\\nlong double t212 = 7*t3;\\nlong double t213 = 6 + t212;\\nlong double t214 = 4*t125*t213*t53;\\nlong double t215 = t211 + t214;\\nlong double t216 = t1*t215;\\nlong double t217 = -15*t3;\\nlong double t218 = 39*t3;\\nlong double t219 = -32 + t218;\\nlong double t220 = t219*t53;\\nlong double t221 = 2 + t217 + t220;\\nlong double t222 = 2*t18*t221*t23;\\nlong double t223 = -81*t23;\\nlong double t224 = 3*t23;\\nlong double t225 = t224 + t3;\\nlong double t226 = 32*t225*t53;\\nlong double t227 = t223 + t226;\\nlong double t228 = t133*t227;\\nlong double t229 = t194 + t195 + t198 + t201 + t204 + t205 + t206 + t210 + t216 + t222 + t228;\\nlong double t231 = -10*t135;\\nlong double t232 = 17*t163;\\nlong double t233 = 6*t53;\\nlong double t234 = 1 + t233;\\nlong double t235 = 4*t138*t234*t3;\\nlong double t236 = 24*t21*t23*t53;\\nlong double t237 = -2*t183*t53;\\nlong double t238 = -8*t53;\\nlong double t239 = 30 + t238;\\nlong double t240 = t239*t3;\\nlong double t241 = 16 + t240;\\nlong double t242 = t133*t241;\\nlong double t243 = -8*t3;\\nlong double t244 = 9*t3;\\nlong double t245 = 8 + t244;\\nlong double t246 = t245*t53;\\nlong double t247 = -2 + t243 + t246;\\nlong double t248 = -2*t18*t247*t3;\\nlong double t249 = 3*t125;\\nlong double t250 = 8*t23;\\nlong double t251 = -12*t125;\\nlong double t252 = t250 + t251;\\nlong double t253 = t252*t53;\\nlong double t254 = t249 + t253;\\nlong double t255 = t1*t254;\\nlong double t256 = t231 + t232 + t235 + t236 + t237 + t242 + t248 + t255;\\nlong double t279 = 16*t135;\\nlong double t280 = -8*t18*t3;\\nlong double t281 = -18*t1*t23;\\nlong double t282 = -6*t21*t23;\\nlong double t283 = 8*t18;\\nlong double t284 = 48*t138;\\nlong double t285 = 24*t1*t3;\\nlong double t286 = 40*t21*t3;\\nlong double t287 = 7*r*t23;\\nlong double t288 = t23 + t283 + t284 + t285 + t286 + t287;\\nlong double t289 = t14*t288*t3;\\nlong double t290 = 7*t1;\\nlong double t291 = 4*t3;\\nlong double t292 = t117 + t290 + t291;\\nlong double t293 = 2*r*t23*t292*t32;\\nlong double t294 = -(t125*t259);\\nlong double t295 = r*t125*t259;\\nlong double t296 = t279 + t280 + t281 + t282 + t289 + t293 + t294 + t295;\\nlong double t375 = 1/t49;\\nlong double t116 = 1/t4;\\nlong double t304 = -2*t21*t3;\\nlong double t305 = -5*r*t23;\\nlong double t306 = 2*t14*t28*t3;\\nlong double t307 = -(t23*t30*t32);\\nlong double t308 = t107 + t108 + t23 + t304 + t305 + t306 + t307;\\nlong double t399 = -32*t125*t53;\\nlong double t118 = t1 + t117 + t74;\\nlong double t157 = t15 + t3 + t71;\\nlong double t158 = pow(t157,2);\\nchrist[0][0][0] = -0.25*(t1*t12*t17*t34*t36*t4*t43*t65);\\nchrist[0][0][1] = -0.5*(t1*t17*t36*t65*t67*(t3*t36*t46*t81 + (t34*t84)/2.));\\nchrist[0][0][2] = (t1*t104*t105*t17*t3*t36*t65*t67)/4.;\\nchrist[0][0][3] = (spin*t1*t114*t12*t17*t4*t43*t51*t65)/4.;\\nchrist[0][1][1] = b1*spin*t116*t36*t43*t54*t65*(t118*t18 + (t125 - r*t23)*pow(t8,4) + t1*t3*(-4*r + t1 + 3*t3)*t9);\\nchrist[0][1][2] = -(t1*t12*t131*t3*t43*t54*t65*t8);\\nchrist[0][1][3] = -0.25*(spin*t151*t51*t58*t65);\\nchrist[0][2][2] = -(t12*t21*t36*t4*t43*t54*t65);\\nchrist[0][2][3] = (-8*t1*t131*t158*(t18 + t23 + 2*t1*(-2 + t3))*t7*t8)/(24*t125*t133 - 144*t125*t138 - 64*t159 + 32*t161 - 16*t125*t18 + 15*t18*t183 + 3*t1*t189 - 30*t183*t21 - 64*t133*t23 - 312*t135*t23 + 12*t163*t23 + 14*t125*t133*t259 - 16*t125*t138*t259 + 8*t125*t18*t259 + 20*t18*t183*t259 + 6*t1*t189*t259 + t18*t183*t272 + t1*t189*t272 - 2*t183*t21*t272 - 128*t163*t3 - 192*t165*t3 + 32*t168*t3 - 2*t14*t229*t3 + 4*t23*t256*t32 - 96*t125*t133*t53 + 96*t125*t138*t53 - 64*t125*t18*t53 + 32*t1*t183*t53 - 88*t18*t183*t53 - 48*t1*t189*t53 - 8*t192*t53 + 96*t183*t21*t53 + 64*t133*t23*t53 + 64*t135*t23*t53 - 80*t163*t23*t53 - 16*t1*t183*t259*t53 - 4*t18*t183*t259*t53 + 16*r*t189*t259*t53 - 8*t1*t189*t259*t53 - 4*t192*t259*t53 + 16*t183*t21*t259*t53 + 64*t165*t3*t53 - 32*t168*t3*t53);\\nchrist[0][3][3] = -0.0625*(t1*t12*t17*t296*t4*t43*t51*t65);\\nchrist[1][0][0] = (t1*t298*t301*t34*t36*t4*t65*t67)/4.;\\nchrist[1][0][1] = -0.5*(t1*t12*t17*t36*t4*t65*((t308*t43)/2. - t3*t36*t46*t81));\\nchrist[1][0][2] = -0.25*(t1*t104*t105*t12*t17*t3*t36*t4*t65);\\nchrist[1][0][3] = -0.25*(spin*t114*t298*t301*t4*t51*t58*t65);\\nchrist[1][1][1] = -(t1*t36*t4*t49*t65*((t3*t53*t54*t84)/pow(r,3) - (t301*t49*(r*(r + t148) + t3*t30*t9))/pow(t4,2)));\\nchrist[1][1][2] = t1*t131*t3*t301*t65*t67*t8;\\nchrist[1][1][3] = (spin*t1*t12*t151*t4*t51*t65)/4.;\\nchrist[1][2][2] = t21*t301*t36*t4*t65*t67;\\nchrist[1][2][3] = (-32*b1*r*t131*t23*pow(t4,2)*t49*t8*t89)/(-24*t125*t133 + 144*t125*t138 + 64*t159 - 32*t161 + 16*t125*t18 - 15*t18*t183 - 3*t1*t189 + 30*t183*t21 + 64*t133*t23 + 312*t135*t23 - 12*t163*t23 - 14*t125*t133*t259 + 16*t125*t138*t259 - 8*t125*t18*t259 - 20*t18*t183*t259 - 6*t1*t189*t259 - t18*t183*t272 - t1*t189*t272 + 2*t183*t21*t272 + 128*t163*t3 + 192*t165*t3 - 32*t168*t3 + 2*t14*t229*t3 - 4*t23*t256*t32 + 96*t125*t133*t53 - 96*t125*t138*t53 + 64*t125*t18*t53 - 32*t1*t183*t53 + 88*t18*t183*t53 + 48*t1*t189*t53 + 8*t192*t53 - 96*t183*t21*t53 - 64*t133*t23*t53 - 64*t135*t23*t53 + 80*t163*t23*t53 + 16*t1*t183*t259*t53 + 4*t18*t183*t259*t53 - 16*r*t189*t259*t53 + 8*t1*t189*t259*t53 + 4*t192*t259*t53 - 16*t183*t21*t259*t53 - 64*t165*t3*t53 + 32*t168*t3*t53);\\nchrist[1][3][3] = (t296*t298*t301*t4*t51*t58*t65)/16.;\\nchrist[2][0][0] = -0.5*(t105*t298*t3*t375*t98);\\nchrist[2][0][1] = 0;\\nchrist[2][0][2] = 0;\\nchrist[2][0][3] = (spin*t105*t298*t375*t38*t89)/2.;\\nchrist[2][1][1] = t116*t3*t35*t375*t8;\\nchrist[2][1][2] = r*t375;\\nchrist[2][1][3] = 0;\\nchrist[2][2][2] = -(t3*t35*t375*t8);\\nchrist[2][2][3] = 0;\\nchrist[2][3][3] = t298*t35*(-2*t105*t3*t35*t43 + t16*t3*t36*t41*t8 - t16*t43*t8 + t16*t3*t36*t375*t43*t8);\\nchrist[3][0][0] = -0.25*(b1*r*t17*t3*t34*t36*t4*t46*t49*t65);\\nchrist[3][0][1] = (spin*t17*t36*t65*(t308*t46*t58 - 2*t62*t81))/4.;\\nchrist[3][0][2] = (spin*t105*t4*t65*(t14*t3*(48*t133 + t399 + t1*t23*(15 - 64*t53) + 16*t18*t3*(3 - 2*t53)) + t1*(10*t125 + 32*t133 + 36*t1*t23 + t125*t259 + 48*t18*t3 + t399 - 64*t1*t23*t53 - 32*t18*t3*t53 + 6*t23*t32*(t3 + t71)))*t89)/64.;\\nchrist[3][0][3] = (b1*r*t114*t17*t4*t46*t49*t51*t65*t7)/4.;\\nchrist[3][1][1] = (b1*t1*t116*pow(t16,4)*t3*t36*t46*t49*t65*(t1*t118 + (t23 - r*t3)*t9))/pow(t21 + r*t14*t3,2);\\nchrist[3][1][2] = -(b1*r*t131*t23*t46*t49*t54*t65*t8);\\nchrist[3][1][3] = -0.5*(t17*t65*(((r*(r*(t110 + 8*t138 - 9*t23 - 4*t1*t3) + t23*t292*t32) + t14*t3*(24*t138 + t19 + t23 + 3*r*t23 + 12*t1*t3 + 20*t21*t3 + t33))*t36*t62)/4. + t1*t3*t46*t51*t67*t81));\\nchrist[3][2][2] = -(b1*t1*t3*t36*t4*t46*t49*t54*t65);\\nchrist[3][2][3] = t17*t65*(t35*t62*(-2*t105*t3*t35*t43*t49 + t16*t3*t36*t43*t8 + t16*t3*t36*t41*t49*t8 - t16*t43*t49*t8) + (t1*t131*t158*t3*t38*t8*t90)/4.);\\nchrist[3][3][3] = -0.0625*(b1*r*t17*t296*t3*t4*t46*t49*t51*t65);\"",
        "mime": "text/plain"
       }
      ],
-     "id": "f309e87c-f579-45ac-8c8e-49ca26814659",
+     "id": "61645f11-46dc-45ff-adb4-0a7a1aeca21f",
      "metadata": {
-      "cellLabel": "Out[329]= ",
-      "isBoxData": false
-     }
-    },
-    {
-     "items": [
-      {
-       "data": "<div class=\"wexpr\"><wgrid style=\"grid-template-columns:repeat(1,max-content);\"><w><w>double t1 = pow(r,2);</w></w><w><w>double t2 = pow(a,2);</w></w><w><w>double t14 = pow(a,8);</w></w><w><w>double t17 = pow(a,6);</w></w><w><w>double t19 = pow(r,3);</w></w><w><w>double t21 = pow(a,4);</w></w><w><w>double t22 = pow(M,2);</w></w><w><w>double t26 = pow(r,5);</w></w><w><w>double t8 = 2*theta;</w></w><w><w>double t9 = cos(t8);</w></w><w><w>double t40 = 3*M*r;</w></w><w><w>double t68 = 6*theta;</w></w><w><w>double t69 = cos(t68);</w></w><w><w>double t24 = pow(r,4);</w></w><w><w>double t76 = -2*M;</w></w><w><w>double t77 = r + t76;</w></w><w><w>double t78 = r*t77;</w></w><w><w>double t79 = t2 + t78;</w></w><w><w>double t86 = sin(theta);</w></w><w><w>double t87 = pow(t86,2);</w></w><w><w>double t74 = t1 + t2;</w></w><w><w>double t75 = pow(t74,2);</w></w><w><w>double t80 = t75*t79;</w></w><w><w>double t81 = 3*t21;</w></w><w><w>double t82 = 6*t1*t2;</w></w><w><w>double t83 = 4*t1*t22;</w></w><w><w>double t84 = 3*t24;</w></w><w><w>double t85 = t81 + t82 + t83 + t84;</w></w><w><w>double t88 = -2*t2*t85*t87;</w></w><w><w>double t89 = pow(t86,4);</w></w><w><w>double t90 = 4*t21*t79*t89;</w></w><w><w>double t91 = t80 + t88 + t90;</w></w><w><w>double t92 = 1/t91;</w></w><w><w>double t3 = cos(theta);</w></w><w><w>double t4 = pow(t3,2);</w></w><w><w>double t5 = t2*t4;</w></w><w><w>double t6 = t1 + t5;</w></w><w><w>double t7 = 1/t6;</w></w><w><w>double t11 = t2*t9;</w></w><w><w>double t12 = t1 + t11;</w></w><w><w>double t94 = 3*M;</w></w><w><w>double t95 = r + t94;</w></w><w><w>double t65 = 4*theta;</w></w><w><w>double t66 = cos(t65);</w></w><w><w>double t113 = pow(t12,-3);</w></w><w><w>double t114 = M*t21;</w></w><w><w>double t116 = -6*M*t1*t2;</w></w><w><w>double t118 = -4*M*t24;</w></w><w><w>double t55 = M + r;</w></w><w><w>double t125 = -r;</w></w><w><w>double t126 = M + t125;</w></w><w><w>double t31 = pow(r,7);</w></w><w><w>double t36 = 5*r;</w></w><w><w>double t45 = 7*t1;</w></w><w><w>double t35 = 4*M;</w></w><w><w>double t120 = 3*r;</w></w><w><w>double t57 = 2*M;</w></w><w><w>double t58 = r + t57;</w></w><w><w>double t177 = sin(t8);</w></w><w><w>double t138 = 1/t79;</w></w><w><w>double t145 = -(t2*t3*t7*t86);</w></w><w><w>double t185 = -(t2*t79*t87);</w></w><w><w>double t186 = t185 + t75;</w></w><w><w>double t107 = pow(a,3);</w></w><w><w>double t108 = 2*t1*t2;</w></w><w><w>double t109 = -4*t1*t22;</w></w><w><w>double t110 = t108 + t109 + t21 + t24;</w></w><w><w>double t199 = Csc(theta);</w></w><w><w>double t200 = pow(t199,4);</w></w><w><w>double t13 = 1/t12;</w></w><w><w>double t33 = pow(r,8);</w></w><w><w>double t48 = 2*t22;</w></w><w><w>double t97 = 2*r;</w></w><w><w>double t98 = M + t97;</w></w><w><w>double t60 = 6*t22;</w></w><w><w>double t251 = 8*theta;</w></w><w><w>double t252 = cos(t251);</w></w><w><w>double t61 = 2*t1;</w></w><w><w>double t29 = pow(r,6);</w></w><w><w>double t240 = -2*M*r;</w></w><w><w>double t220 = pow(r,9);</w></w><w><w>double t43 = 12*t22;</w></w><w><w>double t241 = 17*t1;</w></w><w><w>double t272 = pow(a,10);</w></w><w><w>double t198 = Cot(theta);</w></w><w><w>chttt = 0;</w></w><w><w>chttr = (t13*t7*(-2*M*t14 + 6*r*t14 + 32*M*t1*t17 + 26*t17*t19 + 36*t19*t21*t22 + 54*M*t21*t24 + 24*t21*t26 + 16*t2*t22*t26 + 28*M*t2*t29 + 4*t2*t31 + 8*M*t33 - 2*t21*(t21*t55 - t1*t2*t58 - t19*(t40 + t60 + t61))*t66 + r*t14*t69 + t17*t19*t69 + 2*r*t17*t22*t69 - t2*(t17*(t35 + t36) + 4*t26*(t1 + 4*t22 + t40) + 4*t19*t2*(15*M*r + t43 + t45) + r*t21*(52*M*r + 29*t1 + t48))*t9)*t92)/8.;</w></w><w><w>chttth = chtth;</w></w><w><w>chttp = 0;</w></w><w><w>chtrr = 0;</w></w><w><w>chtrth = 0;</w></w><w><w>chtrp = a*t87*t92*(-(M*t2*(-t1 + t2)*t9) + r*(t21 + t19*t95 + r*t2*t98));</w></w><w><w>chtthth = 0;</w></w><w><w>chtthp = -(t107*t110*t3*pow(t86,3)*t92);</w></w><w><w>chtpp = 0;</w></w><w><w>chrtt = (t113*t7*t79*(t114 + t116 + t118 - 2*t19*t2 - 5*r*t21 + t126*t21*t66 + 2*t2*t9*((M + t120)*t2 + t1*t95)))/4.;</w></w><w><w>chrtr = 0;</w></w><w><w>chrtth = 0;</w></w><w><w>chrtp = (a*t113*t7*t79*t87*(t114 + t116 + t118 - 6*t19*t2 - 3*r*t21 + t21*t55*t66 + 2*t2*(3*t1 + t2)*t55*t9))/4.;</w></w><w><w>chrrr = t138*(r*(-(M*r) + t2) + t126*t2*t4)*t7;</w></w><w><w>chrrth = t145;</w></w><w><w>chrrp = 0;</w></w><w><w>chrthth = -(r*t7*t79);</w></w><w><w>chrthp = 0;</w></w><w><w>chrpp = -0.0625*(t113*t7*t79*t87*(-18*M*t1*t21 - 6*t19*t21 - 8*M*t2*t24 + 16*t31 + 2*r*t21*(-3*M*r + 4*t2 + t45)*t66 - M*t17*t69 + r*t17*t69 + t2*t9*((M + 7*r)*t21 + 8*(M + 6*r)*t24 + 8*t1*t2*(t36 + t94))));</w></w><w><w>chthtt = -0.5*(t113*t177*t2*t7*(-((6*M + r)*t19) - 2*t21 - r*t2*(t120 + t35) + t2*t79*t9));</w></w><w><w>chthtr = 0;</w></w><w><w>chthtth = 0;</w></w><w><w>chthtp = (a*t113*t177*(t2 + r*t58)*t7*t75)/2.;</w></w><w><w>chthrr = t138*t2*t3*t7*t86;</w></w><w><w>chthrth = r*t7;</w></w><w><w>chthrp = 0;</w></w><w><w>chththth = t145;</w></w><w><w>chththp = 0;</w></w><w><w>chthpp = t113*t86*(-(t12*t186*t3) - 2*t177*t186*t2*t86 + t12*t186*t2*t3*t7*t87 + t12*t2*t3*t79*t87);</w></w><w><w>chptt = 0;</w></w><w><w>chptr = (2*a*M*(t1 - t2) + 4*t107*t55*t87)*t92;</w></w><w><w>chptth = -((a*t110*t198*t200)/(4*(t17 + r*t21*t77) + t200*t75*t79 - 2*pow(t199,2)*t2*t85));</w></w><w><w>chptp = 0;</w></w><w><w>chprr = 0;</w></w><w><w>chprth = 0;</w></w><w><w>chprp = (t13*t7*t92*(M*t14 + 15*r*t14 + 76*M*t1*t17 + 72*t17*t19 + 72*t19*t21*t22 + 16*t220 + 72*M*t21*t24 - M*t14*t252 + r*t14*t252 + 60*t21*t26 + 32*t2*t22*t26 - 16*t2*t31 - 32*M*t33 + 2*M*t14*t69 + 8*r*t14*t69 - 6*M*t1*t17*t69 + 16*t17*t19*t69 + 4*r*t17*t22*t69 - 2*t2*((M + 4*r)*t17 + 16*t19*t2*(5*M*r + t1 + 3*t22) + 8*t26*(6*M*r - 5*t1 + t48) + r*t21*(61*M*r + 32*t1 + t48))*t9 + 4*t1*t21*t66*(r*(t240 + t241 + t60) + 5*t2*t98)))/16.;</w></w><w><w>chpthth = 0;</w></w><w><w>chpthp = -0.25*(t13*t198*(16*pow(r,10) - 78*M*r*t14 - 51*t1*t14 - 208*M*t17*t19 - 64*t1*t17*t22 - 32*M*t220 - 48*t17*t24 - 120*t21*t22*t24 - 2*M*r*t14*t252 + t1*t14*t252 - 264*M*t21*t26 - 9*t272 + t252*t272 + 2*t21*t29 - 96*t2*t22*t29 - 96*M*t2*t31 + 24*t2*t33 + 6*t1*t14*t69 - 16*M*t17*t19*t69 + 4*t1*t17*t22*t69 + 7*t17*t24*t69 - t272*t69 + 2*t21*t66*(4*t17 + r*t21*(-8*M + t36) + t24*(-28*M*r + 11*t1 + t43) + 4*t19*t2*(t120 + t76)) + t2*(17*t14 + 2*r*(32*M + 57*r)*t17 + t1*t21*(112*M*r + 177*t1 + 60*t22) + 8*t2*t24*(16*M*r + t241 + t43) + 8*t29*(-4*M*r + t43 + t45))*t9))/((t11 + t2 + t61)*(t17 + 8*M*t19*t2 + 10*M*r*t21 + 3*t1*t21 + 8*t1*t2*t22 + 4*M*t26 - 2*t29 - t21*(t1 + t2 + t240)*t66 - 2*t2*(t21 + 4*r*t2*t55 + t83 + t84)*t9));</w></w><w><w>chppp = 0;</w></w></wgrid></div>",
-       "mime": "x-application/wolfram-language-html"
-      },
-      {
-       "data": "Column[{\"double t1 = pow(r,2);\", \"double t2 = pow(a,2);\", \"double t14 = pow(a,8);\", \"double t17 = pow(a,6);\", \"double t19 = pow(r,3);\", \"double t21 = pow(a,4);\", \"double t22 = pow(M,2);\", \"double t26 = pow(r,5);\", \"double t8 = 2*theta;\", \"double t9 = cos(t8);\", \"double t40 = 3*M*r;\", \"double t68 = 6*theta;\", \"double t69 = cos(t68);\", \"double t24 = pow(r,4);\", \"double t76 = -2*M;\", \"double t77 = r + t76;\", \"double t78 = r*t77;\", \"double t79 = t2 + t78;\", \"double t86 = sin(theta);\", \"double t87 = pow(t86,2);\", \"double t74 = t1 + t2;\", \"double t75 = pow(t74,2);\", \"double t80 = t75*t79;\", \"double t81 = 3*t21;\", \"double t82 = 6*t1*t2;\", \"double t83 = 4*t1*t22;\", \"double t84 = 3*t24;\", \"double t85 = t81 + t82 + t83 + t84;\", \"double t88 = -2*t2*t85*t87;\", \"double t89 = pow(t86,4);\", \"double t90 = 4*t21*t79*t89;\", \"double t91 = t80 + t88 + t90;\", \"double t92 = 1/t91;\", \"double t3 = cos(theta);\", \"double t4 = pow(t3,2);\", \"double t5 = t2*t4;\", \"double t6 = t1 + t5;\", \"double t7 = 1/t6;\", \"double t11 = t2*t9;\", \"double t12 = t1 + t11;\", \"double t94 = 3*M;\", \"double t95 = r + t94;\", \"double t65 = 4*theta;\", \"double t66 = cos(t65);\", \"double t113 = pow(t12,-3);\", \"double t114 = M*t21;\", \"double t116 = -6*M*t1*t2;\", \"double t118 = -4*M*t24;\", \"double t55 = M + r;\", \"double t125 = -r;\", \"double t126 = M + t125;\", \"double t31 = pow(r,7);\", \"double t36 = 5*r;\", \"double t45 = 7*t1;\", \"double t35 = 4*M;\", \"double t120 = 3*r;\", \"double t57 = 2*M;\", \"double t58 = r + t57;\", \"double t177 = sin(t8);\", \"double t138 = 1/t79;\", \"double t145 = -(t2*t3*t7*t86);\", \"double t185 = -(t2*t79*t87);\", \"double t186 = t185 + t75;\", \"double t107 = pow(a,3);\", \"double t108 = 2*t1*t2;\", \"double t109 = -4*t1*t22;\", \"double t110 = t108 + t109 + t21 + t24;\", \"double t199 = Csc(theta);\", \"double t200 = pow(t199,4);\", \"double t13 = 1/t12;\", \"double t33 = pow(r,8);\", \"double t48 = 2*t22;\", \"double t97 = 2*r;\", \"double t98 = M + t97;\", \"double t60 = 6*t22;\", \"double t251 = 8*theta;\", \"double t252 = cos(t251);\", \"double t61 = 2*t1;\", \"double t29 = pow(r,6);\", \"double t240 = -2*M*r;\", \"double t220 = pow(r,9);\", \"double t43 = 12*t22;\", \"double t241 = 17*t1;\", \"double t272 = pow(a,10);\", \"double t198 = Cot(theta);\", \"chttt = 0;\", \"chttr = (t13*t7*(-2*M*t14 + 6*r*t14 + 32*M*t1*t17 + 26*t17*t19 + 36*t19*t21*t22 + 54*M*t21*t24 + 24*t21*t26 + 16*t2*t22*t26 + 28*M*t2*t29 + 4*t2*t31 + 8*M*t33 - 2*t21*(t21*t55 - t1*t2*t58 - t19*(t40 + t60 + t61))*t66 + r*t14*t69 + t17*t19*t69 + 2*r*t17*t22*t69 - t2*(t17*(t35 + t36) + 4*t26*(t1 + 4*t22 + t40) + 4*t19*t2*(15*M*r + t43 + t45) + r*t21*(52*M*r + 29*t1 + t48))*t9)*t92)/8.;\", \"chttth = chtth;\", \"chttp = 0;\", \"chtrr = 0;\", \"chtrth = 0;\", \"chtrp = a*t87*t92*(-(M*t2*(-t1 + t2)*t9) + r*(t21 + t19*t95 + r*t2*t98));\", \"chtthth = 0;\", \"chtthp = -(t107*t110*t3*pow(t86,3)*t92);\", \"chtpp = 0;\", \"chrtt = (t113*t7*t79*(t114 + t116 + t118 - 2*t19*t2 - 5*r*t21 + t126*t21*t66 + 2*t2*t9*((M + t120)*t2 + t1*t95)))/4.;\", \"chrtr = 0;\", \"chrtth = 0;\", \"chrtp = (a*t113*t7*t79*t87*(t114 + t116 + t118 - 6*t19*t2 - 3*r*t21 + t21*t55*t66 + 2*t2*(3*t1 + t2)*t55*t9))/4.;\", \"chrrr = t138*(r*(-(M*r) + t2) + t126*t2*t4)*t7;\", \"chrrth = t145;\", \"chrrp = 0;\", \"chrthth = -(r*t7*t79);\", \"chrthp = 0;\", \"chrpp = -0.0625*(t113*t7*t79*t87*(-18*M*t1*t21 - 6*t19*t21 - 8*M*t2*t24 + 16*t31 + 2*r*t21*(-3*M*r + 4*t2 + t45)*t66 - M*t17*t69 + r*t17*t69 + t2*t9*((M + 7*r)*t21 + 8*(M + 6*r)*t24 + 8*t1*t2*(t36 + t94))));\", \"chthtt = -0.5*(t113*t177*t2*t7*(-((6*M + r)*t19) - 2*t21 - r*t2*(t120 + t35) + t2*t79*t9));\", \"chthtr = 0;\", \"chthtth = 0;\", \"chthtp = (a*t113*t177*(t2 + r*t58)*t7*t75)/2.;\", \"chthrr = t138*t2*t3*t7*t86;\", \"chthrth = r*t7;\", \"chthrp = 0;\", \"chththth = t145;\", \"chththp = 0;\", \"chthpp = t113*t86*(-(t12*t186*t3) - 2*t177*t186*t2*t86 + t12*t186*t2*t3*t7*t87 + t12*t2*t3*t79*t87);\", \"chptt = 0;\", \"chptr = (2*a*M*(t1 - t2) + 4*t107*t55*t87)*t92;\", \"chptth = -((a*t110*t198*t200)/(4*(t17 + r*t21*t77) + t200*t75*t79 - 2*pow(t199,2)*t2*t85));\", \"chptp = 0;\", \"chprr = 0;\", \"chprth = 0;\", \"chprp = (t13*t7*t92*(M*t14 + 15*r*t14 + 76*M*t1*t17 + 72*t17*t19 + 72*t19*t21*t22 + 16*t220 + 72*M*t21*t24 - M*t14*t252 + r*t14*t252 + 60*t21*t26 + 32*t2*t22*t26 - 16*t2*t31 - 32*M*t33 + 2*M*t14*t69 + 8*r*t14*t69 - 6*M*t1*t17*t69 + 16*t17*t19*t69 + 4*r*t17*t22*t69 - 2*t2*((M + 4*r)*t17 + 16*t19*t2*(5*M*r + t1 + 3*t22) + 8*t26*(6*M*r - 5*t1 + t48) + r*t21*(61*M*r + 32*t1 + t48))*t9 + 4*t1*t21*t66*(r*(t240 + t241 + t60) + 5*t2*t98)))/16.;\", \"chpthth = 0;\", \"chpthp = -0.25*(t13*t198*(16*pow(r,10) - 78*M*r*t14 - 51*t1*t14 - 208*M*t17*t19 - 64*t1*t17*t22 - 32*M*t220 - 48*t17*t24 - 120*t21*t22*t24 - 2*M*r*t14*t252 + t1*t14*t252 - 264*M*t21*t26 - 9*t272 + t252*t272 + 2*t21*t29 - 96*t2*t22*t29 - 96*M*t2*t31 + 24*t2*t33 + 6*t1*t14*t69 - 16*M*t17*t19*t69 + 4*t1*t17*t22*t69 + 7*t17*t24*t69 - t272*t69 + 2*t21*t66*(4*t17 + r*t21*(-8*M + t36) + t24*(-28*M*r + 11*t1 + t43) + 4*t19*t2*(t120 + t76)) + t2*(17*t14 + 2*r*(32*M + 57*r)*t17 + t1*t21*(112*M*r + 177*t1 + 60*t22) + 8*t2*t24*(16*M*r + t241 + t43) + 8*t29*(-4*M*r + t43 + t45))*t9))/((t11 + t2 + t61)*(t17 + 8*M*t19*t2 + 10*M*r*t21 + 3*t1*t21 + 8*t1*t2*t22 + 4*M*t26 - 2*t29 - t21*(t1 + t2 + t240)*t66 - 2*t2*(t21 + 4*r*t2*t55 + t83 + t84)*t9));\", \"chppp = 0;\"}]",
-       "mime": "text/plain"
-      }
-     ],
-     "id": "b0bf24c4-3c07-46b0-86fe-dd3b91871e1e",
-     "metadata": {
-      "cellLabel": "Out[330]= ",
+      "cellLabel": "Out[380]= ",
       "isBoxData": false
      }
     }
@@ -486,10 +524,25 @@
    "metadata": {},
    "executionSummary": {
     "timing": {
-     "startTime": 1690883843691,
-     "endTime": 1690883843995
+     "startTime": 1691552042873,
+     "endTime": 1691552043472
     },
-    "executionOrder": 329,
+    "executionOrder": 379,
+    "success": true
+   }
+  },
+  {
+   "kind": 2,
+   "value": "output = christoffel;\r\n\r\n(* write to christoffel file *)\r\nExport[\"christoffel.cpp\", output, \"Text\"];",
+   "languageId": "wolfram",
+   "outputs": [],
+   "metadata": {},
+   "executionSummary": {
+    "timing": {
+     "startTime": 1691552044796,
+     "endTime": 1691552044981
+    },
+    "executionOrder": 384,
     "success": true
    }
   }
