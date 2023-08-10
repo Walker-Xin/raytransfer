@@ -9,9 +9,9 @@ When using RayTransfer please cite the following:
 
 ## Usage
 
-RUNNING WITH BUILT-IN JOHANNSEN METRIC
+**Only one non-zero deformation parameter possible.**
 
-**Only one non-zero deformation parameter possible**
+RUNNING WITH BUILT-IN JOHANNSEN METRIC
 
 1. Generate isco.dat file using isco.cpp. First must modify isco.cpp to use the deformation parameter and bounds you want.
 
