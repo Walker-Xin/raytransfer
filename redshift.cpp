@@ -1,154 +1,126 @@
-// TODO: Use metric.cpp for metric and derivative computation
-
-/* Calculate redshift */
 void redshift(long double r, long double th, long double ktkp, long double &gg)
 {
-	long double Omega;
-	long double uet;
-	long double gtt, gtp, gpp, dgttdr, dgtpdr, dgppdr;
-	long double t1, t2, t3, t4, t5, t6, t7, t8, t9, t10, t11, t12, t13, t14, t15, t16, t17, t18, t19, t20, t21, t22, t23, t24, t25, t26, t27, t28, t29, t30, t31;
-
-	/* Calculate necessary metric and derivative of metric components */
-	/* If possible, use Maple or Mathematica to optimize code */
-
-	t1 = r * r;
-	t2 = pow(t1, 0.2e1);
-	t3 = r * t1;
-	t4 = t1 * t2;
-	t5 = a22 + t1;
-	t6 = sin(th);
-	t6 = pow(t6, 0.2e1);
-	t7 = spin * spin;
-	t8 = 2;
-	t9 = (double)t8 * r * t2 - t7 * (-t6 * pow(t5, 0.2e1) + t2) - t4;
-	t10 = cos(th);
-	t10 = t7 * pow(t10, 0.2e1);
-	t11 = (t10 + t1) * r + epsi3;
-	t12 = t7 + t1;
-	t13 = a13 + t3;
-	t5 = t5 * t6;
-	t14 = t12 * t13;
-	t15 = -t5 * t7 * r + t14;
-	t4 = t6 * ((double)t8 * t3 * t2 * t7 - t4 * t7 * t12) + pow(t12, 0.2e1) * pow(t13, 0.2e1);
-	t13 = 0.1e1 / r;
-	t16 = pow(t13, 0.2e1);
-	t17 = t13 * t16;
-	t18 = a13 * t17 + 0.1e1;
-	t19 = a22 * t16 + 0.1e1;
-	t20 = t12 * t18;
-	t21 = (double)t8 * r;
-	t22 = epsi3 * t13 + t1 + t10;
-	t23 = -t7 * t19 * t6 + t20;
-	t24 = 0.3e1 * t1;
-	t10 = t10 + t24;
-	t25 = (0.5e1 / 0.2e1 * t1 + 0.3e1 / 0.2e1 * t7) * r + a13;
-	t24 = r * t25 - t7 * (a22 + t24) * t6 / 0.2e1;
-	t15 = 0.1e1 / t15;
-	t26 = pow(t15, 0.2e1);
-	t27 = t11 * r * t26;
-	t28 = t6 * t11 * t26;
-	t29 = t11 * t13;
-	t30 = t7 * a22;
-	t31 = 0.3e1 / 0.5e1;
-	t23 = 0.1e1 / t23;
-	t19 = (t20 * t19 - t1 + t21 - t7) * pow(t23, 0.2e1);
-	t20 = t6 * spin;
-
-	gtt = t27 * t9;
-	gpp = t28 * t4 * t13;
-	gtp = -t20 * t19 * t22;
-
-	dgttdr = 0.4e1 * t27 * (r * (t3 * (-0.3e1 / 0.2e1 * r + 0.5e1 / 0.2e1) - t7 * (-t5 + t1)) - t24 * t9 * t15) + t9 * t26 * (r * t10 + t11);
-	dgppdr = 0.4e1 * t28 * (-t4 * t24 * t15 * t13 + t14 * t25 + (0.7e1 / 0.2e1 * (-0.4e1 / 0.7e1 * r + 0.1e1) * r - 0.3e1 / 0.2e1 * t7) * t7 * t2 * t6) + t6 * t4 * t26 * t13 * (-t29 + t10);
-	dgtpdr = t20 * (0.5e1 * t29 * (a13 * (t1 * (t1 / 0.5e1 + (a22 + t7) * t31) + t30) - 0.2e1 / 0.5e1 * t3 * (-t30 + t3)) * t26 + t19 * (epsi3 * t16 - t21 + (double)t8 * t22 * t23 * ((double)t8 * (t30 * t17 * t6 + r * t18) - 0.3e1 * t12 * a13 * pow(t16, 0.2e1))));
-
-	Omega = (-dgtpdr + sqrt(dgtpdr * dgtpdr - dgttdr * dgppdr)) / dgppdr; // angular velocity; c.f. Eq (13) in Public Release
-
-	uet = sqrt(-gtt - 2. * gtp * Omega - gpp * Omega * Omega); // t-component of 4-velocity; c.f. Eq (18) and Eq (14) (this is actually reciprocal of uet?)
-
-	gg = uet / (1. - ktkp * Omega); // redshift; c.f. Eq (19) (this is correct)
+long double t2 = pow(spin,2);
+long double t1 = pow(r,2);
+long double t13 = pow(spin,4);
+long double t11 = pow(r,4);
+long double t3 = 2*th;
+long double t4 = cos(t3);
+long double t35 = pow(spin,6);
+long double t36 = 6*th;
+long double t37 = cos(t36);
+long double t5 = t2*t4;
+long double t6 = t1 + t5;
+long double t15 = pow(r,3);
+long double t49 = 1 + r;
+long double t32 = 4*th;
+long double t33 = cos(t32);
+long double t55 = sin(th);
+long double t56 = pow(t55,2);
+long double t8 = pow(r,7);
+long double t9 = 16*t8;
+long double t12 = -8*t11*t2;
+long double t14 = -18*t1*t13;
+long double t16 = -6*t13*t15;
+long double t17 = 6*r;
+long double t18 = 1 + t17;
+long double t19 = 8*t11*t18;
+long double t20 = 5*r;
+long double t21 = 3 + t20;
+long double t22 = 8*t1*t2*t21;
+long double t23 = 7*r;
+long double t24 = 1 + t23;
+long double t25 = t13*t24;
+long double t26 = t19 + t22 + t25;
+long double t27 = t2*t26*t4;
+long double t28 = -3*r;
+long double t29 = 7*t1;
+long double t30 = 4*t2;
+long double t31 = t28 + t29 + t30;
+long double t34 = 2*r*t13*t31*t33;
+long double t38 = -(t35*t37);
+long double t39 = r*t35*t37;
+long double t40 = t12 + t14 + t16 + t27 + t34 + t38 + t39 + t9;
+long double t45 = -4*t11;
+long double t46 = -6*t1*t2;
+long double t47 = -6*t15*t2;
+long double t48 = -3*r*t13;
+long double t50 = 3*t1;
+long double t51 = t2 + t50;
+long double t52 = 2*t2*t4*t49*t51;
+long double t53 = t13*t33*t49;
+long double t54 = t13 + t45 + t46 + t47 + t48 + t52 + t53;
+long double t7 = pow(t6,3);
+long double t41 = 1/t40;
+long double t44 = pow(t6,-3);
+long double t57 = 2*spin*t44*t54*t56;
+long double t58 = pow(t6,-6);
+long double t59 = 4*t11;
+long double t60 = 6*t1*t2;
+long double t61 = 2*t15*t2;
+long double t62 = -t13;
+long double t63 = 5*r*t13;
+long double t64 = 3 + r;
+long double t65 = t1*t64;
+long double t66 = 3*r;
+long double t67 = 1 + t66;
+long double t68 = t2*t67;
+long double t69 = t65 + t68;
+long double t70 = -2*t2*t4*t69;
+long double t71 = -r;
+long double t72 = 1 + t71;
+long double t73 = -(t13*t33*t72);
+long double t74 = t59 + t60 + t61 + t62 + t63 + t70 + t73;
+long double t75 = -(t40*t74);
+long double t76 = pow(t54,2);
+long double t77 = 4*t2*t56*t76;
+long double t78 = t75 + t77;
+long double t79 = t56*t58*t78;
+long double t80 = sqrt(t79);
+long double t81 = t57 + t80;
+long double t90 = -2 + r;
+long double t42 = 1/cos(th);
+gg = sqrt(((-t2 + 4*t2*t56 + 4*spin*(r*(2 + r) + t2)*t41*t7*t81 - r*t90 - (4*pow(t6,6)*pow(2*spin*t44*t54*t55 + t42*t80,2)*(pow(t1 + t2,2) - t2*t56*(t2 + r*t90)))/pow(t40,2))*(t1 + t2*pow(cos(th),2)))/pow(t6,2))/(1 - 2*ktkp*t41*pow(t42,2)*t7*t81);
 }
 
-/* Calculate specific energy at ISCO */
 long double specific_energy(long double r)
 {
-	long double Omega, se;
-	long double gtt, gtp, gpp, dgttdr, dgtpdr, dgppdr;
-	long double t1, t2, t3, t4, t5, t6, t7, t8, t9, t10, t11, t12, t13, t14, t15, t16, t17, t18, t19, t20, t21, t22, t23, t24, t25, t26, t27, t28;
-
-	/* Calculate necessary metric and derivative of metric components */
-	/* If possible, use Maple or Mathematica to optimize code */
-
-	t1 = r * r;
-	t2 = pow(t1, 0.2e1);
-	t3 = r * t1;
-	t4 = t1 * t2;
-	t5 = a22 + t1;
-	t6 = spin * spin;
-	t7 = 2.0;
-	t8 = (double)t7 * r * t2 - t6 * (-pow(t5, 0.2e1) + t2) - t4;
-	t9 = epsi3 + t3;
-	t10 = t6 + t1;
-	t11 = a13 + t3;
-	t12 = t10 * t11;
-	t13 = t6 * r * t5 - t12;
-	t4 = pow(t10, 0.2e1) * pow(t11, 0.2e1) + (double)t7 * t3 * t2 * t6 - t4 * t6 * t10;
-	t11 = 0.1e1 / r;
-	t14 = pow(t11, 0.2e1);
-	t15 = t11 * t14;
-	t16 = a13 * t15 + 0.1e1;
-	t17 = a22 * t14 + 0.1e1;
-	t18 = t10 * t16;
-	t19 = (double)t7 * r;
-	t20 = epsi3 * t11 + t1;
-	t21 = -t17 * t6 + t18;
-	t22 = (0.5e1 / 0.2e1 * t1 + 0.3e1 / 0.2e1 * t6) * r + a13;
-	t23 = r * t22 - t6 * (a22 + 0.3e1 * t1) / 0.2e1;
-	t13 = 0.1e1 / t13;
-	t24 = pow(t13, 0.2e1);
-	t25 = t9 * r * t24;
-	t26 = t9 * t24;
-	t27 = t6 * a22;
-	t28 = 0.3e1 / 0.5e1;
-	t21 = 0.1e1 / t21;
-	t17 = (t18 * t17 - t1 + t19 - t6) * pow(t21, 0.2e1);
-
-	gtt = t25 * t8;
-	gpp = t26 * t4 * t11;
-	gtp = -t17 * spin * t20;
-
-	dgttdr = 0.4e1 * t25 * (r * (t3 * (-0.3e1 / 0.2e1 * r + 0.5e1 / 0.2e1) - t6 * (t1 - t5)) + t23 * t8 * t13) + t8 * t24 * (0.3e1 * t3 + t9);
-	dgppdr = 0.4e1 * t26 * (t4 * t23 * t13 * t11 + t12 * t22 + (0.7e1 / 0.2e1 * (-0.4e1 / 0.7e1 * r + 0.1e1) * r - 0.3e1 / 0.2e1 * t6) * t6 * t2) + t4 * t24 * (-t14 * t9 + 0.3e1 * r);
-	dgtpdr = spin * (t17 * (epsi3 * t14 - t19 + (double)t7 * t20 * t21 * ((double)t7 * (r * t16 + t27 * t15) - 0.3e1 * t10 * a13 * pow(t14, 0.2e1))) + 0.5e1 * t26 * (a13 * (t1 * (t1 / 0.5e1 + (a22 + t6) * t28) + t27) - 0.2e1 / 0.5e1 * t3 * (-t27 + t3)) * t11);
-
-	Omega = (-dgtpdr + sqrt(dgtpdr * dgtpdr - dgttdr * dgppdr)) / dgppdr; // angular velocity; c.f. Eq (13) in Public Release
-
-	se = -(gtt + Omega * gtp) / sqrt(-gtt - 2.0 * Omega * gtp - Omega * Omega * gpp); // specific energy; c.f. Eq (11)
-
-	return se;
-}
-
-/* Calculate cosine of the emission angle modulo the redshift factor */
-long double emis_angle(long double r, long double th, long double kr, long double kth)
-{
-	long double Zr, Zth, k, cs1, ss1, ss3, r3, angle;
-	long double gupper[4][4];
-
-	cs1 = cos(th);
-	ss1 = sin(th);
-	ss3 = ss1 * ss1 * ss1;
-	r3 = r * r * r;
-
-	k = 3.0 / eta * Mdl;
-	Zr = 0.5 * k * sqrt(isco / (r3 * ss1)) - cs1;
-	Zth = 0.5 * k * cs1 * sqrt(isco / (r * ss3)) + r * ss1;
-
-	uppermetric(r, th, gupper);
-
-	angle = 1.0 / sqrt(gupper[1][1] * Zr * Zr + gupper[2][2] * Zth * Zth) * (Zr * kr + Zth * kth); // c.f. Eq (16) in Abdiakamalov 2020
-
-	if (angle < 0.0)
-		angle *= -1.0;
-
-	return angle;
+long double t1 = pow(r,2);
+long double t2 = -t1;
+long double t3 = pow(spin,2);
+long double t4 = t2 + t3;
+long double t15 = pow(spin,4);
+long double t28 = pow(r,6);
+long double t23 = pow(r,8);
+long double t33 = pow(r,4);
+long double t9 = 3*r;
+long double t37 = pow(spin,6);
+long double t42 = pow(spin,8);
+long double t45 = pow(spin,10);
+long double t49 = pow(t4,-6);
+long double t50 = pow(r,9);
+long double t51 = -t50;
+long double t52 = 2*t28;
+long double t53 = -t23;
+long double t54 = t52 + t53;
+long double t55 = t3*t54;
+long double t56 = 2 + t9;
+long double t57 = 6*t15*t33*t56;
+long double t58 = 16*r;
+long double t59 = 10*t1;
+long double t60 = 9 + t58 + t59;
+long double t61 = 2*t1*t37*t60;
+long double t62 = 4*r;
+long double t63 = 5 + t62;
+long double t64 = 3*r*t42*t63;
+long double t65 = t45 + t51 + t55 + t57 + t61 + t64;
+long double t66 = t1*t49*t65;
+long double t67 = sqrt(t66);
+long double t48 = 3 + r;
+long double t44 = 1 + r;
+long double t11 = 1 + t9;
+long double t13 = 2*r;
+long double t14 = 3 + t13;
+long double se = (t1*(-((-2 + r)*r) + 3*t3 - (spin*pow(t1 - t3,3)*(r*(2 + r) + t3)*((8*r*spin*(pow(r,3) + t15 + 3*r*t3*t44))/pow(t4,3) + 8*t67))/(8.*(-pow(r,7) + t1*t14*t15 + t11*t3*t33))))/(pow(t4,2)*sqrt(-(((3 - r)*pow(r,11) - (29 + 40*r + 19*t1)*t15*t28 + (-9 - 8*r + 9*t1)*t23*t3 - (11 + 54*r + 35*t1)*t33*t37 - t1*(15 + 27*r + 16*t1)*t42 - 2*r*t44*t45 - 2*(9 + r)*pow(spin,3)*t23*t67 - 4*(-5 + r)*pow(spin,5)*t28*t67 + 4*(-3 + r)*pow(spin,7)*t33*t67 - 2*pow(spin,11)*t44*t67 + 2*pow(r,10)*spin*t48*t67 + 2*pow(spin,9)*t1*t48*t67)/(pow(-pow(r,5) + t14*t15 + t1*t11*t3,2)*t4))));
+return se;
 }

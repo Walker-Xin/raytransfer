@@ -70,5 +70,6 @@ void christoffel(long double r, long double th, long double christ[4][4][4]);
 #include "findisco.cpp"
 #include "gauleg.cpp"
 #include "christoffel.cpp"
+#include "emis_angle.cpp"
 
 #endif
