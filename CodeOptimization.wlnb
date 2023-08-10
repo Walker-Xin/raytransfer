@@ -24,14 +24,7 @@
     }
    ],
    "metadata": {},
-   "executionSummary": {
-    "timing": {
-     "startTime": 1691636272961,
-     "endTime": 1691636273351
-    },
-    "executionOrder": 1,
-    "success": true
-   }
+   "executionSummary": {}
   },
   {
    "kind": 2,
@@ -39,14 +32,7 @@
    "languageId": "wolfram",
    "outputs": [],
    "metadata": {},
-   "executionSummary": {
-    "timing": {
-     "startTime": 1691636273351,
-     "endTime": 1691636274005
-    },
-    "executionOrder": 2,
-    "success": true
-   }
+   "executionSummary": {}
   },
   {
    "kind": 2,
@@ -54,14 +40,7 @@
    "languageId": "wolfram",
    "outputs": [],
    "metadata": {},
-   "executionSummary": {
-    "timing": {
-     "startTime": 1691636274006,
-     "endTime": 1691636274634
-    },
-    "executionOrder": 10,
-    "success": true
-   }
+   "executionSummary": {}
   },
   {
    "kind": 2,
@@ -69,14 +48,7 @@
    "languageId": "wolfram",
    "outputs": [],
    "metadata": {},
-   "executionSummary": {
-    "timing": {
-     "startTime": 1691636274635,
-     "endTime": 1691636274768
-    },
-    "executionOrder": 18,
-    "success": true
-   }
+   "executionSummary": {}
   },
   {
    "kind": 1,
@@ -110,14 +82,7 @@
     }
    ],
    "metadata": {},
-   "executionSummary": {
-    "timing": {
-     "startTime": 1691636274768,
-     "endTime": 1691636275842
-    },
-    "executionOrder": 19,
-    "success": true
-   }
+   "executionSummary": {}
   },
   {
    "kind": 1,
@@ -133,14 +98,7 @@
    "languageId": "wolfram",
    "outputs": [],
    "metadata": {},
-   "executionSummary": {
-    "timing": {
-     "startTime": 1691636275842,
-     "endTime": 1691636281086
-    },
-    "executionOrder": 28,
-    "success": true
-   }
+   "executionSummary": {}
   },
   {
    "kind": 2,
@@ -148,14 +106,7 @@
    "languageId": "wolfram",
    "outputs": [],
    "metadata": {},
-   "executionSummary": {
-    "timing": {
-     "startTime": 1691636281087,
-     "endTime": 1691636281557
-    },
-    "executionOrder": 29,
-    "success": true
-   }
+   "executionSummary": {}
   },
   {
    "kind": 1,
@@ -171,14 +122,7 @@
    "languageId": "wolfram",
    "outputs": [],
    "metadata": {},
-   "executionSummary": {
-    "timing": {
-     "startTime": 1691636281557,
-     "endTime": 1691636320080
-    },
-    "executionOrder": 36,
-    "success": true
-   }
+   "executionSummary": {}
   },
   {
    "kind": 2,
@@ -187,14 +131,7 @@
    "mime": "text/plain",
    "outputs": [],
    "metadata": {},
-   "executionSummary": {
-    "timing": {
-     "startTime": 1691636320080,
-     "endTime": 1691636320175
-    },
-    "executionOrder": 38,
-    "success": true
-   }
+   "executionSummary": {}
   },
   {
    "kind": 1,
@@ -210,14 +147,7 @@
    "languageId": "wolfram",
    "outputs": [],
    "metadata": {},
-   "executionSummary": {
-    "timing": {
-     "startTime": 1691636320176,
-     "endTime": 1691636323028
-    },
-    "executionOrder": 39,
-    "success": true
-   }
+   "executionSummary": {}
   },
   {
    "kind": 2,
@@ -225,14 +155,7 @@
    "languageId": "wolfram",
    "outputs": [],
    "metadata": {},
-   "executionSummary": {
-    "timing": {
-     "startTime": 1691636323029,
-     "endTime": 1691636323138
-    },
-    "executionOrder": 43,
-    "success": true
-   }
+   "executionSummary": {}
   },
   {
    "kind": 1,
@@ -300,14 +223,7 @@
     }
    ],
    "metadata": {},
-   "executionSummary": {
-    "timing": {
-     "startTime": 1691636923287,
-     "endTime": 1691637068661
-    },
-    "executionOrder": 50,
-    "success": true
-   }
+   "executionSummary": {}
   },
   {
    "kind": 2,
@@ -333,14 +249,7 @@
     }
    ],
    "metadata": {},
-   "executionSummary": {
-    "timing": {
-     "startTime": 1691637437603,
-     "endTime": 1691637439705
-    },
-    "executionOrder": 58,
-    "success": true
-   }
+   "executionSummary": {}
   },
   {
    "kind": 1,
@@ -408,14 +317,7 @@
     }
    ],
    "metadata": {},
-   "executionSummary": {
-    "timing": {
-     "startTime": 1691637979177,
-     "endTime": 1691637980624
-    },
-    "executionOrder": 71,
-    "success": true
-   }
+   "executionSummary": {}
   },
   {
    "kind": 2,
@@ -423,14 +325,7 @@
    "languageId": "wolfram",
    "outputs": [],
    "metadata": {},
-   "executionSummary": {
-    "timing": {
-     "startTime": 1691637987314,
-     "endTime": 1691637987585
-    },
-    "executionOrder": 89,
-    "success": true
-   }
+   "executionSummary": {}
   },
   {
    "kind": 1,
@@ -446,14 +341,7 @@
    "languageId": "wolfram",
    "outputs": [],
    "metadata": {},
-   "executionSummary": {
-    "timing": {
-     "startTime": 1691638118694,
-     "endTime": 1691638119103
-    },
-    "executionOrder": 137,
-    "success": true
-   }
+   "executionSummary": {}
   },
   {
    "kind": 1,
@@ -469,14 +357,7 @@
    "languageId": "wolfram",
    "outputs": [],
    "metadata": {},
-   "executionSummary": {
-    "timing": {
-     "startTime": 1691638119103,
-     "endTime": 1691638119802
-    },
-    "executionOrder": 142,
-    "success": true
-   }
+   "executionSummary": {}
   },
   {
    "kind": 1,
@@ -492,14 +373,7 @@
    "languageId": "wolfram",
    "outputs": [],
    "metadata": {},
-   "executionSummary": {
-    "timing": {
-     "startTime": 1691638119803,
-     "endTime": 1691638120179
-    },
-    "executionOrder": 147,
-    "success": true
-   }
+   "executionSummary": {}
   },
   {
    "kind": 1,
@@ -515,14 +389,7 @@
    "languageId": "wolfram",
    "outputs": [],
    "metadata": {},
-   "executionSummary": {
-    "timing": {
-     "startTime": 1691638120180,
-     "endTime": 1691638120631
-    },
-    "executionOrder": 152,
-    "success": true
-   }
+   "executionSummary": {}
   },
   {
    "kind": 2,
@@ -548,14 +415,7 @@
     }
    ],
    "metadata": {},
-   "executionSummary": {
-    "timing": {
-     "startTime": 1691638120631,
-     "endTime": 1691638120990
-    },
-    "executionOrder": 157,
-    "success": true
-   }
+   "executionSummary": {}
   },
   {
    "kind": 1,
@@ -571,14 +431,7 @@
    "languageId": "wolfram",
    "outputs": [],
    "metadata": {},
-   "executionSummary": {
-    "timing": {
-     "startTime": 1691638120991,
-     "endTime": 1691638121807
-    },
-    "executionOrder": 160,
-    "success": true
-   }
+   "executionSummary": {}
   },
   {
    "kind": 2,
@@ -586,14 +439,7 @@
    "languageId": "wolfram",
    "outputs": [],
    "metadata": {},
-   "executionSummary": {
-    "timing": {
-     "startTime": 1691638121808,
-     "endTime": 1691638122002
-    },
-    "executionOrder": 165,
-    "success": true
-   }
+   "executionSummary": {}
   },
   {
    "kind": 1,
@@ -605,33 +451,19 @@
   },
   {
    "kind": 2,
-   "value": "OptimizeExpressionToC[{g}];\r\nmeat = ToString[Column[StringReplace[%, {\r\n   \"Sqrt\" -> \"sqrt\", \"Power(E,\" -> \"exp(\", \"Power\" -> \"pow\", \"Sin\" -> \"sin\", \"Cos\" -> \"cos\", \"double\" -> \"long double\", \";,\" -> \";\\n    \",\r\n   \"out(0)\" -> \"gg\",\r\n   \"Csc\" -> \"1/cos\"}]]];\r\nheader = \"void redshift(long double r, long double th, long double ktkp, long double &gg)\\n{\\n\";\r\nfooter = \"\\n}\";\r\nred = header <> meat <> footer;",
+   "value": "OptimizeExpressionToC[{g}];\r\nmeat = ToString[Column[StringReplace[%, {\r\n   \"Sqrt\" -> \"sqrt\", \"Power(E,\" -> \"exp(\", \"Power\" -> \"pow\", \"Sin\" -> \"sin\", \"Cos\" -> \"cos\", \"double\" -> \"long double\", \";,\" -> \";\\n    \",\r\n   \"out(0)\" -> \"gg\",\r\n   \"Csc\" -> \"1/sin\"}]]];\r\nheader = \"void redshift(long double r, long double th, long double ktkp, long double &gg)\\n{\\n\";\r\nfooter = \"\\n}\";\r\nred = header <> meat <> footer;",
    "languageId": "wolfram",
    "outputs": [],
    "metadata": {},
-   "executionSummary": {
-    "timing": {
-     "startTime": 1691638569805,
-     "endTime": 1691638570295
-    },
-    "executionOrder": 247,
-    "success": true
-   }
+   "executionSummary": {}
   },
   {
    "kind": 2,
-   "value": "OptimizeExpressionToC[{se}];\r\nmeat = ToString[Column[StringReplace[%, {\r\n   \"Sqrt\" -> \"sqrt\", \"Power(E,\" -> \"exp(\", \"Power\" -> \"pow\", \"Sin\" -> \"sin\", \"Cos\" -> \"cos\", \"double\" -> \"long double\", \";,\" -> \";\\n    \",\r\n   \"out(0)\" -> \"long double se\",\r\n   \"Csc\" -> \"1/cos\"}]]];\r\nheader = \"long double specific_energy(long double r)\\n{\\n\";\r\nfooter = \"\\nreturn se;\\n}\";\r\nspecific = header <> meat <> footer;",
+   "value": "OptimizeExpressionToC[{se}];\r\nmeat = ToString[Column[StringReplace[%, {\r\n   \"Sqrt\" -> \"sqrt\", \"Power(E,\" -> \"exp(\", \"Power\" -> \"pow\", \"Sin\" -> \"sin\", \"Cos\" -> \"cos\", \"double\" -> \"long double\", \";,\" -> \";\\n    \",\r\n   \"out(0)\" -> \"long double se\",\r\n   \"Csc\" -> \"1/sin\"}]]];\r\nheader = \"long double specific_energy(long double r)\\n{\\n\";\r\nfooter = \"\\nreturn se;\\n}\";\r\nspecific = header <> meat <> footer;",
    "languageId": "wolfram",
    "outputs": [],
    "metadata": {},
-   "executionSummary": {
-    "timing": {
-     "startTime": 1691638570295,
-     "endTime": 1691638570735
-    },
-    "executionOrder": 252,
-    "success": true
-   }
+   "executionSummary": {}
   },
   {
    "kind": 2,
@@ -657,14 +489,7 @@
     }
    ],
    "metadata": {},
-   "executionSummary": {
-    "timing": {
-     "startTime": 1691638570735,
-     "endTime": 1691638571150
-    },
-    "executionOrder": 257,
-    "success": true
-   }
+   "executionSummary": {}
   }
  ]
 }
