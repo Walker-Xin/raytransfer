@@ -53,11 +53,13 @@ void rayprecise(long double rdisk, long double germtol, long double pscr, long d
 void diffeqs(long double vars[], long double diffs[]);
 void redshift(long double r, long double th, long double ktkp, long double& gg);
 long double specific_energy(long double r);
+long double specific_momentum(long double r);
 long double emis_angle(long double r, long double th, long double kr, long double kth);
 void metric(long double r, long double th, long double g[][4]);
 void metric_rderivatives(long double r, long double th, long double dg[][4]);
 void metric_r2derivatives(long double r, long double th, long double dg2[][4]);
 void uppermetric(long double r, long double th, long double gu[4][4]);
+long double Veff_deri2(long double r, long double E, long double Lz);
 void find_isco();
 void gauleg(long double rdisk_i, long double rdisk_f, long double rdisk[]);
 void christoffel(long double r, long double th, long double christ[4][4][4]);
@@ -71,5 +73,6 @@ void christoffel(long double r, long double th, long double christ[4][4][4]);
 #include "gauleg.cpp"
 #include "christoffel.cpp"
 #include "emis_angle.cpp"
+#include "effective_potential.cpp"
 
 #endif

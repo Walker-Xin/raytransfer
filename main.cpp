@@ -13,15 +13,15 @@ int main(int argc, char *argv[])
 	// defpar = atof(argv[3]);
 
 	/* Set free parameters for testing */
-	long double spin = 0.5;
+	long double spin = 0.1;
 	long double Mdl = 0.1;
-	long double defpar = 0.0;
+	long double defpar = 0.005;
 
 	/* Deformation parameters */
-	epsi3 = 0.0;
-	a13 = defpar;
-	a22 = 0.0;
-	a52 = 0.0;
+	// epsi3 = 0.0;
+	// a13 = 0.0;
+	// a22 = 0.0;
+	// a52 = 0.0;
 
 	/* Preset g_star values */
 	long double g_star[40] = {0.002, 0.02753846, 0.05307692, 0.07861538, 0.10415385, 0.12969231, 0.15523077, 0.18076923, 0.20630769, 0.23184615, 0.25738462, 0.28292308, 0.30846154, 0.334, 0.35953846, 0.38507692, 0.41061538, 0.43615385, 0.46169231, 0.48723077, 0.51276923, 0.53830769, 0.56384615, 0.58938462, 0.61492308, 0.64046154, 0.666, 0.69153846, 0.71707692, 0.74261538, 0.76815385, 0.79369231, 0.81923077, 0.84476923, 0.87030769, 0.89584615, 0.92138462, 0.94692308, 0.97246154, 0.998};
@@ -41,6 +41,7 @@ int main(int argc, char *argv[])
 
 		/* Calculate radiative efficiency */
 		eta = 1.0 - specific_energy(isco);
+		std::cout << "eta = " << eta << std::endl;
 
 		/* Set inner/outer disk radii */
 		rdisk_i = isco;
@@ -63,15 +64,17 @@ int main(int argc, char *argv[])
 			long double xscrcur, yscrcur, xscrplus, xscrminus, yscrplus, yscrminus, gplus, gminus;
 			long double gmax = 0.0, gmin = 10.0, pscrmax, pscrmin, rscrmax, rscrmin, cosemmax, cosemmin, rdiskmax, rdiskmin;
 
+			std::cout << "rdisk[" << ii << "] = " << rdisk[ii] << std::endl;
+
 			/* ------- Search over pscr to get quick estimate of gmin and gmax ------- */
 			pstep = Pi / 5.0;
 			pscr = 0.0;
 
 			while (pscr < 2.0 * Pi)
 			{
-				rayprecise(rdisk[ii], rerrtol, pscr, traced);
+				rayprecise(rdisk[ii], rerrtol*1.0e7, pscr, traced);
 
-				// printf("%Le %Le %Le\n", traced[2], gmin, gmax);
+				printf("%Le %Le %Le\n", traced[2], gmin, gmax);
 
 				if (traced[2] > gmax && traced[0] != 0.0) // set gmax if g is larger than current gmax
 				{
@@ -92,6 +95,8 @@ int main(int argc, char *argv[])
 			while (pstep > gerrtol)
 			{
 				rayprecise(rdisk[ii], rerrtol, pscrmax - pstep / 2.0, traced); // search at values of phi_screen lower than estimated
+
+				printf("%Le %Le %Le\n", traced[2], gmin, gmax);
 
 				if (traced[2] > gmax)
 				{
