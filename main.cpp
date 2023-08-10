@@ -72,7 +72,7 @@ int main(int argc, char *argv[])
 
 			while (pscr < 2.0 * Pi)
 			{
-				rayprecise(rdisk[ii], rerrtol*1.0e7, pscr, traced);
+				rayprecise(rdisk[ii], rerrtol, pscr, traced);
 
 				printf("%Le %Le %Le\n", traced[2], gmin, gmax);
 
