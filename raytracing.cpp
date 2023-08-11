@@ -27,7 +27,7 @@ void raytrace(long double xscr, long double yscr, long double traced[4], long do
     int i;
 
     /* ----- Set computational parameters ----- */
-    dscr = 1.0e+8; // distance of the observer, effectively at infinity
+    dscr = 1.0e+8;   // distance of the observer, effectively at infinity
     errmin = 1.0e-9; // error bounds for RK45
     errmax = 1.0e-7;
     cross_tol = 1.0e-8; // sought accuracy at disk crossing
@@ -47,7 +47,7 @@ void raytrace(long double xscr, long double yscr, long double traced[4], long do
     yscr2 = yscr * yscr;
     fact1 = yscr * sin(inc) + dscr * cos(inc); // c.f. numerator of Eq (31)
     fact2 = dscr * sin(inc) - yscr * cos(inc); // c.f. denominator of Eq(32)
-    r02 = xscr2 + yscr2 + dscr * dscr; // c.f. Eq (30)
+    r02 = xscr2 + yscr2 + dscr * dscr;         // c.f. Eq (30)
 
     // Initial t, r, theta, and phi; c.f. Eqs (30)-(32)
     t0 = 0.0;
@@ -62,11 +62,11 @@ void raytrace(long double xscr, long double yscr, long double traced[4], long do
 
     metric(r0, th0, g); // compute initial metric tensor
     fact3 = sqrt(g[0][3] * g[0][3] * kphi0 * kphi0 - g[0][0] * (g[1][1] * kr0 * kr0 + g[2][2] * kth0 * kth0 + g[3][3] * kphi0 * kphi0));
-    B = 2.0*g[0][1]*kr0 + 2*g[0][3]*kphi0; // B
-    C = g[1][1]*kr0*kr0 + 2*g[1][3]*kr0*kphi0 + g[2][2]*kth0*kth0 + g[3][3]*kphi0*kphi0; // C
+    B = 2.0 * g[0][1] * kr0 + 2 * g[0][3] * kphi0;                                                         // B
+    C = g[1][1] * kr0 * kr0 + 2 * g[1][3] * kr0 * kphi0 + g[2][2] * kth0 * kth0 + g[3][3] * kphi0 * kphi0; // C
 
     // Initial t momentum
-    kt0 = (B - sqrt(B*B - 4.0*C*g[0][0])) / (2.0*g[0][0]);
+    kt0 = (B - sqrt(B * B - 4.0 * C * g[0][0])) / (2.0 * g[0][0]);
 
     // Impact parameter, b=L/E
     b = -(g[3][3] * kphi0 + g[0][3] * kt0) / (g[0][0] * kt0 + g[0][3] * kphi0);
@@ -165,6 +165,13 @@ void raytrace(long double xscr, long double yscr, long double traced[4], long do
 
             for (i = 0; i <= 7; i++)
             {
+                if (i == 0 || i == 4)
+                {
+                      ;
+                } // pass
+                else
+                {
+                    // std::cout << i << std::endl;
                 vars_4th[i] = vars[i] + f1 * k1[i] + f2 * k2[i] + f3 * k3[i] + f4 * k4[i] + f5 * k5[i];
                 vars_5th[i] = vars[i] + g1 * k1[i] + g2 * k2[i] + g3 * k3[i] + g4 * k4[i] + g5 * k5[i] + g6 * k6[i];
 
@@ -174,6 +181,7 @@ void raytrace(long double xscr, long double yscr, long double traced[4], long do
                     errcheck = 1;
                 else if (err < errmin && errcheck != 1 && crosscheck == 0) /* accuracy better than wanted, but photon hasn't crossed disk */
                     errcheck = -1;
+            }
             }
 
             if (errcheck == 1) /* accuracy not achieved, lower step size */
