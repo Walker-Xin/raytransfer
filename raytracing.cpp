@@ -3,8 +3,10 @@
 void raytrace(long double xscr, long double yscr, long double traced[4], long double rdisk)
 {
     long double dscr, xscr2, yscr2;
-    long double t, r, th, phi, rau, thau, phiau, t0, r0, th0, phi0;
-    long double kt, kr, kth, kphi, kt0, kr0, kth0, kphi0;
+    long double t, r, th, phi, tau, rau, thau, phiau;
+    long double t0, r0, th0, phi0;
+    long double kt, kr, kth, kphi;
+    long double kt0, kr0, kth0, kphi0;
     long double s0, r02, s02;
     long double fact1, fact2, fact3, B, C, omega;
     long double h;
@@ -165,16 +167,15 @@ void raytrace(long double xscr, long double yscr, long double traced[4], long do
 
             for (i = 0; i <= 7; i++)
             {
+                vars_4th[i] = vars[i] + f1 * k1[i] + f2 * k2[i] + f3 * k3[i] + f4 * k4[i] + f5 * k5[i];
+                vars_5th[i] = vars[i] + g1 * k1[i] + g2 * k2[i] + g3 * k3[i] + g4 * k4[i] + g5 * k5[i] + g6 * k6[i];
+
                 if (i == 0 || i == 4)
                 {
                       ;
                 } // pass
                 else
                 {
-                    // std::cout << i << std::endl;
-                vars_4th[i] = vars[i] + f1 * k1[i] + f2 * k2[i] + f3 * k3[i] + f4 * k4[i] + f5 * k5[i];
-                vars_5th[i] = vars[i] + g1 * k1[i] + g2 * k2[i] + g3 * k3[i] + g4 * k4[i] + g5 * k5[i] + g6 * k6[i];
-
                 err = fabs((vars_4th[i] - vars_5th[i]) / max(vars_4th[i], vars[i]));
 
                 if (err > errmax && crosscheck == 0) /* accuracy not achieved and photon hasn't crossed disk */
@@ -193,9 +194,11 @@ void raytrace(long double xscr, long double yscr, long double traced[4], long do
 
         /* ----- cross disk/horizon check ----- */
 
+        tau = t;
         rau = r;
         thau = th;
         phiau = phi;
+        t = vars_4th[0];
         r = vars_4th[1];
         th = vars_4th[2];
         phi = vars_4th[3];
@@ -259,8 +262,10 @@ void raytrace(long double xscr, long double yscr, long double traced[4], long do
         }
         else /* not done, take a step */
         {
+            kt = vars_4th[4];
             kr = vars_4th[5];
             kth = vars_4th[6];
+            kphi = vars_4th[7];
         }
     } while (stop_integration == 0);
 
