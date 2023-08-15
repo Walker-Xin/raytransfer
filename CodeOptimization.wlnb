@@ -4,14 +4,32 @@
    "kind": 2,
    "value": "Remove[\"Global`*\"]",
    "languageId": "wolfram",
-   "outputs": [],
+   "outputs": [
+    {
+     "items": [
+      {
+       "data": "<pre><span class=\"wl-message\">Remove::rmnsm</span>: There are no symbols matching \"Global`*\".</pre>",
+       "mime": "x-application/wolfram-language-html"
+      },
+      {
+       "data": "Remove::rmnsm: There are no symbols matching \"Global`*\".",
+       "mime": "text/plain"
+      }
+     ],
+     "id": "42e409f5-9571-40f8-85f9-e3f06390cc14",
+     "metadata": {
+      "cellLabel": "",
+      "isBoxData": false
+     }
+    }
+   ],
    "metadata": {},
    "executionSummary": {
     "timing": {
-     "startTime": 1691667073456,
-     "endTime": 1691667073549
+     "startTime": 1692086139888,
+     "endTime": 1692086140241
     },
-    "executionOrder": 470,
+    "executionOrder": 1,
     "success": true
    }
   },
@@ -23,10 +41,10 @@
    "metadata": {},
    "executionSummary": {
     "timing": {
-     "startTime": 1691667073549,
-     "endTime": 1691667074255
+     "startTime": 1692086140241,
+     "endTime": 1692086140899
     },
-    "executionOrder": 471,
+    "executionOrder": 2,
     "success": true
    }
   },
@@ -38,10 +56,10 @@
    "metadata": {},
    "executionSummary": {
     "timing": {
-     "startTime": 1691667074256,
-     "endTime": 1691667074930
+     "startTime": 1692086140899,
+     "endTime": 1692086141590
     },
-    "executionOrder": 479,
+    "executionOrder": 10,
     "success": true
    }
   },
@@ -53,10 +71,10 @@
    "metadata": {},
    "executionSummary": {
     "timing": {
-     "startTime": 1691667074931,
-     "endTime": 1691667075023
+     "startTime": 1692086141591,
+     "endTime": 1692086141679
     },
-    "executionOrder": 487,
+    "executionOrder": 18,
     "success": true
    }
   },
@@ -84,9 +102,9 @@
        "mime": "text/plain"
       }
      ],
-     "id": "43be5863-d76c-46dc-a8b7-21c9fb9f3b9a",
+     "id": "0c769ced-858a-4139-8c79-b9d3fa2dbe26",
      "metadata": {
-      "cellLabel": "Out[496]//MatrixForm= ",
+      "cellLabel": "Out[27]//MatrixForm= ",
       "isBoxData": false
      }
     }
@@ -94,10 +112,10 @@
    "metadata": {},
    "executionSummary": {
     "timing": {
-     "startTime": 1691667075023,
-     "endTime": 1691667076225
+     "startTime": 1692086141680,
+     "endTime": 1692086143001
     },
-    "executionOrder": 488,
+    "executionOrder": 19,
     "success": true
    }
   },
@@ -117,9 +135,9 @@
        "mime": "text/plain"
       }
      ],
-     "id": "48ab8823-30ff-48f3-85d8-f4be9de36846",
+     "id": "26cfae44-c8c2-4b71-b7e8-6cb3d262e7b0",
      "metadata": {
-      "cellLabel": "Out[498]//MatrixForm= ",
+      "cellLabel": "Out[29]//MatrixForm= ",
       "isBoxData": false
      }
     }
@@ -127,10 +145,10 @@
    "metadata": {},
    "executionSummary": {
     "timing": {
-     "startTime": 1691667076225,
-     "endTime": 1691667076507
+     "startTime": 1692086143002,
+     "endTime": 1692086143254
     },
-    "executionOrder": 497,
+    "executionOrder": 28,
     "success": true
    }
   },
@@ -150,10 +168,10 @@
    "metadata": {},
    "executionSummary": {
     "timing": {
-     "startTime": 1691667076507,
-     "endTime": 1691667089664
+     "startTime": 1692086143254,
+     "endTime": 1692086154388
     },
-    "executionOrder": 499,
+    "executionOrder": 30,
     "success": true
    }
   },
@@ -173,10 +191,10 @@
    "metadata": {},
    "executionSummary": {
     "timing": {
-     "startTime": 1691667089665,
-     "endTime": 1691667090039
+     "startTime": 1692086154388,
+     "endTime": 1692086154673
     },
-    "executionOrder": 503,
+    "executionOrder": 34,
     "success": true
    }
   },
@@ -188,10 +206,10 @@
    "metadata": {},
    "executionSummary": {
     "timing": {
-     "startTime": 1691667090040,
-     "endTime": 1691667090691
+     "startTime": 1692086154673,
+     "endTime": 1692086155224
     },
-    "executionOrder": 504,
+    "executionOrder": 35,
     "success": true
    }
   },
@@ -211,10 +229,10 @@
    "metadata": {},
    "executionSummary": {
     "timing": {
-     "startTime": 1691667090691,
-     "endTime": 1691667098767
+     "startTime": 1692086155225,
+     "endTime": 1692086163334
     },
-    "executionOrder": 511,
+    "executionOrder": 42,
     "success": true
    }
   },
@@ -227,10 +245,10 @@
    "metadata": {},
    "executionSummary": {
     "timing": {
-     "startTime": 1691667098767,
-     "endTime": 1691667098891
+     "startTime": 1692086163334,
+     "endTime": 1692086163442
     },
-    "executionOrder": 513,
+    "executionOrder": 44,
     "success": true
    }
   },
@@ -242,10 +260,10 @@
    "metadata": {},
    "executionSummary": {
     "timing": {
-     "startTime": 1691667098892,
-     "endTime": 1691667099019
+     "startTime": 1692086163443,
+     "endTime": 1692086163537
     },
-    "executionOrder": 514,
+    "executionOrder": 45,
     "success": true
    }
   },
@@ -265,10 +283,10 @@
    "metadata": {},
    "executionSummary": {
     "timing": {
-     "startTime": 1691667099020,
-     "endTime": 1691667099109
+     "startTime": 1692086163537,
+     "endTime": 1692086163629
     },
-    "executionOrder": 515,
+    "executionOrder": 46,
     "success": true
    }
   },
@@ -281,10 +299,10 @@
    "metadata": {},
    "executionSummary": {
     "timing": {
-     "startTime": 1691667099110,
-     "endTime": 1691667099219
+     "startTime": 1692086163630,
+     "endTime": 1692086163709
     },
-    "executionOrder": 516,
+    "executionOrder": 47,
     "success": true
    }
   },
@@ -305,9 +323,9 @@
        "mime": "text/plain"
       }
      ],
-     "id": "abeea633-ad5c-4317-a53c-05e90a6af974",
+     "id": "27bf4889-08a8-4e71-bef8-eaa6539b3057",
      "metadata": {
-      "cellLabel": "Out[517]= ",
+      "cellLabel": "Out[48]= ",
       "isBoxData": false
      }
     }
@@ -315,10 +333,10 @@
    "metadata": {},
    "executionSummary": {
     "timing": {
-     "startTime": 1691667099219,
-     "endTime": 1691667100339
+     "startTime": 1692086163709,
+     "endTime": 1692086164660
     },
-    "executionOrder": 517,
+    "executionOrder": 48,
     "success": true
    }
   },
@@ -330,10 +348,10 @@
    "metadata": {},
    "executionSummary": {
     "timing": {
-     "startTime": 1691667100339,
-     "endTime": 1691667100436
+     "startTime": 1692086164660,
+     "endTime": 1692086164908
     },
-    "executionOrder": 518,
+    "executionOrder": 49,
     "success": true
    }
   },
@@ -345,10 +363,10 @@
    "metadata": {},
    "executionSummary": {
     "timing": {
-     "startTime": 1691667100436,
-     "endTime": 1691667100559
+     "startTime": 1692086164908,
+     "endTime": 1692086165021
     },
-    "executionOrder": 519,
+    "executionOrder": 50,
     "success": true
    }
   },
@@ -368,10 +386,10 @@
    "metadata": {},
    "executionSummary": {
     "timing": {
-     "startTime": 1691667100561,
-     "endTime": 1691667101299
+     "startTime": 1692086165023,
+     "endTime": 1692086165773
     },
-    "executionOrder": 520,
+    "executionOrder": 51,
     "success": true
    }
   },
@@ -391,9 +409,9 @@
        "mime": "text/plain"
       }
      ],
-     "id": "82a6aa7f-c5f7-4744-98c3-370590fbc640",
+     "id": "a5a6199b-d2ae-4607-8c10-80248f2fc4d3",
      "metadata": {
-      "cellLabel": "Out[528]= ",
+      "cellLabel": "Out[59]= ",
       "isBoxData": false
      }
     }
@@ -401,10 +419,10 @@
    "metadata": {},
    "executionSummary": {
     "timing": {
-     "startTime": 1691667101300,
-     "endTime": 1691667101645
+     "startTime": 1692086165773,
+     "endTime": 1692086166010
     },
-    "executionOrder": 528,
+    "executionOrder": 59,
     "success": true
    }
   },
@@ -424,9 +442,9 @@
        "mime": "text/plain"
       }
      ],
-     "id": "af5984ab-11df-4c96-8672-94dfc7950b3f",
+     "id": "7ccbf705-3c7e-4912-ad28-eee72a5a0683",
      "metadata": {
-      "cellLabel": "Out[530]= ",
+      "cellLabel": "Out[61]= ",
       "isBoxData": false
      }
     }
@@ -434,10 +452,10 @@
    "metadata": {},
    "executionSummary": {
     "timing": {
-     "startTime": 1691667101646,
-     "endTime": 1691667101913
+     "startTime": 1692086166011,
+     "endTime": 1692086166310
     },
-    "executionOrder": 529,
+    "executionOrder": 60,
     "success": true
    }
   },
@@ -449,10 +467,10 @@
    "metadata": {},
    "executionSummary": {
     "timing": {
-     "startTime": 1691667101913,
-     "endTime": 1691667102037
+     "startTime": 1692086166310,
+     "endTime": 1692086166418
     },
-    "executionOrder": 531,
+    "executionOrder": 62,
     "success": true
    }
   },
@@ -472,9 +490,9 @@
        "mime": "text/plain"
       }
      ],
-     "id": "c60464c4-ab93-4da1-9e9b-737fc4c10835",
+     "id": "4af7385e-ad9b-473c-8318-603311c1ac62",
      "metadata": {
-      "cellLabel": "Out[532]= ",
+      "cellLabel": "Out[63]= ",
       "isBoxData": false
      }
     }
@@ -482,10 +500,10 @@
    "metadata": {},
    "executionSummary": {
     "timing": {
-     "startTime": 1691667102037,
-     "endTime": 1691667102349
+     "startTime": 1692086166418,
+     "endTime": 1692086166859
     },
-    "executionOrder": 532,
+    "executionOrder": 63,
     "success": true
    }
   },
@@ -506,9 +524,9 @@
        "mime": "text/plain"
       }
      ],
-     "id": "7d936c53-8e29-4d4c-a6e0-cf0dd18c9235",
+     "id": "78a350b7-64ae-4e1d-a135-bb1cc8934236",
      "metadata": {
-      "cellLabel": "Out[533]= ",
+      "cellLabel": "Out[64]= ",
       "isBoxData": false
      }
     }
@@ -516,10 +534,10 @@
    "metadata": {},
    "executionSummary": {
     "timing": {
-     "startTime": 1691667102349,
-     "endTime": 1691667102949
+     "startTime": 1692086166859,
+     "endTime": 1692086167394
     },
-    "executionOrder": 533,
+    "executionOrder": 64,
     "success": true
    }
   },
@@ -547,9 +565,9 @@
        "mime": "text/plain"
       }
      ],
-     "id": "32b13f8f-d896-4dd3-8b1b-5f7a6ee5a1c7",
+     "id": "4cc9fb86-0903-4cfd-8135-de780e894561",
      "metadata": {
-      "cellLabel": "Out[534]= ",
+      "cellLabel": "Out[65]= ",
       "isBoxData": false
      }
     },
@@ -564,9 +582,9 @@
        "mime": "text/plain"
       }
      ],
-     "id": "75c0e351-e3d6-4c9d-9e6d-7de4b9afa7e2",
+     "id": "1f801ec5-dde5-423e-85fa-71970abcba7c",
      "metadata": {
-      "cellLabel": "Out[540]= ",
+      "cellLabel": "Out[71]= ",
       "isBoxData": false
      }
     },
@@ -581,9 +599,9 @@
        "mime": "text/plain"
       }
      ],
-     "id": "31c5ba4b-a689-420a-bbc5-759f4d4ac033",
+     "id": "37a01a15-e03d-4b11-9433-36d6e4412885",
      "metadata": {
-      "cellLabel": "Out[542]= ",
+      "cellLabel": "Out[73]= ",
       "isBoxData": false
      }
     }
@@ -591,10 +609,10 @@
    "metadata": {},
    "executionSummary": {
     "timing": {
-     "startTime": 1691667102949,
-     "endTime": 1691667104341
+     "startTime": 1692086167395,
+     "endTime": 1692086168658
     },
-    "executionOrder": 534,
+    "executionOrder": 65,
     "success": true
    }
   },
@@ -606,10 +624,10 @@
    "metadata": {},
    "executionSummary": {
     "timing": {
-     "startTime": 1691667104342,
-     "endTime": 1691667104669
+     "startTime": 1692086168659,
+     "endTime": 1692086168922
     },
-    "executionOrder": 549,
+    "executionOrder": 80,
     "success": true
    }
   },
@@ -629,10 +647,10 @@
    "metadata": {},
    "executionSummary": {
     "timing": {
-     "startTime": 1691667104669,
-     "endTime": 1691667105107
+     "startTime": 1692086168922,
+     "endTime": 1692086169267
     },
-    "executionOrder": 552,
+    "executionOrder": 83,
     "success": true
    }
   },
@@ -652,10 +670,10 @@
    "metadata": {},
    "executionSummary": {
     "timing": {
-     "startTime": 1691667105108,
-     "endTime": 1691667105540
+     "startTime": 1692086169268,
+     "endTime": 1692086169673
     },
-    "executionOrder": 557,
+    "executionOrder": 88,
     "success": true
    }
   },
@@ -675,10 +693,10 @@
    "metadata": {},
    "executionSummary": {
     "timing": {
-     "startTime": 1691667105541,
-     "endTime": 1691667105934
+     "startTime": 1692086169673,
+     "endTime": 1692086170019
     },
-    "executionOrder": 562,
+    "executionOrder": 93,
     "success": true
    }
   },
@@ -698,10 +716,10 @@
    "metadata": {},
    "executionSummary": {
     "timing": {
-     "startTime": 1691667105935,
-     "endTime": 1691667106351
+     "startTime": 1692086170019,
+     "endTime": 1692086170409
     },
-    "executionOrder": 567,
+    "executionOrder": 98,
     "success": true
    }
   },
@@ -721,9 +739,9 @@
        "mime": "text/plain"
       }
      ],
-     "id": "5f82bf87-604a-4e77-ac19-73187dade233",
+     "id": "37bcb363-7ef5-4c61-a651-cdc44ffb066a",
      "metadata": {
-      "cellLabel": "Out[574]= ",
+      "cellLabel": "Out[105]= ",
       "isBoxData": false
      }
     }
@@ -731,10 +749,10 @@
    "metadata": {},
    "executionSummary": {
     "timing": {
-     "startTime": 1691667106352,
-     "endTime": 1691667106710
+     "startTime": 1692086170410,
+     "endTime": 1692086170923
     },
-    "executionOrder": 572,
+    "executionOrder": 103,
     "success": true
    }
   },
@@ -748,16 +766,16 @@
   },
   {
    "kind": 2,
-   "value": "OptimizeExpressionToC[{\r\n   Christ[[1]][[1]][[1]], Christ[[1]][[1]][[2]], Christ[[1]][[1]][[3]], Christ[[1]][[1]][[4]],\r\n   Christ[[1]][[2]][[2]], Christ[[1]][[2]][[3]], Christ[[1]][[2]][[4]],\r\n   Christ[[1]][[3]][[3]], Christ[[1]][[3]][[4]],\r\n   Christ[[1]][[4]][[4]],\r\n   Christ[[2]][[1]][[1]], Christ[[2]][[1]][[2]], Christ[[2]][[1]][[3]], Christ[[2]][[1]][[4]],\r\n   Christ[[2]][[2]][[2]], Christ[[2]][[2]][[3]], Christ[[2]][[2]][[4]],\r\n   Christ[[2]][[3]][[3]], Christ[[2]][[3]][[4]],\r\n   Christ[[2]][[4]][[4]],\r\n   Christ[[3]][[1]][[1]], Christ[[3]][[1]][[2]], Christ[[3]][[1]][[3]], Christ[[3]][[1]][[4]],\r\n   Christ[[3]][[2]][[2]], Christ[[3]][[2]][[3]], Christ[[3]][[2]][[4]],\r\n   Christ[[3]][[3]][[3]], Christ[[3]][[3]][[4]],\r\n   Christ[[3]][[4]][[4]],\r\n   Christ[[4]][[1]][[1]], Christ[[4]][[1]][[2]], Christ[[4]][[1]][[3]], Christ[[4]][[1]][[4]],\r\n   Christ[[4]][[2]][[2]], Christ[[4]][[2]][[3]], Christ[[4]][[2]][[4]],\r\n   Christ[[4]][[3]][[3]], Christ[[4]][[3]][[4]],\r\n   Christ[[4]][[4]][[4]]\r\n   }];\r\nmeat = ToString[Column[StringReplace[%, {\r\n   \"Sqrt\" -> \"sqrt\", \"Power(E,\" -> \"exp(\", \"Power\" -> \"pow\", \"Sin\" -> \"sin\", \"Cos\" -> \"cos\", \"Csc\" -> \"1/sin\", \"Cot\" -> \"1/tan\",\r\n   \"double\" -> \"long double\", \";,\" -> \";\\n    \",\r\n   \"out(0)\" -> \"christ[0][0][0]\", \"out(1)\" -> \"christ[0][0][1]\", \"out(2)\" -> \"christ[0][0][2]\", \"out(3)\" -> \"christ[0][0][3]\",\r\n   \"out(4)\" -> \"christ[0][1][1]\", \"out(5)\" -> \"christ[0][1][2]\", \"out(6)\" -> \"christ[0][1][3]\", \r\n   \"out(7)\" -> \"christ[0][2][2]\", \"out(8)\" -> \"christ[0][2][3]\", \r\n   \"out(9)\" -> \"christ[0][3][3]\",\r\n   \"out(10)\" -> \"christ[1][0][0]\", \"out(11)\" -> \"christ[1][0][1]\", \"out(12)\" -> \"christ[1][0][2]\", \"out(13)\" -> \"christ[1][0][3]\",\r\n   \"out(14)\" -> \"christ[1][1][1]\", \"out(15)\" -> \"christ[1][1][2]\", \"out(16)\" -> \"christ[1][1][3]\",\r\n   \"out(17)\" -> \"christ[1][2][2]\", \"out(18)\" -> \"christ[1][2][3]\",\r\n   \"out(19)\" -> \"christ[1][3][3]\",\r\n   \"out(20)\" -> \"christ[2][0][0]\", \"out(21)\" -> \"christ[2][0][1]\", \"out(22)\" -> \"christ[2][0][2]\", \"out(23)\" -> \"christ[2][0][3]\",\r\n   \"out(24)\" -> \"christ[2][1][1]\", \"out(25)\" -> \"christ[2][1][2]\", \"out(26)\" -> \"christ[2][1][3]\",\r\n   \"out(27)\" -> \"christ[2][2][2]\", \"out(28)\" -> \"christ[2][2][3]\",\r\n   \"out(29)\" -> \"christ[2][3][3]\",\r\n   \"out(30)\" -> \"christ[3][0][0]\", \"out(31)\" -> \"christ[3][0][1]\", \"out(32)\" -> \"christ[3][0][2]\", \"out(33)\" -> \"christ[3][0][3]\",\r\n   \"out(34)\" -> \"christ[3][1][1]\", \"out(35)\" -> \"christ[3][1][2]\", \"out(36)\" -> \"christ[3][1][3]\",\r\n   \"out(37)\" -> \"christ[3][2][2]\", \"out(38)\" -> \"christ[3][2][3]\",\r\n   \"out(39)\" -> \"christ[3][3][3]\"}]]];\r\nheader = \"void christoffel(long double r, long double th, long double christ[4][4][4])\\n{\\n\";\r\nfooter = \"\\n}\";\r\nchristoffel = header <> meat <> footer;",
+   "value": "OptimizeExpressionToC[{\r\n   Christ[[1]][[1]][[1]], Christ[[1]][[1]][[2]], Christ[[1]][[1]][[3]], Christ[[1]][[1]][[4]],\r\n   Christ[[1]][[2]][[1]], Christ[[1]][[2]][[2]], Christ[[1]][[2]][[3]], Christ[[1]][[2]][[4]],\r\n   Christ[[1]][[3]][[1]], Christ[[1]][[3]][[2]], Christ[[1]][[3]][[3]], Christ[[1]][[3]][[4]],\r\n   Christ[[1]][[4]][[1]], Christ[[1]][[4]][[2]], Christ[[1]][[4]][[3]], Christ[[1]][[4]][[4]],\r\n   Christ[[2]][[1]][[1]], Christ[[2]][[1]][[2]], Christ[[2]][[1]][[3]], Christ[[2]][[1]][[4]],\r\n   Christ[[2]][[2]][[1]], Christ[[2]][[2]][[2]], Christ[[2]][[2]][[3]], Christ[[2]][[2]][[4]],\r\n   Christ[[2]][[3]][[1]], Christ[[2]][[3]][[2]], Christ[[2]][[3]][[3]], Christ[[2]][[3]][[4]],\r\n   Christ[[2]][[4]][[1]], Christ[[2]][[4]][[2]], Christ[[2]][[4]][[3]], Christ[[2]][[4]][[4]],\r\n   Christ[[3]][[1]][[1]], Christ[[3]][[1]][[2]], Christ[[3]][[1]][[3]], Christ[[3]][[1]][[4]],\r\n   Christ[[3]][[2]][[1]], Christ[[3]][[2]][[2]], Christ[[3]][[2]][[3]], Christ[[3]][[2]][[4]],\r\n   Christ[[3]][[3]][[1]], Christ[[3]][[3]][[2]], Christ[[3]][[3]][[3]], Christ[[3]][[3]][[4]],\r\n   Christ[[3]][[4]][[1]], Christ[[3]][[4]][[2]], Christ[[3]][[4]][[3]], Christ[[3]][[4]][[4]],\r\n   Christ[[4]][[1]][[1]], Christ[[4]][[1]][[2]], Christ[[4]][[1]][[3]], Christ[[4]][[1]][[4]],\r\n   Christ[[4]][[2]][[1]], Christ[[4]][[2]][[2]], Christ[[4]][[2]][[3]], Christ[[4]][[2]][[4]],\r\n   Christ[[4]][[3]][[1]], Christ[[4]][[3]][[2]], Christ[[4]][[3]][[3]], Christ[[4]][[3]][[4]],\r\n   Christ[[4]][[4]][[1]], Christ[[4]][[4]][[2]], Christ[[4]][[4]][[3]], Christ[[4]][[4]][[4]]\r\n   }];\r\nmeat = ToString[Column[StringReplace[%, {\r\n   \"Sqrt\" -> \"sqrt\", \"Power(E,\" -> \"exp(\", \"Power\" -> \"pow\", \"Sin\" -> \"sin\", \"Cos\" -> \"cos\", \"Csc\" -> \"1/sin\", \"Cot\" -> \"1/tan\",\r\n   \"double\" -> \"long double\", \";,\" -> \";\\n    \",\r\n   \"out(0)\" -> \"christ[0][0][0]\", \"out(1)\" -> \"christ[0][0][1]\", \"out(2)\" -> \"christ[0][0][2]\", \"out(3)\" -> \"christ[0][0][3]\",\r\n   \"out(4)\" -> \"christ[0][1][0]\", \"out(5)\" -> \"christ[0][1][1]\", \"out(6)\" -> \"christ[0][1][2]\", \"out(7)\" -> \"christ[0][1][3]\",\r\n   \"out(8)\" -> \"christ[0][2][0]\", \"out(9)\" -> \"christ[0][2][1]\", \"out(10)\" -> \"christ[0][2][2]\", \"out(11)\" -> \"christ[0][2][3]\",\r\n   \"out(12)\" -> \"christ[0][3][0]\", \"out(13)\" -> \"christ[0][3][1]\", \"out(14)\" -> \"christ[0][3][2]\", \"out(15)\" -> \"christ[0][3][3]\",\r\n   \"out(16)\" -> \"christ[1][0][0]\", \"out(17)\" -> \"christ[1][0][1]\", \"out(18)\" -> \"christ[1][0][2]\", \"out(19)\" -> \"christ[1][0][3]\",\r\n   \"out(20)\" -> \"christ[1][1][0]\", \"out(21)\" -> \"christ[1][1][1]\", \"out(22)\" -> \"christ[1][1][2]\", \"out(23)\" -> \"christ[1][1][3]\",\r\n   \"out(24)\" -> \"christ[1][2][0]\", \"out(25)\" -> \"christ[1][2][1]\", \"out(26)\" -> \"christ[1][2][2]\", \"out(27)\" -> \"christ[1][2][3]\",\r\n   \"out(28)\" -> \"christ[1][3][0]\", \"out(29)\" -> \"christ[1][3][1]\", \"out(30)\" -> \"christ[1][3][2]\", \"out(31)\" -> \"christ[1][3][3]\",\r\n   \"out(32)\" -> \"christ[2][0][0]\", \"out(33)\" -> \"christ[2][0][1]\", \"out(34)\" -> \"christ[2][0][2]\", \"out(35)\" -> \"christ[2][0][3]\",\r\n   \"out(36)\" -> \"christ[2][1][0]\", \"out(37)\" -> \"christ[2][1][1]\", \"out(38)\" -> \"christ[2][1][2]\", \"out(39)\" -> \"christ[2][1][3]\",\r\n   \"out(40)\" -> \"christ[2][2][0]\", \"out(41)\" -> \"christ[2][2][1]\", \"out(42)\" -> \"christ[2][2][2]\", \"out(43)\" -> \"christ[2][2][3]\",\r\n   \"out(44)\" -> \"christ[2][3][0]\", \"out(45)\" -> \"christ[2][3][1]\", \"out(46)\" -> \"christ[2][3][2]\", \"out(47)\" -> \"christ[2][3][3]\",\r\n   \"out(48)\" -> \"christ[3][0][0]\", \"out(49)\" -> \"christ[3][0][1]\", \"out(50)\" -> \"christ[3][0][2]\", \"out(51)\" -> \"christ[3][0][3]\",\r\n   \"out(52)\" -> \"christ[3][1][0]\", \"out(53)\" -> \"christ[3][1][1]\", \"out(54)\" -> \"christ[3][1][2]\", \"out(55)\" -> \"christ[3][1][3]\",\r\n   \"out(56)\" -> \"christ[3][2][0]\", \"out(57)\" -> \"christ[3][2][1]\", \"out(58)\" -> \"christ[3][2][2]\", \"out(59)\" -> \"christ[3][2][3]\",\r\n   \"out(60)\" -> \"christ[3][3][0]\", \"out(61)\" -> \"christ[3][3][1]\", \"out(62)\" -> \"christ[3][3][2]\", \"out(63)\" -> \"christ[3][3][3]\"\r\n   }]]];\r\nheader = \"void christoffel(long double r, long double th, long double christ[4][4][4])\\n{\\n\";\r\nfooter = \"\\n}\";\r\nchristoffel = header <> meat <> footer;",
    "languageId": "wolfram",
    "outputs": [],
    "metadata": {},
    "executionSummary": {
     "timing": {
-     "startTime": 1691667106711,
-     "endTime": 1691667107247
+     "startTime": 1692086170923,
+     "endTime": 1692086171567
     },
-    "executionOrder": 575,
+    "executionOrder": 106,
     "success": true
    }
   },
@@ -769,10 +787,10 @@
    "metadata": {},
    "executionSummary": {
     "timing": {
-     "startTime": 1691667107249,
-     "endTime": 1691667107465
+     "startTime": 1692086171568,
+     "endTime": 1692086171776
     },
-    "executionOrder": 580,
+    "executionOrder": 111,
     "success": true
    }
   },
@@ -792,10 +810,10 @@
    "metadata": {},
    "executionSummary": {
     "timing": {
-     "startTime": 1691667107465,
-     "endTime": 1691667107855
+     "startTime": 1692086171777,
+     "endTime": 1692086172257
     },
-    "executionOrder": 582,
+    "executionOrder": 113,
     "success": true
    }
   },
@@ -807,10 +825,10 @@
    "metadata": {},
    "executionSummary": {
     "timing": {
-     "startTime": 1691667107856,
-     "endTime": 1691667108232
+     "startTime": 1692086172257,
+     "endTime": 1692086172676
     },
-    "executionOrder": 587,
+    "executionOrder": 118,
     "success": true
    }
   },
@@ -822,10 +840,10 @@
    "metadata": {},
    "executionSummary": {
     "timing": {
-     "startTime": 1691667108233,
-     "endTime": 1691667108575
+     "startTime": 1692086172677,
+     "endTime": 1692086173219
     },
-    "executionOrder": 592,
+    "executionOrder": 123,
     "success": true
    }
   },
@@ -845,9 +863,9 @@
        "mime": "text/plain"
       }
      ],
-     "id": "dd7c3fbe-43bb-4c8b-83e4-16c8be0e1fe3",
+     "id": "727d5be5-23de-40bf-a900-f8559dbd9eeb",
      "metadata": {
-      "cellLabel": "Out[599]= ",
+      "cellLabel": "Out[130]= ",
       "isBoxData": false
      }
     }
@@ -855,10 +873,10 @@
    "metadata": {},
    "executionSummary": {
     "timing": {
-     "startTime": 1691667108575,
-     "endTime": 1691667108887
+     "startTime": 1692086173219,
+     "endTime": 1692086173620
     },
-    "executionOrder": 597,
+    "executionOrder": 128,
     "success": true
    }
   },
@@ -870,10 +888,10 @@
    "metadata": {},
    "executionSummary": {
     "timing": {
-     "startTime": 1691667108887,
-     "endTime": 1691667109376
+     "startTime": 1692086173620,
+     "endTime": 1692086174034
     },
-    "executionOrder": 600,
+    "executionOrder": 131,
     "success": true
    }
   },
@@ -893,9 +911,9 @@
        "mime": "text/plain"
       }
      ],
-     "id": "e9ade33a-51f5-4531-9a5c-e90ce74e13ff",
+     "id": "b5af1839-b8b1-4e8a-a675-7efc5b38175b",
      "metadata": {
-      "cellLabel": "Out[607]= ",
+      "cellLabel": "Out[138]= ",
       "isBoxData": false
      }
     }
@@ -903,10 +921,10 @@
    "metadata": {},
    "executionSummary": {
     "timing": {
-     "startTime": 1691667109376,
-     "endTime": 1691667109771
+     "startTime": 1692086174035,
+     "endTime": 1692086174411
     },
-    "executionOrder": 605,
+    "executionOrder": 136,
     "success": true
    }
   }
