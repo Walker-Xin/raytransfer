@@ -38,7 +38,7 @@ using namespace std;
 #define g5 -9.0/50.0
 #define g6 2.0/55.0
 
-#define Pi acos(-1.0)
+const long double Pi  = 3.14159265358979323846264338327950288419716939937510L;
 
 /* global variables to avoid passing to functions */
 long double xscr, yscr;
