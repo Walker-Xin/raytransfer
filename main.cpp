@@ -37,7 +37,7 @@ int main(int argc, char *argv[])
 		inc = acos(cosinc); // inclination angle of the observer in rad
 
 		/* Set inner radius of the disk */
-		find_isco();
+		isco = find_isco();
 
 		/* Calculate radiative efficiency */
 		eta = 1.0 - specific_energy(isco);

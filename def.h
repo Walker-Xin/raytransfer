@@ -60,7 +60,7 @@ void metric_rderivatives(long double r, long double th, long double dg[][4]);
 void metric_r2derivatives(long double r, long double th, long double dg2[][4]);
 void uppermetric(long double r, long double th, long double gu[4][4]);
 long double Veff_deri2(long double r, long double E, long double Lz);
-void find_isco();
+long double find_isco();
 void gauleg(long double rdisk_i, long double rdisk_f, long double rdisk[]);
 void christoffel(long double r, long double th, long double christ[4][4][4]);
 

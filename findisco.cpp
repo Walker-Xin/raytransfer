@@ -1,8 +1,17 @@
 /* Calculate ISCO radius */
 // TODO: improve this with a more modular approach
 // TODO: optimise expressions
+// const long double Pi  = 3.14159265358979323846264338327950288419716939937510L;
 
-void find_isco()
+// long double spin = 0.1;
+// long double defpar = 0.005, epsi3 = 0.0, a13 = 0.0, a22 = 0.0;
+
+// #include <stdio.h>
+// #include <math.h>
+
+// #include "metric.cpp"
+
+long double find_isco()
 {
     long double d2Veff, d2Veff2, E_var, Lz_var, Omega_var, denom, den, den_r, den_rr, num, num_r, num_rr;
     long double m[4][4],dmdr[4][4],dmdr2[4][4];
@@ -93,5 +102,12 @@ void find_isco()
         d2Veff_last = d2Veff;
   	}
 
-    isco = rin;
+    return rin;
 }
+
+// int main(){
+//     long double isco;
+//     isco = find_isco();
+//     printf("ISCO radius = %Lf\n", isco);
+//     return 0;
+// }
