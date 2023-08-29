@@ -16,7 +16,7 @@
        "mime": "text/plain"
       }
      ],
-     "id": "42e409f5-9571-40f8-85f9-e3f06390cc14",
+     "id": "1e7a3264-87dc-44ef-9984-83ca5d4fec49",
      "metadata": {
       "cellLabel": "",
       "isBoxData": false
@@ -26,10 +26,10 @@
    "metadata": {},
    "executionSummary": {
     "timing": {
-     "startTime": 1692086139888,
-     "endTime": 1692086140241
+     "startTime": 1693233132287,
+     "endTime": 1693233132519
     },
-    "executionOrder": 1,
+    "executionOrder": 300,
     "success": true
    }
   },
@@ -41,10 +41,10 @@
    "metadata": {},
    "executionSummary": {
     "timing": {
-     "startTime": 1692086140241,
-     "endTime": 1692086140899
+     "startTime": 1693233133815,
+     "endTime": 1693233134389
     },
-    "executionOrder": 2,
+    "executionOrder": 301,
     "success": true
    }
   },
@@ -56,10 +56,10 @@
    "metadata": {},
    "executionSummary": {
     "timing": {
-     "startTime": 1692086140899,
-     "endTime": 1692086141590
+     "startTime": 1693233134831,
+     "endTime": 1693233135433
     },
-    "executionOrder": 10,
+    "executionOrder": 309,
     "success": true
    }
   },
@@ -71,10 +71,10 @@
    "metadata": {},
    "executionSummary": {
     "timing": {
-     "startTime": 1692086141591,
-     "endTime": 1692086141679
+     "startTime": 1693233136521,
+     "endTime": 1693233136595
     },
-    "executionOrder": 18,
+    "executionOrder": 317,
     "success": true
    }
   },
@@ -102,9 +102,9 @@
        "mime": "text/plain"
       }
      ],
-     "id": "0c769ced-858a-4139-8c79-b9d3fa2dbe26",
+     "id": "9dfb438e-9e8f-4a71-8f11-b2cd31c504a0",
      "metadata": {
-      "cellLabel": "Out[27]//MatrixForm= ",
+      "cellLabel": "Out[326]//MatrixForm= ",
       "isBoxData": false
      }
     }
@@ -112,10 +112,10 @@
    "metadata": {},
    "executionSummary": {
     "timing": {
-     "startTime": 1692086141680,
-     "endTime": 1692086143001
+     "startTime": 1693233141000,
+     "endTime": 1693233141925
     },
-    "executionOrder": 19,
+    "executionOrder": 318,
     "success": true
    }
   },
@@ -135,9 +135,9 @@
        "mime": "text/plain"
       }
      ],
-     "id": "26cfae44-c8c2-4b71-b7e8-6cb3d262e7b0",
+     "id": "3961b9bc-d097-4019-8b81-25e11188ef8c",
      "metadata": {
-      "cellLabel": "Out[29]//MatrixForm= ",
+      "cellLabel": "Out[328]//MatrixForm= ",
       "isBoxData": false
      }
     }
@@ -145,10 +145,10 @@
    "metadata": {},
    "executionSummary": {
     "timing": {
-     "startTime": 1692086143002,
-     "endTime": 1692086143254
+     "startTime": 1693233144745,
+     "endTime": 1693233144971
     },
-    "executionOrder": 28,
+    "executionOrder": 327,
     "success": true
    }
   },
@@ -168,10 +168,10 @@
    "metadata": {},
    "executionSummary": {
     "timing": {
-     "startTime": 1692086143254,
-     "endTime": 1692086154388
+     "startTime": 1693233146546,
+     "endTime": 1693233153347
     },
-    "executionOrder": 30,
+    "executionOrder": 329,
     "success": true
    }
   },
@@ -189,14 +189,7 @@
    "languageId": "wolfram",
    "outputs": [],
    "metadata": {},
-   "executionSummary": {
-    "timing": {
-     "startTime": 1692086154388,
-     "endTime": 1692086154673
-    },
-    "executionOrder": 34,
-    "success": true
-   }
+   "executionSummary": {}
   },
   {
    "kind": 2,
@@ -204,14 +197,7 @@
    "languageId": "wolfram",
    "outputs": [],
    "metadata": {},
-   "executionSummary": {
-    "timing": {
-     "startTime": 1692086154673,
-     "endTime": 1692086155224
-    },
-    "executionOrder": 35,
-    "success": true
-   }
+   "executionSummary": {}
   },
   {
    "kind": 1,
@@ -223,16 +209,49 @@
   },
   {
    "kind": 2,
-   "value": "Christ = ResourceFunction[\"ChristoffelSymbol\"][G, {t, r, theta, phi}, \"Kind\" -> \"Second\"];\r\nChrist = Simplify[Christ];",
+   "value": "Christ = ResourceFunction[\"ChristoffelSymbol\"][G, {t, r, theta, phi}, \"Kind\" -> \"First\"];\r\nChrist = Simplify[Christ];",
    "languageId": "wolfram",
    "outputs": [],
    "metadata": {},
    "executionSummary": {
     "timing": {
-     "startTime": 1692086155225,
-     "endTime": 1692086163334
+     "startTime": 1693233316727,
+     "endTime": 1693233319637
     },
-    "executionOrder": 42,
+    "executionOrder": 369,
+    "success": true
+   }
+  },
+  {
+   "kind": 2,
+   "value": "(* test Christ numerically *)\r\nnum = {r -> 1.0, theta -> 0.15, M -> 1, a -> 0.5, defpar -> 0};\r\nEvaluate[Part[Christ, 1, 1, 2] /. num] // MatrixForm",
+   "languageId": "wolfram",
+   "outputs": [
+    {
+     "items": [
+      {
+       "data": "<div class=\"wexpr\"><wrow><w></w><w>-</w><w>0.487922</w></wrow></div>",
+       "mime": "x-application/wolfram-language-html"
+      },
+      {
+       "data": "MatrixForm[-0.48792180785745654]",
+       "mime": "text/plain"
+      }
+     ],
+     "id": "1a4f9b7f-aa97-425f-a5a7-0a4f7ba4abd2",
+     "metadata": {
+      "cellLabel": "Out[372]//MatrixForm= ",
+      "isBoxData": false
+     }
+    }
+   ],
+   "metadata": {},
+   "executionSummary": {
+    "timing": {
+     "startTime": 1693233325604,
+     "endTime": 1693233325831
+    },
+    "executionOrder": 371,
     "success": true
    }
   },
@@ -243,14 +262,7 @@
    "mime": "text/plain",
    "outputs": [],
    "metadata": {},
-   "executionSummary": {
-    "timing": {
-     "startTime": 1692086163334,
-     "endTime": 1692086163442
-    },
-    "executionOrder": 44,
-    "success": true
-   }
+   "executionSummary": {}
   },
   {
    "kind": 2,
@@ -258,14 +270,7 @@
    "languageId": "wolfram",
    "outputs": [],
    "metadata": {},
-   "executionSummary": {
-    "timing": {
-     "startTime": 1692086163443,
-     "endTime": 1692086163537
-    },
-    "executionOrder": 45,
-    "success": true
-   }
+   "executionSummary": {}
   },
   {
    "kind": 1,
@@ -281,14 +286,7 @@
    "languageId": "wolfram",
    "outputs": [],
    "metadata": {},
-   "executionSummary": {
-    "timing": {
-     "startTime": 1692086163537,
-     "endTime": 1692086163629
-    },
-    "executionOrder": 46,
-    "success": true
-   }
+   "executionSummary": {}
   },
   {
    "kind": 2,
@@ -297,14 +295,7 @@
    "mime": "text/plain",
    "outputs": [],
    "metadata": {},
-   "executionSummary": {
-    "timing": {
-     "startTime": 1692086163630,
-     "endTime": 1692086163709
-    },
-    "executionOrder": 47,
-    "success": true
-   }
+   "executionSummary": {}
   },
   {
    "kind": 2,
@@ -323,22 +314,15 @@
        "mime": "text/plain"
       }
      ],
-     "id": "27bf4889-08a8-4e71-bef8-eaa6539b3057",
+     "id": "bd02f05f-1468-40dd-b844-62998b043f80",
      "metadata": {
-      "cellLabel": "Out[48]= ",
+      "cellLabel": "Out[202]= ",
       "isBoxData": false
      }
     }
    ],
    "metadata": {},
-   "executionSummary": {
-    "timing": {
-     "startTime": 1692086163709,
-     "endTime": 1692086164660
-    },
-    "executionOrder": 48,
-    "success": true
-   }
+   "executionSummary": {}
   },
   {
    "kind": 2,
@@ -346,14 +330,7 @@
    "languageId": "wolfram",
    "outputs": [],
    "metadata": {},
-   "executionSummary": {
-    "timing": {
-     "startTime": 1692086164660,
-     "endTime": 1692086164908
-    },
-    "executionOrder": 49,
-    "success": true
-   }
+   "executionSummary": {}
   },
   {
    "kind": 2,
@@ -361,14 +338,7 @@
    "languageId": "wolfram",
    "outputs": [],
    "metadata": {},
-   "executionSummary": {
-    "timing": {
-     "startTime": 1692086164908,
-     "endTime": 1692086165021
-    },
-    "executionOrder": 50,
-    "success": true
-   }
+   "executionSummary": {}
   },
   {
    "kind": 1,
@@ -384,14 +354,7 @@
    "languageId": "wolfram",
    "outputs": [],
    "metadata": {},
-   "executionSummary": {
-    "timing": {
-     "startTime": 1692086165023,
-     "endTime": 1692086165773
-    },
-    "executionOrder": 51,
-    "success": true
-   }
+   "executionSummary": {}
   },
   {
    "kind": 2,
@@ -409,22 +372,15 @@
        "mime": "text/plain"
       }
      ],
-     "id": "a5a6199b-d2ae-4607-8c10-80248f2fc4d3",
+     "id": "ca3e44d5-c627-46c9-87f8-d1d8bbbec8af",
      "metadata": {
-      "cellLabel": "Out[59]= ",
+      "cellLabel": "Out[213]= ",
       "isBoxData": false
      }
     }
    ],
    "metadata": {},
-   "executionSummary": {
-    "timing": {
-     "startTime": 1692086165773,
-     "endTime": 1692086166010
-    },
-    "executionOrder": 59,
-    "success": true
-   }
+   "executionSummary": {}
   },
   {
    "kind": 2,
@@ -442,22 +398,15 @@
        "mime": "text/plain"
       }
      ],
-     "id": "7ccbf705-3c7e-4912-ad28-eee72a5a0683",
+     "id": "2ece9fef-d30c-44c6-b339-f3993d23fe7d",
      "metadata": {
-      "cellLabel": "Out[61]= ",
+      "cellLabel": "Out[215]= ",
       "isBoxData": false
      }
     }
    ],
    "metadata": {},
-   "executionSummary": {
-    "timing": {
-     "startTime": 1692086166011,
-     "endTime": 1692086166310
-    },
-    "executionOrder": 60,
-    "success": true
-   }
+   "executionSummary": {}
   },
   {
    "kind": 2,
@@ -465,14 +414,7 @@
    "languageId": "wolfram",
    "outputs": [],
    "metadata": {},
-   "executionSummary": {
-    "timing": {
-     "startTime": 1692086166310,
-     "endTime": 1692086166418
-    },
-    "executionOrder": 62,
-    "success": true
-   }
+   "executionSummary": {}
   },
   {
    "kind": 2,
@@ -490,22 +432,15 @@
        "mime": "text/plain"
       }
      ],
-     "id": "4af7385e-ad9b-473c-8318-603311c1ac62",
+     "id": "4e56d74f-49a4-4f52-9105-1a216661eee0",
      "metadata": {
-      "cellLabel": "Out[63]= ",
+      "cellLabel": "Out[217]= ",
       "isBoxData": false
      }
     }
    ],
    "metadata": {},
-   "executionSummary": {
-    "timing": {
-     "startTime": 1692086166418,
-     "endTime": 1692086166859
-    },
-    "executionOrder": 63,
-    "success": true
-   }
+   "executionSummary": {}
   },
   {
    "kind": 2,
@@ -524,22 +459,15 @@
        "mime": "text/plain"
       }
      ],
-     "id": "78a350b7-64ae-4e1d-a135-bb1cc8934236",
+     "id": "b18e6874-9842-4196-84d0-dfaeb40bdabb",
      "metadata": {
-      "cellLabel": "Out[64]= ",
+      "cellLabel": "Out[218]= ",
       "isBoxData": false
      }
     }
    ],
    "metadata": {},
-   "executionSummary": {
-    "timing": {
-     "startTime": 1692086166859,
-     "endTime": 1692086167394
-    },
-    "executionOrder": 64,
-    "success": true
-   }
+   "executionSummary": {}
   },
   {
    "kind": 1,
@@ -565,9 +493,9 @@
        "mime": "text/plain"
       }
      ],
-     "id": "4cc9fb86-0903-4cfd-8135-de780e894561",
+     "id": "6355372a-0389-4abe-97c4-d1e7310d4024",
      "metadata": {
-      "cellLabel": "Out[65]= ",
+      "cellLabel": "Out[344]= ",
       "isBoxData": false
      }
     },
@@ -582,9 +510,9 @@
        "mime": "text/plain"
       }
      ],
-     "id": "1f801ec5-dde5-423e-85fa-71970abcba7c",
+     "id": "c1e8f596-6358-4d04-9710-aa932d71467f",
      "metadata": {
-      "cellLabel": "Out[71]= ",
+      "cellLabel": "Out[350]= ",
       "isBoxData": false
      }
     },
@@ -599,9 +527,9 @@
        "mime": "text/plain"
       }
      ],
-     "id": "37a01a15-e03d-4b11-9433-36d6e4412885",
+     "id": "ab00b998-7625-4f5b-b884-ff0d553c1311",
      "metadata": {
-      "cellLabel": "Out[73]= ",
+      "cellLabel": "Out[352]= ",
       "isBoxData": false
      }
     }
@@ -609,10 +537,10 @@
    "metadata": {},
    "executionSummary": {
     "timing": {
-     "startTime": 1692086167395,
-     "endTime": 1692086168658
+     "startTime": 1693233221182,
+     "endTime": 1693233222441
     },
-    "executionOrder": 65,
+    "executionOrder": 344,
     "success": true
    }
   },
@@ -624,10 +552,10 @@
    "metadata": {},
    "executionSummary": {
     "timing": {
-     "startTime": 1692086168659,
-     "endTime": 1692086168922
+     "startTime": 1693233223794,
+     "endTime": 1693233224031
     },
-    "executionOrder": 80,
+    "executionOrder": 359,
     "success": true
    }
   },
@@ -645,14 +573,7 @@
    "languageId": "wolfram",
    "outputs": [],
    "metadata": {},
-   "executionSummary": {
-    "timing": {
-     "startTime": 1692086168922,
-     "endTime": 1692086169267
-    },
-    "executionOrder": 83,
-    "success": true
-   }
+   "executionSummary": {}
   },
   {
    "kind": 1,
@@ -668,14 +589,7 @@
    "languageId": "wolfram",
    "outputs": [],
    "metadata": {},
-   "executionSummary": {
-    "timing": {
-     "startTime": 1692086169268,
-     "endTime": 1692086169673
-    },
-    "executionOrder": 88,
-    "success": true
-   }
+   "executionSummary": {}
   },
   {
    "kind": 1,
@@ -691,14 +605,7 @@
    "languageId": "wolfram",
    "outputs": [],
    "metadata": {},
-   "executionSummary": {
-    "timing": {
-     "startTime": 1692086169673,
-     "endTime": 1692086170019
-    },
-    "executionOrder": 93,
-    "success": true
-   }
+   "executionSummary": {}
   },
   {
    "kind": 1,
@@ -714,18 +621,11 @@
    "languageId": "wolfram",
    "outputs": [],
    "metadata": {},
-   "executionSummary": {
-    "timing": {
-     "startTime": 1692086170019,
-     "endTime": 1692086170409
-    },
-    "executionOrder": 98,
-    "success": true
-   }
+   "executionSummary": {}
   },
   {
    "kind": 2,
-   "value": "output = metric <> \"\\n\\n\" <> metricupper <> \"\\n\\n\" <> metricdr <> \"\\n\\n\" <> metricdr2;\r\n\r\n(* write to metric.cpp file *)\r\nSetDirectory[\"C:\\\\Users\\\\Administrator\\\\Documents\\\\script\\\\raytransfer\"];\r\nExport[\"metric.cpp\", output, \"Text\"]",
+   "value": "output = metric <> \"\\n\\n\" <> metricupper <> \"\\n\\n\" <> metricdr <> \"\\n\\n\" <> metricdr2;\r\n\r\n(* write to metric.cpp file *)\r\nSetDirectory[\"C:\\\\Users\\\\WalkerXin\\\\Documents\\\\Scripts\\\\raytransfer\"];\r\nExport[\"metric.cpp\", output, \"Text\"]",
    "languageId": "wolfram",
    "outputs": [
     {
@@ -739,22 +639,15 @@
        "mime": "text/plain"
       }
      ],
-     "id": "37bcb363-7ef5-4c61-a651-cdc44ffb066a",
+     "id": "aec1ab9f-36d7-4417-80cb-ae69ed5c08a6",
      "metadata": {
-      "cellLabel": "Out[105]= ",
+      "cellLabel": "Out[259]= ",
       "isBoxData": false
      }
     }
    ],
    "metadata": {},
-   "executionSummary": {
-    "timing": {
-     "startTime": 1692086170410,
-     "endTime": 1692086170923
-    },
-    "executionOrder": 103,
-    "success": true
-   }
+   "executionSummary": {}
   },
   {
    "kind": 1,
@@ -772,10 +665,10 @@
    "metadata": {},
    "executionSummary": {
     "timing": {
-     "startTime": 1692086170923,
-     "endTime": 1692086171567
+     "startTime": 1693233227077,
+     "endTime": 1693233227534
     },
-    "executionOrder": 106,
+    "executionOrder": 362,
     "success": true
    }
   },
@@ -787,10 +680,10 @@
    "metadata": {},
    "executionSummary": {
     "timing": {
-     "startTime": 1692086171568,
-     "endTime": 1692086171776
+     "startTime": 1693233228498,
+     "endTime": 1693233228643
     },
-    "executionOrder": 111,
+    "executionOrder": 367,
     "success": true
    }
   },
@@ -808,14 +701,7 @@
    "languageId": "wolfram",
    "outputs": [],
    "metadata": {},
-   "executionSummary": {
-    "timing": {
-     "startTime": 1692086171777,
-     "endTime": 1692086172257
-    },
-    "executionOrder": 113,
-    "success": true
-   }
+   "executionSummary": {}
   },
   {
    "kind": 2,
@@ -823,14 +709,7 @@
    "languageId": "wolfram",
    "outputs": [],
    "metadata": {},
-   "executionSummary": {
-    "timing": {
-     "startTime": 1692086172257,
-     "endTime": 1692086172676
-    },
-    "executionOrder": 118,
-    "success": true
-   }
+   "executionSummary": {}
   },
   {
    "kind": 2,
@@ -838,18 +717,11 @@
    "languageId": "wolfram",
    "outputs": [],
    "metadata": {},
-   "executionSummary": {
-    "timing": {
-     "startTime": 1692086172677,
-     "endTime": 1692086173219
-    },
-    "executionOrder": 123,
-    "success": true
-   }
+   "executionSummary": {}
   },
   {
    "kind": 2,
-   "value": "output = red <> \"\\n\\n\" <> specificE <> \"\\n\\n\" <> specificL;\r\n\r\n(* write to metric.cpp file *)\r\nSetDirectory[\"C:\\\\Users\\\\Administrator\\\\Documents\\\\script\\\\raytransfer\"];\r\nExport[\"redshift.cpp\", output, \"Text\"]",
+   "value": "output = red <> \"\\n\\n\" <> specificE <> \"\\n\\n\" <> specificL;\r\n\r\n(* write to metric.cpp file *)\r\nSetDirectory[\"C:\\\\Users\\\\WalkerXin\\\\Documents\\\\Scripts\\\\raytransfer\"];\r\nExport[\"redshift.cpp\", output, \"Text\"]",
    "languageId": "wolfram",
    "outputs": [
     {
@@ -863,22 +735,15 @@
        "mime": "text/plain"
       }
      ],
-     "id": "727d5be5-23de-40bf-a900-f8559dbd9eeb",
+     "id": "f6939168-252a-49fb-8c1e-050f55cbc607",
      "metadata": {
-      "cellLabel": "Out[130]= ",
+      "cellLabel": "Out[284]= ",
       "isBoxData": false
      }
     }
    ],
    "metadata": {},
-   "executionSummary": {
-    "timing": {
-     "startTime": 1692086173219,
-     "endTime": 1692086173620
-    },
-    "executionOrder": 128,
-    "success": true
-   }
+   "executionSummary": {}
   },
   {
    "kind": 2,
@@ -886,18 +751,11 @@
    "languageId": "wolfram",
    "outputs": [],
    "metadata": {},
-   "executionSummary": {
-    "timing": {
-     "startTime": 1692086173620,
-     "endTime": 1692086174034
-    },
-    "executionOrder": 131,
-    "success": true
-   }
+   "executionSummary": {}
   },
   {
    "kind": 2,
-   "value": "output = Veffderi2;\r\n\r\n(* write to metric.cpp file *)\r\nSetDirectory[\"C:\\\\Users\\\\Administrator\\\\Documents\\\\script\\\\raytransfer\"];\r\nExport[\"effective_potential.cpp\", output, \"Text\"]",
+   "value": "output = Veffderi2;\r\n\r\n(* write to metric.cpp file *)\r\nSetDirectory[\"C:\\\\Users\\\\WalkerXin\\\\Documents\\\\Scripts\\\\raytransfer\"];\r\nExport[\"effective_potential.cpp\", output, \"Text\"]",
    "languageId": "wolfram",
    "outputs": [
     {
@@ -911,22 +769,15 @@
        "mime": "text/plain"
       }
      ],
-     "id": "b5af1839-b8b1-4e8a-a675-7efc5b38175b",
+     "id": "f4580d5f-9a36-4327-a5b7-aea2acc67ff5",
      "metadata": {
-      "cellLabel": "Out[138]= ",
+      "cellLabel": "Out[292]= ",
       "isBoxData": false
      }
     }
    ],
    "metadata": {},
-   "executionSummary": {
-    "timing": {
-     "startTime": 1692086174035,
-     "endTime": 1692086174411
-    },
-    "executionOrder": 136,
-    "success": true
-   }
+   "executionSummary": {}
   }
  ]
 }
