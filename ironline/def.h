@@ -40,14 +40,16 @@ using namespace std;
 
 const double Pi  = 3.14159265358979323846264338327950288419716939937510L;
 
-double defpar, epsi3, a13, a22, a52;
-double spin, inc, isco;
-double spin2 = spin*spin;
+double spin = 0.5;
+double defpar = 0.0;
 
 void christoffel(double spin, double defpar, double r, double th, double christ[4][4][4]);
 void christoffel_alt(double spin, double spin2, double epsilon_r, double epsilon_t, double w1, double w2, double CS[][4][4]);
+void diffeqs(double vars[], double diffs[]);
+void diffeqs_alt(double christ[4][4][4], double vars[], double diffs[]);
 void redshift(double spin, double defpar, double r, double th, double ktkp, double &gg);
 void redshift_alt(double spin, double spin2, double epsilon_r, double epsilon_t, double radius, double ktt, double ktkp, double kyy, double& gg, double& ldr);
+int raytrace(double inc, double spin, double dscr, double xscr, double yscr, double rin, double rout, double traced[]);
 double find_isco();
 void intersection(double x_1, double y_1, double z_1, double x_2, double y_2, double z_2, double x_d[]);
 void metric(double r, double th, double g[][4]);

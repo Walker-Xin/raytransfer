@@ -17,7 +17,6 @@ void raytrace(long double xscr, long double yscr, long double traced[4], long do
     long double b;
 
     long double g[4][4]; // metric tensor
-    // long double diffs[5], vars[5], vars_temp[5], vars_4th[5], vars_5th[5], k1[5], k2[5], k3[5], k4[5], k5[5], k6[5];
     long double diffs[8], vars[8], vars_temp[8], vars_4th[8], vars_5th[8], k1[8], k2[8], k3[8], k4[8], k5[8], k6[8];
     long double rgap, rmid, thmid;
     long double gfactor;
@@ -227,7 +226,7 @@ void raytrace(long double xscr, long double yscr, long double traced[4], long do
                 rmid = 0.5 * (r + rau);
                 thmid = 0.5 * (th + thau);
 
-                // printf("%Le %Le\n", rmid, thmid);
+                printf("%Le %Le\n", rmid, thmid);
 
                 if (rmid * sin(thmid) >= isco - 0.001 && rmid * sin(thmid) < 1.05 * dscr)
                 {
