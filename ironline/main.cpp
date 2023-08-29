@@ -79,9 +79,9 @@ int main()
 	{
 		iobs_deg = 45;
 		{
-			epsilon_t = 0;
+			epsilon_t = defpar;
 			{
-				epsilon_r = 0; /* deformation parameter */
+				epsilon_r = defpar; /* deformation parameter */
 
 				spin2 = spin * spin;
 
@@ -221,8 +221,8 @@ int main()
 								temp_1 = x;
 								temp_2 = y;
 
-								// christoffel_alt(spin, spin2, epsilon_r, epsilon_t, temp_1, temp_2, christ);
-								christoffel(spin, defpar, temp_1, temp_2, christ);
+								christoffel_alt(spin, spin2, epsilon_r, epsilon_t, temp_1, temp_2, christ);
+								// christoffel(spin, defpar, temp_1, temp_2, christ);
 
 								for (i = 0; i <= 3; i++)
 									u[i] = p[i];
@@ -250,8 +250,8 @@ int main()
 								temp_1 = x + h * kx / 2 + h * h * RK1[1] / 16;
 								temp_2 = y + h * ky / 2 + h * h * RK1[2] / 16;
 
-								// christoffel_alt(spin, spin2, epsilon_r, epsilon_t, temp_1, temp_2, christ);
-								christoffel(spin, defpar, temp_1, temp_2, christ);
+								christoffel_alt(spin, spin2, epsilon_r, epsilon_t, temp_1, temp_2, christ);
+								// christoffel(spin, defpar, temp_1, temp_2, christ);
 
 								for (i = 0; i <= 3; i++)
 									u[i] = p[i] + h * RK1[i] / 4;
@@ -302,8 +302,8 @@ int main()
 								temp_1 = x + h * kx + h * h * RK3[1] / 4;
 								temp_2 = y + h * ky + h * h * RK3[2] / 4;
 
-								// christoffel_alt(spin, spin2, epsilon_r, epsilon_t, temp_1, temp_2, christ);
-								christoffel(spin, defpar, temp_1, temp_2, christ);
+								christoffel_alt(spin, spin2, epsilon_r, epsilon_t, temp_1, temp_2, christ);
+								// christoffel(spin, defpar, temp_1, temp_2, christ);
 
 								for (i = 0; i <= 3; i++)
 									u[i] = p[i] + h * RK3[i] / 2;
@@ -420,7 +420,7 @@ int main()
 						if (stop_integration == 1)
 						{
 
-							redshift(spin, spin2, epsilon_r, epsilon_t, xem[1], const0, const1, kyau, gfactor, limbdark);
+							redshift(spin, defpar, xem[1], Pi/2, const1, gfactor);
 
 							/* Upsilon = 1 for isotropic radiation;
 							Upsilon = limbdark[0] for limb-darkened radiation */

@@ -46,7 +46,8 @@ double spin2 = spin*spin;
 
 void christoffel(double spin, double defpar, double r, double th, double christ[4][4][4]);
 void christoffel_alt(double spin, double spin2, double epsilon_r, double epsilon_t, double w1, double w2, double CS[][4][4]);
-void redshift(double spin, double spin2, double epsilon_r, double epsilon_t, double radius, double ktt, double ktkp, double kyy, double& gg, double& ldr);
+void redshift(double spin, double defpar, double r, double th, double ktkp, double &gg);
+void redshift_alt(double spin, double spin2, double epsilon_r, double epsilon_t, double radius, double ktt, double ktkp, double kyy, double& gg, double& ldr);
 double find_isco();
 void intersection(double x_1, double y_1, double z_1, double x_2, double y_2, double z_2, double x_d[]);
 void metric(double r, double th, double g[][4]);
