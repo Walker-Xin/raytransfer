@@ -8,7 +8,7 @@
 #include <algorithm>
 using namespace std;
 
-#define imax 100 //Number of radial values
+#define imax 90 //Number of radial values
 
 /* RK45 constants */
 #define a1 1.0/4.0
@@ -38,27 +38,33 @@ using namespace std;
 #define g5 -9.0/50.0
 #define g6 2.0/55.0
 
-const double Pi  = 3.14159265358979323846264338327950288419716939937510L;
+const double Pi  = 3.14159265358979;
 
+double xscr, yscr;
 double defpar, epsi3, a13, a22, a52;
 double spin, inc, isco;
 double spin2 = spin*spin;
+long double Mdl, eta;
 
 void christoffel(double spin, double defpar, double r, double th, double christ[4][4][4]);
 void christoffel_alt(double spin, double spin2, double epsilon_r, double epsilon_t, double w1, double w2, double CS[][4][4]);
+void diffeqs(double spin, double defpar, double vars[], double diffs[]);
 void redshift(double spin, double spin2, double epsilon_r, double epsilon_t, double radius, double ktt, double ktkp, double kyy, double& gg, double& ldr);
+void redshift_compare(double r, double th, double ktkp, double &gg);
 double find_isco();
 void intersection(double x_1, double y_1, double z_1, double x_2, double y_2, double z_2, double x_d[]);
 void metric(double r, double th, double g[][4]);
 void uppermetric(double r, double th, double gu[4][4]);
 void metric_rderivatives(double r, double th, double dg[][4]);
 void metric_r2derivatives(double r, double th, double dg2[][4]);
-void uppermetric(double r, double th, double gu[4][4]);
+int raytrace(double xscr, double yscr, double traced[4]);
 
 #include "metric.cpp"
 #include "redshift.cpp"
 #include "christoffel.cpp"
+#include "diffeqs.cpp"
 #include "find_isco.cpp"
 #include "intersection.cpp"
+#include "raytracing.cpp"
 
 #endif
