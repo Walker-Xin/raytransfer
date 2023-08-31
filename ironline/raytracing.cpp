@@ -34,6 +34,8 @@ int raytrace(double xscr, double yscr, double traced[4])
     /* ----- Set computational parameters ----- */
     dscr = 1.0e+6;   // distance of the observer, effectively at infinity
     errtol = 1.0e-8; // error tolerance for adaptive step size
+    errmin = 1.0e-11; // error bounds for RK45
+    errmax = 1.0e-9;
     cross_tol = 1.0e-8; // sought accuracy at disk crossing
 
     height = 0.0;
@@ -164,22 +166,28 @@ int raytrace(double xscr, double yscr, double traced[4])
                 vars_4th[i] = vars[i] + f1 * k1[i] + f2 * k2[i] + f3 * k3[i] + f4 * k4[i] + f5 * k5[i];
                 vars_5th[i] = vars[i] + g1 * k1[i] + g2 * k2[i] + g3 * k3[i] + g4 * k4[i] + g5 * k5[i] + g6 * k6[i];
 
-                if (i == 0 || i == 4)
-                {
-                      ;
-                } // pass
-                else
-                {
-                err = fabs((vars_4th[i] - vars_5th[i]) / max(vars_4th[i], vars[i]));
-                }
+                // if (i == 0 || i == 4)
+                // {
+                //       ;
+                // } // pass
+                // else
+                // {
+                // err = fabs((vars_4th[i] - vars_5th[i]) / max(vars_4th[i], vars[i]));
+                // }
 
-                if (err > errtol) /* accuracy not achieved and photon hasn't crossed disk */
+                err = fabs((vars_4th[i] - vars_5th[i]) / max(vars_4th[i], vars[i]));
+
+                if (err > errmax) /* accuracy not achieved and photon hasn't crossed disk */
                     errcheck = 1;
+                else if (err < errmin) /* accuracy better than wanted, but photon hasn't crossed disk */
+                    errcheck = -1;
             
             }
 
             if (errcheck == 1) /* accuracy not achieved, lower step size */
                 h /= 2.0;
+            else if (errcheck == -1) /* accuracy better than wanted, but photon hasn't crossed disk, increase step size */
+                h *= 2.0;
 
         } while (errcheck == 1);
 

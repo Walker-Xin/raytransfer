@@ -74,7 +74,7 @@ int main()
 
 	/* ----- Set free parameters ----- */
 
-	spin = 0.5;
+	spin = 0.9;
 	defpar = 0;
 	iobs_deg = 45;
 	epsilon_t = 0;
@@ -133,12 +133,13 @@ int main()
 	for (i = 0; i <= imax - 1; i++)
 		N_obs2[i] = 0;
 
-	sprintf(filename_o, "iron_a%.03f.epsilon_r%.02f.epsilon_t%.02f.i%.02f.dat", spin, epsilon_r, epsilon_t, iobs_deg);
+	sprintf(filename_o, "iron_a%.03f.def%.02f.i%.02f.dat", spin, defpar, iobs_deg);
 
 	/* ----- assign photon position in the grid ----- */
 
 	for (robs = robs_i; robs < robs_f; robs = robs * rstep)
 	{
+		printf("Now at robs = %e\n", robs);
 
 		for (i = 0; i <= imax - 1; i++)
 			fphi[i] = 0;
