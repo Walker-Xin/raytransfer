@@ -1,4 +1,4 @@
-void metric(double r, double th, double g[4][4])
+void metric(double spin, double defpar, double r, double th, double g[4][4])
 {
 double t160 = pow(spin,2);
 double t158 = pow(r,2);
@@ -88,7 +88,7 @@ gu[3][2] = 0;
 gu[3][3] = t164*t172*(t159 + t170 - t159*t178)*pow(1/sin(th),2);
 }
 
-void metric_rderivatives(double r, double th, double dg[4][4])
+void metric_rderivatives(double spin, double defpar, double r, double th, double dg[4][4])
 {
 double t163 = pow(spin,2);
 double t162 = pow(r,2);
@@ -159,7 +159,7 @@ dg[3][2] = 0;
 dg[3][3] = (2*t167*t170*(t180*(pow(r,7)*t163*t167*t205 - t164*t175*t207)*t210 + pow(r,11)*t169*(-(t163*t167*t238) + pow(t161,2)*t256) + t175*t180*(-(pow(r,6)*t163*t167*t238) + pow(t207,2)*t256)))/pow(r,10);
 }
 
-void metric_r2derivatives(double r, double th, double dg2[4][4])
+void metric_r2derivatives(double spin, double defpar, double r, double th, double dg2[4][4])
 {
 double t159 = pow(defpar,2);
 double t171 = pow(spin,2);

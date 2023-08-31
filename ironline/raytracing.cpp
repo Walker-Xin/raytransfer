@@ -1,6 +1,6 @@
 // TODO: change RK45 to RKN method
 
-int raytrace(double xscr, double yscr, double traced[4])
+int raytrace(double errmin, double errmax, double xscr, double yscr, double traced[4])
 {
     double dscr, xscr2, yscr2;
     double t, r, th, phi, tau, rau, thau, phiau;
@@ -8,7 +8,7 @@ int raytrace(double xscr, double yscr, double traced[4])
     double kt, kr, kth, kphi, ktau, krau, kthau, kphiau;
     double kt0, kr0, kth0, kphi0;
     double s0, r02, s02;
-    double fact1, fact2, fact3, B, C, omega;
+    double fact1, fact2, fact3, omega;
     double h;
     double isco = 4.2330000000134405;
     double spin = 0.5;
@@ -17,25 +17,20 @@ int raytrace(double xscr, double yscr, double traced[4])
 
     double height;
 
-    double cosem;
-    double b;
-
     double g[4][4]; // metric tensor
     double diffs[8], vars[8], vars_temp[8], vars_4th[8], vars_5th[8], k1[8], k2[8], k3[8], k4[8], k5[8], k6[8];
-    double rgap, rmid, thmid;
+    double rmid, thmid;
     double gfactor, limbdark;
-    double err, errmin, errmax, errtol;
+    double err, errtol;
     double cross_tol;
 
-    int errcheck, crosscheck = 0, acccheck = 0, blockcheck = 0;
+    int errcheck;
     int stop_integration = 0;
     int i;
 
     /* ----- Set computational parameters ----- */
     dscr = 1.0e+6;   // distance of the observer, effectively at infinity
     errtol = 1.0e-8; // error tolerance for adaptive step size
-    errmin = 1.0e-11; // error bounds for RK45
-    errmax = 1.0e-9;
     cross_tol = 1.0e-8; // sought accuracy at disk crossing
 
     height = 0.0;
@@ -62,7 +57,7 @@ int raytrace(double xscr, double yscr, double traced[4])
     kth0 = -(cos(inc) - dscr * fact1 / r02) / sqrt(r02 - fact1 * fact1);
     kphi0 = -xscr * sin(inc) / (xscr2 + fact2 * fact2);
 
-    metric(r0, th0, g); // compute initial metric tensor
+    metric(spin, defpar, r0, th0, g); // compute initial metric tensor
     fact3 = sqrt(g[0][3] * g[0][3] * kphi0 * kphi0 - g[0][0] * (g[1][1] * kr0 * kr0 + g[2][2] * kth0 * kth0 + g[3][3] * kphi0 * kphi0));
     kt0 = -sqrt(kr0 * kr0 + r02 * kth0 * kth0 + r02 * sin(th0) * sin(th0) * kphi0 * kphi0);
 
@@ -166,16 +161,16 @@ int raytrace(double xscr, double yscr, double traced[4])
                 vars_4th[i] = vars[i] + f1 * k1[i] + f2 * k2[i] + f3 * k3[i] + f4 * k4[i] + f5 * k5[i];
                 vars_5th[i] = vars[i] + g1 * k1[i] + g2 * k2[i] + g3 * k3[i] + g4 * k4[i] + g5 * k5[i] + g6 * k6[i];
 
-                // if (i == 0 || i == 4)
-                // {
-                //       ;
-                // } // pass
-                // else
-                // {
-                // err = fabs((vars_4th[i] - vars_5th[i]) / max(vars_4th[i], vars[i]));
-                // }
-
+                if (i == 0 || i == 4)
+                {
+                      ;
+                } // pass
+                else
+                {
                 err = fabs((vars_4th[i] - vars_5th[i]) / max(vars_4th[i], vars[i]));
+                }
+
+                // err = fabs((vars_4th[i] - vars_5th[i]) / max(vars_4th[i], vars[i]));
 
                 if (err > errmax) /* accuracy not achieved and photon hasn't crossed disk */
                     errcheck = 1;

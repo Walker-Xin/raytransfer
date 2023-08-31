@@ -7,46 +7,18 @@ int main()
 {
 	double spin, spin2, epsilon_r, epsilon_t;
 	double D, D2;
-	double E_line, N_0, N_tot, N_tot1, N_tot2, alpha;
+	double E_line, N_0, N_tot, alpha;
 	double iobs, iobs_deg, dobs;
 	double robs, pobs;
 	double robs_i, robs_f, rstep, rstep2, pstep;
-	double xobs, yobs, xobs2, yobs2;
+	double xobs, yobs;
 	double rin, rout;
-	double t0, x0, y0, phi0, r0, th0;
-	double kt0, kx0, ky0, kphi0, kr0, kth0;
-	double r02, s0, s02;
-	double omega;
-	double fact1, fact2, fact3, fact4, fact5, B, C;
-	double t, x, y, phi;
-	double kt, kx, ky, kphi;
-	double tau, xau, yau, phiau, zau, kyau, ktau;
-	double rmid, thmid;
-	double kyem;
-	double xmap, ymap;
-	double const0, const1, b;
-	double h, hstart, hnext;
-	double temp_1, temp_2;
-	double atol, rtol;
-	double check;
-	double xdist;
-	double dd, ss, ssss, horizon;
-	double deltax, deltay, dxdy;
 	double pp, qq;
 	double fr;
-	double Upsilon;
 
 	double isco;
-	double g[4][4], christ[4][4][4], compare[4][4][4];
-	double v[4], p[4];
-	double u[4];
-	// double diffs[5], vars[5], vars_temp[5], vars_4th[5], vars_5th[5], k1[5], k2[5], k3[5], k4[5], k5[5], k6[5];
-	double RK1[4], RK2[4], RK3[4], RK4[4];
-	double verr[4], vtol[4], err[4];
-	double xem[4];
 	double traced[2];
 	double gfactor;
-	double limbdark;
 
 	double E_obs[imax];
 	double N_obs[imax];
@@ -56,7 +28,6 @@ int main()
 	double fphi2[imax], fphi02[imax];
 
 	double errmin, errmax;
-	double cross_tol;
 
 	int errcheck, crosscheck = 0, acccheck = 0, blockcheck = 0;
 	int stop_integration;
@@ -97,8 +68,8 @@ int main()
 
 	/* ----- Set inner and outer radius of the disk ----- */
 
-	// isco = find_isco();
-	isco = 4.2330000000134405; // set maunally
+	isco = find_isco(spin, defpar);
+	// isco = 4.2330000000134405; // set maunally
 
 	rin = isco;			 /* inner radius of the accretion disk; set isco */
 	rout = isco + 250.0; /* outer radius of the accretion disk */
@@ -114,10 +85,8 @@ int main()
 	rstep2 = (rstep - 1) / rstep;
 	pstep = 2 * Pi / 100;
 
-	atol = 1.0e-4;
-	rtol = 1.0e-4;
-
-	hstart = 100;
+    errmin = 1.0e-9; // error bounds for RK45
+    errmax = 1.0e-7;
 
 	E_obs[0] = 0.1; /* minimum photon energy detected by the observer; in keV */
 
@@ -153,7 +122,7 @@ int main()
 			xobs = robs * cos(pobs);
 			yobs = robs * sin(pobs) * cos(iobs);
 
-			stop_integration = raytrace(xobs, yobs, traced);
+			stop_integration = raytrace(errmin, errmax, xobs, yobs, traced);
 
 			if (stop_integration == 1 && traced[1] != 0)
 			{
