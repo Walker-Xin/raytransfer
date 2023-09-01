@@ -10,9 +10,6 @@ int raytrace(double errmin, double errmax, double xscr, double yscr, double trac
     double s0, r02, s02;
     double fact1, fact2, fact3, omega;
     double h;
-    double isco = 4.2330000000134405;
-    double spin = 0.5;
-    double spin2 = spin * spin;
     double xem[4];
 
     double height;
@@ -57,7 +54,7 @@ int raytrace(double errmin, double errmax, double xscr, double yscr, double trac
     kth0 = -(cos(inc) - dscr * fact1 / r02) / sqrt(r02 - fact1 * fact1);
     kphi0 = -xscr * sin(inc) / (xscr2 + fact2 * fact2);
 
-    metric(spin, defpar, r0, th0, g); // compute initial metric tensor
+    metric(r0, th0, g); // compute initial metric tensor
     fact3 = sqrt(g[0][3] * g[0][3] * kphi0 * kphi0 - g[0][0] * (g[1][1] * kr0 * kr0 + g[2][2] * kth0 * kth0 + g[3][3] * kphi0 * kphi0));
     kt0 = -sqrt(kr0 * kr0 + r02 * kth0 * kth0 + r02 * sin(th0) * sin(th0) * kphi0 * kphi0);
 
@@ -105,7 +102,7 @@ int raytrace(double errmin, double errmax, double xscr, double yscr, double trac
 
             /* ----- compute RK1 ----- */
 
-            diffeqs(spin, defpar, vars, diffs);
+            diffeqs(vars, diffs);
             for (i = 0; i <= 7; i++)
             {
                 k1[i] = h * diffs[i];
@@ -114,7 +111,7 @@ int raytrace(double errmin, double errmax, double xscr, double yscr, double trac
 
             /* ----- compute RK2 ----- */
 
-            diffeqs(spin, defpar, vars_temp, diffs);
+            diffeqs(vars_temp, diffs);
             for (i = 0; i <= 7; i++)
             {
                 k2[i] = h * diffs[i];
@@ -123,7 +120,7 @@ int raytrace(double errmin, double errmax, double xscr, double yscr, double trac
 
             /* ----- compute RK3 ----- */
 
-            diffeqs(spin, defpar, vars_temp, diffs);
+            diffeqs(vars_temp, diffs);
             for (i = 0; i <= 7; i++)
             {
                 k3[i] = h * diffs[i];
@@ -132,7 +129,7 @@ int raytrace(double errmin, double errmax, double xscr, double yscr, double trac
 
             /* ----- compute RK4 ----- */
 
-            diffeqs(spin, defpar, vars_temp, diffs);
+            diffeqs(vars_temp, diffs);
             for (i = 0; i <= 7; i++)
             {
                 k4[i] = h * diffs[i];
@@ -141,7 +138,7 @@ int raytrace(double errmin, double errmax, double xscr, double yscr, double trac
 
             /* ----- compute RK5 ----- */
 
-            diffeqs(spin, defpar, vars_temp, diffs);
+            diffeqs(vars_temp, diffs);
             for (i = 0; i <= 7; i++)
             {
                 k5[i] = h * diffs[i];
@@ -150,7 +147,7 @@ int raytrace(double errmin, double errmax, double xscr, double yscr, double trac
 
             /* ----- compute RK6 ----- */
 
-            diffeqs(spin, defpar, vars_temp, diffs);
+            diffeqs(vars_temp, diffs);
             for (i = 0; i <= 7; i++)
                 k6[i] = h * diffs[i];
 
@@ -256,7 +253,7 @@ int raytrace(double errmin, double errmax, double xscr, double yscr, double trac
 
     if (stop_integration == 1) /* photon hit disk, no issues */
     {
-        redshift(spin, spin2, defpar, defpar, rmid, kt0, omega, kphiau, gfactor, limbdark);
+        redshift(rmid, Pi/2, omega, gfactor);
     }
     else /* photon crossed horizon, missed disk, or other issue */
     {

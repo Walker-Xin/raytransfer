@@ -1,4 +1,4 @@
-void diffeqs(double spin, double defpar, double vars[], double diffs[])
+void diffeqs(double vars[], double diffs[])
 {
 	double t, r, th, phi;
 	double dt, dr, dth, dphi;
@@ -14,7 +14,7 @@ void diffeqs(double spin, double defpar, double vars[], double diffs[])
 	dth = vars[6];
 	dphi = vars[7];
 
-	christoffel(spin, defpar, r, th, christ);
+	christoffel(r, th, christ);
 
 	/* 1st order diff eqs */
 	diffs[0] = dt;	 // dt

@@ -27,9 +27,9 @@ double find_isco(double spin, double defpar)
         r = j;
 
 		/* Calculate 2nd-derivative of the effective potential - d2Veff */
-        metric(spin, defpar, r, Pi/2., m);
-        metric_rderivatives(spin, defpar, r, Pi/2., dmdr);
-        metric_r2derivatives(spin, defpar, r, Pi/2., dmdr2);
+        metric(r, Pi/2., m);
+        metric_rderivatives(r, Pi/2., dmdr);
+        metric_r2derivatives(r, Pi/2., dmdr2);
 
         Omega_var = (-dmdr[0][3] + sqrt(dmdr[0][3]*dmdr[0][3] - dmdr[0][0]*dmdr[3][3])) / dmdr[3][3]; // angular velocity; c.f. Eq (13) in Public Release
         denom = sqrt(-(m[0][0] + 2.0*m[0][3]*Omega_var + m[3][3]*Omega_var*Omega_var)); // common denominator in Eq (11) and (12)
@@ -64,9 +64,9 @@ double find_isco(double spin, double defpar)
                     r = l;
 
 					/* Calculate 2nd-derivative of the effective potential - d2Veff */
-                    metric(spin, defpar, r, Pi/2., m);
-                    metric_rderivatives(spin, defpar, r, Pi/2., dmdr);
-                    metric_r2derivatives(spin, defpar, r, Pi/2., dmdr2);
+                    metric(r, Pi/2., m);
+                    metric_rderivatives(r, Pi/2., dmdr);
+                    metric_r2derivatives(r, Pi/2., dmdr2);
 
                     Omega_var = (-dmdr[0][3] + sqrt(dmdr[0][3]*dmdr[0][3] - dmdr[0][0]*dmdr[3][3])) / dmdr[3][3];
                     denom = sqrt(-(m[0][0] + 2.0*m[0][3]*Omega_var + m[3][3]*Omega_var*Omega_var));

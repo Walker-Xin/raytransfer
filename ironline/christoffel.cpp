@@ -1,4 +1,4 @@
-void christoffel(double spin, double defpar, double r, double th, double christ[4][4][4])
+void christoffel(double r, double th, double christ[4][4][4])
 {
 double t161 = pow(spin,2);
 double t170 = pow(defpar,2);

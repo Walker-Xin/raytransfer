@@ -1,4 +1,4 @@
-void metric(double spin, double defpar, double r, double th, double g[4][4])
+void metric(double r, double th, double g[4][4])
 {
 double t160 = pow(spin,2);
 double t158 = pow(r,2);
@@ -88,7 +88,7 @@ gu[3][2] = 0;
 gu[3][3] = t164*t172*(t159 + t170 - t159*t178)*pow(1/sin(th),2);
 }
 
-void metric_rderivatives(double spin, double defpar, double r, double th, double dg[4][4])
+void metric_rderivatives(double r, double th, double dg[4][4])
 {
 double t163 = pow(spin,2);
 double t162 = pow(r,2);
@@ -159,7 +159,7 @@ dg[3][2] = 0;
 dg[3][3] = (2*t167*t170*(t180*(pow(r,7)*t163*t167*t205 - t164*t175*t207)*t210 + pow(r,11)*t169*(-(t163*t167*t238) + pow(t161,2)*t256) + t175*t180*(-(pow(r,6)*t163*t167*t238) + pow(t207,2)*t256)))/pow(r,10);
 }
 
-void metric_r2derivatives(double spin, double defpar, double r, double th, double dg2[4][4])
+void metric_r2derivatives(double r, double th, double dg2[4][4])
 {
 double t159 = pow(defpar,2);
 double t171 = pow(spin,2);
@@ -300,45 +300,4 @@ dg2[3][0] = t500;
 dg2[3][1] = 0;
 dg2[3][2] = 0;
 dg2[3][3] = (t415*t418*(128*pow(r,20) + 256*pow(r,18)*t171 + 1280*t159*t166*t171 - 2208*t159*t164*t182 + 1344*defpar*t168*t182 + 4448*t159*t176*t182 + 4992*t159*t160*t204 - 3288*t159*t162*t204 - 1152*defpar*t164*t204 + 736*defpar*t166*t204 - 48*t168*t204 - 96*defpar*t162*t210 + 672*t159*t170*t210 - 896*t159*t173*t210 + 160*defpar*t176*t210 + 12*t159*t162*t204*t281 + 16*defpar*t166*t204*t281 + 24*t168*t204*t281 + 48*defpar*t162*t210*t281 + 80*t159*t173*t210*t281 + 16*defpar*t176*t210*t281 + 512*t166*t420 + 2176*t171*t176*t420 + 3840*t160*t182*t420 + 3680*t170*t204*t420 + 1600*t180*t210*t420 + 768*t159*t425 - 2048*defpar*t171*t425 + 160*t204*t425 + 16*t204*t281*t425 + 288*t182*t427 + 960*t159*t171*t433 - 5120*defpar*t182*t433 + 35*t210*t433 + 8*t210*t281*t433 + 128*t162*t515 + 512*t171*t173*t515 + 768*t158*t182*t515 + 512*t204*t206*t515 + 128*t210*t515 + 512*defpar*t519 + 128*t171*t519 + 1280*defpar*t171*t528 - 64*t182*t528 - 168*t158*t159*t556 + 84*t158*t159*t281*t556 + 96*r*t420*t556 + 4*r*t182*t276*(-6*t159*t204*(-7*t180 + t239) + 2*t158*t171*(6*(1 + 2*r)*t162 + 36*defpar*(4 + r)*t170 + (-48 + 163*r)*t159*t206 + 4*t420) + t182*(-8*(21 - 40*r)*t158*t159 + 24*defpar*(1 + r)*t160 + 7*t166 - 16*t206*t420) + 8*t162*(-3*(1 - 3*r)*t159 + t173*(2 + t564) + 2*defpar*t180*(4 + t564))) - 4*t171*t180*t247*(21*r*t159*t210 + 2*t204*(6*defpar*(1 - 5*r)*t170 - 7*t176 - 38*t159*t180 + 128*t420) + t182*t206*(-252*defpar*t173 + (1152 - 1261*r)*t159*t206 + 6*t162*(1 + t230) + 416*t420) - 32*t158*t171*(3*t176 - 6*t420 + 2*defpar*t170*(19 + t507) + 17*t159*t206*(-2 + t564)) + 16*t173*((20 - 33*r)*t159*t206 + 2*t162*t214 + 2*t420 - 4*defpar*t170*(8 + t564))) + t210*t433*cos(8*th)))/64.;
-}
-
-void metric_alt(double spin, double spin2, double epsilon_r, double epsilon_t,
-double z1, double z2, double mn[][4])
-{
-	double x, x2;
-	double y, c2, s2, s4;
-	double Delta;
-	double Sigma, Sigma2;
-	double h_t, h_r;
-	double H,F;
-	
-	x = z1;
-	y = z2;
-	
-	x2 = x*x;
-	
-	c2 = cos(y)*cos(y);
-	s2 = 1 - c2;
-	s4 = s2*s2;
-	
-	Delta = x2 - 2*x + spin2;
-	
-	Sigma  = x2 + spin2*c2;
-	Sigma2 = Sigma*Sigma;
-	
-	h_t = epsilon_t*x/Sigma2;
-	h_r = epsilon_r*x/Sigma2;
-	
-	H = (1+h_r)*(1+h_t);
-	H = sqrt(H);
-	F=1-2*x/Sigma;
-
-	mn[0][0] = - (1 + h_t)*F;
-	mn[0][3] = - spin*s2*(H-F*(1+h_t));
-	mn[1][1] = Sigma*(1 + h_r)/(Delta + spin2*s2*h_r);
-	mn[2][2] = Sigma;
-	mn[3][0] = mn[0][3];
-	mn[3][3] = s2*(Sigma+spin*spin*s2*(2*H-F*(1+h_t)));
-
-	return ;
 }

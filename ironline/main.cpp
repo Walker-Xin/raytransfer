@@ -1,14 +1,12 @@
 // TODO: change RK45 to RKN method
-// NOTE: changing from double to double causes some changes in the output
+// NOTE: changing from double to long double causes some changes in the output
 
 #include "def.h"
 
-int main()
+int main(int argc, char *argv[])
 {
-	double spin, spin2, epsilon_r, epsilon_t;
 	double D, D2;
 	double E_line, N_0, N_tot, alpha;
-	double iobs, iobs_deg, dobs;
 	double robs, pobs;
 	double robs_i, robs_f, rstep, rstep2, pstep;
 	double xobs, yobs;
@@ -16,7 +14,6 @@ int main()
 	double pp, qq;
 	double fr;
 
-	double isco;
 	double traced[2];
 	double gfactor;
 
@@ -27,7 +24,7 @@ int main()
 	double fphi1[imax], fphi01[imax];
 	double fphi2[imax], fphi02[imax];
 
-	double errmin, errmax;
+	double errtol, errmin, errmax;
 
 	int errcheck, crosscheck = 0, acccheck = 0, blockcheck = 0;
 	int stop_integration;
@@ -43,18 +40,26 @@ int main()
 	FILE *fdat;
 	FILE *fgoal;
 
-	/* ----- Set free parameters ----- */
-
-	spin = 0.9;
-	defpar = 0;
-	iobs_deg = 45;
-	epsilon_t = 0;
-	epsilon_r = 0; /* deformation parameter */
-
+	/* ----- Set computation parameters ----- */
+	spin = 0.9; // spin parameter
 	spin2 = spin * spin;
+	defpar = 0.2; // deformation parameter
+	iobs_deg = 45.0; // inclination angle of the observer in degrees
+	dobs = 1.0e+8;
+	inc = Pi / 180 * iobs_deg; // inclination angle of the observer in rad
+	errtol = 1.0e-5; // error tolerance for RK45
 
-	iobs = Pi / 180 * iobs_deg; /* inclination angle of the observer in rad */
-	inc = iobs;
+	/* Set free parameters from user input if provided */
+	if (argc > 1)
+	{	
+		spin = atof(argv[1]); // spin parameter
+		defpar = atof(argv[2]); 
+		iobs_deg = atof(argv[3]); // inclination angle of the observer in degrees
+	}
+	else
+	{
+		printf("Using default parameters: spin = %f, defpar = %f, iobs_deg = %f\n", spin, defpar, iobs_deg);
+	}
 
 	D = 10.0; /* distance Earth-binary system in kpc */
 	D2 = D * D;
@@ -76,17 +81,15 @@ int main()
 
 	/* ----- Set computational parameters ----- */
 
-	dobs = 1000000; /* distance of the observer */
-
-	robs_i = 1;
-	robs_f = 150;
+	robs_i = 1.0;
+	robs_f = 150.0;
 
 	rstep = 1.01;
 	rstep2 = (rstep - 1) / rstep;
-	pstep = 2 * Pi / 100;
+	pstep = 2 * Pi / 400;
 
-    errmin = 1.0e-9; // error bounds for RK45
-    errmax = 1.0e-7;
+    errmin = errtol/10.0;
+    errmax = errtol*10.0;
 
 	E_obs[0] = 0.1; /* minimum photon energy detected by the observer; in keV */
 
@@ -104,11 +107,15 @@ int main()
 
 	sprintf(filename_o, "iron_a%.03f.def%.02f.i%.02f.dat", spin, defpar, iobs_deg);
 
+	// Start timer
+	clock_t start, end;
+	start = clock();
+
 	/* ----- assign photon position in the grid ----- */
 
 	for (robs = robs_i; robs < robs_f; robs = robs * rstep)
 	{
-		printf("Now at robs = %e\n", robs);
+		printf("Now at robs = %f \n", robs);
 
 		for (i = 0; i <= imax - 1; i++)
 			fphi[i] = 0;
@@ -120,7 +127,7 @@ int main()
 		for (pobs = 0; pobs < 2 * Pi - 0.5 * pstep; pobs = pobs + pstep)
 		{
 			xobs = robs * cos(pobs);
-			yobs = robs * sin(pobs) * cos(iobs);
+			yobs = robs * sin(pobs) * cos(inc);
 
 			stop_integration = raytrace(errmin, errmax, xobs, yobs, traced);
 
@@ -159,6 +166,11 @@ int main()
 			N_obs[i] = N_obs[i] + fr;
 		}
 	}
+	
+	// End timer and print time taken in miniutes
+	end = clock();
+	double time_taken = double(end - start) / double(CLOCKS_PER_SEC);
+	printf("Time taken by program is : %f minutes\n", time_taken / 60.0);
 
 	/* --- print spectrum --- */
 
@@ -169,7 +181,7 @@ int main()
 	for (i = 0; i <= imax - 1; i++)
 	{
 
-		N_obs[i] = N_0 * N_obs[i] * pstep * cos(iobs) / E_obs[i];
+		N_obs[i] = N_0 * N_obs[i] * pstep * cos(inc) / E_obs[i];
 
 		N_tot = N_tot + N_obs[i];
 	}
@@ -177,7 +189,7 @@ int main()
 	for (i = 0; i <= imax - 1; i++)
 	{
 
-		fprintf(foutput, "%e %e\n", E_obs[i], N_obs[i] / N_tot);
+		fprintf(foutput, "%f %f\n", E_obs[i], N_obs[i] / N_tot);
 	}
 
 	fclose(foutput);
