@@ -43,39 +43,39 @@ int main(int argc, char *argv[])
 	FILE *fdat;
 	FILE *fgoal;
 
-	/* ----- Set computation parameters ----- */
+	// Set default computation parameters
 	spin = 0.5; // spin parameter
 	spin2 = spin * spin;
-	defpar = 0.05; // deformation parameter
+	defpar = 0.5;	 // deformation parameter
 	iobs_deg = 45.0; // inclination angle of the observer in degrees
 	dobs = 1.0e+8;
-	inc = Pi / 180 * iobs_deg; // inclination angle of the observer in rad
 	errtol = 1.0e-8; // error tolerance for RK45
 
-	/* Set free parameters from user input if provided */
+	// Set computation parameters from user input if provided
 	if (argc > 1)
-	{	
+	{
 		spin = atof(argv[1]); // spin parameter
-		defpar = atof(argv[2]); 
+		defpar = atof(argv[2]);
 		iobs_deg = atof(argv[3]); // inclination angle of the observer in degrees
+		errtol = atof(argv[4]);	  // error tolerance for RK45
+		printf("Using user input parameters. spin = %f, deformation = %f, inclination = %f, error tolerence = %e\n", spin, defpar, iobs_deg, errtol);
 	}
 	else
 	{
 		printf("Using default parameters. spin = %f, deformation = %f, inclination = %f, error tolerence = %e\n", spin, defpar, iobs_deg, errtol);
 	}
 
-	D = 10.0; /* distance Earth-binary system in kpc */
+	inc = Pi / 180 * iobs_deg; // inclination angle of the observer in rad
+	D = 10.0;				   /* distance Earth-binary system in kpc */
 	D2 = D * D;
 
-	/* ----- Set model for the spectral line ----- */
+	// Set model for the spectral line
+	E_line = 6.4; // energy rest of the line in keV
 
-	E_line = 6.4; /* energy rest of the line in keV */
+	N_0 = 1.0;	// normalization
+	alpha = -3; // radial power law index
 
-	N_0 = 1.0;	/* normalization */
-	alpha = -3; /* radial power law index */
-
-	/* ----- Set inner and outer radius of the disk ----- */
-
+	// Set inner and outer radius of the disk
 	isco = find_isco(spin, defpar);
 	// isco = 4.2330000000134405; // set maunally
 	printf("Innermost stable circular orbit: %f\n", isco);
@@ -92,8 +92,8 @@ int main(int argc, char *argv[])
 	rstep2 = (rstep - 1) / rstep;
 	pstep = 2 * Pi / 400;
 
-    errmin = errtol/10.0;
-    errmax = errtol*10.0;
+	errmin = errtol / 10.0;
+	errmax = errtol * 10.0;
 
 	E_obs[0] = 0.1; /* minimum photon energy detected by the observer; in keV */
 
@@ -130,14 +130,14 @@ int main(int argc, char *argv[])
 	{
 		i_robs++;
 
-		// update progress for every 10 robs
+		// Update progress for every 10 robs
 		if (i_robs % 10 == 0)
 		{
-			// calculate expected time usage
+			// Calculate expected time usage
 			iteration_time = double(clock() - mid) / double(CLOCKS_PER_SEC);
 			mid = clock();
-			expected_time = iteration_time * (n_robs - i_robs)/10.0;
-			printf("i_robs = %i; robs = %f; expected time left: %f minutes\n", i_robs, robs, expected_time/60.0);
+			expected_time = iteration_time * (n_robs - i_robs) / 10.0;
+			printf("robs = %f; expected time left: %f minutes\n", robs, expected_time / 60.0);
 		}
 
 		for (i = 0; i <= imax - 1; i++)
@@ -189,7 +189,7 @@ int main(int argc, char *argv[])
 			N_obs[i] = N_obs[i] + fr;
 		}
 	}
-	
+
 	// End timer and print time taken in miniutes
 	end = clock();
 	time_taken = double(end - start) / double(CLOCKS_PER_SEC);
