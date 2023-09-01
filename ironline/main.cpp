@@ -44,12 +44,13 @@ int main(int argc, char *argv[])
 	FILE *fgoal;
 
 	// Set default computation parameters
-	spin = 0.5; // spin parameter
-	spin2 = spin * spin;
-	defpar = 0.5;	 // deformation parameter
+	spin = 0.90; // spin parameter
+	defpar = 2.0;	 // deformation parameter
 	iobs_deg = 45.0; // inclination angle of the observer in degrees
-	dobs = 1.0e+8;
+	dobs = 1.0e+8; // distance Earth-binary system in kpc
 	errtol = 1.0e-8; // error tolerance for RK45
+	rstep = 1.01; // step size for robs
+	pstep = 2 * Pi / 800; // step size for pobs
 
 	// Set computation parameters from user input if provided
 	if (argc > 1)
@@ -58,11 +59,13 @@ int main(int argc, char *argv[])
 		defpar = atof(argv[2]);
 		iobs_deg = atof(argv[3]); // inclination angle of the observer in degrees
 		errtol = atof(argv[4]);	  // error tolerance for RK45
-		printf("Using user input parameters. spin = %f, deformation = %f, inclination = %f, error tolerence = %e\n", spin, defpar, iobs_deg, errtol);
+		rstep = atof(argv[5]);
+		pstep = atof(argv[6]);
+		printf("Using user input parameters. spin=%f, deformation=%f, inclination=%f, error tolerence=%e\n, rstep=%f, pstep=%f\n", spin, defpar, iobs_deg, errtol, rstep, pstep);
 	}
 	else
 	{
-		printf("Using default parameters. spin = %f, deformation = %f, inclination = %f, error tolerence = %e\n", spin, defpar, iobs_deg, errtol);
+		printf("Using preset parameters. spin=%f, deformation=%f, inclination=%f, error tolerence=%e\n, rstep=%f, pstep=%f\n", spin, defpar, iobs_deg, errtol, rstep, pstep);
 	}
 
 	inc = Pi / 180 * iobs_deg; // inclination angle of the observer in rad
@@ -83,15 +86,12 @@ int main(int argc, char *argv[])
 	rin = isco;			 /* inner radius of the accretion disk; set isco */
 	rout = isco + 250.0; /* outer radius of the accretion disk */
 
-	/* ----- Set computational parameters ----- */
+	/* ----- Set additional computational parameters ----- */
 
 	robs_i = 1.0;
 	robs_f = 150.0;
-
-	rstep = 1.01;
+	spin2 = spin * spin;
 	rstep2 = (rstep - 1) / rstep;
-	pstep = 2 * Pi / 400;
-
 	errmin = errtol / 10.0;
 	errmax = errtol * 10.0;
 

@@ -25,7 +25,7 @@ def parameter_tensor(spin_list: list, defpar_list: list, inc_list: list) -> np.n
     return tensor
 
 
-def command_generation(params: dict, executable_path: str, errtol: float=1.0e-8) -> str:
+def command_generation(params: dict, executable_path: str, errtol: float, rstep: float, pstep: float) -> str:
     """Generate data using the main.cpp file
 
     Args:
@@ -40,13 +40,13 @@ def command_generation(params: dict, executable_path: str, errtol: float=1.0e-8)
     inc = params['inc']
 
     # Create c++ command to be executed
-    command = [executable_path, str(spin), str(defpar), str(inc), str(errtol)]
+    command = [executable_path, str(spin), str(defpar), str(inc), str(errtol), str(rstep), str(pstep)]
     command = ' '.join(command)
 
     return command
 
 
-def data_generation(spin_list, defpar_list, inc_list, executable_path) -> None:
+def data_generation(spin_list: list, defpar_list: list, inc_list: list, executable_path, errtol: float = 1.0e-8, rstep: float = 1.01, pstep: float = 0.007853981634) -> None:
     """Generate data using the main.cpp file
 
     Args:
@@ -54,6 +54,9 @@ def data_generation(spin_list, defpar_list, inc_list, executable_path) -> None:
         defpar_list (list): List of defpar values to be used
         inc_list (list): List of inclination angles to be used
         executable_path (str): Path to the main.cpp executable
+        errtol (float, optional): Error tolerance. Defaults to 1.0e-8.
+        rstep (float, optional): Step size for robs. Defaults to 1.01.
+        pstep (float, optional): Step size for pobs. Defaults to 0.007853981634.
     """
 
     # Generate tensor of parameters to be fed into the main.cpp file
@@ -68,21 +71,23 @@ def data_generation(spin_list, defpar_list, inc_list, executable_path) -> None:
             for k in range(params.shape[2]):
                 param_dict = {
                     'spin': params[i, j, k, 0], 'defpar': params[i, j, k, 1], 'inc': params[i, j, k, 2]}
-                command = command_generation(param_dict, executable_path)
+                command = command_generation(
+                    param_dict, executable_path, errtol, rstep, pstep)
                 os.system(command)
 
     # End timer and print time taken
     end = time.time()
     print('Time taken: {} minutes'.format((end-start)/60))
 
-if __name__ == '__main__':
-    # spin_list = [-0.5, 0.5, 0.98]
-    # defpar_list = [0.00, 0.25, 0.50, 1.00]
-    # inc_list = [45.0]
 
-    spin_list = [0.9]
-    defpar_list = [1.00]
-    inc_list = [45.0]
+if __name__ == '__main__':
+    spin_list = [-0.50, 0.50, 0.98]
+    defpar_list = [0.00, 0.50, 1.00, 2.00]
+    inc_list = [30.0, 45.0, 65.0]
+
+    # spin_list = [0.9]
+    # defpar_list = [1.00]
+    # inc_list = [45.0]
 
     path_to_executable = r'C:\Users\WalkerXin\Documents\Scripts\raytransfer\ironline'
     os.chdir(path_to_executable)
@@ -90,5 +95,14 @@ if __name__ == '__main__':
     # Estimate time taken, with each run taking ~ 8 minutes
     size = len(spin_list)*len(defpar_list)*len(inc_list)
     print('Estimated time taken: {} minutes or {} hours'.format(size*8, size*8/60))
-    data_generation(spin_list, defpar_list, inc_list, 'main.exe')
+
+    # Prompt user to proceed
+    check = input('Proceed? (y/n): ')
+    if check == 'Y' or 'y':
+        pass
+    else:
+        exit()
+
+    # Generate data
+    data_generation(spin_list, defpar_list, inc_list, 'main.exe', errtol=1.0e-8, rstep=1.01, pstep=2*np.pi/800)
     pass
