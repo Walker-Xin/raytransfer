@@ -50,15 +50,15 @@ double Mdl, eta;
 
 void christoffel(double r, double th, double christ[4][4][4]);
 void diffeqs(double vars[], double diffs[]);
-void redshift(double spin, double spin2, double epsilon_r, double epsilon_t, double radius, double ktt, double ktkp, double kyy, double& gg, double& ldr);
-void redshift_compare(double r, double th, double ktkp, double &gg);
+void redshift(double r, double th, double ktkp, double &gg);
 double find_isco(double spin, double defpar);
 void intersection(double x_1, double y_1, double z_1, double x_2, double y_2, double z_2, double x_d[]);
 void metric(double r, double th, double g[4][4]);
-void uppermetric(double spin, double defpar, double r, double th, double gu[4][4]);
-void metric_rderivatives(double spin, double defpar, double r, double th, double dg[][4]);
-void metric_r2derivatives(double spin, double defpar, double r, double th, double dg2[][4]);
+void uppermetric(double r, double th, double gu[4][4]);
+void metric_rderivatives(double r, double th, double dg[4][4]);
+void metric_r2derivatives(double r, double th, double dg2[4][4]);
 int raytrace(double errmin, double errmax, double xscr, double yscr, double traced[4]);
+int raytrace_RKN(double errtol, double xobs, double yobs, double traced[4]);
 
 #include "metric.cpp"
 #include "redshift.cpp"

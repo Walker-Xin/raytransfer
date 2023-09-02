@@ -36,6 +36,7 @@ int main(int argc, char *argv[])
 	char filename_o[128];
 
 	double time_taken, iteration_time, expected_time;
+	int progress_check;
 
 	FILE *finput;
 	FILE *foutput;
@@ -45,12 +46,13 @@ int main(int argc, char *argv[])
 
 	// Set default computation parameters
 	spin = 0.90; // spin parameter
-	defpar = 2.0;	 // deformation parameter
+	defpar = 0.0;	 // deformation parameter
 	iobs_deg = 45.0; // inclination angle of the observer in degrees
-	dobs = 1.0e+8; // distance Earth-binary system in kpc
-	errtol = 1.0e-8; // error tolerance for RK45
+	dobs = 1.0e+6; // distance Earth-binary system in kpc
+	errtol = 1.0e-6; // error tolerance for RK45
 	rstep = 1.01; // step size for robs
-	pstep = 2 * Pi / 800; // step size for pobs
+	pstep = 2 * Pi / 400; // step size for pobs
+	progress_check = 20; // check progress for every 20 robs
 
 	// Set computation parameters from user input if provided
 	if (argc > 1)
@@ -61,11 +63,17 @@ int main(int argc, char *argv[])
 		errtol = atof(argv[4]);	  // error tolerance for RK45
 		rstep = atof(argv[5]);
 		pstep = atof(argv[6]);
-		printf("Using user input parameters. spin=%f, deformation=%f, inclination=%f, error tolerence=%e\n, rstep=%f, pstep=%f\n", spin, defpar, iobs_deg, errtol, rstep, pstep);
+		progress_check = atoi(argv[7]);
+		printf("Using user input parameters. spin=%f, deformation=%f, inclination=%f, error tolerance=%e\n, rstep=%f, pstep=%f\n", spin, defpar, iobs_deg, errtol, rstep, pstep);
 	}
 	else
 	{
-		printf("Using preset parameters. spin=%f, deformation=%f, inclination=%f, error tolerence=%e\n, rstep=%f, pstep=%f\n", spin, defpar, iobs_deg, errtol, rstep, pstep);
+		printf("Using preset parameters. spin=%f, deformation=%f, inclination=%f, error tolerance=%e\n, rstep=%f, pstep=%f\n", spin, defpar, iobs_deg, errtol, rstep, pstep);
+	}
+
+	if (progress_check != 0)
+	{
+		printf("Progress check for every %d robs\n", progress_check);
 	}
 
 	inc = Pi / 180 * iobs_deg; // inclination angle of the observer in rad
@@ -80,14 +88,13 @@ int main(int argc, char *argv[])
 
 	// Set inner and outer radius of the disk
 	isco = find_isco(spin, defpar);
-	// isco = 4.2330000000134405; // set maunally
+	// isco = 4.2330000000134405; // set manually
 	printf("Innermost stable circular orbit: %f\n", isco);
 
 	rin = isco;			 /* inner radius of the accretion disk; set isco */
 	rout = isco + 250.0; /* outer radius of the accretion disk */
 
-	/* ----- Set additional computational parameters ----- */
-
+	// Set additional computational parameters
 	robs_i = 1.0;
 	robs_f = 150.0;
 	spin2 = spin * spin;
@@ -128,16 +135,19 @@ int main(int argc, char *argv[])
 
 	for (robs = robs_i; robs < robs_f; robs = robs * rstep)
 	{
-		i_robs++;
-
-		// Update progress for every 10 robs
-		if (i_robs % 10 == 0)
+		if (progress_check != 0)
 		{
-			// Calculate expected time usage
-			iteration_time = double(clock() - mid) / double(CLOCKS_PER_SEC);
-			mid = clock();
-			expected_time = iteration_time * (n_robs - i_robs) / 10.0;
-			printf("robs = %f; expected time left: %f minutes\n", robs, expected_time / 60.0);
+			i_robs++;
+
+			// Update progress for every progress_check robs
+			if (i_robs % progress_check == 0)
+			{
+				// Calculate expected time usage
+				iteration_time = double(clock() - mid) / double(CLOCKS_PER_SEC);
+				mid = clock();
+				expected_time = iteration_time * (n_robs - i_robs) / double(progress_check);
+				printf("robs = %f; expected time left: %f minutes\n", robs, expected_time / 60.0);
+			}
 		}
 
 		for (i = 0; i <= imax - 1; i++)
@@ -152,7 +162,8 @@ int main(int argc, char *argv[])
 			xobs = robs * cos(pobs);
 			yobs = robs * sin(pobs) * cos(inc);
 
-			stop_integration = raytrace(errmin, errmax, xobs, yobs, traced);
+			// stop_integration = raytrace(errmin, errmax, xobs, yobs, traced);
+			stop_integration = raytrace_RKN(errtol, xobs, yobs, traced);
 
 			if (stop_integration == 1 && traced[1] != 0)
 			{
@@ -179,7 +190,7 @@ int main(int argc, char *argv[])
 			}
 		}
 
-		/* --- integrazion - part 2 --- */
+		/* --- integration - part 2 --- */
 
 		for (i = 0; i <= imax - 1; i++)
 		{
@@ -190,7 +201,7 @@ int main(int argc, char *argv[])
 		}
 	}
 
-	// End timer and print time taken in miniutes
+	// End timer and print time taken in minutes
 	end = clock();
 	time_taken = double(end - start) / double(CLOCKS_PER_SEC);
 	printf("Time taken by program is : %f minutes\n", time_taken / 60.0);

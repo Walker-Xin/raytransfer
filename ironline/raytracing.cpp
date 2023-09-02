@@ -267,3 +267,305 @@ int raytrace(double errmin, double errmax, double xscr, double yscr, double trac
 
     return stop_integration;
 }
+
+
+int raytrace_RKN(double errtol, double xobs, double yobs, double traced[4])
+{
+	double robs, pobs;
+	double robs_i, robs_f, rstep, rstep2, pstep;
+	double xin, xout;
+	double t0, r0, th0, phi0;
+	double kt0, kr0, kth0, kphi0;
+	double r02, s0, s02;
+	double fact1, fact2, fact3, fact4;
+	double t, r, th, phi;
+	double kt, kr, kth, kphi;
+	double tau, rau, thau, phiau;
+    double ktau, krau, kthau, kphiau;
+	double xmap, ymap;
+	double const0, const1;
+	double h, hnext;
+	double v1, v2;
+	double check;
+	double xdist;
+	double dd, ss, ssss, horizon;
+	double deltax, deltay, dxdy;
+	double pp, qq;
+	double fr;
+	double Upsilon;
+
+	double isco;
+	double Gamma[4][4][4];
+	double v[4], p[4];
+	double u[4];
+	double RK1[4], RK2[4], RK3[4], RK4[4];
+	double verr[4], vtol[4], err[4];
+	double xmid, xem[4];
+	double gfactor;
+	double limbdark;
+
+    int i, n1, n2, n3;
+    int stop_integration;
+    
+    r02 = xobs * xobs + yobs * yobs + dobs * dobs;
+    r0 = sqrt(r02);
+
+    fact1 = dobs * sin(inc) - yobs * cos(inc);
+    fact2 = fact1 * fact1;
+    fact3 = xobs * xobs + fact2;
+    fact4 = sqrt(fact3);
+
+    t0 = 0.0;
+    r0 = r0;
+    th0 = acos((yobs * sin(inc) + dobs * cos(inc)) / r0);
+    phi0 = atan(xobs / fact1);
+
+    s0 = sin(th0);
+    s02 = s0 * s0;
+
+    kr0 = -dobs / r0;
+    kth0 = (cos(inc) - dobs * (yobs * sin(inc) + dobs * cos(inc)) / r02) / fact4;
+    kphi0 = xobs * sin(inc) / fact3;
+    kt0 = sqrt(kr0 * kr0 + r02 * kth0 * kth0 + r02 * s02 * kphi0 * kphi0);
+
+    /* ----- solve geodesic equations
+        fourth-order runge-kutta-nystrom method
+        see E. Lund et al., 2009 JINST 4 P04001 ----- */
+
+    t = t0;
+    r = r0;
+    th = th0;
+    phi = phi0;
+
+    kt = kt0;
+    kr = kr0;
+    kth = kth0;
+    kphi = kphi0;
+
+    const0 = kt0;
+    const1 = r02 * s02 * kphi0 / kt0;
+
+    stop_integration = 0;
+
+    hnext = 100.0;
+
+    do
+    {
+
+        v[0] = t;
+        v[1] = r;
+        v[2] = th;
+        v[3] = phi;
+
+        p[0] = kt;
+        p[1] = kr;
+        p[2] = kth;
+        p[3] = kphi;
+
+        do
+        {
+
+            h = hnext;
+
+            /* ----- compute RK1 ----- */
+
+            v1 = r;
+            v2 = th;
+
+            christoffel(v1, v2, Gamma);
+
+            for (i = 0; i <= 3; i++)
+                u[i] = p[i];
+
+            for (n1 = 0; n1 <= 3; n1++)
+            {
+                for (n2 = 0; n2 <= 3; n2++)
+                {
+                    for (n3 = 0; n3 <= 3; n3++)
+                    {
+                        if (n2 == 0 && n3 == 0)
+                        {
+                            RK1[n1] = -Gamma[n1][0][0] * u[0] * u[0];
+                        }
+                        else
+                        {
+                            RK1[n1] -= Gamma[n1][n2][n3] * u[n2] * u[n3];
+                        }
+                    }
+                }
+            }
+
+            /* ----- compute RK2 ----- */
+
+            v1 = r + h * kr / 2 + h * h * RK1[1] / 16;
+            v2 = th + h * kth / 2 + h * h * RK1[2] / 16;
+
+            christoffel(v1, v2, Gamma);
+
+            for (i = 0; i <= 3; i++)
+                u[i] = p[i] + h * RK1[i] / 4;
+
+            for (n1 = 0; n1 <= 3; n1++)
+            {
+                for (n2 = 0; n2 <= 3; n2++)
+                {
+                    for (n3 = 0; n3 <= 3; n3++)
+                    {
+                        if (n2 == 0 && n3 == 0)
+                        {
+                            RK2[n1] = -Gamma[n1][0][0] * u[0] * u[0];
+                        }
+                        else
+                        {
+                            RK2[n1] -= Gamma[n1][n2][n3] * u[n2] * u[n3];
+                        }
+                    }
+                }
+            }
+
+            /* ----- compute RK3 ----- */
+
+            for (i = 0; i <= 3; i++)
+                u[i] = p[i] + h * RK2[i] / 4;
+
+            for (n1 = 0; n1 <= 3; n1++)
+            {
+                for (n2 = 0; n2 <= 3; n2++)
+                {
+                    for (n3 = 0; n3 <= 3; n3++)
+                    {
+                        if (n2 == 0 && n3 == 0)
+                        {
+                            RK3[n1] = -Gamma[n1][0][0] * u[0] * u[0];
+                        }
+                        else
+                        {
+                            RK3[n1] -= Gamma[n1][n2][n3] * u[n2] * u[n3];
+                        }
+                    }
+                }
+            }
+
+            /* ----- compute RK4 ----- */
+
+            v1 = r + h * kr + h * h * RK3[1] / 4;
+            v2 = th + h * kth + h * h * RK3[2] / 4;
+
+            christoffel(v1, v2, Gamma);
+
+            for (i = 0; i <= 3; i++)
+                u[i] = p[i] + h * RK3[i] / 2;
+
+            for (n1 = 0; n1 <= 3; n1++)
+            {
+                for (n2 = 0; n2 <= 3; n2++)
+                {
+                    for (n3 = 0; n3 <= 3; n3++)
+                    {
+                        if (n2 == 0 && n3 == 0)
+                        {
+                            RK4[n1] = -Gamma[n1][0][0] * u[0] * u[0];
+                        }
+                        else
+                        {
+                            RK4[n1] -= Gamma[n1][n2][n3] * u[n2] * u[n3];
+                        }
+                    }
+                }
+            }
+
+            /* ----- local error ----- */
+
+            for (i = 0; i <= 3; i++)
+            {
+                verr[i] = 0.5 * h * h * (RK1[i] - RK2[i] - RK3[i] + RK4[i]);
+                verr[i] *= verr[i];
+                vtol[i] = errtol + fabs(v[i]) * errtol;
+                vtol[i] *= vtol[i];
+                err[i] = 0.25 * verr[i] / vtol[i];
+            }
+
+            check = sqrt(err[0] + err[1] + err[2] + err[3]);
+
+            /* ----- next step ----- */
+
+            hnext = h * pow(1 / check, 0.25);
+
+            /* ----- limitation criterion ----- */
+
+            if (hnext < h / 4)
+                hnext = h / 4;
+            if (hnext > 4 * h)
+                hnext = 4 * h;
+
+            if (hnext == h)
+                hnext = 0.9 * h;
+
+        } while (check > 1);
+
+        /* ----- solutions to the fourth-order RKN method ----- */
+
+        tau = t;
+        rau = r;
+        thau = th;
+        phiau = phi;
+
+        ktau = kt;
+        krau = kr;
+        kthau = kth;
+        kphiau = kphi;
+
+        t += h * kt + (RK1[0] + RK2[0] + RK3[0]) * h * h / 12;
+        r += h * kr + (RK1[1] + RK2[1] + RK3[1]) * h * h / 12;
+        th += h * kth + (RK1[2] + RK2[2] + RK3[2]) * h * h / 12;
+        phi += h * kphi + (RK1[3] + RK2[3] + RK3[3]) * h * h / 12;
+
+        kt += (RK1[0] + 2 * RK2[0] + 2 * RK3[0] + RK4[0]) * h / 12;
+        kr += (RK1[1] + 2 * RK2[1] + 2 * RK3[1] + RK4[1]) * h / 12;
+        kth += (RK1[2] + 2 * RK2[2] + 2 * RK3[2] + RK4[2]) * h / 12;
+        kphi += (RK1[3] + 2 * RK2[3] + 2 * RK3[3] + RK4[3]) * h / 12;
+
+        if (cos(th) < 0.0)
+        {
+            intersection(rau, thau, phiau, r, th, phi, xem);
+
+            if (xem[1] > isco - 0.001 && xem[1] < 1.05 * dobs)
+            {
+                stop_integration = 1; /* the photon hits the disk */
+            }
+            else
+            {
+                stop_integration = 2; /* the photon misses the disk */
+            }
+        }
+
+        if (r <= 1. + sqrt(1. - spin2) + 0.001)
+            stop_integration = 4; /* the photon crosses the horizon */
+
+        if (r < 1)
+            stop_integration = 5; /* the photon hits the singularity */
+
+        if (r > 1.05 * dobs)
+            stop_integration = 8; /* the photon escapes to infinity */
+
+    } while (stop_integration == 0);
+
+    /* ----- Calculate redshift and return values ----- */
+    if (stop_integration == 1) /* photon hit disk, no issues */
+    {
+        xmid = r;
+        redshift(r, Pi / 2, const1, gfactor);
+    }
+    else /* photon crossed horizon, missed disk, or other issue */
+    {
+        xem[1] = 0.0;
+        gfactor = 0.0;
+        xmid = 0.0;
+    }
+
+    traced[0] = xmid;
+    traced[1] = gfactor;
+    traced[2] = xem[1];
+
+    return stop_integration;
+}
