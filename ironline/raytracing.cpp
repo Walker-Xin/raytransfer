@@ -8,7 +8,7 @@ int raytrace(double errmin, double errmax, double xscr, double yscr, double trac
     double kt, kr, kth, kphi, ktau, krau, kthau, kphiau;
     double kt0, kr0, kth0, kphi0;
     double s0, r02, s02;
-    double fact1, fact2, fact3, omega;
+    double fact1, fact2, fact3, const1;
     double h;
     double xem[4];
 
@@ -81,7 +81,7 @@ int raytrace(double errmin, double errmax, double xscr, double yscr, double trac
     s0 = sin(th0);
     s02 = s0 * s0;
 
-    omega = r02 * s02 * kphi0 / kt0; /* disk angular velocity */
+    const1 = r02 * s02 * kphi0 / kt0; /* disk angular velocity */
 
     do
     {
@@ -253,7 +253,7 @@ int raytrace(double errmin, double errmax, double xscr, double yscr, double trac
 
     if (stop_integration == 1) /* photon hit disk, no issues */
     {
-        redshift(rmid, Pi/2, omega, gfactor);
+        redshift(rmid, Pi/2, const1, gfactor);
     }
     else /* photon crossed horizon, missed disk, or other issue */
     {
