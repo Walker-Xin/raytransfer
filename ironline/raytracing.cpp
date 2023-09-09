@@ -1,5 +1,3 @@
-// TODO: change RK45 to RKN method
-
 int raytrace(double errmin, double errmax, double xscr, double yscr, double traced[4])
 {
     double dscr, xscr2, yscr2;
@@ -205,33 +203,28 @@ int raytrace(double errmin, double errmax, double xscr, double yscr, double trac
 
         if (cos(th) < 0.0) // check if photon has crossed disk
         {
-            rmid = r;
-            thmid = th;
+            rmid = (rau + r) / 2.0;
+            thmid = (thau + th) / 2.0;
+
+            intersection(rau, thau, phiau, r, th, phi, xem);
+
+            if (xem[1] > isco && xem[1] < isco+250.0) {
+                stop_integration = 1;   /* the photon hits the disk */
+            } else {
+                stop_integration = 2;   /* the photon misses the disk */
+            }
 
             // printf("%Le %Le\n", rmid, thmid);
 
-            if (rmid * sin(thmid) >= isco - 0.001 && rmid * sin(thmid) < 1.05 * dscr)
-            {
-                stop_integration = 1; /* the photon hits the disk */
-                intersection(rau, thau, phiau, r, th, phi, xem);
-                
-                // // check xem[1] is the same as rmid
-                // if (fabs(xem[1] - rmid) < 10e-8)
-                // {
-                //     break;
-                // }
-                // else
-                // {
-                //     // raise error
-                //     printf("Error at r = %Le, th = %Le, phi = %Le\n", r, th, phi);
-                //     exit(1);
-                // }
-            }
-            else
-            {
-                stop_integration = 2; /* the photon misses the disk or other error */
-                break;
-            }
+            // if (rmid * sin(thmid) >= isco - 0.001 && rmid * sin(thmid) < 1.05 * dscr)
+            // {
+            //     stop_integration = 1; /* the photon hits the disk */
+            //     intersection(rau, thau, phiau, r, th, phi, xem);
+            // }
+            // else
+            // {
+            //     stop_integration = 2; /* the photon misses the disk or other error */
+            // }
         }
         else if (r <= 1. + sqrt(1. - spin2) + 0.001) // check if photon has crossed horizon
         {
@@ -242,6 +235,11 @@ int raytrace(double errmin, double errmax, double xscr, double yscr, double trac
         {
             stop_integration = 3; /* photon is stuck */
             // printf("Photon is stuck\n");
+        }
+        else if (r >= 1.05*dobs)
+        {
+            stop_integration = 4; /* photon is too far away */
+            // printf("Photon is too far away\n");
         }
         else /* not done, take a step */
         {
@@ -372,7 +370,8 @@ int raytrace_RKN(double errtol, double xobs, double yobs, double traced[4])
             v1 = r;
             v2 = th;
 
-            christoffel(v1, v2, Gamma);
+            // christoffel(v1, v2, Gamma);
+            Christoffel_jiale(v1, v2, Gamma);
 
             for (i = 0; i <= 3; i++)
                 u[i] = p[i];
@@ -399,11 +398,15 @@ int raytrace_RKN(double errtol, double xobs, double yobs, double traced[4])
 
             v1 = r + h * kr / 2 + h * h * RK1[1] / 16;
             v2 = th + h * kth / 2 + h * h * RK1[2] / 16;
+            // v1 = r + h * kr / 2 + h * h * RK1[1] / 8;
+            // v2 = th + h * kth / 2 + h * h * RK1[2] / 8;
 
-            christoffel(v1, v2, Gamma);
+            // christoffel(v1, v2, Gamma);
+            Christoffel_jiale(v1, v2, Gamma);
 
             for (i = 0; i <= 3; i++)
                 u[i] = p[i] + h * RK1[i] / 4;
+                // u[i] = p[i] + h * RK1[i] / 2;
 
             for (n1 = 0; n1 <= 3; n1++)
             {
@@ -427,6 +430,7 @@ int raytrace_RKN(double errtol, double xobs, double yobs, double traced[4])
 
             for (i = 0; i <= 3; i++)
                 u[i] = p[i] + h * RK2[i] / 4;
+                // u[i] = p[i] + h * RK1[i] / 2;
 
             for (n1 = 0; n1 <= 3; n1++)
             {
@@ -450,11 +454,15 @@ int raytrace_RKN(double errtol, double xobs, double yobs, double traced[4])
 
             v1 = r + h * kr + h * h * RK3[1] / 4;
             v2 = th + h * kth + h * h * RK3[2] / 4;
+            // v1 = r + h * kr + h * h * RK3[1] / 2;
+            // v2 = th + h * kth + h * h * RK3[2] / 2;
 
-            christoffel(v1, v2, Gamma);
+            // christoffel(v1, v2, Gamma);
+            Christoffel_jiale(v1, v2, Gamma);
 
             for (i = 0; i <= 3; i++)
                 u[i] = p[i] + h * RK3[i] / 2;
+                // u[i] = p[i] + h * RK3[i];
 
             for (n1 = 0; n1 <= 3; n1++)
             {
@@ -525,11 +533,21 @@ int raytrace_RKN(double errtol, double xobs, double yobs, double traced[4])
         kth += (RK1[2] + 2 * RK2[2] + 2 * RK3[2] + RK4[2]) * h / 12;
         kphi += (RK1[3] + 2 * RK2[3] + 2 * RK3[3] + RK4[3]) * h / 12;
 
+        // t += h * kt + (RK1[0] + RK2[0] + RK3[0]) * h * h / 6;
+        // r += h * kr + (RK1[1] + RK2[1] + RK3[1]) * h * h / 6;
+        // th += h * kth + (RK1[2] + RK2[2] + RK3[2]) * h * h / 6;
+        // phi += h * kphi + (RK1[3] + RK2[3] + RK3[3]) * h * h / 6;
+
+        // kt += (RK1[0] + 2 * RK2[0] + 2 * RK3[0] + RK4[0]) * h / 6;
+        // kr += (RK1[1] + 2 * RK2[1] + 2 * RK3[1] + RK4[1]) * h / 6;
+        // kth += (RK1[2] + 2 * RK2[2] + 2 * RK3[2] + RK4[2]) * h / 6;
+        // kphi += (RK1[3] + 2 * RK2[3] + 2 * RK3[3] + RK4[3]) * h / 6;
+
         if (cos(th) < 0.0)
         {
             intersection(rau, thau, phiau, r, th, phi, xem);
 
-            if (xem[1] > isco - 0.001 && xem[1] < 1.05 * dobs)
+            if (xem[1] > isco - 0.001 && xem[1] < isco + 250)
             {
                 stop_integration = 1; /* the photon hits the disk */
             }
@@ -539,7 +557,8 @@ int raytrace_RKN(double errtol, double xobs, double yobs, double traced[4])
             }
         }
 
-        if (r <= 1. + sqrt(1. - spin2) + 0.001)
+        // if (r <= 1. + sqrt(1. - spin2) + 0.001)
+        if (1 + sqrt(1 - spin2) < 0.001)
             stop_integration = 4; /* the photon crosses the horizon */
 
         if (r < 1)
@@ -553,8 +572,7 @@ int raytrace_RKN(double errtol, double xobs, double yobs, double traced[4])
     /* ----- Calculate redshift and return values ----- */
     if (stop_integration == 1) /* photon hit disk, no issues */
     {
-        xmid = r;
-        redshift(r, Pi / 2, const1, gfactor);
+        redshift(xem[1], Pi / 2, const1, gfactor);
     }
     else /* photon crossed horizon, missed disk, or other issue */
     {

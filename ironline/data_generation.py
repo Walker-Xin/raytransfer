@@ -124,11 +124,12 @@ def data_generation_para(spin_list: list, defpar_list: list, inc_list: list, exe
         pstep (float, optional): Step size for pobs. Defaults to 2*Pi/800.
         progress_check (int, optional): Number of iterations to check progress. Defaults to 0 (no progress check).
     """
+    process_list = []
 
     # Generate tensor of parameters to be fed into the main.cpp file
     params = parameter_tensor(spin_list, defpar_list, inc_list)
 
-    # Spwan 9 processes for each inc at a time, each running a different set of parameters
+    # Spawn 9 processes for each inc at a time, each running a different set of parameters
     for i in range(params.shape[0]):
         for j in range(params.shape[1]):
             for k in range(params.shape[2]):
@@ -137,13 +138,17 @@ def data_generation_para(spin_list: list, defpar_list: list, inc_list: list, exe
 
                 command = command_generation(
                     param_dict, executable_path, errtol, rstep, pstep, progress_check)
-                subprocess.Popen(command, shell=True)
+                process_list.append(subprocess.Popen(command))
+                
+    # Wait for 9 processes to finish before spawning another 9
+    exit_codes = [p.wait() for p in process_list]
+    print(exit_codes)
 
 
 if __name__ == '__main__':
     spins = [0.10, 0.50, 0.998]
-    defpars = [0.00, 5.00, 10.00]
-    incs = [70.0]
+    defpars = [5.00, 10.00]
+    incs = [20.0, 45.0, 70.0]
 
     # spin_list = [0.10, 0.50, 0.998]
     # defpar_list = [0.00, 5.00, 10.00]
@@ -168,7 +173,18 @@ if __name__ == '__main__':
         exit()
 
     # Generate data
-    for inc in incs:
-        data_generation_para(
-            spins, defpars, [inc], 'main.exe', PATH_TO_OUTPUT,
-            errtol=1.0e-8, rstep=1.008, pstep=2*np.pi/720, progress_check=0)
+    for defpar in defpars:
+            data_generation_para(
+                spins, [defpar], incs, 'main.exe', PATH_TO_OUTPUT,
+                errtol=1.0e-10, rstep=1.008, pstep=2*np.pi/800, progress_check=0)
+            
+        
+    # Turn off computer 60 seconds after completion
+    os.system('shutdown /s /t 60')
+
+    # Ask for user input to cancel shutdown
+    check = input('Shutdown in 60 seconds. Cancel? (y/n): ') or 'n'
+    if check == 'Y' or 'y':
+        os.system('shutdown /a')
+    else:
+        pass

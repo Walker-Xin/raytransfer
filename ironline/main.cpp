@@ -36,7 +36,7 @@ int main(int argc, char *argv[])
 	char filename_o[128];
 
 	double time_taken, iteration_time, expected_time;
-	int progress_check;
+	int progress_check, first_check = 0;
 
 	FILE *finput;
 	FILE *foutput;
@@ -45,14 +45,14 @@ int main(int argc, char *argv[])
 	FILE *fgoal;
 
 	// Set default computation parameters
-	spin = 0.90; // spin parameter
+	spin = 0.5; // spin parameter
 	defpar = 0.0;	 // deformation parameter
 	iobs_deg = 45.0; // inclination angle of the observer in degrees
 	dobs = 1.0e+6; // distance Earth-binary system in kpc
-	errtol = 1.0e-6; // error tolerance for RK45
-	rstep = 1.01; // step size for robs
-	pstep = 2 * Pi / 400; // step size for pobs
-	progress_check = 20; // check progress for every 20 robs
+	errtol = 1.0e-4; // error tolerance for RK45
+	rstep = 1.008; // step size for robs
+	pstep = 2 * Pi / 800; // step size for pobs
+	progress_check = 1; // check progress for every 20 robs
 
 	// Set computation parameters from user input if provided
 	if (argc > 1)
@@ -167,6 +167,12 @@ int main(int argc, char *argv[])
 
 			if (stop_integration == 1 && traced[1] != 0)
 			{
+				if (first_check == 0)
+				{
+					printf("First check: robs = %f, pobs = %f, rmid = %f, gfactor = %f, xem[1] = %f\n", robs, pobs, traced[0], traced[1], traced[2]);
+					first_check = 1;
+					// exit(0);
+				}
 
 				gfactor = traced[1];
 				// printf("%e %e\n", traced[0], gfactor);

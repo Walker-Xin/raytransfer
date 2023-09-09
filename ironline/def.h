@@ -49,6 +49,7 @@ double dobs, iobs_deg, inc;
 double Mdl, eta;
 
 void christoffel(double r, double th, double christ[4][4][4]);
+void Christoffel_jiale(double w1, double w2, double CS[][4][4]);
 void diffeqs(double vars[], double diffs[]);
 void redshift(double r, double th, double ktkp, double &gg);
 double find_isco(double spin, double defpar);

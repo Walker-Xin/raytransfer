@@ -14,7 +14,8 @@ void diffeqs(double vars[], double diffs[])
 	dth = vars[6];
 	dphi = vars[7];
 
-	christoffel(r, th, christ);
+	// christoffel(r, th, christ);
+	Christoffel_jiale(r, th, christ);
 
 	/* 1st order diff eqs */
 	diffs[0] = dt;	 // dt
