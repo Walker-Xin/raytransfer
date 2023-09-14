@@ -45,11 +45,11 @@ int main(int argc, char *argv[])
 	FILE *fgoal;
 
 	// Set default computation parameters
-	spin = 0.5; // spin parameter
+	spin = 0.998; // spin parameter
 	defpar = 0.0;	 // deformation parameter
-	iobs_deg = 45.0; // inclination angle of the observer in degrees
+	iobs_deg = 70.0; // inclination angle of the observer in degrees
 	dobs = 1.0e+6; // distance Earth-binary system in kpc
-	errtol = 1.0e-4; // error tolerance for RK45
+	errtol = 1.0e-9; // error tolerance
 	rstep = 1.008; // step size for robs
 	pstep = 2 * Pi / 800; // step size for pobs
 	progress_check = 1; // check progress for every 20 robs
@@ -93,6 +93,8 @@ int main(int argc, char *argv[])
 
 	rin = isco;			 /* inner radius of the accretion disk; set isco */
 	rout = isco + 250.0; /* outer radius of the accretion disk */
+
+	horizon = 1. + sqrt(1. - spin2); // horizon radius
 
 	// Set additional computational parameters
 	robs_i = 1.0;
@@ -162,8 +164,8 @@ int main(int argc, char *argv[])
 			xobs = robs * cos(pobs);
 			yobs = robs * sin(pobs) * cos(inc);
 
-			// stop_integration = raytrace(errmin, errmax, xobs, yobs, traced);
-			stop_integration = raytrace_RKN(errtol, xobs, yobs, traced);
+			stop_integration = raytrace(errmin, errmax, xobs, yobs, traced);
+			// stop_integration = raytrace_RKN(errtol, xobs, yobs, traced);
 
 			if (stop_integration == 1 && traced[1] != 0)
 			{

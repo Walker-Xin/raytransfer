@@ -251,12 +251,13 @@ int raytrace(double errmin, double errmax, double xscr, double yscr, double trac
 
     if (stop_integration == 1) /* photon hit disk, no issues */
     {
-        redshift(rmid, Pi/2, const1, gfactor);
+        redshift(xem[1], Pi/2, const1, gfactor);
     }
     else /* photon crossed horizon, missed disk, or other issue */
     {
         rmid = 0.0;
         gfactor = 0.0;
+        xem[1] = 0.0;
     }
 
     traced[0] = rmid;
@@ -370,8 +371,8 @@ int raytrace_RKN(double errtol, double xobs, double yobs, double traced[4])
             v1 = r;
             v2 = th;
 
-            // christoffel(v1, v2, Gamma);
-            Christoffel_jiale(v1, v2, Gamma);
+            christoffel(v1, v2, Gamma);
+            // Christoffel_jiale(v1, v2, Gamma);
 
             for (i = 0; i <= 3; i++)
                 u[i] = p[i];
@@ -396,17 +397,17 @@ int raytrace_RKN(double errtol, double xobs, double yobs, double traced[4])
 
             /* ----- compute RK2 ----- */
 
-            v1 = r + h * kr / 2 + h * h * RK1[1] / 16;
-            v2 = th + h * kth / 2 + h * h * RK1[2] / 16;
-            // v1 = r + h * kr / 2 + h * h * RK1[1] / 8;
-            // v2 = th + h * kth / 2 + h * h * RK1[2] / 8;
+            // v1 = r + h * kr / 2 + h * h * RK1[1] / 16;
+            // v2 = th + h * kth / 2 + h * h * RK1[2] / 16;
+            v1 = r + h * kr / 2 + h * h * RK1[1] / 8;
+            v2 = th + h * kth / 2 + h * h * RK1[2] / 8;
 
-            // christoffel(v1, v2, Gamma);
-            Christoffel_jiale(v1, v2, Gamma);
+            christoffel(v1, v2, Gamma);
+            // Christoffel_jiale(v1, v2, Gamma);
 
             for (i = 0; i <= 3; i++)
-                u[i] = p[i] + h * RK1[i] / 4;
-                // u[i] = p[i] + h * RK1[i] / 2;
+                // u[i] = p[i] + h * RK1[i] / 4;
+                u[i] = p[i] + h * RK1[i] / 2;
 
             for (n1 = 0; n1 <= 3; n1++)
             {
@@ -429,8 +430,8 @@ int raytrace_RKN(double errtol, double xobs, double yobs, double traced[4])
             /* ----- compute RK3 ----- */
 
             for (i = 0; i <= 3; i++)
-                u[i] = p[i] + h * RK2[i] / 4;
-                // u[i] = p[i] + h * RK1[i] / 2;
+                // u[i] = p[i] + h * RK2[i] / 4;
+                u[i] = p[i] + h * RK1[i] / 2;
 
             for (n1 = 0; n1 <= 3; n1++)
             {
@@ -452,17 +453,17 @@ int raytrace_RKN(double errtol, double xobs, double yobs, double traced[4])
 
             /* ----- compute RK4 ----- */
 
-            v1 = r + h * kr + h * h * RK3[1] / 4;
-            v2 = th + h * kth + h * h * RK3[2] / 4;
-            // v1 = r + h * kr + h * h * RK3[1] / 2;
-            // v2 = th + h * kth + h * h * RK3[2] / 2;
+            // v1 = r + h * kr + h * h * RK3[1] / 4;
+            // v2 = th + h * kth + h * h * RK3[2] / 4;
+            v1 = r + h * kr + h * h * RK3[1] / 2;
+            v2 = th + h * kth + h * h * RK3[2] / 2;
 
-            // christoffel(v1, v2, Gamma);
-            Christoffel_jiale(v1, v2, Gamma);
+            christoffel(v1, v2, Gamma);
+            // Christoffel_jiale(v1, v2, Gamma);
 
             for (i = 0; i <= 3; i++)
-                u[i] = p[i] + h * RK3[i] / 2;
-                // u[i] = p[i] + h * RK3[i];
+                // u[i] = p[i] + h * RK3[i] / 2;
+                u[i] = p[i] + h * RK3[i];
 
             for (n1 = 0; n1 <= 3; n1++)
             {
@@ -523,25 +524,25 @@ int raytrace_RKN(double errtol, double xobs, double yobs, double traced[4])
         kthau = kth;
         kphiau = kphi;
 
-        t += h * kt + (RK1[0] + RK2[0] + RK3[0]) * h * h / 12;
-        r += h * kr + (RK1[1] + RK2[1] + RK3[1]) * h * h / 12;
-        th += h * kth + (RK1[2] + RK2[2] + RK3[2]) * h * h / 12;
-        phi += h * kphi + (RK1[3] + RK2[3] + RK3[3]) * h * h / 12;
+        // t += h * kt + (RK1[0] + RK2[0] + RK3[0]) * h * h / 12;
+        // r += h * kr + (RK1[1] + RK2[1] + RK3[1]) * h * h / 12;
+        // th += h * kth + (RK1[2] + RK2[2] + RK3[2]) * h * h / 12;
+        // phi += h * kphi + (RK1[3] + RK2[3] + RK3[3]) * h * h / 12;
 
-        kt += (RK1[0] + 2 * RK2[0] + 2 * RK3[0] + RK4[0]) * h / 12;
-        kr += (RK1[1] + 2 * RK2[1] + 2 * RK3[1] + RK4[1]) * h / 12;
-        kth += (RK1[2] + 2 * RK2[2] + 2 * RK3[2] + RK4[2]) * h / 12;
-        kphi += (RK1[3] + 2 * RK2[3] + 2 * RK3[3] + RK4[3]) * h / 12;
+        // kt += (RK1[0] + 2 * RK2[0] + 2 * RK3[0] + RK4[0]) * h / 12;
+        // kr += (RK1[1] + 2 * RK2[1] + 2 * RK3[1] + RK4[1]) * h / 12;
+        // kth += (RK1[2] + 2 * RK2[2] + 2 * RK3[2] + RK4[2]) * h / 12;
+        // kphi += (RK1[3] + 2 * RK2[3] + 2 * RK3[3] + RK4[3]) * h / 12;
 
-        // t += h * kt + (RK1[0] + RK2[0] + RK3[0]) * h * h / 6;
-        // r += h * kr + (RK1[1] + RK2[1] + RK3[1]) * h * h / 6;
-        // th += h * kth + (RK1[2] + RK2[2] + RK3[2]) * h * h / 6;
-        // phi += h * kphi + (RK1[3] + RK2[3] + RK3[3]) * h * h / 6;
+        t += h * kt + (RK1[0] + RK2[0] + RK3[0]) * h * h / 6;
+        r += h * kr + (RK1[1] + RK2[1] + RK3[1]) * h * h / 6;
+        th += h * kth + (RK1[2] + RK2[2] + RK3[2]) * h * h / 6;
+        phi += h * kphi + (RK1[3] + RK2[3] + RK3[3]) * h * h / 6;
 
-        // kt += (RK1[0] + 2 * RK2[0] + 2 * RK3[0] + RK4[0]) * h / 6;
-        // kr += (RK1[1] + 2 * RK2[1] + 2 * RK3[1] + RK4[1]) * h / 6;
-        // kth += (RK1[2] + 2 * RK2[2] + 2 * RK3[2] + RK4[2]) * h / 6;
-        // kphi += (RK1[3] + 2 * RK2[3] + 2 * RK3[3] + RK4[3]) * h / 6;
+        kt += (RK1[0] + 2 * RK2[0] + 2 * RK3[0] + RK4[0]) * h / 6;
+        kr += (RK1[1] + 2 * RK2[1] + 2 * RK3[1] + RK4[1]) * h / 6;
+        kth += (RK1[2] + 2 * RK2[2] + 2 * RK3[2] + RK4[2]) * h / 6;
+        kphi += (RK1[3] + 2 * RK2[3] + 2 * RK3[3] + RK4[3]) * h / 6;
 
         if (cos(th) < 0.0)
         {
@@ -557,8 +558,7 @@ int raytrace_RKN(double errtol, double xobs, double yobs, double traced[4])
             }
         }
 
-        // if (r <= 1. + sqrt(1. - spin2) + 0.001)
-        if (1 + sqrt(1 - spin2) < 0.001)
+        if (r <= horizon + 0.001)
             stop_integration = 4; /* the photon crosses the horizon */
 
         if (r < 1)
