@@ -146,9 +146,9 @@ def data_generation_para(spin_list: list, defpar_list: list, inc_list: list, exe
 
 
 if __name__ == '__main__':
-    spins = [0.10, 0.50, 0.998]
-    defpars = [5.00, 10.00]
-    incs = [20.0, 45.0, 70.0]
+    spins = [0.998]
+    defpars = [0.0]
+    incs = [70.0]
 
     # spin_list = [0.10, 0.50, 0.998]
     # defpar_list = [0.00, 5.00, 10.00]
@@ -173,10 +173,14 @@ if __name__ == '__main__':
         exit()
 
     # Generate data
-    for defpar in defpars:
-            data_generation_para(
-                spins, [defpar], incs, 'main.exe', PATH_TO_OUTPUT,
-                errtol=1.0e-10, rstep=1.008, pstep=2*np.pi/800, progress_check=0)
+    # for defpar in defpars:
+    #         data_generation_para(
+    #             spins, [defpar], incs, 'main.exe', PATH_TO_OUTPUT,
+    #             errtol=1.0e-10, rstep=1.008, pstep=2*np.pi/800, progress_check=10)
+
+    data_generation_para(
+                spins, defpars, incs, 'main.exe', PATH_TO_OUTPUT,
+                errtol=1.0e-9, rstep=1.008, pstep=2*np.pi/720, progress_check=10)
             
         
     # Turn off computer 60 seconds after completion

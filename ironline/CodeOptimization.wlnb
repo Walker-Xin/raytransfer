@@ -4,9 +4,34 @@
    "kind": 2,
    "value": "Remove[\"Global`*\"]",
    "languageId": "wolfram",
-   "outputs": [],
+   "outputs": [
+    {
+     "items": [
+      {
+       "data": "<pre><span class=\"wl-message\">Remove::rmnsm</span>: There are no symbols matching \"Global`*\".</pre>",
+       "mime": "x-application/wolfram-language-html"
+      },
+      {
+       "data": "Remove::rmnsm: There are no symbols matching \"Global`*\".",
+       "mime": "text/plain"
+      }
+     ],
+     "id": "c79ea052-633b-41a7-9e17-5b3a2a8c1215",
+     "metadata": {
+      "cellLabel": "",
+      "isBoxData": false
+     }
+    }
+   ],
    "metadata": {},
-   "executionSummary": {}
+   "executionSummary": {
+    "timing": {
+     "startTime": 1694430911340,
+     "endTime": 1694430911559
+    },
+    "executionOrder": 1,
+    "success": true
+   }
   },
   {
    "kind": 1,
@@ -22,7 +47,14 @@
    "languageId": "wolfram",
    "outputs": [],
    "metadata": {},
-   "executionSummary": {}
+   "executionSummary": {
+    "timing": {
+     "startTime": 1694430912383,
+     "endTime": 1694430913012
+    },
+    "executionOrder": 2,
+    "success": true
+   }
   },
   {
    "kind": 2,
@@ -30,7 +62,14 @@
    "languageId": "wolfram",
    "outputs": [],
    "metadata": {},
-   "executionSummary": {}
+   "executionSummary": {
+    "timing": {
+     "startTime": 1694430913943,
+     "endTime": 1694430914560
+    },
+    "executionOrder": 10,
+    "success": true
+   }
   },
   {
    "kind": 2,
@@ -38,21 +77,71 @@
    "languageId": "wolfram",
    "outputs": [],
    "metadata": {},
-   "executionSummary": {}
+   "executionSummary": {
+    "timing": {
+     "startTime": 1694430915870,
+     "endTime": 1694430915950
+    },
+    "executionOrder": 18,
+    "success": true
+   }
   },
   {
    "kind": 2,
-   "value": "gtt = -Sigmavar*(Delta - a*a*A2*A2*Sin[theta]*Sin[theta])/(B*B);\r\ngrr = Sigmavar/(Delta*A5);\r\ngthth = Sigmavar;\r\ngpp = ((r*r + a*a)*(r*r + a*a)*A1*A1 - a*a*Delta*Sin[theta]*Sin[theta])*Sigmavar*Sin[theta]^2/(B*B);\r\ngtp = -a*((r^2 + a^2)*A1*A2 - Delta)*Sigmavar*Sin[theta]^2/B^2;\r\n(* gtr = b1*a/r + b2*a*M/r^2; *)\r\ngtr = b1*a/(2*r) + b2*a*M/r^2;\r\ngrp = c1*a*Sin[theta]^2/r + c2*a*M*Sin[theta]^2/r^2;\r\n\r\nG = Simplify[{{gtt, gtr, 0, gtp}, {gtr, grr, 0, grp}, {0, 0, gthth, \r\n     0}, {gtp, grp, 0, gpp}}];\r\nG // MatrixForm",
+   "value": "gtt = -Sigmavar*(Delta - a*a*A2*A2*Sin[theta]*Sin[theta])/(B*B);\r\ngrr = Sigmavar/(Delta*A5);\r\ngthth = Sigmavar;\r\ngpp = ((r*r + a*a)*(r*r + a*a)*A1*A1 - a*a*Delta*Sin[theta]*Sin[theta])*Sigmavar*Sin[theta]^2/(B*B);\r\ngtp = -a*((r^2 + a^2)*A1*A2 - Delta)*Sigmavar*Sin[theta]^2/B^2;\r\n(* gtr = b1*a/r + b2*a*M/r^2; *)\r\ngtr = b1*a/(2*r) + b2*a*M/(2*r^2);\r\ngrp = c1*a*Sin[theta]^2/(2*r) + c2*a*M*Sin[theta]^2/(2*r^2);\r\n\r\nG = Simplify[{{gtt, gtr, 0, gtp}, {gtr, grr, 0, grp}, {0, 0, gthth, \r\n     0}, {gtp, grp, 0, gpp}}];\r\nG // MatrixForm",
    "languageId": "wolfram",
-   "outputs": [],
+   "outputs": [
+    {
+     "items": [
+      {
+       "data": "<div class=\"wexpr\"><wrow><w></w><wb>(</wb><w>⁠</w><wgrid style=\"grid-template-columns:repeat(4,max-content);\"><w><wrow><w></w><w>-</w><wfrac><w><wrow><w></w><wsup><w></w><w>a</w><w><w>2</w></w></wsup><w>+</w><wrow><w></w><w>2</w><w></w><w>r</w><w></w><wrow><w></w><wb>(</wb><wrow><w></w><wrow><w></w><wrow><w></w><w>-</w><w>2</w></wrow><w></w><w>M</w></wrow><w>+</w><w>r</w></wrow><wb>)</wb></wrow></wrow><w>+</w><wrow><w></w><wsup><w></w><w>a</w><w><w>2</w></w></wsup><w></w><wrow><w></w><w>Cos</w><wrow><w></w><wb>[</wb><wrow><w></w><w>2</w><w></w><w>theta</w></wrow><wb>]</wb></wrow></wrow></wrow></wrow></w><w><w></w><w><wrow><w></w><wsup><w></w><w>a</w><w><w>2</w></w></wsup><w>+</w><wrow><w></w><w>2</w><w></w><wsup><w></w><w>r</w><w><w>2</w></w></wsup></wrow><w>+</w><wrow><w></w><wsup><w></w><w>a</w><w><w>2</w></w></wsup><w></w><wrow><w></w><w>Cos</w><wrow><w></w><wb>[</wb><wrow><w></w><w>2</w><w></w><w>theta</w></wrow><wb>]</wb></wrow></wrow></wrow></wrow></w></w></wfrac></wrow></w><w><wfrac><w><wrow><w></w><w>a</w><w></w><w>defpar</w></wrow></w><w><w></w><w><wrow><w></w><w>2</w><w></w><w>r</w></wrow></w></w></wfrac></w><w><w>0</w></w><w><wrow><w></w><w>-</w><wfrac><w><wrow><w></w><w>4</w><w></w><w>a</w><w></w><w>M</w><w></w><w>r</w><w></w><wsup><w></w><wrow><w></w><w>Sin</w><wrow><w></w><wb>[</wb><w>theta</w><wb>]</wb></wrow></wrow><w><w>2</w></w></wsup></wrow></w><w><w></w><w><wrow><w></w><wsup><w></w><w>a</w><w><w>2</w></w></wsup><w>+</w><wrow><w></w><w>2</w><w></w><wsup><w></w><w>r</w><w><w>2</w></w></wsup></wrow><w>+</w><wrow><w></w><wsup><w></w><w>a</w><w><w>2</w></w></wsup><w></w><wrow><w></w><w>Cos</w><wrow><w></w><wb>[</wb><wrow><w></w><w>2</w><w></w><w>theta</w></wrow><wb>]</wb></wrow></wrow></wrow></wrow></w></w></wfrac></wrow></w><w><wfrac><w><wrow><w></w><w>a</w><w></w><w>defpar</w></wrow></w><w><w></w><w><wrow><w></w><w>2</w><w></w><w>r</w></wrow></w></w></wfrac></w><w><wfrac><w><wrow><w></w><wsup><w></w><w>r</w><w><w>2</w></w></wsup><w>+</w><wrow><w></w><wsup><w></w><w>a</w><w><w>2</w></w></wsup><w></w><wsup><w></w><wrow><w></w><w>Cos</w><wrow><w></w><wb>[</wb><w>theta</w><wb>]</wb></wrow></wrow><w><w>2</w></w></wsup></wrow></wrow></w><w><w></w><w><wrow><w></w><wsup><w></w><w>a</w><w><w>2</w></w></wsup><w>-</w><wrow><w></w><w>2</w><w></w><w>M</w><w></w><w>r</w></wrow><w>+</w><wsup><w></w><w>r</w><w><w>2</w></w></wsup></wrow></w></w></wfrac></w><w><w>0</w></w><w><w>0</w></w><w><w>0</w></w><w><w>0</w></w><w><wrow><w></w><wsup><w></w><w>r</w><w><w>2</w></w></wsup><w>+</w><wrow><w></w><wsup><w></w><w>a</w><w><w>2</w></w></wsup><w></w><wsup><w></w><wrow><w></w><w>Cos</w><wrow><w></w><wb>[</wb><w>theta</w><wb>]</wb></wrow></wrow><w><w>2</w></w></wsup></wrow></wrow></w><w><w>0</w></w><w><wrow><w></w><w>-</w><wfrac><w><wrow><w></w><w>4</w><w></w><w>a</w><w></w><w>M</w><w></w><w>r</w><w></w><wsup><w></w><wrow><w></w><w>Sin</w><wrow><w></w><wb>[</wb><w>theta</w><wb>]</wb></wrow></wrow><w><w>2</w></w></wsup></wrow></w><w><w></w><w><wrow><w></w><wsup><w></w><w>a</w><w><w>2</w></w></wsup><w>+</w><wrow><w></w><w>2</w><w></w><wsup><w></w><w>r</w><w><w>2</w></w></wsup></wrow><w>+</w><wrow><w></w><wsup><w></w><w>a</w><w><w>2</w></w></wsup><w></w><wrow><w></w><w>Cos</w><wrow><w></w><wb>[</wb><wrow><w></w><w>2</w><w></w><w>theta</w></wrow><wb>]</wb></wrow></wrow></wrow></wrow></w></w></wfrac></wrow></w><w><w>0</w></w><w><w>0</w></w><w><wfrac><w><wrow><w></w><wrow><w></w><wb>(</wb><wrow><w></w><wsup><w></w><w>r</w><w><w>2</w></w></wsup><w>+</w><wrow><w></w><wsup><w></w><w>a</w><w><w>2</w></w></wsup><w></w><wsup><w></w><wrow><w></w><w>Cos</w><wrow><w></w><wb>[</wb><w>theta</w><wb>]</wb></wrow></wrow><w><w>2</w></w></wsup></wrow></wrow><wb>)</wb></wrow><w></w><wsup><w></w><wrow><w></w><w>Sin</w><wrow><w></w><wb>[</wb><w>theta</w><wb>]</wb></wrow></wrow><w><w>2</w></w></wsup><w></w><wrow><w></w><wb>(</wb><wrow><w></w><wsup><w></w><wrow><w></w><wb>(</wb><wrow><w></w><wsup><w></w><w>a</w><w><w>2</w></w></wsup><w>+</w><wsup><w></w><w>r</w><w><w>2</w></w></wsup></wrow><wb>)</wb></wrow><w><w>2</w></w></wsup><w>-</w><wrow><w></w><wsup><w></w><w>a</w><w><w>2</w></w></wsup><w></w><wrow><w></w><wb>(</wb><wrow><w></w><wsup><w></w><w>a</w><w><w>2</w></w></wsup><w>+</w><wrow><w></w><w>r</w><w></w><wrow><w></w><wb>(</wb><wrow><w></w><wrow><w></w><wrow><w></w><w>-</w><w>2</w></wrow><w></w><w>M</w></wrow><w>+</w><w>r</w></wrow><wb>)</wb></wrow></wrow></wrow><wb>)</wb></wrow><w></w><wsup><w></w><wrow><w></w><w>Sin</w><wrow><w></w><wb>[</wb><w>theta</w><wb>]</wb></wrow></wrow><w><w>2</w></w></wsup></wrow></wrow><wb>)</wb></wrow></wrow></w><w><w></w><w><wsup><w></w><wrow><w></w><wb>(</wb><wrow><w></w><wsup><w></w><w>a</w><w><w>2</w></w></wsup><w>+</w><wsup><w></w><w>r</w><w><w>2</w></w></wsup><w>-</w><wrow><w></w><wsup><w></w><w>a</w><w><w>2</w></w></wsup><w></w><wsup><w></w><wrow><w></w><w>Sin</w><wrow><w></w><wb>[</wb><w>theta</w><wb>]</wb></wrow></wrow><w><w>2</w></w></wsup></wrow></wrow><wb>)</wb></wrow><w><w>2</w></w></wsup></w></w></wfrac></w></wgrid><w>⁠</w><wb>)</wb></wrow></div>",
+       "mime": "x-application/wolfram-language-html"
+      },
+      {
+       "data": "MatrixForm[{{-((a^2 + 2*r*(-2*M + r) + a^2*Cos[2*theta])/(a^2 + 2*r^2 + a^2*Cos[2*theta])), (a*defpar)/(2*r), 0, (-4*a*M*r*Sin[theta]^2)/(a^2 + 2*r^2 + a^2*Cos[2*theta])}, {(a*defpar)/(2*r), (r^2 + a^2*Cos[theta]^2)/(a^2 - 2*M*r + r^2), 0, 0}, {0, 0, r^2 + a^2*Cos[theta]^2, 0}, {(-4*a*M*r*Sin[theta]^2)/(a^2 + 2*r^2 + a^2*Cos[2*theta]), 0, 0, ((r^2 + a^2*Cos[theta]^2)*Sin[theta]^2*((a^2 + r^2)^2 - a^2*(a^2 + r*(-2*M + r))*Sin[theta]^2))/(a^2 + r^2 - a^2*Sin[theta]^2)^2}}]",
+       "mime": "text/plain"
+      }
+     ],
+     "id": "32ca87ed-84f0-4cda-a039-482281b6a8ae",
+     "metadata": {
+      "cellLabel": "Out[27]//MatrixForm= ",
+      "isBoxData": false
+     }
+    }
+   ],
    "metadata": {},
-   "executionSummary": {}
+   "executionSummary": {
+    "timing": {
+     "startTime": 1694430921396,
+     "endTime": 1694430922282
+    },
+    "executionOrder": 19,
+    "success": true
+   }
   },
   {
    "kind": 2,
    "value": "(* test G numerically *)\r\nnum = {r -> 1.0, theta -> 0.2, M -> 1, a -> 0.5};\r\nEvaluate[grr /. num] // MatrixForm",
    "languageId": "wolfram",
-   "outputs": [],
+   "outputs": [
+    {
+     "items": [
+      {
+       "data": "<div class=\"wexpr\"><wrow><w></w><w>-</w><w>1.65351</w></wrow></div>",
+       "mime": "x-application/wolfram-language-html"
+      },
+      {
+       "data": "MatrixForm[-1.6535101656671476]",
+       "mime": "text/plain"
+      }
+     ],
+     "id": "8b6e0e9d-ecbc-4410-bd6a-748700064b45",
+     "metadata": {
+      "cellLabel": "Out[29]//MatrixForm= ",
+      "isBoxData": false
+     }
+    }
+   ],
    "metadata": {},
    "executionSummary": {}
   },
@@ -70,7 +159,64 @@
    "languageId": "wolfram",
    "outputs": [],
    "metadata": {},
-   "executionSummary": {}
+   "executionSummary": {
+    "timing": {
+     "startTime": 1694430924816,
+     "endTime": 1694430925661
+    },
+    "executionOrder": 28,
+    "success": true
+   }
+  },
+  {
+   "kind": 2,
+   "value": "(* Test dGdr *)\r\nnum = {r -> 10, theta -> Pi/2, M -> 1, a -> 0.98, defpar -> 0.5};\r\nEvaluate[dGdr /. num] // MatrixForm\r\n    \r\n(* Test dGdth *)\r\nEvaluate[dGdth /. num] // MatrixForm",
+   "languageId": "wolfram",
+   "outputs": [
+    {
+     "items": [
+      {
+       "data": "<div class=\"wexpr\"><wrow><w></w><wb>(</wb><w>⁠</w><wgrid style=\"grid-template-columns:repeat(4,max-content);\"><w><wrow><w></w><w>-</w><w>0.02</w></wrow></w><w><wrow><w></w><w>-</w><w>0.00245</w></wrow></w><w><w>0</w></w><w><w>0.0196</w></w><w><wrow><w></w><w>-</w><w>0.00245</w></wrow></w><w><wrow><w></w><w>-</w><w>0.0275825</w></wrow></w><w><w>0</w></w><w><w>0</w></w><w><w>0</w></w><w><w>0</w></w><w><w>20</w></w><w><w>0</w></w><w><w>0.0196</w></w><w><w>0</w></w><w><w>0</w></w><w><w>19.9808</w></w></wgrid><w>⁠</w><wb>)</wb></wrow></div>",
+       "mime": "x-application/wolfram-language-html"
+      },
+      {
+       "data": "MatrixForm[{{-0.02, -0.00245, 0, 0.0196}, {-0.00245, -0.027582518536673407, 0, 0}, {0, 0, 20, 0}, {0.0196, 0, 0, 19.980792}}]",
+       "mime": "text/plain"
+      }
+     ],
+     "id": "dfd1d9ff-879d-41a2-8b5e-bc7e64aaca11",
+     "metadata": {
+      "cellLabel": "Out[75]//MatrixForm= ",
+      "isBoxData": false
+     }
+    },
+    {
+     "items": [
+      {
+       "data": "<div class=\"wexpr\"><wrow><w></w><wb>(</wb><w>⁠</w><wgrid style=\"grid-template-columns:repeat(4,max-content);\"><w><w>0.</w></w><w><w>0</w></w><w><w>0</w></w><w><w>0.</w></w><w><w>0</w></w><w><w>0.</w></w><w><w>0</w></w><w><w>0</w></w><w><w>0</w></w><w><w>0</w></w><w><w>0.</w></w><w><w>0</w></w><w><w>0.</w></w><w><w>0</w></w><w><w>0</w></w><w><w>0.</w></w></wgrid><w>⁠</w><wb>)</wb></wrow></div>",
+       "mime": "x-application/wolfram-language-html"
+      },
+      {
+       "data": "MatrixForm[{{0., 0, 0, 0.}, {0, 0., 0, 0}, {0, 0, 0., 0}, {0., 0, 0, 0.}}]",
+       "mime": "text/plain"
+      }
+     ],
+     "id": "8b35e4cb-03da-4300-bb46-ce772b07a9eb",
+     "metadata": {
+      "cellLabel": "Out[76]//MatrixForm= ",
+      "isBoxData": false
+     }
+    }
+   ],
+   "metadata": {},
+   "executionSummary": {
+    "timing": {
+     "startTime": 1694437838320,
+     "endTime": 1694437838685
+    },
+    "executionOrder": 74,
+    "success": true
+   }
   },
   {
    "kind": 1,
@@ -86,7 +232,14 @@
    "languageId": "wolfram",
    "outputs": [],
    "metadata": {},
-   "executionSummary": {}
+   "executionSummary": {
+    "timing": {
+     "startTime": 1694430925663,
+     "endTime": 1694430926356
+    },
+    "executionOrder": 32,
+    "success": true
+   }
   },
   {
    "kind": 2,
@@ -95,6 +248,39 @@
    "outputs": [],
    "metadata": {},
    "executionSummary": {}
+  },
+  {
+   "kind": 2,
+   "value": "(* Test Ginv numerically *)\r\nnum = {r -> 5.0, theta -> 0.15, M -> 1, a -> 0.98, defpar -> 0.5};\r\nEvaluate[Ginv /. num] // MatrixForm",
+   "languageId": "wolfram",
+   "outputs": [
+    {
+     "items": [
+      {
+       "data": "<div class=\"wexpr\"><wrow><w></w><wb>(</wb><w>⁠</w><wgrid style=\"grid-template-columns:repeat(4,max-content);\"><w><wrow><w></w><w>-</w><w>1.62317</w></wrow></w><w><w>0.0489385</w></w><w><w>0</w></w><w><wrow><w></w><w>-</w><w>0.023615</w></wrow></w><w><w>0.0489385</w></w><w><w>0.613831</w></w><w><w>0</w></w><w><w>0.000711991</w></w><w><w>0</w></w><w><w>0</w></w><w><w>0.0385521</w></w><w><w>0</w></w><w><wrow><w></w><w>-</w><w>0.023615</w></wrow></w><w><w>0.000711991</w></w><w><w>0</w></w><w><w>1.72401</w></w></wgrid><w>⁠</w><wb>)</wb></wrow></div>",
+       "mime": "x-application/wolfram-language-html"
+      },
+      {
+       "data": "MatrixForm[{{-1.6231670826677789, 0.048938498784310974, 0, -0.023614958464663334}, {0.048938498784310974, 0.6138307677163937, 0, 0.0007119911612642154}, {0, 0, 0.03855205783023504, 0}, {-0.023614958464663334, 0.0007119911612642154, 0, 1.7240145106675606}}]",
+       "mime": "text/plain"
+      }
+     ],
+     "id": "28ed6461-bf4f-4a62-b400-b239c9c9903b",
+     "metadata": {
+      "cellLabel": "Out[36]//MatrixForm= ",
+      "isBoxData": false
+     }
+    }
+   ],
+   "metadata": {},
+   "executionSummary": {
+    "timing": {
+     "startTime": 1694431052841,
+     "endTime": 1694431053057
+    },
+    "executionOrder": 35,
+    "success": true
+   }
   },
   {
    "kind": 1,
@@ -110,15 +296,47 @@
    "languageId": "wolfram",
    "outputs": [],
    "metadata": {},
-   "executionSummary": {}
+   "executionSummary": {
+    "timing": {
+     "startTime": 1694439930894,
+     "endTime": 1694439931042
+    },
+    "executionOrder": 102,
+    "success": true
+   }
   },
   {
    "kind": 2,
-   "value": "(* test Christ numerically *)\r\nnum = {r -> 1.0, theta -> 0.15, M -> 1, a -> 0.5, defpar -> 0};\r\nEvaluate[Part[Christ, 1, 1, 2] /. num] // MatrixForm",
+   "value": "(* test Christ numerically *)\r\nnum = {r -> 10, theta -> 2.1, M -> 1, a -> 0.998, defpar -> 0.5};\r\nEvaluate[Part[Christ, 4, 1, 4] /. num] // MatrixForm\r\n(* Simplify[Part[Christ, 4, 1, 3] /. {M -> 1, a -> 0.998, defpar -> 0.5, theta -> 1.2}] *)",
    "languageId": "wolfram",
-   "outputs": [],
+   "outputs": [
+    {
+     "items": [
+      {
+       "data": "<div class=\"wexpr\"><wrow><w></w><w>-</w><wsup><w></w><w>3.65438&#215;10</w><w><w>-7</w></w></wsup></wrow></div>",
+       "mime": "x-application/wolfram-language-html"
+      },
+      {
+       "data": "MatrixForm[-3.654375167486981*^-7]",
+       "mime": "text/plain"
+      }
+     ],
+     "id": "7898bbf8-f3e9-40b4-b988-0f12ad85c83c",
+     "metadata": {
+      "cellLabel": "Out[113]//MatrixForm= ",
+      "isBoxData": false
+     }
+    }
+   ],
    "metadata": {},
-   "executionSummary": {}
+   "executionSummary": {
+    "timing": {
+     "startTime": 1694440035983,
+     "endTime": 1694440036225
+    },
+    "executionOrder": 112,
+    "success": true
+   }
   },
   {
    "kind": 1,
@@ -150,7 +368,25 @@
    "value": "g = 1/(uet*(1 - omega*ktkp))",
    "languageId": "wolfram",
    "mime": "text/plain",
-   "outputs": [],
+   "outputs": [
+    {
+     "items": [
+      {
+       "data": "<div class=\"wexpr\"><wfrac><w><wsqrt><w><w>\\</w></w><w></w><w><wrow><w></w><wfrac class=\"script\"><w><wrow><w></w><wsup><w></w><w>a</w><w><w>2</w></w></wsup><w>+</w><wrow><w></w><w>2</w><w></w><w>r</w><w></w><wrow><w></w><wb>(</wb><wrow><w></w><wrow><w></w><wrow><w></w><w>-</w><w>2</w></wrow><w></w><w>M</w></wrow><w>+</w><w>r</w></wrow><wb>)</wb></wrow></wrow><w>+</w><wrow><w></w><wsup><w></w><w>a</w><w><w>2</w></w></wsup><w></w><wrow><w></w><w>Cos</w><wrow><w></w><wb>[</wb><wrow><w></w><w>2</w><w></w><w>theta</w></wrow><wb>]</wb></wrow></wrow></wrow></wrow></w><w><w></w><w><wrow><w></w><wsup><w></w><w>a</w><w><w>2</w></w></wsup><w>+</w><wrow><w></w><w>2</w><w></w><wsup><w></w><w>r</w><w><w>2</w></w></wsup></wrow><w>+</w><wrow><w></w><wsup><w></w><w>a</w><w><w>2</w></w></wsup><w></w><wrow><w></w><w>Cos</w><wrow><w></w><wb>[</wb><wrow><w></w><w>2</w><w></w><w>theta</w></wrow><wb>]</wb></wrow></wrow></wrow></wrow></w></w></wfrac><w>+</w><wfrac class=\"script\"><w><wrow><w></w><w>8</w><w></w><w>a</w><w></w><w>M</w><w></w><w>r</w><w></w><wrow><w></w><wb>(</wb><wrow><w></w><wsup><w></w><w>a</w><w><w>2</w></w></wsup><w>+</w><wrow><w></w><w>2</w><w></w><wsup><w></w><w>r</w><w><w>2</w></w></wsup></wrow><w>+</w><wrow><w></w><wsup><w></w><w>a</w><w><w>2</w></w></wsup><w></w><wrow><w></w><w>Cos</w><wrow><w></w><wb>[</wb><wrow><w></w><w>2</w><w></w><w>theta</w></wrow><wb>]</wb></wrow></wrow></wrow></wrow><wb>)</wb></wrow><w></w><wrow><w></w><wb>(</wb><wrow><w></w><wfrac class=\"script\"><w><wrow><w></w><w>4</w><w></w><w>a</w><w></w><w>M</w><w></w><wrow><w></w><wb>(</wb><wrow><w></w><wsup><w></w><w>a</w><w><w>2</w></w></wsup><w>-</w><wrow><w></w><w>2</w><w></w><wsup><w></w><w>r</w><w><w>2</w></w></wsup></wrow><w>+</w><wrow><w></w><wsup><w></w><w>a</w><w><w>2</w></w></wsup><w></w><wrow><w></w><w>Cos</w><wrow><w></w><wb>[</wb><wrow><w></w><w>2</w><w></w><w>theta</w></wrow><wb>]</wb></wrow></wrow></wrow></wrow><wb>)</wb></wrow><w></w><wsup><w></w><wrow><w></w><w>Sin</w><wrow><w></w><wb>[</wb><w>theta</w><wb>]</wb></wrow></wrow><w><w>2</w></w></wsup></wrow></w><w><w></w><w><wsup><w></w><wrow><w></w><wb>(</wb><wrow><w></w><wsup><w></w><w>a</w><w><w>2</w></w></wsup><w>+</w><wrow><w></w><w>2</w><w></w><wsup><w></w><w>r</w><w><w>2</w></w></wsup></wrow><w>+</w><wrow><w></w><wsup><w></w><w>a</w><w><w>2</w></w></wsup><w></w><wrow><w></w><w>Cos</w><wrow><w></w><wb>[</wb><wrow><w></w><w>2</w><w></w><w>theta</w></wrow><wb>]</wb></wrow></wrow></wrow></wrow><wb>)</wb></wrow><w><w>2</w></w></wsup></w></w></wfrac><w>+</w><wsqrt><w><w>\\</w></w><w></w><w><wrow><w></w><wrow><w></w><w>-</w><wfrac class=\"script\"><w><wrow><w></w><w>4</w><w></w><w>M</w><w></w><wrow><w></w><wb>(</wb><wrow><w></w><wsup><w></w><w>a</w><w><w>2</w></w></wsup><w>-</w><wrow><w></w><w>2</w><w></w><wsup><w></w><w>r</w><w><w>2</w></w></wsup></wrow><w>+</w><wrow><w></w><wsup><w></w><w>a</w><w><w>2</w></w></wsup><w></w><wrow><w></w><w>Cos</w><wrow><w></w><wb>[</wb><wrow><w></w><w>2</w><w></w><w>theta</w></wrow><wb>]</wb></wrow></wrow></wrow></wrow><wb>)</wb></wrow><w></w><wrow><w></w><wb>(</wb><wrow><w></w><wrow><w></w><wsup><w></w><w>a</w><w><w>4</w></w></wsup><w></w><w>M</w></wrow><w>+</w><wrow><w></w><w>3</w><w></w><wsup><w></w><w>a</w><w><w>4</w></w></wsup><w></w><w>r</w></wrow><w>-</w><wrow><w></w><w>4</w><w></w><wsup><w></w><w>a</w><w><w>2</w></w></wsup><w></w><w>M</w><w></w><wsup><w></w><w>r</w><w><w>2</w></w></wsup></wrow><w>+</w><wrow><w></w><w>8</w><w></w><wsup><w></w><w>a</w><w><w>2</w></w></wsup><w></w><wsup><w></w><w>r</w><w><w>3</w></w></wsup></wrow><w>+</w><wrow><w></w><w>8</w><w></w><wsup><w></w><w>r</w><w><w>5</w></w></wsup></wrow><w>+</w><wrow><w></w><w>4</w><w></w><wsup><w></w><w>a</w><w><w>2</w></w></wsup><w></w><w>r</w><w></w><wrow><w></w><wb>(</wb><wrow><w></w><wsup><w></w><w>a</w><w><w>2</w></w></wsup><w>+</w><wrow><w></w><w>r</w><w></w><wrow><w></w><wb>(</wb><wrow><w></w><w>M</w><w>+</w><wrow><w></w><w>2</w><w></w><w>r</w></wrow></wrow><wb>)</wb></wrow></wrow></wrow><wb>)</wb></wrow><w></w><wrow><w></w><w>Cos</w><wrow><w></w><wb>[</wb><wrow><w></w><w>2</w><w></w><w>theta</w></wrow><wb>]</wb></wrow></wrow></wrow><w>-</w><wrow><w></w><wsup><w></w><w>a</w><w><w>4</w></w></wsup><w></w><wrow><w></w><wb>(</wb><wrow><w></w><w>M</w><w>-</w><w>r</w></wrow><wb>)</wb></wrow><w></w><wrow><w></w><w>Cos</w><wrow><w></w><wb>[</wb><wrow><w></w><w>4</w><w></w><w>theta</w></wrow><wb>]</wb></wrow></wrow></wrow></wrow><wb>)</wb></wrow><w></w><wsup><w></w><wrow><w></w><w>Sin</w><wrow><w></w><wb>[</wb><w>theta</w><wb>]</wb></wrow></wrow><w><w>2</w></w></wsup></wrow></w><w><w></w><w><wsup><w></w><wrow><w></w><wb>(</wb><wrow><w></w><wsup><w></w><w>a</w><w><w>2</w></w></wsup><w>+</w><wrow><w></w><w>2</w><w></w><wsup><w></w><w>r</w><w><w>2</w></w></wsup></wrow><w>+</w><wrow><w></w><wsup><w></w><w>a</w><w><w>2</w></w></wsup><w></w><wrow><w></w><w>Cos</w><wrow><w></w><wb>[</wb><wrow><w></w><w>2</w><w></w><w>theta</w></wrow><wb>]</wb></wrow></wrow></wrow></wrow><wb>)</wb></wrow><w><w>4</w></w></wsup></w></w></wfrac></wrow><w>+</w><wfrac class=\"script\"><w><wrow><w></w><w>16</w><w></w><wsup><w></w><w>a</w><w><w>2</w></w></wsup><w></w><wsup><w></w><w>M</w><w><w>2</w></w></wsup><w></w><wsup><w></w><wrow><w></w><wb>(</wb><wrow><w></w><wsup><w></w><w>a</w><w><w>2</w></w></wsup><w>-</w><wrow><w></w><w>2</w><w></w><wsup><w></w><w>r</w><w><w>2</w></w></wsup></wrow><w>+</w><wrow><w></w><wsup><w></w><w>a</w><w><w>2</w></w></wsup><w></w><wrow><w></w><w>Cos</w><wrow><w></w><wb>[</wb><wrow><w></w><w>2</w><w></w><w>theta</w></wrow><wb>]</wb></wrow></wrow></wrow></wrow><wb>)</wb></wrow><w><w>2</w></w></wsup><w></w><wsup><w></w><wrow><w></w><w>Sin</w><wrow><w></w><wb>[</wb><w>theta</w><wb>]</wb></wrow></wrow><w><w>4</w></w></wsup></wrow></w><w><w></w><w><wsup><w></w><wrow><w></w><wb>(</wb><wrow><w></w><wsup><w></w><w>a</w><w><w>2</w></w></wsup><w>+</w><wrow><w></w><w>2</w><w></w><wsup><w></w><w>r</w><w><w>2</w></w></wsup></wrow><w>+</w><wrow><w></w><wsup><w></w><w>a</w><w><w>2</w></w></wsup><w></w><wrow><w></w><w>Cos</w><wrow><w></w><wb>[</wb><wrow><w></w><w>2</w><w></w><w>theta</w></wrow><wb>]</wb></wrow></wrow></wrow></wrow><wb>)</wb></wrow><w><w>4</w></w></wsup></w></w></wfrac></wrow></w></wsqrt></wrow><wb>)</wb></wrow></wrow></w><w><w></w><w><wrow><w></w><wrow><w></w><wsup><w></w><w>a</w><w><w>4</w></w></wsup><w></w><w>M</w></wrow><w>+</w><wrow><w></w><w>3</w><w></w><wsup><w></w><w>a</w><w><w>4</w></w></wsup><w></w><w>r</w></wrow><w>-</w><wrow><w></w><w>4</w><w></w><wsup><w></w><w>a</w><w><w>2</w></w></wsup><w></w><w>M</w><w></w><wsup><w></w><w>r</w><w><w>2</w></w></wsup></wrow><w>+</w><wrow><w></w><w>8</w><w></w><wsup><w></w><w>a</w><w><w>2</w></w></wsup><w></w><wsup><w></w><w>r</w><w><w>3</w></w></wsup></wrow><w>+</w><wrow><w></w><w>8</w><w></w><wsup><w></w><w>r</w><w><w>5</w></w></wsup></wrow><w>+</w><wrow><w></w><w>4</w><w></w><wsup><w></w><w>a</w><w><w>2</w></w></wsup><w></w><w>r</w><w></w><wrow><w></w><wb>(</wb><wrow><w></w><wsup><w></w><w>a</w><w><w>2</w></w></wsup><w>+</w><wrow><w></w><w>r</w><w></w><wrow><w></w><wb>(</wb><wrow><w></w><w>M</w><w>+</w><wrow><w></w><w>2</w><w></w><w>r</w></wrow></wrow><wb>)</wb></wrow></wrow></wrow><wb>)</wb></wrow><w></w><wrow><w></w><w>Cos</w><wrow><w></w><wb>[</wb><wrow><w></w><w>2</w><w></w><w>theta</w></wrow><wb>]</wb></wrow></wrow></wrow><w>-</w><wrow><w></w><wsup><w></w><w>a</w><w><w>4</w></w></wsup><w></w><wrow><w></w><wb>(</wb><wrow><w></w><w>M</w><w>-</w><w>r</w></wrow><wb>)</wb></wrow><w></w><wrow><w></w><w>Cos</w><wrow><w></w><wb>[</wb><wrow><w></w><w>4</w><w></w><w>theta</w></wrow><wb>]</wb></wrow></wrow></wrow></wrow></w></w></wfrac><w>-</w><wfrac class=\"script\"><w><wrow><w></w><wrow><w></w><wb>(</wb><wrow><w></w><wsup><w></w><w>r</w><w><w>2</w></w></wsup><w>+</w><wrow><w></w><wsup><w></w><w>a</w><w><w>2</w></w></wsup><w></w><wsup><w></w><wrow><w></w><w>Cos</w><wrow><w></w><wb>[</wb><w>theta</w><wb>]</wb></wrow></wrow><w><w>2</w></w></wsup></wrow></wrow><wb>)</wb></wrow><w></w><wsup><w></w><wrow><w></w><wb>(</wb><wrow><w></w><wsup><w></w><w>a</w><w><w>2</w></w></wsup><w>+</w><wrow><w></w><w>2</w><w></w><wsup><w></w><w>r</w><w><w>2</w></w></wsup></wrow><w>+</w><wrow><w></w><wsup><w></w><w>a</w><w><w>2</w></w></wsup><w></w><wrow><w></w><w>Cos</w><wrow><w></w><wb>[</wb><wrow><w></w><w>2</w><w></w><w>theta</w></wrow><wb>]</wb></wrow></wrow></wrow></wrow><wb>)</wb></wrow><w><w>4</w></w></wsup><w></w><wsup><w></w><wrow><w></w><w>Csc</w><wrow><w></w><wb>[</wb><w>theta</w><wb>]</wb></wrow></wrow><w><w>2</w></w></wsup><w></w><wrow><w></w><wb>(</wb><wrow><w></w><wsup><w></w><wrow><w></w><wb>(</wb><wrow><w></w><wsup><w></w><w>a</w><w><w>2</w></w></wsup><w>+</w><wsup><w></w><w>r</w><w><w>2</w></w></wsup></wrow><wb>)</wb></wrow><w><w>2</w></w></wsup><w>-</w><wrow><w></w><wsup><w></w><w>a</w><w><w>2</w></w></wsup><w></w><wrow><w></w><wb>(</wb><wrow><w></w><wsup><w></w><w>a</w><w><w>2</w></w></wsup><w>+</w><wrow><w></w><w>r</w><w></w><wrow><w></w><wb>(</wb><wrow><w></w><wrow><w></w><wrow><w></w><w>-</w><w>2</w></wrow><w></w><w>M</w></wrow><w>+</w><w>r</w></wrow><wb>)</wb></wrow></wrow></wrow><wb>)</wb></wrow><w></w><wsup><w></w><wrow><w></w><w>Sin</w><wrow><w></w><wb>[</wb><w>theta</w><wb>]</wb></wrow></wrow><w><w>2</w></w></wsup></wrow></wrow><wb>)</wb></wrow><w></w><wsup><w></w><wrow><w></w><wb>(</wb><wrow><w></w><wfrac class=\"script\"><w><wrow><w></w><w>4</w><w></w><w>a</w><w></w><w>M</w><w></w><wrow><w></w><wb>(</wb><wrow><w></w><wsup><w></w><w>a</w><w><w>2</w></w></wsup><w>-</w><wrow><w></w><w>2</w><w></w><wsup><w></w><w>r</w><w><w>2</w></w></wsup></wrow><w>+</w><wrow><w></w><wsup><w></w><w>a</w><w><w>2</w></w></wsup><w></w><wrow><w></w><w>Cos</w><wrow><w></w><wb>[</wb><wrow><w></w><w>2</w><w></w><w>theta</w></wrow><wb>]</wb></wrow></wrow></wrow></wrow><wb>)</wb></wrow><w></w><wsup><w></w><wrow><w></w><w>Sin</w><wrow><w></w><wb>[</wb><w>theta</w><wb>]</wb></wrow></wrow><w><w>2</w></w></wsup></wrow></w><w><w></w><w><wsup><w></w><wrow><w></w><wb>(</wb><wrow><w></w><wsup><w></w><w>a</w><w><w>2</w></w></wsup><w>+</w><wrow><w></w><w>2</w><w></w><wsup><w></w><w>r</w><w><w>2</w></w></wsup></wrow><w>+</w><wrow><w></w><wsup><w></w><w>a</w><w><w>2</w></w></wsup><w></w><wrow><w></w><w>Cos</w><wrow><w></w><wb>[</wb><wrow><w></w><w>2</w><w></w><w>theta</w></wrow><wb>]</wb></wrow></wrow></wrow></wrow><wb>)</wb></wrow><w><w>2</w></w></wsup></w></w></wfrac><w>+</w><wsqrt><w><w>\\</w></w><w></w><w><wrow><w></w><wrow><w></w><w>-</w><wfrac class=\"script\"><w><wrow><w></w><w>4</w><w></w><w>M</w><w></w><wrow><w></w><wb>(</wb><wrow><w></w><wsup><w></w><w>a</w><w><w>2</w></w></wsup><w>-</w><wrow><w></w><w>2</w><w></w><wsup><w></w><w>r</w><w><w>2</w></w></wsup></wrow><w>+</w><wrow><w></w><wsup><w></w><w>a</w><w><w>2</w></w></wsup><w></w><wrow><w></w><w>Cos</w><wrow><w></w><wb>[</wb><wrow><w></w><w>2</w><w></w><w>theta</w></wrow><wb>]</wb></wrow></wrow></wrow></wrow><wb>)</wb></wrow><w></w><wrow><w></w><wb>(</wb><wrow><w></w><wrow><w></w><wsup><w></w><w>a</w><w><w>4</w></w></wsup><w></w><w>M</w></wrow><w>+</w><wrow><w></w><w>3</w><w></w><wsup><w></w><w>a</w><w><w>4</w></w></wsup><w></w><w>r</w></wrow><w>-</w><wrow><w></w><w>4</w><w></w><wsup><w></w><w>a</w><w><w>2</w></w></wsup><w></w><w>M</w><w></w><wsup><w></w><w>r</w><w><w>2</w></w></wsup></wrow><w>+</w><wrow><w></w><w>8</w><w></w><wsup><w></w><w>a</w><w><w>2</w></w></wsup><w></w><wsup><w></w><w>r</w><w><w>3</w></w></wsup></wrow><w>+</w><wrow><w></w><w>8</w><w></w><wsup><w></w><w>r</w><w><w>5</w></w></wsup></wrow><w>+</w><wrow><w></w><w>4</w><w></w><wsup><w></w><w>a</w><w><w>2</w></w></wsup><w></w><w>r</w><w></w><wrow><w></w><wb>(</wb><wrow><w></w><wsup><w></w><w>a</w><w><w>2</w></w></wsup><w>+</w><wrow><w></w><w>r</w><w></w><wrow><w></w><wb>(</wb><wrow><w></w><w>M</w><w>+</w><wrow><w></w><w>2</w><w></w><w>r</w></wrow></wrow><wb>)</wb></wrow></wrow></wrow><wb>)</wb></wrow><w></w><wrow><w></w><w>Cos</w><wrow><w></w><wb>[</wb><wrow><w></w><w>2</w><w></w><w>theta</w></wrow><wb>]</wb></wrow></wrow></wrow><w>-</w><wrow><w></w><wsup><w></w><w>a</w><w><w>4</w></w></wsup><w></w><wrow><w></w><wb>(</wb><wrow><w></w><w>M</w><w>-</w><w>r</w></wrow><wb>)</wb></wrow><w></w><wrow><w></w><w>Cos</w><wrow><w></w><wb>[</wb><wrow><w></w><w>4</w><w></w><w>theta</w></wrow><wb>]</wb></wrow></wrow></wrow></wrow><wb>)</wb></wrow><w></w><wsup><w></w><wrow><w></w><w>Sin</w><wrow><w></w><wb>[</wb><w>theta</w><wb>]</wb></wrow></wrow><w><w>2</w></w></wsup></wrow></w><w><w></w><w><wsup><w></w><wrow><w></w><wb>(</wb><wrow><w></w><wsup><w></w><w>a</w><w><w>2</w></w></wsup><w>+</w><wrow><w></w><w>2</w><w></w><wsup><w></w><w>r</w><w><w>2</w></w></wsup></wrow><w>+</w><wrow><w></w><wsup><w></w><w>a</w><w><w>2</w></w></wsup><w></w><wrow><w></w><w>Cos</w><wrow><w></w><wb>[</wb><wrow><w></w><w>2</w><w></w><w>theta</w></wrow><wb>]</wb></wrow></wrow></wrow></wrow><wb>)</wb></wrow><w><w>4</w></w></wsup></w></w></wfrac></wrow><w>+</w><wfrac class=\"script\"><w><wrow><w></w><w>16</w><w></w><wsup><w></w><w>a</w><w><w>2</w></w></wsup><w></w><wsup><w></w><w>M</w><w><w>2</w></w></wsup><w></w><wsup><w></w><wrow><w></w><wb>(</wb><wrow><w></w><wsup><w></w><w>a</w><w><w>2</w></w></wsup><w>-</w><wrow><w></w><w>2</w><w></w><wsup><w></w><w>r</w><w><w>2</w></w></wsup></wrow><w>+</w><wrow><w></w><wsup><w></w><w>a</w><w><w>2</w></w></wsup><w></w><wrow><w></w><w>Cos</w><wrow><w></w><wb>[</wb><wrow><w></w><w>2</w><w></w><w>theta</w></wrow><wb>]</wb></wrow></wrow></wrow></wrow><wb>)</wb></wrow><w><w>2</w></w></wsup><w></w><wsup><w></w><wrow><w></w><w>Sin</w><wrow><w></w><wb>[</wb><w>theta</w><wb>]</wb></wrow></wrow><w><w>4</w></w></wsup></wrow></w><w><w></w><w><wsup><w></w><wrow><w></w><wb>(</wb><wrow><w></w><wsup><w></w><w>a</w><w><w>2</w></w></wsup><w>+</w><wrow><w></w><w>2</w><w></w><wsup><w></w><w>r</w><w><w>2</w></w></wsup></wrow><w>+</w><wrow><w></w><wsup><w></w><w>a</w><w><w>2</w></w></wsup><w></w><wrow><w></w><w>Cos</w><wrow><w></w><wb>[</wb><wrow><w></w><w>2</w><w></w><w>theta</w></wrow><wb>]</wb></wrow></wrow></wrow></wrow><wb>)</wb></wrow><w><w>4</w></w></wsup></w></w></wfrac></wrow></w></wsqrt></wrow><wb>)</wb></wrow><w><w>2</w></w></wsup></wrow></w><w><w></w><w><wrow><w></w><wsup><w></w><wrow><w></w><wb>(</wb><wrow><w></w><wrow><w></w><wsup><w></w><w>a</w><w><w>4</w></w></wsup><w></w><w>M</w></wrow><w>+</w><wrow><w></w><w>3</w><w></w><wsup><w></w><w>a</w><w><w>4</w></w></wsup><w></w><w>r</w></wrow><w>-</w><wrow><w></w><w>4</w><w></w><wsup><w></w><w>a</w><w><w>2</w></w></wsup><w></w><w>M</w><w></w><wsup><w></w><w>r</w><w><w>2</w></w></wsup></wrow><w>+</w><wrow><w></w><w>8</w><w></w><wsup><w></w><w>a</w><w><w>2</w></w></wsup><w></w><wsup><w></w><w>r</w><w><w>3</w></w></wsup></wrow><w>+</w><wrow><w></w><w>8</w><w></w><wsup><w></w><w>r</w><w><w>5</w></w></wsup></wrow><w>+</w><wrow><w></w><w>4</w><w></w><wsup><w></w><w>a</w><w><w>2</w></w></wsup><w></w><w>r</w><w></w><wrow><w></w><wb>(</wb><wrow><w></w><wsup><w></w><w>a</w><w><w>2</w></w></wsup><w>+</w><wrow><w></w><w>r</w><w></w><wrow><w></w><wb>(</wb><wrow><w></w><w>M</w><w>+</w><wrow><w></w><w>2</w><w></w><w>r</w></wrow></wrow><wb>)</wb></wrow></wrow></wrow><wb>)</wb></wrow><w></w><wrow><w></w><w>Cos</w><wrow><w></w><wb>[</wb><wrow><w></w><w>2</w><w></w><w>theta</w></wrow><wb>]</wb></wrow></wrow></wrow><w>-</w><wrow><w></w><wsup><w></w><w>a</w><w><w>4</w></w></wsup><w></w><wrow><w></w><wb>(</wb><wrow><w></w><w>M</w><w>-</w><w>r</w></wrow><wb>)</wb></wrow><w></w><wrow><w></w><w>Cos</w><wrow><w></w><wb>[</wb><wrow><w></w><w>4</w><w></w><w>theta</w></wrow><wb>]</wb></wrow></wrow></wrow></wrow><wb>)</wb></wrow><w><w>2</w></w></wsup><w></w><wsup><w></w><wrow><w></w><wb>(</wb><wrow><w></w><wsup><w></w><w>a</w><w><w>2</w></w></wsup><w>+</w><wsup><w></w><w>r</w><w><w>2</w></w></wsup><w>-</w><wrow><w></w><wsup><w></w><w>a</w><w><w>2</w></w></wsup><w></w><wsup><w></w><wrow><w></w><w>Sin</w><wrow><w></w><wb>[</wb><w>theta</w><wb>]</wb></wrow></wrow><w><w>2</w></w></wsup></wrow></wrow><wb>)</wb></wrow><w><w>2</w></w></wsup></wrow></w></w></wfrac></wrow></w></wsqrt></w><w><w></w><w><wrow><w></w><w>1</w><w>-</w><wfrac class=\"script\"><w><wrow><w></w><w>ktkp</w><w></w><wsup><w></w><wrow><w></w><wb>(</wb><wrow><w></w><wsup><w></w><w>a</w><w><w>2</w></w></wsup><w>+</w><wrow><w></w><w>2</w><w></w><wsup><w></w><w>r</w><w><w>2</w></w></wsup></wrow><w>+</w><wrow><w></w><wsup><w></w><w>a</w><w><w>2</w></w></wsup><w></w><wrow><w></w><w>Cos</w><wrow><w></w><wb>[</wb><wrow><w></w><w>2</w><w></w><w>theta</w></wrow><wb>]</wb></wrow></wrow></wrow></wrow><wb>)</wb></wrow><w><w>2</w></w></wsup><w></w><wsup><w></w><wrow><w></w><w>Csc</w><wrow><w></w><wb>[</wb><w>theta</w><wb>]</wb></wrow></wrow><w><w>2</w></w></wsup><w></w><wrow><w></w><wb>(</wb><wrow><w></w><wfrac class=\"script\"><w><wrow><w></w><w>4</w><w></w><w>a</w><w></w><w>M</w><w></w><wrow><w></w><wb>(</wb><wrow><w></w><wsup><w></w><w>a</w><w><w>2</w></w></wsup><w>-</w><wrow><w></w><w>2</w><w></w><wsup><w></w><w>r</w><w><w>2</w></w></wsup></wrow><w>+</w><wrow><w></w><wsup><w></w><w>a</w><w><w>2</w></w></wsup><w></w><wrow><w></w><w>Cos</w><wrow><w></w><wb>[</wb><wrow><w></w><w>2</w><w></w><w>theta</w></wrow><wb>]</wb></wrow></wrow></wrow></wrow><wb>)</wb></wrow><w></w><wsup><w></w><wrow><w></w><w>Sin</w><wrow><w></w><wb>[</wb><w>theta</w><wb>]</wb></wrow></wrow><w><w>2</w></w></wsup></wrow></w><w><w></w><w><wsup><w></w><wrow><w></w><wb>(</wb><wrow><w></w><wsup><w></w><w>a</w><w><w>2</w></w></wsup><w>+</w><wrow><w></w><w>2</w><w></w><wsup><w></w><w>r</w><w><w>2</w></w></wsup></wrow><w>+</w><wrow><w></w><wsup><w></w><w>a</w><w><w>2</w></w></wsup><w></w><wrow><w></w><w>Cos</w><wrow><w></w><wb>[</wb><wrow><w></w><w>2</w><w></w><w>theta</w></wrow><wb>]</wb></wrow></wrow></wrow></wrow><wb>)</wb></wrow><w><w>2</w></w></wsup></w></w></wfrac><w>+</w><wsqrt><w><w>\\</w></w><w></w><w><wrow><w></w><wrow><w></w><w>-</w><wfrac class=\"script\"><w><wrow><w></w><w>4</w><w></w><w>M</w><w></w><wrow><w></w><wb>(</wb><wrow><w></w><wsup><w></w><w>a</w><w><w>2</w></w></wsup><w>-</w><wrow><w></w><w>2</w><w></w><wsup><w></w><w>r</w><w><w>2</w></w></wsup></wrow><w>+</w><wrow><w></w><wsup><w></w><w>a</w><w><w>2</w></w></wsup><w></w><wrow><w></w><w>Cos</w><wrow><w></w><wb>[</wb><wrow><w></w><w>2</w><w></w><w>theta</w></wrow><wb>]</wb></wrow></wrow></wrow></wrow><wb>)</wb></wrow><w></w><wrow><w></w><wb>(</wb><wrow><w></w><wrow><w></w><wsup><w></w><w>a</w><w><w>4</w></w></wsup><w></w><w>M</w></wrow><w>+</w><wrow><w></w><w>3</w><w></w><wsup><w></w><w>a</w><w><w>4</w></w></wsup><w></w><w>r</w></wrow><w>-</w><wrow><w></w><w>4</w><w></w><wsup><w></w><w>a</w><w><w>2</w></w></wsup><w></w><w>M</w><w></w><wsup><w></w><w>r</w><w><w>2</w></w></wsup></wrow><w>+</w><wrow><w></w><w>8</w><w></w><wsup><w></w><w>a</w><w><w>2</w></w></wsup><w></w><wsup><w></w><w>r</w><w><w>3</w></w></wsup></wrow><w>+</w><wrow><w></w><w>8</w><w></w><wsup><w></w><w>r</w><w><w>5</w></w></wsup></wrow><w>+</w><wrow><w></w><w>4</w><w></w><wsup><w></w><w>a</w><w><w>2</w></w></wsup><w></w><w>r</w><w></w><wrow><w></w><wb>(</wb><wrow><w></w><wsup><w></w><w>a</w><w><w>2</w></w></wsup><w>+</w><wrow><w></w><w>r</w><w></w><wrow><w></w><wb>(</wb><wrow><w></w><w>M</w><w>+</w><wrow><w></w><w>2</w><w></w><w>r</w></wrow></wrow><wb>)</wb></wrow></wrow></wrow><wb>)</wb></wrow><w></w><wrow><w></w><w>Cos</w><wrow><w></w><wb>[</wb><wrow><w></w><w>2</w><w></w><w>theta</w></wrow><wb>]</wb></wrow></wrow></wrow><w>-</w><wrow><w></w><wsup><w></w><w>a</w><w><w>4</w></w></wsup><w></w><wrow><w></w><wb>(</wb><wrow><w></w><w>M</w><w>-</w><w>r</w></wrow><wb>)</wb></wrow><w></w><wrow><w></w><w>Cos</w><wrow><w></w><wb>[</wb><wrow><w></w><w>4</w><w></w><w>theta</w></wrow><wb>]</wb></wrow></wrow></wrow></wrow><wb>)</wb></wrow><w></w><wsup><w></w><wrow><w></w><w>Sin</w><wrow><w></w><wb>[</wb><w>theta</w><wb>]</wb></wrow></wrow><w><w>2</w></w></wsup></wrow></w><w><w></w><w><wsup><w></w><wrow><w></w><wb>(</wb><wrow><w></w><wsup><w></w><w>a</w><w><w>2</w></w></wsup><w>+</w><wrow><w></w><w>2</w><w></w><wsup><w></w><w>r</w><w><w>2</w></w></wsup></wrow><w>+</w><wrow><w></w><wsup><w></w><w>a</w><w><w>2</w></w></wsup><w></w><wrow><w></w><w>Cos</w><wrow><w></w><wb>[</wb><wrow><w></w><w>2</w><w></w><w>theta</w></wrow><wb>]</wb></wrow></wrow></wrow></wrow><wb>)</wb></wrow><w><w>4</w></w></wsup></w></w></wfrac></wrow><w>+</w><wfrac class=\"script\"><w><wrow><w></w><w>16</w><w></w><wsup><w></w><w>a</w><w><w>2</w></w></wsup><w></w><wsup><w></w><w>M</w><w><w>2</w></w></wsup><w></w><wsup><w></w><wrow><w></w><wb>(</wb><wrow><w></w><wsup><w></w><w>a</w><w><w>2</w></w></wsup><w>-</w><wrow><w></w><w>2</w><w></w><wsup><w></w><w>r</w><w><w>2</w></w></wsup></wrow><w>+</w><wrow><w></w><wsup><w></w><w>a</w><w><w>2</w></w></wsup><w></w><wrow><w></w><w>Cos</w><wrow><w></w><wb>[</wb><wrow><w></w><w>2</w><w></w><w>theta</w></wrow><wb>]</wb></wrow></wrow></wrow></wrow><wb>)</wb></wrow><w><w>2</w></w></wsup><w></w><wsup><w></w><wrow><w></w><w>Sin</w><wrow><w></w><wb>[</wb><w>theta</w><wb>]</wb></wrow></wrow><w><w>4</w></w></wsup></wrow></w><w><w></w><w><wsup><w></w><wrow><w></w><wb>(</wb><wrow><w></w><wsup><w></w><w>a</w><w><w>2</w></w></wsup><w>+</w><wrow><w></w><w>2</w><w></w><wsup><w></w><w>r</w><w><w>2</w></w></wsup></wrow><w>+</w><wrow><w></w><wsup><w></w><w>a</w><w><w>2</w></w></wsup><w></w><wrow><w></w><w>Cos</w><wrow><w></w><wb>[</wb><wrow><w></w><w>2</w><w></w><w>theta</w></wrow><wb>]</wb></wrow></wrow></wrow></wrow><wb>)</wb></wrow><w><w>4</w></w></wsup></w></w></wfrac></wrow></w></wsqrt></wrow><wb>)</wb></wrow></wrow></w><w><w></w><w><wrow><w></w><wrow><w></w><wsup><w></w><w>a</w><w><w>4</w></w></wsup><w></w><w>M</w></wrow><w>+</w><wrow><w></w><w>3</w><w></w><wsup><w></w><w>a</w><w><w>4</w></w></wsup><w></w><w>r</w></wrow><w>-</w><wrow><w></w><w>4</w><w></w><wsup><w></w><w>a</w><w><w>2</w></w></wsup><w></w><w>M</w><w></w><wsup><w></w><w>r</w><w><w>2</w></w></wsup></wrow><w>+</w><wrow><w></w><w>8</w><w></w><wsup><w></w><w>a</w><w><w>2</w></w></wsup><w></w><wsup><w></w><w>r</w><w><w>3</w></w></wsup></wrow><w>+</w><wrow><w></w><w>8</w><w></w><wsup><w></w><w>r</w><w><w>5</w></w></wsup></wrow><w>+</w><wrow><w></w><w>4</w><w></w><wsup><w></w><w>a</w><w><w>2</w></w></wsup><w></w><w>r</w><w></w><wrow><w></w><wb>(</wb><wrow><w></w><wsup><w></w><w>a</w><w><w>2</w></w></wsup><w>+</w><wrow><w></w><w>r</w><w></w><wrow><w></w><wb>(</wb><wrow><w></w><w>M</w><w>+</w><wrow><w></w><w>2</w><w></w><w>r</w></wrow></wrow><wb>)</wb></wrow></wrow></wrow><wb>)</wb></wrow><w></w><wrow><w></w><w>Cos</w><wrow><w></w><wb>[</wb><wrow><w></w><w>2</w><w></w><w>theta</w></wrow><wb>]</wb></wrow></wrow></wrow><w>-</w><wrow><w></w><wsup><w></w><w>a</w><w><w>4</w></w></wsup><w></w><wrow><w></w><wb>(</wb><wrow><w></w><w>M</w><w>-</w><w>r</w></wrow><wb>)</wb></wrow><w></w><wrow><w></w><w>Cos</w><wrow><w></w><wb>[</wb><wrow><w></w><w>4</w><w></w><w>theta</w></wrow><wb>]</wb></wrow></wrow></wrow></wrow></w></w></wfrac></wrow></w></w></wfrac></div>",
+       "mime": "x-application/wolfram-language-html"
+      },
+      {
+       "data": "Sqrt[(a^2 + 2*r*(-2*M + r) + a^2*Cos[2*theta])/(a^2 + 2*r^2 + a^2*Cos[2*theta]) + (8*a*M*r*(a^2 + 2*r^2 + a^2*Cos[2*theta])*((4*a*M*(a^2 - 2*r^2 + a^2*Cos[2*theta])*Sin[theta]^2)/(a^2 + 2*r^2 + a^2*Cos[2*theta])^2 + Sqrt[(-4*M*(a^2 - 2*r^2 + a^2*Cos[2*theta])*(a^4*M + 3*a^4*r - 4*a^2*M*r^2 + 8*a^2*r^3 + 8*r^5 + 4*a^2*r*(a^2 + r*(M + 2*r))*Cos[2*theta] - a^4*(M - r)*Cos[4*theta])*Sin[theta]^2)/(a^2 + 2*r^2 + a^2*Cos[2*theta])^4 + (16*a^2*M^2*(a^2 - 2*r^2 + a^2*Cos[2*theta])^2*Sin[theta]^4)/(a^2 + 2*r^2 + a^2*Cos[2*theta])^4]))/(a^4*M + 3*a^4*r - 4*a^2*M*r^2 + 8*a^2*r^3 + 8*r^5 + 4*a^2*r*(a^2 + r*(M + 2*r))*Cos[2*theta] - a^4*(M - r)*Cos[4*theta]) - ((r^2 + a^2*Cos[theta]^2)*(a^2 + 2*r^2 + a^2*Cos[2*theta])^4*Csc[theta]^2*((a^2 + r^2)^2 - a^2*(a^2 + r*(-2*M + r))*Sin[theta]^2)*((4*a*M*(a^2 - 2*r^2 + a^2*Cos[2*theta])*Sin[theta]^2)/(a^2 + 2*r^2 + a^2*Cos[2*theta])^2 + Sqrt[(-4*M*(a^2 - 2*r^2 + a^2*Cos[2*theta])*(a^4*M + 3*a^4*r - 4*a^2*M*r^2 + 8*a^2*r^3 + 8*r^5 + 4*a^2*r*(a^2 + r*(M + 2*r))*Cos[2*theta] - a^4*(M - r)*Cos[4*theta])*Sin[theta]^2)/(a^2 + 2*r^2 + a^2*Cos[2*theta])^4 + (16*a^2*M^2*(a^2 - 2*r^2 + a^2*Cos[2*theta])^2*Sin[theta]^4)/(a^2 + 2*r^2 + a^2*Cos[2*theta])^4])^2)/((a^4*M + 3*a^4*r - 4*a^2*M*r^2 + 8*a^2*r^3 + 8*r^5 + 4*a^2*r*(a^2 + r*(M + 2*r))*Cos[2*theta] - a^4*(M - r)*Cos[4*theta])^2*(a^2 + r^2 - a^2*Sin[theta]^2)^2)]/(1 - (ktkp*(a^2 + 2*r^2 + a^2*Cos[2*theta])^2*Csc[theta]^2*((4*a*M*(a^2 - 2*r^2 + a^2*Cos[2*theta])*Sin[theta]^2)/(a^2 + 2*r^2 + a^2*Cos[2*theta])^2 + Sqrt[(-4*M*(a^2 - 2*r^2 + a^2*Cos[2*theta])*(a^4*M + 3*a^4*r - 4*a^2*M*r^2 + 8*a^2*r^3 + 8*r^5 + 4*a^2*r*(a^2 + r*(M + 2*r))*Cos[2*theta] - a^4*(M - r)*Cos[4*theta])*Sin[theta]^2)/(a^2 + 2*r^2 + a^2*Cos[2*theta])^4 + (16*a^2*M^2*(a^2 - 2*r^2 + a^2*Cos[2*theta])^2*Sin[theta]^4)/(a^2 + 2*r^2 + a^2*Cos[2*theta])^4]))/(a^4*M + 3*a^4*r - 4*a^2*M*r^2 + 8*a^2*r^3 + 8*r^5 + 4*a^2*r*(a^2 + r*(M + 2*r))*Cos[2*theta] - a^4*(M - r)*Cos[4*theta]))",
+       "mime": "text/plain"
+      }
+     ],
+     "id": "a0509123-4715-41c8-bd4d-4c7a093a6308",
+     "metadata": {
+      "cellLabel": "Out[46]= ",
+      "isBoxData": false
+     }
+    }
+   ],
    "metadata": {},
    "executionSummary": {}
   },
@@ -190,7 +426,25 @@
    "kind": 2,
    "value": "sol = Simplify[Solve[set, {dt, dp, dr}]]",
    "languageId": "wolfram",
-   "outputs": [],
+   "outputs": [
+    {
+     "items": [
+      {
+       "data": "<div class=\"wexpr\"><wrow><w></w><wb>{</wb><wrow><w></w><wrow><w></w><wb>{</wb><wrow><w></w><wrow><w></w><w>dt</w><w class=\"symbol\"></w><wfrac><w><wrow><w></w><wrow><w></w><w>𝕖</w><w></w><w>gppS</w></wrow><w>+</w><wrow><w></w><w>gtpS</w><w></w><w>Lz</w></wrow></wrow></w><w><w></w><w><wrow><w></w><wsup><w></w><w>gtpS</w><w><w>2</w></w></wsup><w>-</w><wrow><w></w><w>gppS</w><w></w><w>gttS</w></wrow></wrow></w></w></wfrac></wrow><w>,</w><wrow><w></w><w>dp</w><w class=\"symbol\"></w><wfrac><w><wrow><w></w><wrow><w></w><w>𝕖</w><w></w><w>gtpS</w></wrow><w>+</w><wrow><w></w><w>gttS</w><w></w><w>Lz</w></wrow></wrow></w><w><w></w><w><wrow><w></w><wrow><w></w><w>-</w><wsup><w></w><w>gtpS</w><w><w>2</w></w></wsup></wrow><w>+</w><wrow><w></w><w>gppS</w><w></w><w>gttS</w></wrow></wrow></w></w></wfrac></wrow><w>,</w><wrow><w></w><w>dr</w><w class=\"symbol\"></w><wrow><w></w><w>-</w><wfrac><w><wsqrt><w><w>\\</w></w><w></w><w><wrow><w></w><wrow><w></w><wrow><w></w><w>-</w><wsup><w></w><w>𝕖</w><w><w>2</w></w></wsup></wrow><w></w><w>gppS</w></wrow><w>+</w><wsup><w></w><w>gtpS</w><w><w>2</w></w></wsup><w>-</w><wrow><w></w><w>2</w><w></w><w>𝕖</w><w></w><w>gtpS</w><w></w><w>Lz</w></wrow><w>-</w><wrow><w></w><w>gttS</w><w></w><wrow><w></w><wb>(</wb><wrow><w></w><w>gppS</w><w>+</w><wsup><w></w><w>Lz</w><w><w>2</w></w></wsup></wrow><wb>)</wb></wrow></wrow></wrow></w></wsqrt></w><w><w></w><w><wsqrt><w><w>\\</w></w><w></w><w><wrow><w></w><w>grrS</w><w></w><wrow><w></w><wb>(</wb><wrow><w></w><wrow><w></w><w>-</w><wsup><w></w><w>gtpS</w><w><w>2</w></w></wsup></wrow><w>+</w><wrow><w></w><w>gppS</w><w></w><w>gttS</w></wrow></wrow><wb>)</wb></wrow></wrow></w></wsqrt></w></w></wfrac></wrow></wrow></wrow><wb>}</wb></wrow><w>,</w><wrow><w></w><wb>{</wb><wrow><w></w><wrow><w></w><w>dt</w><w class=\"symbol\"></w><wfrac><w><wrow><w></w><wrow><w></w><w>𝕖</w><w></w><w>gppS</w></wrow><w>+</w><wrow><w></w><w>gtpS</w><w></w><w>Lz</w></wrow></wrow></w><w><w></w><w><wrow><w></w><wsup><w></w><w>gtpS</w><w><w>2</w></w></wsup><w>-</w><wrow><w></w><w>gppS</w><w></w><w>gttS</w></wrow></wrow></w></w></wfrac></wrow><w>,</w><wrow><w></w><w>dp</w><w class=\"symbol\"></w><wfrac><w><wrow><w></w><wrow><w></w><w>𝕖</w><w></w><w>gtpS</w></wrow><w>+</w><wrow><w></w><w>gttS</w><w></w><w>Lz</w></wrow></wrow></w><w><w></w><w><wrow><w></w><wrow><w></w><w>-</w><wsup><w></w><w>gtpS</w><w><w>2</w></w></wsup></wrow><w>+</w><wrow><w></w><w>gppS</w><w></w><w>gttS</w></wrow></wrow></w></w></wfrac></wrow><w>,</w><wrow><w></w><w>dr</w><w class=\"symbol\"></w><wfrac><w><wsqrt><w><w>\\</w></w><w></w><w><wrow><w></w><wrow><w></w><wrow><w></w><w>-</w><wsup><w></w><w>𝕖</w><w><w>2</w></w></wsup></wrow><w></w><w>gppS</w></wrow><w>+</w><wsup><w></w><w>gtpS</w><w><w>2</w></w></wsup><w>-</w><wrow><w></w><w>2</w><w></w><w>𝕖</w><w></w><w>gtpS</w><w></w><w>Lz</w></wrow><w>-</w><wrow><w></w><w>gttS</w><w></w><wrow><w></w><wb>(</wb><wrow><w></w><w>gppS</w><w>+</w><wsup><w></w><w>Lz</w><w><w>2</w></w></wsup></wrow><wb>)</wb></wrow></wrow></wrow></w></wsqrt></w><w><w></w><w><wsqrt><w><w>\\</w></w><w></w><w><wrow><w></w><w>grrS</w><w></w><wrow><w></w><wb>(</wb><wrow><w></w><wrow><w></w><w>-</w><wsup><w></w><w>gtpS</w><w><w>2</w></w></wsup></wrow><w>+</w><wrow><w></w><w>gppS</w><w></w><w>gttS</w></wrow></wrow><wb>)</wb></wrow></wrow></w></wsqrt></w></w></wfrac></wrow></wrow><wb>}</wb></wrow></wrow><wb>}</wb></wrow></div>",
+       "mime": "x-application/wolfram-language-html"
+      },
+      {
+       "data": "{{dt -> (E*gppS + gtpS*Lz)/(gtpS^2 - gppS*gttS), dp -> (E*gtpS + gttS*Lz)/(-gtpS^2 + gppS*gttS), dr -> -(Sqrt[-(E^2*gppS) + gtpS^2 - 2*E*gtpS*Lz - gttS*(gppS + Lz^2)]/Sqrt[grrS*(-gtpS^2 + gppS*gttS)])}, {dt -> (E*gppS + gtpS*Lz)/(gtpS^2 - gppS*gttS), dp -> (E*gtpS + gttS*Lz)/(-gtpS^2 + gppS*gttS), dr -> Sqrt[-(E^2*gppS) + gtpS^2 - 2*E*gtpS*Lz - gttS*(gppS + Lz^2)]/Sqrt[grrS*(-gtpS^2 + gppS*gttS)]}}",
+       "mime": "text/plain"
+      }
+     ],
+     "id": "9072b308-1f7b-4fae-b25a-842cceddae3f",
+     "metadata": {
+      "cellLabel": "Out[65]= ",
+      "isBoxData": false
+     }
+    }
+   ],
    "metadata": {},
    "executionSummary": {}
   },
@@ -198,7 +452,25 @@
    "kind": 2,
    "value": "Veff = grrS*dr*dr /. sol[[1]];\r\nVeff = Simplify[Veff]",
    "languageId": "wolfram",
-   "outputs": [],
+   "outputs": [
+    {
+     "items": [
+      {
+       "data": "<div class=\"wexpr\"><wfrac><w><wrow><w></w><wrow><w></w><wsup><w></w><w>𝕖</w><w><w>2</w></w></wsup><w></w><w>gppS</w></wrow><w>-</w><wsup><w></w><w>gtpS</w><w><w>2</w></w></wsup><w>+</w><wrow><w></w><w>2</w><w></w><w>𝕖</w><w></w><w>gtpS</w><w></w><w>Lz</w></wrow><w>+</w><wrow><w></w><w>gttS</w><w></w><wrow><w></w><wb>(</wb><wrow><w></w><w>gppS</w><w>+</w><wsup><w></w><w>Lz</w><w><w>2</w></w></wsup></wrow><wb>)</wb></wrow></wrow></wrow></w><w><w></w><w><wrow><w></w><wsup><w></w><w>gtpS</w><w><w>2</w></w></wsup><w>-</w><wrow><w></w><w>gppS</w><w></w><w>gttS</w></wrow></wrow></w></w></wfrac></div>",
+       "mime": "x-application/wolfram-language-html"
+      },
+      {
+       "data": "(E^2*gppS - gtpS^2 + 2*E*gtpS*Lz + gttS*(gppS + Lz^2))/(gtpS^2 - gppS*gttS)",
+       "mime": "text/plain"
+      }
+     ],
+     "id": "ecd4dbcc-5217-4f99-b2b2-cf6af4756cad",
+     "metadata": {
+      "cellLabel": "Out[67]= ",
+      "isBoxData": false
+     }
+    }
+   ],
    "metadata": {},
    "executionSummary": {}
   },
@@ -214,7 +486,25 @@
    "kind": 2,
    "value": "Veffsub = Simplify[(Veff/.subs)/. theta -> Pi/2]",
    "languageId": "wolfram",
-   "outputs": [],
+   "outputs": [
+    {
+     "items": [
+      {
+       "data": "<div class=\"wexpr\"><wfrac><w><wrow><w></w><wrow><w></w><wrow><w></w><w>-</w><w>4</w></wrow><w></w><w>a</w><w></w><w>𝕖</w><w></w><w>Lz</w><w></w><w>M</w></wrow><w>+</w><wrow><w></w><wsup><w></w><w>Lz</w><w><w>2</w></w></wsup><w></w><wrow><w></w><wb>(</wb><wrow><w></w><wrow><w></w><w>2</w><w></w><w>M</w></wrow><w>-</w><w>r</w></wrow><wb>)</wb></wrow></wrow><w>+</w><wrow><w></w><wsup><w></w><w>r</w><w><w>2</w></w></wsup><w></w><wrow><w></w><wb>(</wb><wrow><w></w><wrow><w></w><w>2</w><w></w><w>M</w></wrow><w>+</w><wrow><w></w><wrow><w></w><wb>(</wb><wrow><w></w><wrow><w></w><w>-</w><w>1</w></wrow><w>+</w><wsup><w></w><w>𝕖</w><w><w>2</w></w></wsup></wrow><wb>)</wb></wrow><w></w><w>r</w></wrow></wrow><wb>)</wb></wrow></wrow><w>+</w><wrow><w></w><wsup><w></w><w>a</w><w><w>2</w></w></wsup><w></w><wrow><w></w><wb>(</wb><wrow><w></w><wrow><w></w><w>-</w><w>r</w></wrow><w>+</w><wrow><w></w><wsup><w></w><w>𝕖</w><w><w>2</w></w></wsup><w></w><wrow><w></w><wb>(</wb><wrow><w></w><wrow><w></w><w>2</w><w></w><w>M</w></wrow><w>+</w><w>r</w></wrow><wb>)</wb></wrow></wrow></wrow><wb>)</wb></wrow></wrow></wrow></w><w><w></w><w><wrow><w></w><w>r</w><w></w><wrow><w></w><wb>(</wb><wrow><w></w><wsup><w></w><w>a</w><w><w>2</w></w></wsup><w>+</w><wrow><w></w><w>r</w><w></w><wrow><w></w><wb>(</wb><wrow><w></w><wrow><w></w><wrow><w></w><w>-</w><w>2</w></wrow><w></w><w>M</w></wrow><w>+</w><w>r</w></wrow><wb>)</wb></wrow></wrow></wrow><wb>)</wb></wrow></wrow></w></w></wfrac></div>",
+       "mime": "x-application/wolfram-language-html"
+      },
+      {
+       "data": "(-4*a*E*Lz*M + Lz^2*(2*M - r) + r^2*(2*M + (-1 + E^2)*r) + a^2*(-r + E^2*(2*M + r)))/(r*(a^2 + r*(-2*M + r)))",
+       "mime": "text/plain"
+      }
+     ],
+     "id": "4b0be09c-d97d-45b5-aea0-d38b4c33a1d5",
+     "metadata": {
+      "cellLabel": "Out[69]= ",
+      "isBoxData": false
+     }
+    }
+   ],
    "metadata": {},
    "executionSummary": {}
   },
@@ -223,7 +513,25 @@
    "value": "d2Veffsub = Simplify[D[Veffsub, {r, 2}]]",
    "languageId": "wolfram",
    "mime": "text/plain",
-   "outputs": [],
+   "outputs": [
+    {
+     "items": [
+      {
+       "data": "<div class=\"wexpr\"><wfrac><w><wrow><w></w><w>2</w><w></w><wrow><w></w><wb>(</wb><wrow><w></w><wrow><w></w><w>2</w><w></w><wsup><w></w><w>a</w><w><w>6</w></w></wsup><w></w><wsup><w></w><w>𝕖</w><w><w>2</w></w></wsup><w></w><w>M</w></wrow><w>-</w><wrow><w></w><w>4</w><w></w><wsup><w></w><w>a</w><w><w>5</w></w></wsup><w></w><w>𝕖</w><w></w><w>Lz</w><w></w><w>M</w></wrow><w>+</w><wrow><w></w><w>12</w><w></w><wsup><w></w><w>a</w><w><w>3</w></w></wsup><w></w><w>𝕖</w><w></w><w>Lz</w><w></w><w>M</w><w></w><wrow><w></w><wb>(</wb><wrow><w></w><wrow><w></w><w>2</w><w></w><w>M</w></wrow><w>-</w><w>r</w></wrow><wb>)</wb></wrow><w></w><w>r</w></wrow><w>-</w><wrow><w></w><w>8</w><w></w><w>a</w><w></w><w>𝕖</w><w></w><w>Lz</w><w></w><w>M</w><w></w><wsup><w></w><w>r</w><w><w>2</w></w></wsup><w></w><wrow><w></w><wb>(</wb><wrow><w></w><wrow><w></w><w>6</w><w></w><wsup><w></w><w>M</w><w><w>2</w></w></wsup></wrow><w>-</w><wrow><w></w><w>8</w><w></w><w>M</w><w></w><w>r</w></wrow><w>+</w><wrow><w></w><w>3</w><w></w><wsup><w></w><w>r</w><w><w>2</w></w></wsup></wrow></wrow><wb>)</wb></wrow></wrow><w>+</w><wrow><w></w><wsup><w></w><w>r</w><w><w>2</w></w></wsup><w></w><wrow><w></w><wb>(</wb><wrow><w></w><wrow><w></w><w>3</w><w></w><wsup><w></w><w>Lz</w><w><w>2</w></w></wsup><w></w><wsup><w></w><wrow><w></w><wb>(</wb><wrow><w></w><wrow><w></w><w>2</w><w></w><w>M</w></wrow><w>-</w><w>r</w></wrow><wb>)</wb></wrow><w><w>3</w></w></wsup></wrow><w>+</w><wrow><w></w><w>2</w><w></w><wsup><w></w><w>𝕖</w><w><w>2</w></w></wsup><w></w><w>M</w><w></w><wsup><w></w><w>r</w><w><w>4</w></w></wsup></wrow></wrow><wb>)</wb></wrow></wrow><w>+</w><wrow><w></w><w>2</w><w></w><wsup><w></w><w>a</w><w><w>4</w></w></wsup><w></w><w>M</w><w></w><wrow><w></w><wb>(</wb><wrow><w></w><wsup><w></w><w>Lz</w><w><w>2</w></w></wsup><w>+</w><wrow><w></w><w>3</w><w></w><wsup><w></w><w>𝕖</w><w><w>2</w></w></wsup><w></w><w>r</w><w></w><wrow><w></w><wb>(</wb><wrow><w></w><wrow><w></w><wrow><w></w><w>-</w><w>2</w></wrow><w></w><w>M</w></wrow><w>+</w><w>r</w></wrow><wb>)</wb></wrow></wrow></wrow><wb>)</wb></wrow></wrow><w>+</w><wrow><w></w><wsup><w></w><w>a</w><w><w>2</w></w></wsup><w></w><w>r</w><w></w><wrow><w></w><wb>(</wb><wrow><w></w><wrow><w></w><wsup><w></w><w>Lz</w><w><w>2</w></w></wsup><w></w><wrow><w></w><wb>(</wb><wrow><w></w><wrow><w></w><wrow><w></w><w>-</w><w>12</w></wrow><w></w><wsup><w></w><w>M</w><w><w>2</w></w></wsup></wrow><w>+</w><wrow><w></w><w>6</w><w></w><w>M</w><w></w><w>r</w></wrow><w>+</w><wsup><w></w><w>r</w><w><w>2</w></w></wsup></wrow><wb>)</wb></wrow></wrow><w>+</w><wrow><w></w><w>2</w><w></w><wsup><w></w><w>𝕖</w><w><w>2</w></w></wsup><w></w><w>M</w><w></w><w>r</w><w></w><wrow><w></w><wb>(</wb><wrow><w></w><wrow><w></w><w>12</w><w></w><wsup><w></w><w>M</w><w><w>2</w></w></wsup></wrow><w>-</w><wrow><w></w><w>14</w><w></w><w>M</w><w></w><w>r</w></wrow><w>+</w><wrow><w></w><w>3</w><w></w><wsup><w></w><w>r</w><w><w>2</w></w></wsup></wrow></wrow><wb>)</wb></wrow></wrow></wrow><wb>)</wb></wrow></wrow></wrow><wb>)</wb></wrow></wrow></w><w><w></w><w><wrow><w></w><wsup><w></w><w>r</w><w><w>3</w></w></wsup><w></w><wsup><w></w><wrow><w></w><wb>(</wb><wrow><w></w><wsup><w></w><w>a</w><w><w>2</w></w></wsup><w>+</w><wrow><w></w><w>r</w><w></w><wrow><w></w><wb>(</wb><wrow><w></w><wrow><w></w><wrow><w></w><w>-</w><w>2</w></wrow><w></w><w>M</w></wrow><w>+</w><w>r</w></wrow><wb>)</wb></wrow></wrow></wrow><wb>)</wb></wrow><w><w>3</w></w></wsup></wrow></w></w></wfrac></div>",
+       "mime": "x-application/wolfram-language-html"
+      },
+      {
+       "data": "(2*(2*a^6*E^2*M - 4*a^5*E*Lz*M + 12*a^3*E*Lz*M*(2*M - r)*r - 8*a*E*Lz*M*r^2*(6*M^2 - 8*M*r + 3*r^2) + r^2*(3*Lz^2*(2*M - r)^3 + 2*E^2*M*r^4) + 2*a^4*M*(Lz^2 + 3*E^2*r*(-2*M + r)) + a^2*r*(Lz^2*(-12*M^2 + 6*M*r + r^2) + 2*E^2*M*r*(12*M^2 - 14*M*r + 3*r^2))))/(r^3*(a^2 + r*(-2*M + r))^3)",
+       "mime": "text/plain"
+      }
+     ],
+     "id": "a418d886-ce11-466b-8f89-e85d5b5d3cb4",
+     "metadata": {
+      "cellLabel": "Out[70]= ",
+      "isBoxData": false
+     }
+    }
+   ],
    "metadata": {},
    "executionSummary": {}
   },
@@ -239,7 +547,59 @@
    "kind": 2,
    "value": "(* ::Package:: *)\r\n\r\nBeginPackage[ \"OptimizeExpressionToC`\"]\r\n\r\nOptimizeExpressionToC::usage = \"Generates optimized version of expression in C\";\r\n\r\nExtractTags::usage = \"\";\r\nClearTagText::usage = \"\";\r\nTagExistQ::usage = \"\";\r\nAppendToTag::usage = \"\";\r\n\r\nBegin[ \"Private`\"]\r\n\r\nOptimizeExpressionToC[expr_List] :=\r\n\tModule[ {optimizedExpr, mainExpr, n, m, defs, output},\r\n\t\toptimizedExpr = Experimental`OptimizeExpression[expr];\r\n\t\tIf[ ToString@optimizedExpr[[1, 0]] == \"Block\",\r\n\t\t    {n = Length[optimizedExpr[[1, 1]]];\r\n\t\t     mainExpr = optimizedExpr[[1, 2, n + 1]];},\r\n\t\t    {n = 0;\r\n\t\t     mainExpr = Flatten@{optimizedExpr[[1]]};}\r\n\t\t];\r\n\t\tm = Length[mainExpr];\r\n\t\t\r\n\t\tdefs  = \r\n\t\tTable[ \"double \" <>\r\n\t\t\t       ToString@CForm@optimizedExpr[[1, 2, i, 1]]  <>\r\n\t\t\t       \" = \" <>\r\n\t\t\t       ToString@CForm@optimizedExpr[[1, 2, i, 2]] <>\r\n     \t\t\t       \";\",\r\n    \t\t       {i, 1, n}];\r\n\t\t\r\n\t\toutput = \r\n\r\n\t\t       MapIndexed[ \"out(\"<>StringJoin@Riffle[ToString/@(#2-1),\"\"]<>\") = \" <> ToString@CForm@#1 <>\";\" &,\r\n\t\t\t\t\t mainExpr, {ArrayDepth[mainExpr]}];\r\n\t\t\r\n\t\tStringReplace[Join[defs,output], \"Compile_$\" -> \"t\"]\r\n\t];\r\n\r\nEnd[]\r\n\r\n\r\nExtractTags[string_String] :=\r\n\tModule[ {regex, extractTag},\r\n\t\tregex = RegularExpression[\"\\\\n([^\\\\n]*)// (\\\\[|</?)([^\\\\]\\\\n]*)(\\\\]|>)[^\\\\n]*\\\\n\"];\r\n\t\t\r\n\t\textractTag[bounds_] := Module[{substring, indentation, tagType, tag},\r\n\t\t\t\t\t      substring = StringTake[string, bounds];\r\n\t\t\t\t\t      {{indentation, tagType, tag}} = \r\n\t\t\t\t\t      StringCases[substring, regex -> {\"$1\", \"$2\", \"$3\"}];\r\n\t\t\t\t\t      Association[\"indentation\" -> indentation,\r\n\t\t\t\t\t\t\t  \"tagType\" -> tagType, \r\n\t\t\t\t\t\t\t  \"tag\" -> tag , \"start\" -> bounds[[1]] + 1, \r\n\t\t\t\t\t\t\t  \"end\" -> bounds[[2]]]\r\n\t\t\t\t       ];\r\n\t\t\r\n\t\textractTag[#] & /@ StringPosition[string, regex]\r\n\t];\r\n\r\nTagExistQ[string_String, tag_String] := AnyTrue[ExtractTags[string], #[[\"tag\"]]==tag &];\r\n\r\nClearTagText[string_String, tag_String] :=\r\n\tModule[{tags, startTag, endTag, x},\r\n\t       tags = ExtractTags[string];\r\n\t       startTag = FirstCase[tags, x_ /; x[[\"tag\"]] == tag  && x[[\"tagType\"]] == \"<\"];\r\n\t       endTag = FirstCase[tags, x_ /; x[[\"tag\"]] == tag  && x[[\"tagType\"]] == \"</\"];\r\n\t       \r\n\t       StringTake[string, {1, startTag[[\"end\"]]}] <> \r\n\t\t\t StringTake[string, {endTag[[\"start\"]], StringLength[string]}]\r\n\t]\r\n\r\nAppendToTag[string_String,  tag_String, linesToAppend_List] := \r\n\tModule[{tags, startTag, indent, x},\r\n\t       tags = ExtractTags[string];\r\n\t       startTag = FirstCase[tags, x_ /; x[[\"tag\"]] == tag  && x[[\"tagType\"]] == \"<\"];\r\n\t       indent = startTag[[\"indentation\"]];\r\n\t       \r\n\t       StringTake[string, {1, startTag[[\"end\"]]}] <> \r\n\t\t\t StringRiffle[ linesToAppend, {indent, \"\\n\" <> indent, \"\\n\"}] <>\r\n\t\t\t StringTake[ string, {startTag[[\"end\"]] + 1, StringLength[string]}]\r\n\t];\r\n\r\nAppendToTag[string_String,  tag_String, stringToAppend_String] :=\r\n\tAppendToTag[string, tag, StringSplit[stringToAppend,\"\\n\"]];\r\n\r\n\r\nEndPackage[]",
    "languageId": "wolfram",
-   "outputs": [],
+   "outputs": [
+    {
+     "items": [
+      {
+       "data": "<div class=\"wexpr\"><w>OptimizeExpressionToC`</w></div>",
+       "mime": "x-application/wolfram-language-html"
+      },
+      {
+       "data": "\"OptimizeExpressionToC`\"",
+       "mime": "text/plain"
+      }
+     ],
+     "id": "61a14204-e95c-47f0-b42e-d4032514cfc6",
+     "metadata": {
+      "cellLabel": "Out[71]= ",
+      "isBoxData": false
+     }
+    },
+    {
+     "items": [
+      {
+       "data": "<div class=\"wexpr\"><w>Private`</w></div>",
+       "mime": "x-application/wolfram-language-html"
+      },
+      {
+       "data": "\"Private`\"",
+       "mime": "text/plain"
+      }
+     ],
+     "id": "6b88c72f-7da6-4f06-b063-4d097d7dc9e8",
+     "metadata": {
+      "cellLabel": "Out[77]= ",
+      "isBoxData": false
+     }
+    },
+    {
+     "items": [
+      {
+       "data": "<div class=\"wexpr\"><w>Private`</w></div>",
+       "mime": "x-application/wolfram-language-html"
+      },
+      {
+       "data": "\"Private`\"",
+       "mime": "text/plain"
+      }
+     ],
+     "id": "5c7b229a-f537-4f5a-9faa-41ffb8a5f33b",
+     "metadata": {
+      "cellLabel": "Out[79]= ",
+      "isBoxData": false
+     }
+    }
+   ],
    "metadata": {},
    "executionSummary": {}
   },
@@ -317,9 +677,27 @@
   },
   {
    "kind": 2,
-   "value": "output = metric <> \"\\n\\n\" <> metricupper <> \"\\n\\n\" <> metricdr <> \"\\n\\n\" <> metricdr2\r\n\r\n(* write to metric.cpp file *)\r\nSetDirectory[\"C:\\\\Users\\\\WalkerXin\\\\Documents\\\\Scripts\\\\raytransfer\\\\ironline\"];\r\nExport[\"metric.cpp\", output, \"Text\"]",
+   "value": "output = metric <> \"\\n\\n\" <> metricupper <> \"\\n\\n\" <> metricdr <> \"\\n\\n\" <> metricdr2;\r\n\r\n(* write to metric.cpp file *)\r\nSetDirectory[\"C:\\\\Users\\\\WalkerXin\\\\Documents\\\\Scripts\\\\raytransfer\\\\ironline\"];\r\nExport[\"metric.cpp\", output, \"Text\"]",
    "languageId": "wolfram",
-   "outputs": [],
+   "outputs": [
+    {
+     "items": [
+      {
+       "data": "<div class=\"wexpr\"><w>metric.cpp</w></div>",
+       "mime": "x-application/wolfram-language-html"
+      },
+      {
+       "data": "\"metric.cpp\"",
+       "mime": "text/plain"
+      }
+     ],
+     "id": "f0b3cb28-5b11-418f-bffe-d9fbd1a92c1c",
+     "metadata": {
+      "cellLabel": "Out[130]= ",
+      "isBoxData": false
+     }
+    }
+   ],
    "metadata": {},
    "executionSummary": {}
   },
@@ -367,7 +745,25 @@
    "kind": 2,
    "value": "output = red;\r\n\r\n(* write to metric.cpp file *)\r\nSetDirectory[\"C:\\\\Users\\\\WalkerXin\\\\Documents\\\\Scripts\\\\raytransfer\\\\ironline\"];\r\nExport[\"redshift.cpp\", output, \"Text\"]",
    "languageId": "wolfram",
-   "outputs": [],
+   "outputs": [
+    {
+     "items": [
+      {
+       "data": "<div class=\"wexpr\"><w>redshift.cpp</w></div>",
+       "mime": "x-application/wolfram-language-html"
+      },
+      {
+       "data": "\"redshift.cpp\"",
+       "mime": "text/plain"
+      }
+     ],
+     "id": "b1716615-2c04-4e02-a03c-113c8965f211",
+     "metadata": {
+      "cellLabel": "Out[127]= ",
+      "isBoxData": false
+     }
+    }
+   ],
    "metadata": {},
    "executionSummary": {}
   }
