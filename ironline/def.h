@@ -41,12 +41,14 @@ using namespace std;
 
 const double Pi = 3.14159265358979;
 
+// Global variables
 double defpar;
 double spin;
 double spin2 = spin*spin;
 double isco;
 double dobs, iobs_deg, inc;
 double Mdl, eta;
+double horizon;
 
 void christoffel(double r, double th, double christ[4][4][4]);
 void Christoffel_jiale(double w1, double w2, double CS[][4][4]);
