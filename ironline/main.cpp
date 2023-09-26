@@ -37,6 +37,7 @@ int main(int argc, char *argv[])
 
 	double time_taken, iteration_time, expected_time;
 	int progress_check, first_check = 0;
+	int ode_solver = 0; // 0 for RK45, 1 for RKN
 
 	FILE *finput;
 	FILE *foutput;
@@ -49,10 +50,11 @@ int main(int argc, char *argv[])
 	defpar = 0.0;	 // deformation parameter
 	iobs_deg = 70.0; // inclination angle of the observer in degrees
 	dobs = 1.0e+6; // distance Earth-binary system in kpc
-	errtol = 1.0e-9; // error tolerance
+	errtol = 1.0e-10; // error tolerance
 	rstep = 1.008; // step size for robs
 	pstep = 2 * Pi / 800; // step size for pobs
 	progress_check = 1; // check progress for every 20 robs
+	ode_solver = 1; // 0 for RK45, 1 for RKN
 
 	// Set computation parameters from user input if provided
 	if (argc > 1)
@@ -64,6 +66,7 @@ int main(int argc, char *argv[])
 		rstep = atof(argv[5]);
 		pstep = atof(argv[6]);
 		progress_check = atoi(argv[7]);
+		ode_solver = atoi(argv[8]);
 		printf("Using user input parameters. spin=%f, deformation=%f, inclination=%f, error tolerance=%e\n, rstep=%f, pstep=%f\n", spin, defpar, iobs_deg, errtol, rstep, pstep);
 	}
 	else
@@ -74,6 +77,24 @@ int main(int argc, char *argv[])
 	if (progress_check != 0)
 	{
 		printf("Progress check for every %d robs\n", progress_check);
+	}
+
+	if (ode_solver == 0)
+	{
+		printf("--------------------------------------------------\n");
+		printf("Using RK45 method\n");
+		printf("--------------------------------------------------\n");
+	}
+	else if (ode_solver == 1)
+	{
+		printf("--------------------------------------------------\n");
+		printf("Using RKN method\n");
+		printf("--------------------------------------------------\n");
+	}
+	else
+	{
+		printf("Invalid ode_solver input. Aborting.\n");
+		exit(0);
 	}
 
 	inc = Pi / 180 * iobs_deg; // inclination angle of the observer in rad
@@ -118,7 +139,19 @@ int main(int argc, char *argv[])
 	for (i = 0; i <= imax - 1; i++)
 		N_obs2[i] = 0;
 
-	sprintf(filename_o, "iron_a%.03f.def%.02f.i%.02f.dat", spin, defpar, iobs_deg);
+	if (ode_solver == 0)
+	{
+		sprintf(filename_o, "iron_a%.03f.def%.02f.i%.02f.dat", spin, defpar, iobs_deg);
+	}
+	else if (ode_solver == 1)
+	{
+		sprintf(filename_o, "iron_a%.03f.def%.02f.i%.02f.RKN.dat", spin, defpar, iobs_deg);
+	}
+	else
+	{
+		printf("Invalid ode_solver input. Aborting.\n");
+		exit(0);
+	}
 
 	// Start timer
 	clock_t start, end, mid;
@@ -164,8 +197,16 @@ int main(int argc, char *argv[])
 			xobs = robs * cos(pobs);
 			yobs = robs * sin(pobs) * cos(inc);
 
-			stop_integration = raytrace(errmin, errmax, xobs, yobs, traced);
-			// stop_integration = raytrace_RKN(errtol, xobs, yobs, traced);
+			if (ode_solver == 0){
+				stop_integration = raytrace(errmin, errmax, xobs, yobs, traced);
+			}
+			else if (ode_solver == 1){
+				stop_integration = raytrace_RKN(errtol, xobs, yobs, traced);
+			}
+			else{
+				printf("Invalid ode_solver input. Aborting.\n");
+				exit(0);
+			}
 
 			if (stop_integration == 1 && traced[1] != 0)
 			{
@@ -235,6 +276,9 @@ int main(int argc, char *argv[])
 	}
 
 	fclose(foutput);
+
+	// Show output name
+	printf("Output file: %s\n", filename_o);
 
 	return 0;
 }

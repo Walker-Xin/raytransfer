@@ -16,7 +16,7 @@ int raytrace(double errmin, double errmax, double xscr, double yscr, double trac
     double diffs[8], vars[8], vars_temp[8], vars_4th[8], vars_5th[8], k1[8], k2[8], k3[8], k4[8], k5[8], k6[8];
     double rmid, thmid;
     double gfactor, limbdark;
-    double err, errtol;
+    double err, errtol, errs[8];
     double cross_tol;
 
     int errcheck;
@@ -158,21 +158,42 @@ int raytrace(double errmin, double errmax, double xscr, double yscr, double trac
 
                 if (i == 0 || i == 4)
                 {
-                      ;
-                } // pass
+                    // errs[i] = 0.0;
+                }
                 else
                 {
-                err = fabs((vars_4th[i] - vars_5th[i]) / max(vars_4th[i], vars[i]));
+                    err = fabs((vars_4th[i] - vars_5th[i]) / max(vars_4th[i], vars[i]));
+                    // errs[i] = err;
                 }
 
-                // err = fabs((vars_4th[i] - vars_5th[i]) / max(vars_4th[i], vars[i]));
-
                 if (err > errmax) /* accuracy not achieved and photon hasn't crossed disk */
+                {
                     errcheck = 1;
+                    // break current for loop
+                    // break;
+                }
                 else if (err < errmin) /* accuracy better than wanted, but photon hasn't crossed disk */
+                {
                     errcheck = -1;
+                }
             
             }
+
+            // for (i = 0; i <= 7; i++)
+            // {
+            //     err += errs[i]*errs[i];
+            // }
+
+            // err = sqrt(err);
+
+            // if (err > errmax) // accuracy not achieved
+            // {
+            //     errcheck = 1;
+            // }
+            // else if (err < errmin) // accuracy better than wanted
+            // {
+            //     errcheck = -1;
+            // }
 
             if (errcheck == 1) /* accuracy not achieved, lower step size */
                 h /= 2.0;
@@ -303,6 +324,8 @@ int raytrace_RKN(double errtol, double xobs, double yobs, double traced[4])
 	double gfactor;
 	double limbdark;
 
+    double vars[8], diffs[8];
+
     int i, n1, n2, n3;
     int stop_integration;
     
@@ -395,6 +418,27 @@ int raytrace_RKN(double errtol, double xobs, double yobs, double traced[4])
                 }
             }
 
+            // Check RK with diffeqs
+            // for (i = 0; i <= 3; i++)
+            // {
+            //     vars[i] = v[i];
+            // }
+            // for (i = 4; i <= 7; i++)
+            // {
+            //     vars[i] = p[i - 4];
+            // }
+
+            // diffeqs(vars, diffs);
+            // for (i = 4; i <= 7; i++)
+            // {
+            //     if (abs(diffs[i] - RK1[i - 4])/abs(diffs[i]) > 1e-6)
+            //     {
+            //         printf("RK1 error\n");
+            //         printf("%Le %Le\n", diffs[i], RK1[i - 4]);
+            //     }
+            // }
+
+
             /* ----- compute RK2 ----- */
 
             // v1 = r + h * kr / 2 + h * h * RK1[1] / 16;
@@ -431,7 +475,7 @@ int raytrace_RKN(double errtol, double xobs, double yobs, double traced[4])
 
             for (i = 0; i <= 3; i++)
                 // u[i] = p[i] + h * RK2[i] / 4;
-                u[i] = p[i] + h * RK1[i] / 2;
+                u[i] = p[i] + h * RK2[i] / 2;
 
             for (n1 = 0; n1 <= 3; n1++)
             {
@@ -485,30 +529,44 @@ int raytrace_RKN(double errtol, double xobs, double yobs, double traced[4])
 
             /* ----- local error ----- */
 
+            // ORIGINAL ADAPTIVE STEP SIZE ALGORITHM
+
+            // for (i = 0; i <= 3; i++)
+            // {
+            //     verr[i] = 0.5 * h * h * (RK1[i] - RK2[i] - RK3[i] + RK4[i]);
+            //     verr[i] *= verr[i];
+            //     vtol[i] = errtol + fabs(v[i]) * errtol;
+            //     vtol[i] *= vtol[i];
+            //     err[i] = 0.25 * verr[i] / vtol[i];
+            // }
+
+            // check = sqrt(err[0] + err[1] + err[2] + err[3]);
+
+            // RAYTRANSFER ADAPTIVE STEP SIZE ALGORITHM
+
             for (i = 0; i <= 3; i++)
             {
-                verr[i] = 0.5 * h * h * (RK1[i] - RK2[i] - RK3[i] + RK4[i]);
-                verr[i] *= verr[i];
-                vtol[i] = errtol + fabs(v[i]) * errtol;
-                vtol[i] *= vtol[i];
-                err[i] = 0.25 * verr[i] / vtol[i];
+                err[i] = h * h * (RK1[i] - RK2[i] - RK3[i] + RK4[i]) / 6.0;
+                err[i] *= err[i];
+
+                if (err[i] > errtol*10)
+                {
+                    check = 2;
+                }
+                else if (err[i] < errtol/10)
+                {
+                    check = -1;
+                }
             }
 
-            check = sqrt(err[0] + err[1] + err[2] + err[3]);
-
-            /* ----- next step ----- */
-
-            hnext = h * pow(1 / check, 0.25);
-
-            /* ----- limitation criterion ----- */
-
-            if (hnext < h / 4)
-                hnext = h / 4;
-            if (hnext > 4 * h)
-                hnext = 4 * h;
-
-            if (hnext == h)
-                hnext = 0.9 * h;
+            if (check > 1.0)
+            {
+                hnext = h/2.0;
+            }
+            else
+            {
+                hnext = 2.0*h;
+            }
 
         } while (check > 1);
 
