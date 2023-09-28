@@ -9,7 +9,7 @@
 #include <time.h>
 using namespace std;
 
-#define imax 90 //Number of radial values
+#define imax 96 //Number of radial values
 
 /* RK45 constants */
 #define a1 1.0/4.0
@@ -54,6 +54,7 @@ void christoffel(double r, double th, double christ[4][4][4]);
 void Christoffel_jiale(double w1, double w2, double CS[][4][4]);
 void diffeqs(double vars[], double diffs[]);
 void redshift(double r, double th, double ktkp, double &gg);
+void redshift_bambi(double spin, double spin2, double epsilon_r, double epsilon_t, double radius, double ktt, double ktkp, double kyy, double& gg, double& ldr);
 double find_isco(double spin, double defpar);
 void intersection(double x_1, double y_1, double z_1, double x_2, double y_2, double z_2, double x_d[]);
 void metric(double r, double th, double g[4][4]);
@@ -62,6 +63,7 @@ void metric_rderivatives(double r, double th, double dg[4][4]);
 void metric_r2derivatives(double r, double th, double dg2[4][4]);
 int raytrace(double errmin, double errmax, double xscr, double yscr, double traced[4]);
 int raytrace_RKN(double errtol, double xobs, double yobs, double traced[4]);
+int raytrace_RKN_bambi(double errtol, double xobs, double yobs, double traced[4]);
 
 #include "metric.cpp"
 #include "redshift.cpp"

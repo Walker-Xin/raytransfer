@@ -50,11 +50,11 @@ int main(int argc, char *argv[])
 	defpar = 0.0;	 // deformation parameter
 	iobs_deg = 70.0; // inclination angle of the observer in degrees
 	dobs = 1.0e+6; // distance Earth-binary system in kpc
-	errtol = 1.0e-10; // error tolerance
+	errtol = 1.0e-6; // error tolerance
 	rstep = 1.008; // step size for robs
 	pstep = 2 * Pi / 800; // step size for pobs
 	progress_check = 1; // check progress for every 20 robs
-	ode_solver = 1; // 0 for RK45, 1 for RKN
+	ode_solver = 2; // 0 for RK45, 1 for RKN, 2 for RKN_bambi
 
 	// Set computation parameters from user input if provided
 	if (argc > 1)
@@ -89,6 +89,12 @@ int main(int argc, char *argv[])
 	{
 		printf("--------------------------------------------------\n");
 		printf("Using RKN method\n");
+		printf("--------------------------------------------------\n");
+	}
+	else if (ode_solver == 2)
+	{
+		printf("--------------------------------------------------\n");
+		printf("Using RKN_bambi method\n");
 		printf("--------------------------------------------------\n");
 	}
 	else
@@ -147,6 +153,10 @@ int main(int argc, char *argv[])
 	{
 		sprintf(filename_o, "iron_a%.03f.def%.02f.i%.02f.RKN.dat", spin, defpar, iobs_deg);
 	}
+	else if (ode_solver == 2)
+	{
+		sprintf(filename_o, "iron_a%.03f.def%.02f.i%.02f.RKNb.dat", spin, defpar, iobs_deg);
+	}
 	else
 	{
 		printf("Invalid ode_solver input. Aborting.\n");
@@ -202,6 +212,9 @@ int main(int argc, char *argv[])
 			}
 			else if (ode_solver == 1){
 				stop_integration = raytrace_RKN(errtol, xobs, yobs, traced);
+			}
+			else if (ode_solver == 2){
+				stop_integration = raytrace_RKN_bambi(errtol, xobs, yobs, traced);
 			}
 			else{
 				printf("Invalid ode_solver input. Aborting.\n");
