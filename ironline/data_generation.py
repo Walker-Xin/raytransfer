@@ -5,7 +5,7 @@ import numpy as np
 # from typing import List, Dict
 
 
-def parameter_tensor(spin_list: list, defpar_list: list, inc_list: list) -> np.ndarray:
+def parameter_tensor(spin_list: list, defpar_list: list, inc_list: list, ode_list: list) -> np.ndarray:
     """Generate a tensor of parameters to be fed into the main.cpp file
 
     Args:
@@ -17,16 +17,25 @@ def parameter_tensor(spin_list: list, defpar_list: list, inc_list: list) -> np.n
         np.ndarray: Tensor of parameters to be fed into the main.cpp file
     """
 
-    tensor = np.zeros((len(spin_list), len(defpar_list), len(inc_list), 3))
+    # tensor = np.zeros((len(spin_list), len(defpar_list), len(inc_list), 3))
+    # for i, spin in enumerate(spin_list):
+    #     for j, defpar in enumerate(defpar_list):
+    #         for k, angle in enumerate(inc_list):
+    #             tensor[i, j, k] = [spin, defpar, angle]
+    
+    # Generate 4D tensor of parameters to be fed into the main.cpp file
+    tensor = np.zeros((len(spin_list), len(defpar_list), len(inc_list), len(ode_list), 4))
     for i, spin in enumerate(spin_list):
         for j, defpar in enumerate(defpar_list):
             for k, angle in enumerate(inc_list):
-                tensor[i, j, k] = [spin, defpar, angle]
+                for l, ode in enumerate(ode_list):
+                    tensor[i, j, k, l] = [spin, defpar, angle, ode]
     return tensor
 
 
 def command_generation(params: dict, executable_path: str,
-                       errtol: float, rstep: float, pstep: float, progress_check: int) -> str:
+                       errtol: float, rstep: float, pstep: float,
+                       progress_check: int) -> str:
     """Generate data using the main.cpp file
 
     Args:
@@ -35,7 +44,7 @@ def command_generation(params: dict, executable_path: str,
         errtol (float): Error tolerance
         rstep (float): Step size for robs
         pstep (float): Step size for pobs
-        progress_check (int): Number of iterations to check progress, default: 0 (no progress check)
+        progress_check (int): Number of iterations to check progress, zero means no progress check
 
     Returns:
         str: c++ command to be executed
@@ -45,18 +54,19 @@ def command_generation(params: dict, executable_path: str,
     spin = params['spin']
     defpar = params['defpar']
     angle = params['inc']
+    ode_solver = params['ode_solver']
 
     # Create c++ command to be executed
     command = [executable_path, str(spin), str(defpar), str(angle), str(
-        errtol), str(rstep), str(pstep), str(progress_check)]
+        errtol), str(rstep), str(pstep), str(progress_check), str(ode_solver)]
     command = ' '.join(command)
 
     return command
 
 
 def data_generation(spin_list: list, defpar_list: list, inc_list: list,
-                    executable_path: str, output_path: str = None,
-                    errtol: float = 1.0e-8, rstep: float = 1.01, pstep: float = 0.007853981634, progress_check: int = 0) -> None:
+                    executable_path: str,
+                    errtol: float = 1.0e-8, rstep: float = 1.01, pstep: float = 0.007853981634, progress_check: int = 0, ode_solver: int = 0) -> None:
     """Generate data using the main.cpp file
 
     Args:
@@ -69,10 +79,11 @@ def data_generation(spin_list: list, defpar_list: list, inc_list: list,
         rstep (float, optional): Step size for robs. Defaults to 1.01.
         pstep (float, optional): Step size for pobs. Defaults to 2*Pi/800.
         progress_check (int, optional): Number of iterations to check progress. Defaults to 0 (no progress check).
+        ode_solver (int, optional): ODE solver to be used. 0 for RK45, 1 for RKN. Defaults to 0 (RK45).
     """
 
     # Generate tensor of parameters to be fed into the main.cpp file
-    params = parameter_tensor(spin_list, defpar_list, inc_list)
+    params = parameter_tensor(spin_list, defpar_list, inc_list, [ode_solver])
 
     # Start timer
     start = time.time()
@@ -85,7 +96,7 @@ def data_generation(spin_list: list, defpar_list: list, inc_list: list,
                 param_dict = {
                     'spin': params[i, j, k, 0], 'defpar': params[i, j, k, 1], 'inc': params[i, j, k, 2]}
                 command = command_generation(
-                    param_dict, executable_path, errtol, rstep, pstep, progress_check)
+                    param_dict, executable_path, errtol, rstep, pstep, progress_check, ode_solver)
                 os.system(command)
 
                 # Estimate remaining time
@@ -109,8 +120,8 @@ def data_generation(spin_list: list, defpar_list: list, inc_list: list,
                 # os.system('mv {} {}'.format(filename, output_path/filename))
 
 
-def data_generation_para(spin_list: list, defpar_list: list, inc_list: list, executable_path: str,
-                         output_path: str = None, errtol: float = 1.0e-8, rstep: float = 1.01, pstep: float = 0.007853981634, progress_check: int = 0) -> None:
+def data_generation_para(spin_list: list, defpar_list: list, inc_list: list, ode_solver: list,
+                         executable_path: str, errtol: float = 1.0e-8, rstep: float = 1.01, pstep: float = 0.007853981634, progress_check: int = 0) -> None:
     """Generate data using the main.cpp file with parallel processing
 
     Args:
@@ -127,42 +138,44 @@ def data_generation_para(spin_list: list, defpar_list: list, inc_list: list, exe
     process_list = []
 
     # Generate tensor of parameters to be fed into the main.cpp file
-    params = parameter_tensor(spin_list, defpar_list, inc_list)
+    params = parameter_tensor(spin_list, defpar_list, inc_list, ode_solver)
 
-    # Spawn 9 processes for each inc at a time, each running a different set of parameters
+    # Spawn processes each running a different set of parameters
     for i in range(params.shape[0]):
         for j in range(params.shape[1]):
             for k in range(params.shape[2]):
-                param_dict = {
-                    'spin': params[i, j, k, 0], 'defpar': params[i, j, k, 1], 'inc': params[i, j, k, 2]}
+                for l in range(params.shape[3]):
+                    param_dict = {
+                        'spin': params[i, j, k, l, 0], 'defpar': params[i, j, k, l, 1], 'inc': params[i, j, k, l, 2], 'ode_solver': params[i, j, k, l, 3]}
 
-                command = command_generation(
-                    param_dict, executable_path, errtol, rstep, pstep, progress_check)
-                process_list.append(subprocess.Popen(command))
-                
-    # Wait for 9 processes to finish before spawning another 9
+                    command = command_generation(
+                        param_dict, executable_path, errtol, rstep, pstep, progress_check)
+                    process_list.append(subprocess.Popen(command))
+
+    # Wait for processes to finish
     exit_codes = [p.wait() for p in process_list]
     print(exit_codes)
 
 
 if __name__ == '__main__':
-    spins = [0.998]
-    defpars = [0.0]
-    incs = [70.0]
+    spins = [0.10, 0.50, 0.998]
+    defpars = [0.0, 5.00, 10.00]
+    incs = [20.0, 45.0, 70.0]
 
-    # spin_list = [0.10, 0.50, 0.998]
-    # defpar_list = [0.00, 5.00, 10.00]
-    # inc_list = [45.0]
+    # spins = [0.10, 0.50, 0.998]
+    # defpars = [5.00, 10.00]
+    # incs = [20.0, 45.0, 70.0]
+
+    odes = [1]
 
     PATH_TO_EXECUTABLE = r'C:\Users\WalkerXin\Documents\Scripts\raytransfer\ironline'
     PATH_TO_OUTPUT = r'C:\Users\WalkerXin\Documents\Scripts\raytransfer\ironline\data'
     os.chdir(PATH_TO_EXECUTABLE)
 
     # Estimate time taken, with each run taking ~ 8 minutes
-    size = len(spins)*len(defpars)*len(incs)
+    size = len(spins)*len(defpars)*len(incs)*len(odes)
     estimate = 15
-    print('Estimated time taken: {} minutes or {} hours'.format(
-        size*estimate, size*estimate/60))
+    print(f'Estimated time taken: {size*estimate} minutes or {size*estimate/60} hours')
 
     # Prompt user to proceed, default: y
     check = input('Proceed? (y/n): ') or 'y'
@@ -172,17 +185,29 @@ if __name__ == '__main__':
     else:
         exit()
 
+    # Compile new main.cpp file
+    # os.system('g++ main.cpp -o main.exe')
+
     # Generate data
     # for defpar in defpars:
     #         data_generation_para(
-    #             spins, [defpar], incs, 'main.exe', PATH_TO_OUTPUT,
-    #             errtol=1.0e-10, rstep=1.008, pstep=2*np.pi/800, progress_check=10)
+    #             spins, [defpar], incs, [1], r'C:\Users\WalkerXin\Downloads\compare\main_ori.exe',
+    #             errtol=1.0e-10, rstep=1.008, pstep=2*np.pi/800, progress_check=2)
 
-    data_generation_para(
-                spins, defpars, incs, 'main.exe', PATH_TO_OUTPUT,
-                errtol=1.0e-9, rstep=1.008, pstep=2*np.pi/720, progress_check=10)
-            
-        
+    for ode in odes:
+            if ode == 0:
+                for defpar in defpars:
+                    data_generation_para(
+                        spins, [defpar], incs, [ode], r'C:\Users\WalkerXin\Documents\Scripts\raytransfer\ironline\main.exe',
+                        errtol=1.0e-10, rstep=1.008, pstep=2*np.pi/800, progress_check=0)
+            else:
+                for defpar in defpars:
+                    data_generation_para(
+                        spins, [defpar], incs, [ode], r'C:\Users\WalkerXin\Documents\Scripts\raytransfer\ironline\main.exe',
+                        errtol=1.0e-10, rstep=1.008, pstep=2*np.pi/800, progress_check=2)
+
+    
+
     # Turn off computer 60 seconds after completion
     os.system('shutdown /s /t 60')
 
