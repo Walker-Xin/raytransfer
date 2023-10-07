@@ -1,7 +1,7 @@
 /* Calculate 100 radial values using same method as RELCONV */
-void gauleg(long double rdisk_i, long double rdisk_f, long double rdisk[])
+void gauleg(double rdisk_i, double rdisk_f, double rdisk[])
 {
-    long double auxr1, auxr2, auxxm, auxxl, auxz, auxp1, auxp2, auxp3, auxpp, auxz1, auxr[imax];
+    double auxr1, auxr2, auxxm, auxxl, auxz, auxp1, auxp2, auxp3, auxpp, auxz1, auxr[imax];
 
 	auxr1 = 1.0/sqrt(rdisk_f);
 	auxr2 = 1.0/sqrt(rdisk_i);

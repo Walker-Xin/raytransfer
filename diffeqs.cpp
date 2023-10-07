@@ -1,8 +1,8 @@
-void diffeqs(long double vars[], long double diffs[])
+void diffeqs(double vars[], double diffs[])
 {
-	long double t, r, th, phi;
-	long double dt, dr, dth, dphi;
-	long double christ[4][4][4];
+	double t, r, th, phi;
+	double dt, dr, dth, dphi;
+	double christ[4][4][4];
 
 	t = vars[0];
 	r = vars[1];

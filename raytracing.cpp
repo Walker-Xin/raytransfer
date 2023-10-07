@@ -1,28 +1,28 @@
 // TODO: check validity of fact3
 
-void raytrace(long double xscr, long double yscr, long double traced[4], long double rdisk)
+void raytrace(double xscr, double yscr, double traced[4], double rdisk)
 {
-    long double dscr, xscr2, yscr2;
-    long double t, r, th, phi, tau, rau, thau, phiau;
-    long double t0, r0, th0, phi0;
-    long double kt, kr, kth, kphi;
-    long double kt0, kr0, kth0, kphi0;
-    long double s0, r02, s02;
-    long double fact1, fact2, fact3, B, C, omega;
-    long double h;
+    double dscr, xscr2, yscr2;
+    double t, r, th, phi, tau, rau, thau, phiau;
+    double t0, r0, th0, phi0;
+    double kt, kr, kth, kphi;
+    double kt0, kr0, kth0, kphi0;
+    double s0, r02, s02;
+    double fact1, fact2, fact3, B, C, omega;
+    double h;
 
-    long double height;
+    double height;
 
-    long double cosem;
-    long double b;
+    double cosem;
+    double b;
 
-    long double g[4][4]; // metric tensor
-    // long double diffs[5], vars[5], vars_temp[5], vars_4th[5], vars_5th[5], k1[5], k2[5], k3[5], k4[5], k5[5], k6[5];
-    long double diffs[8], vars[8], vars_temp[8], vars_4th[8], vars_5th[8], k1[8], k2[8], k3[8], k4[8], k5[8], k6[8];
-    long double rgap, rmid, thmid;
-    long double gfactor;
-    long double err, errmin, errmax;
-    long double cross_tol;
+    double g[4][4]; // metric tensor
+    // double diffs[5], vars[5], vars_temp[5], vars_4th[5], vars_5th[5], k1[5], k2[5], k3[5], k4[5], k5[5], k6[5];
+    double diffs[8], vars[8], vars_temp[8], vars_4th[8], vars_5th[8], k1[8], k2[8], k3[8], k4[8], k5[8], k6[8];
+    double rgap, rmid, thmid;
+    double gfactor;
+    double err, errmin, errmax;
+    double cross_tol;
 
     int errcheck, crosscheck = 0, acccheck = 0, blockcheck = 0;
     int stop_integration = 0;

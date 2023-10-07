@@ -38,31 +38,31 @@ using namespace std;
 #define g5 -9.0/50.0
 #define g6 2.0/55.0
 
-const long double Pi  = 3.14159265358979323846264338327950288419716939937510L;
+const double Pi  = 3.14159265358979323846264338327950288419716939937510L;
 
 /* global variables to avoid passing to functions */
-long double xscr, yscr;
-long double defpar, epsi3, a13, a22, a52;
-long double spin, inc, isco;
-long double spin2 = spin*spin;
-long double Mdl, eta;
+double xscr, yscr;
+double defpar, epsi3, a13, a22, a52;
+double spin, inc, isco;
+double spin2 = spin*spin;
+double Mdl, eta;
 
-void xyfromrphi(long double rscr, long double pscr, long double rdisk);
-void raytrace(long double xscr, long double yscr, long double traced[], long double rdisk);
-void rayprecise(long double rdisk, long double germtol, long double pscr, long double traced[]);
-void diffeqs(long double vars[], long double diffs[]);
-void redshift(long double r, long double th, long double ktkp, long double& gg);
-long double specific_energy(long double r);
-long double specific_momentum(long double r);
-long double emis_angle(long double r, long double th, long double kr, long double kth);
-void metric(long double r, long double th, long double g[][4]);
-void metric_rderivatives(long double r, long double th, long double dg[][4]);
-void metric_r2derivatives(long double r, long double th, long double dg2[][4]);
-void uppermetric(long double r, long double th, long double gu[4][4]);
-long double Veff_deri2(long double r, long double E, long double Lz);
-long double find_isco();
-void gauleg(long double rdisk_i, long double rdisk_f, long double rdisk[]);
-void christoffel(long double r, long double th, long double christ[4][4][4]);
+void xyfromrphi(double rscr, double pscr, double rdisk);
+void raytrace(double xscr, double yscr, double traced[], double rdisk);
+void rayprecise(double rdisk, double germtol, double pscr, double traced[]);
+void diffeqs(double vars[], double diffs[]);
+void redshift(double r, double th, double ktkp, double& gg);
+double specific_energy(double r);
+double specific_momentum(double r);
+double emis_angle(double r, double th, double kr, double kth);
+void metric(double r, double th, double g[][4]);
+void metric_rderivatives(double r, double th, double dg[][4]);
+void metric_r2derivatives(double r, double th, double dg2[][4]);
+void uppermetric(double r, double th, double gu[4][4]);
+double Veff_deri2(double r, double E, double Lz);
+double find_isco();
+void gauleg(double rdisk_i, double rdisk_f, double rdisk[]);
+void christoffel(double r, double th, double christ[4][4][4]);
 
 #include "diffeqs.cpp"
 #include "rayprecise.cpp"

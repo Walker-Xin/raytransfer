@@ -1,6 +1,6 @@
-void rayprecise(long double rdisk, long double rerrtol, long double pscr, long double traced[4])
+void rayprecise(double rdisk, double rerrtol, double pscr, double traced[4])
 {
-    long double rscr, rmiss, rhigh, rlow, rinit;
+    double rscr, rmiss, rhigh, rlow, rinit;
 
     // Set initial search values
     rinit = 5.0 * rdisk;
@@ -51,9 +51,9 @@ void rayprecise(long double rdisk, long double rerrtol, long double pscr, long d
 }
 
 // Calculate x_screen and y_screen values from r_screen and phi_screen
-void xyfromrphi(long double rscr, long double pscr, long double rdisk)
+void xyfromrphi(double rscr, double pscr, double rdisk)
 {
-    long double h, h_eff = 0.0;
+    double h, h_eff = 0.0;
 
     h = 3.0 * Mdl * (1.0 - sqrt(isco / rdisk)) / eta; // height of disk at given radius
 

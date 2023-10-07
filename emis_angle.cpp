@@ -1,8 +1,8 @@
 /* Calculate cosine of the emission angle modulo the redshift factor */
-long double emis_angle(long double r, long double th, long double kr, long double kth)
+double emis_angle(double r, double th, double kr, double kth)
 {
-	long double Zr, Zth, k, cs1, ss1, ss3, r3, angle;
-	long double gupper[4][4];
+	double Zr, Zth, k, cs1, ss1, ss3, r3, angle;
+	double gupper[4][4];
 
 	cs1 = cos(th);
 	ss1 = sin(th);

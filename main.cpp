@@ -2,46 +2,71 @@
 
 int main(int argc, char *argv[])
 {
-	long double cosinc;
-	long double rdisk_i, rdisk_f, rdisk[imax + 2];
+	double spin, Mdl, defpar;
+	double cosinc;
+	double rdisk_i, rdisk_f, rdisk[imax + 2];
+	double pscr, pstep, pscrcur, pscrhigh, pscrlow, rscr, rdiskcur, cosem, gcur, gstar, pdifft, gerrttol;
+	double xscrcur, yscrcur, xscrplus, xscrminus, yscrplus, yscrminus, gplus, gminus;
+	double gmax = 0.0, gmin = 10.0, pscrmax, pscrmin, rscrmax, rscrmin, cosemmax, cosemmin, rdiskmax, rdiskmin;
+	double traced[4];
+	double gerrtol, rerrtol, pdiff;
+
 	char filename_o[128];
 	FILE *foutput;
 
-	/* Set free parameters from user input */
-	// spin = atof(argv[1]); // spin parameter
-	// Mdl = atof(argv[2]);  // accretion rate parameter - disk thickness
-	// defpar = atof(argv[3]);
+	/* Set default computational values */
+	spin = 0.1;
+	Mdl = 0.1;
+	defpar = 0.005;
+	gerrtol = 1.0e-6;
+	rerrtol = 1.0e-7;
+	pdiff = 1.0e-4;
 
-	/* Set free parameters for testing */
-	long double spin = 0.1;
-	long double Mdl = 0.1;
-	long double defpar = 0.005;
+	// Set computation parameters from user input if provided
+	if (argc > 1)
+	{
+		spin = atof(argv[1]); // spin parameter
+		Mdl = atof(argv[2]);  // accretion rate parameter - disk thickness
+		defpar = atof(argv[3]);
+		gerrtol = atof(argv[4]); // error tolerance for RK45
+		rerrtol = atof(argv[5]);
+		pdiff = atof(argv[6]);
+		printf("Using user input parameters. spin=%f, accretion rate=%f, deformation=%f, error tolerance=%e\n, rerrtol=%e, pdiff=%e\n", spin, Mdl, defpar, gerrtol, rerrtol, pdiff);
+	}
+	else
+	{
+		printf("Using preset parameters. spin=%f, accretion rate=%f, deformation=%f, error tolerance=%e\n, rerrtol=%e, pdiff=%e\n", spin, Mdl, defpar, gerrtol, rerrtol, pdiff);
+	}
 
-	/* Deformation parameters */
-	// epsi3 = 0.0;
-	// a13 = 0.0;
-	// a22 = 0.0;
-	// a52 = 0.0;
+	spin2 = spin * spin;
 
 	/* Preset g_star values */
-	long double g_star[40] = {0.002, 0.02753846, 0.05307692, 0.07861538, 0.10415385, 0.12969231, 0.15523077, 0.18076923, 0.20630769, 0.23184615, 0.25738462, 0.28292308, 0.30846154, 0.334, 0.35953846, 0.38507692, 0.41061538, 0.43615385, 0.46169231, 0.48723077, 0.51276923, 0.53830769, 0.56384615, 0.58938462, 0.61492308, 0.64046154, 0.666, 0.69153846, 0.71707692, 0.74261538, 0.76815385, 0.79369231, 0.81923077, 0.84476923, 0.87030769, 0.89584615, 0.92138462, 0.94692308, 0.97246154, 0.998};
+	double g_star[40] = {0.002, 0.02753846, 0.05307692, 0.07861538, 0.10415385, 0.12969231, 0.15523077, 0.18076923, 0.20630769, 0.23184615, 0.25738462, 0.28292308, 0.30846154, 0.334, 0.35953846, 0.38507692, 0.41061538, 0.43615385, 0.46169231, 0.48723077, 0.51276923, 0.53830769, 0.56384615, 0.58938462, 0.61492308, 0.64046154, 0.666, 0.69153846, 0.71707692, 0.74261538, 0.76815385, 0.79369231, 0.81923077, 0.84476923, 0.87030769, 0.89584615, 0.92138462, 0.94692308, 0.97246154, 0.998};
 
 	/* Loop over inclination angles when running on cluster */
-	long double mu0[] = {0.0349447653};
+	double mu0[] = {0.0349447653};
+
+	/* Set inner radius of the disk */
+	isco = find_isco();
+	printf("isco = %.15Le\n", isco);
+
+	/* Calculate radiative efficiency */
+	eta = 1.0 - specific_energy(isco);
+	printf("eta = %.15Le\n", eta);
 
 	for (int jj = 0; jj < 22; jj++)
 	{
 		cosinc = mu0[jj];
-
-		spin2 = spin * spin;
 		inc = acos(cosinc); // inclination angle of the observer in rad
+		printf("spin = %.15Le, inc = %.15Le, defpar = %.15Le\n", spin, inc, defpar);
 
-		/* Set inner radius of the disk */
-		isco = find_isco();
+		// /* Set inner radius of the disk */
+		// isco = find_isco();
+		// printf("isco = %.15Le\n", isco);
 
-		/* Calculate radiative efficiency */
-		eta = 1.0 - specific_energy(isco);
-		std::cout << "eta = " << eta << std::endl;
+		// /* Calculate radiative efficiency */
+		// eta = 1.0 - specific_energy(isco);
+		// printf("eta = %.15Le\n", eta);
 
 		/* Set inner/outer disk radii */
 		rdisk_i = isco;
@@ -58,12 +83,6 @@ int main(int argc, char *argv[])
 		/* Assign photon position in the grid */
 		for (int ii = 0; ii <= imax + 1; ii++)
 		{
-			long double traced[4];
-			long double gerrtol = 1.0e-6, rerrtol = 1.0e-7, pdiff = 1.0e-4;
-			long double pscr, pstep, pscrcur, pscrhigh, pscrlow, rscr, rdiskcur, cosem, gcur, gstar, pdifft, gerrttol;
-			long double xscrcur, yscrcur, xscrplus, xscrminus, yscrplus, yscrminus, gplus, gminus;
-			long double gmax = 0.0, gmin = 10.0, pscrmax, pscrmin, rscrmax, rscrmin, cosemmax, cosemmin, rdiskmax, rdiskmin;
-
 			std::cout << "rdisk[" << ii << "] = " << rdisk[ii] << std::endl;
 
 			/* ------- Search over pscr to get quick estimate of gmin and gmax ------- */
@@ -74,7 +93,7 @@ int main(int argc, char *argv[])
 			{
 				rayprecise(rdisk[ii], rerrtol, pscr, traced);
 
-				printf("%Le %Le %Le\n", traced[2], gmin, gmax);
+				// printf("%Le %Le %Le\n", traced[2], gmin, gmax);
 
 				if (traced[2] > gmax && traced[0] != 0.0) // set gmax if g is larger than current gmax
 				{
@@ -171,7 +190,7 @@ int main(int argc, char *argv[])
 			pstep = fabs(pscrmax - pscrmin) / 39.0;
 			pscrlow = pscrmin;
 			pscrhigh = pscrmax;
-			pscrcur = pscrmin + pstep;
+			pscrcur = pscrmin + pstep; // searching from low to high
 
 			for (int j = 0; j < 40; j++)
 			{
