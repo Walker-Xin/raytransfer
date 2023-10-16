@@ -20,8 +20,8 @@ int main(int argc, char *argv[])
 
 	/* Set default computational values */
 	spin = 0.5;
-	Mdl = 0.0;
-	defpar = 5;
+	Mdl = 0;
+	defpar = 0;
 	gerrtol = 1.0e-2;
 	rerrtol = 1.0e-2;
 	pdiff = 1.0e-4;
@@ -34,7 +34,7 @@ int main(int argc, char *argv[])
 		Mdl = atof(argv[2]);  // accretion rate parameter - disk thickness
 		defpar = atof(argv[3]);
 		gerrtol = atof(argv[4]); // error tolerance for RK45
-		rerrtol = atof(argv[5]);
+		rerrtol = atof(argv[5]); // error tolerance for redshift factor
 		pdiff = atof(argv[6]);
 		printf("Using user input parameters. spin=%f, accretion rate=%f, deformation=%f, error tolerance=%e\n, rerrtol=%e, pdiff=%e\n", spin, Mdl, defpar, gerrtol, rerrtol, pdiff);
 	}
@@ -49,8 +49,7 @@ int main(int argc, char *argv[])
 	double g_star[40] = {0.002, 0.02753846, 0.05307692, 0.07861538, 0.10415385, 0.12969231, 0.15523077, 0.18076923, 0.20630769, 0.23184615, 0.25738462, 0.28292308, 0.30846154, 0.334, 0.35953846, 0.38507692, 0.41061538, 0.43615385, 0.46169231, 0.48723077, 0.51276923, 0.53830769, 0.56384615, 0.58938462, 0.61492308, 0.64046154, 0.666, 0.69153846, 0.71707692, 0.74261538, 0.76815385, 0.79369231, 0.81923077, 0.84476923, 0.87030769, 0.89584615, 0.92138462, 0.94692308, 0.97246154, 0.998};
 
 	/* Loop over inclination angles when running on cluster */
-	double mu0[] = {0.0349447653};
-	// double mu0[] = {0.0349447653, 0.09718278, 0.15948, 0.2165542, 0.270481, 0.3221819, 0.3721757, 0.420793, 0.4682622, 0.5147499, 0.5603828, 0.6052601, 0.6494616, 0.6930526, 0.7360878, 0.7786132, 0.8206683, 0.8622873, 0.9035001, 0.9443328, 0.9848086238, 0.9986296296};
+	double mu0[] = {0.0349447653, 0.09718278, 0.15948, 0.2165542, 0.270481, 0.3221819, 0.3721757, 0.420793, 0.4682622, 0.5147499, 0.5603828, 0.6052601, 0.6494616, 0.6930526, 0.7360878, 0.7786132, 0.8206683, 0.8622873, 0.9035001, 0.9443328, 0.9848086238, 0.9986296296};
 	mu_len = sizeof(mu0) / sizeof(mu0[0]);
 
 	/* Set inner radius of the disk */
@@ -92,6 +91,9 @@ int main(int argc, char *argv[])
 		start = clock();
 		mid = clock();
 
+		printf("SIMULATION START\n");
+		printf("----------------\n");
+
 		/* Assign photon position in the grid */
 		for (int ii = 0; ii <= imax + 1; ii++)
 		{
@@ -106,13 +108,6 @@ int main(int argc, char *argv[])
 					expected_time = iteration_time * (imax - ii) / double(progress_check);
 					printf("rdisk = %f; expected time left: %f minutes\n", rdisk[ii], expected_time / 60.0);
 				}
-			}
-
-			// Skip first n radii
-			if (ii < 50)
-			{
-				fprintf(foutput, "%.15Le %.15Le %.15Le %.15Le %.15Le 0.0 0.0 0.0 0.0 0.0 0.0\n", rdisk[ii], 0.0, 0.0, 0.0, 0.0);
-				continue;
 			}
 
 			/* ------- Search over pscr to get quick estimate of gmin and gmax ------- */
@@ -205,7 +200,10 @@ int main(int argc, char *argv[])
 				pstep /= 2.0;
 			}
 
-			printf("%d gmin = %.15Le, gmax = %.15Le\n", ii, gmin, gmax);
+			if (progress_check != 0)
+			{
+				printf("%d gmin = %.15Le, gmax = %.15Le\n", ii, gmin, gmax);
+			}
 
 			//*_*_*_*_*_*_*_*		CALCULATING CONSTANTLY SPACED g* GRID		*_*_*_*_*_*_*//
 
@@ -216,7 +214,11 @@ int main(int argc, char *argv[])
 			xyfromrphi(rscrmin, pscrmin, rdisk[ii]);
 
 			fprintf(foutput, "%.15Le %.15Le %.15Le %.15Le %.15Le 0.0 0.0 0.0 0.0 0.0 0.0\n", rdiskmin, gmin, xscr, yscr, cosemmin);
-			printf("%d B1:MIN %.6Le %.6Le %.6Le %.6Le %.6Le\n",ii, rdiskmin,gmin,xscr,yscr,cosemmin);
+
+			if (progress_check != 0)
+			{
+				printf("%d B1:MIN %.6Le %.6Le %.6Le %.6Le %.6Le\n",ii, rdiskmin,gmin,xscr,yscr,cosemmin);
+			}
 
 			// set values for phi_screen variables
 			pstep = fabs(pscrmax - pscrmin) / 39.0;
@@ -310,7 +312,11 @@ int main(int argc, char *argv[])
 			xyfromrphi(rscrmax, pscrmax, rdisk[ii]);
 
 			fprintf(foutput, "%.15Le %.15Le %.15Le %.15Le %.15Le 0.0 0.0 0.0 0.0 0.0 0.0\n", rdiskmax, gmax, xscr, yscr, cosemmax);
-			printf("%d B1:MAX %.6Le %.6Le %.6Le %.6Le %.6Le\n",ii,rdiskmax,gmax,xscr,yscr,cosemmax);
+
+			if (progress_check != 0)
+			{
+				printf("%d B1:MAX %.6Le %.6Le %.6Le %.6Le %.6Le\n",ii,rdiskmax,gmax,xscr,yscr,cosemmax);
+			}
 
 			/*---------- Branch 2 ------------*/
 
@@ -319,7 +325,11 @@ int main(int argc, char *argv[])
 			xyfromrphi(rscrmin, pscrmin, rdisk[ii]);
 
 			fprintf(foutput, "%.15Le %.15Le %.15Le %.15Le %.15Le 0.0 0.0 0.0 0.0 0.0 0.0\n", rdiskmin, gmin, xscr, yscr, cosemmin);
-			printf("%d B2:MIN %.6Le %.6Le %.6Le %.6Le %.6Le\n",ii,rdiskmin,gmin,xscr,yscr,cosemmin);
+
+			if (progress_check != 0)
+			{
+				printf("%d B2:MIN %.6Le %.6Le %.6Le %.6Le %.6Le\n",ii,rdiskmin,gmin,xscr,yscr,cosemmin);
+			}
 
 			// set values for phi_screen variables
 			pstep = fabs(pscrmax - pscrmin) / 39.0;
@@ -415,7 +425,11 @@ int main(int argc, char *argv[])
 			xyfromrphi(rscrmax, pscrmax, rdisk[ii]);
 
 			fprintf(foutput, "%.15Le %.15Le %.15Le %.15Le %.15Le 0.0 0.0 0.0 0.0 0.0 0.0\n", rdiskmax, gmax, xscr, yscr, cosemmax);
-			printf("%d B2:MAX %.6Le %.6Le %.6Le %.6Le %.6Le\n",ii,rdiskmax,gmax,xscr,yscr,cosemmax);
+
+			if (progress_check != 0)
+			{
+				printf("%d B2:MAX %.6Le %.6Le %.6Le %.6Le %.6Le\n",ii,rdiskmax,gmax,xscr,yscr,cosemmax);
+			}
 		}
 
 		fclose(foutput);
