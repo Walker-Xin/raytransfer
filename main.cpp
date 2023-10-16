@@ -25,7 +25,7 @@ int main(int argc, char *argv[])
 	gerrtol = 1.0e-2;
 	rerrtol = 1.0e-2;
 	pdiff = 1.0e-4;
-	progress_check = 1;
+	progress_check = 0;
 
 	// Set computation parameters from user input if provided
 	if (argc > 1)
@@ -35,12 +35,12 @@ int main(int argc, char *argv[])
 		defpar = atof(argv[3]);
 		gerrtol = atof(argv[4]); // error tolerance for RK45
 		rerrtol = atof(argv[5]); // error tolerance for redshift factor
-		pdiff = atof(argv[6]);
-		printf("Using user input parameters. spin=%f, accretion rate=%f, deformation=%f, error tolerance=%e\n, rerrtol=%e, pdiff=%e\n", spin, Mdl, defpar, gerrtol, rerrtol, pdiff);
+		progress_check = atoi(argv[6]); // progress check interval, also used to determine whether to print progress
+		printf("Using user input parameters. spin=%f, accretion rate=%f, deformation=%f, error tolerance=%e\n, rerrtol=%e", spin, Mdl, defpar, gerrtol, rerrtol);
 	}
 	else
 	{
-		printf("Using preset parameters. spin=%f, accretion rate=%f, deformation=%f, error tolerance=%e\n, rerrtol=%e, pdiff=%e\n", spin, Mdl, defpar, gerrtol, rerrtol, pdiff);
+		printf("Using preset parameters. spin=%f, accretion rate=%f, deformation=%f, error tolerance=%e\n, rerrtol=%e", spin, Mdl, defpar, gerrtol, rerrtol);
 	}
 
 	spin2 = spin * spin;
