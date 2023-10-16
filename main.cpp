@@ -2,7 +2,6 @@
 
 int main(int argc, char *argv[])
 {
-	double spin, Mdl, defpar;
 	double cosinc;
 	double rdisk_i, rdisk_f, rdisk[imax + 2];
 	double pscr, pstep, pscrcur, pscrhigh, pscrlow, rscr, rdiskcur, cosem, gcur, gstar, pdifft, gerrttol;
@@ -11,6 +10,11 @@ int main(int argc, char *argv[])
 	double traced[4];
 	double gerrtol, rerrtol, pdiff;
 
+	int mu_len;
+
+	double time_taken, iteration_time, expected_time;
+	int progress_check;
+
 	char filename_o[128];
 	FILE *foutput;
 
@@ -18,9 +22,10 @@ int main(int argc, char *argv[])
 	spin = 0.1;
 	Mdl = 0.1;
 	defpar = 0.005;
-	gerrtol = 1.0e-6;
-	rerrtol = 1.0e-7;
+	gerrtol = 1.0e-2;
+	rerrtol = 1.0e-2;
 	pdiff = 1.0e-4;
+	progress_check = 1;
 
 	// Set computation parameters from user input if provided
 	if (argc > 1)
@@ -45,6 +50,8 @@ int main(int argc, char *argv[])
 
 	/* Loop over inclination angles when running on cluster */
 	double mu0[] = {0.0349447653};
+	// double mu0[] = {0.0349447653, 0.09718278, 0.15948, 0.2165542, 0.270481, 0.3221819, 0.3721757, 0.420793, 0.4682622, 0.5147499, 0.5603828, 0.6052601, 0.6494616, 0.6930526, 0.7360878, 0.7786132, 0.8206683, 0.8622873, 0.9035001, 0.9443328, 0.9848086238, 0.9986296296};
+	mu_len = sizeof(mu0) / sizeof(mu0[0]);
 
 	/* Set inner radius of the disk */
 	isco = find_isco();
@@ -54,7 +61,7 @@ int main(int argc, char *argv[])
 	eta = 1.0 - specific_energy(isco);
 	printf("eta = %.15Le\n", eta);
 
-	for (int jj = 0; jj < 22; jj++)
+	for (int jj = 0; jj < mu_len; jj++)
 	{
 		cosinc = mu0[jj];
 		inc = acos(cosinc); // inclination angle of the observer in rad
@@ -76,14 +83,37 @@ int main(int argc, char *argv[])
 		gauleg(rdisk_i, rdisk_f, rdisk); // a grid of 100 emission radii stored in rdisk; c.f. Section 3.4 in Public Release
 
 		/* Open output file */
-		sprintf(filename_o, "photons/photons4trf_a%.05Le.i%.02Le.Mdl_%.02Le.dp_%.02Le.dat", spin, cosinc, defpar);
+		sprintf(filename_o, "photons/photons4trf_a%.05Le.i%.02Le.Mdl_%.02Le.dp_%.02Le.dat", spin, cosinc, Mdl, defpar);
 
 		foutput = fopen(filename_o, "w");
+
+		// Start timer
+		clock_t start, end, mid;
+		start = clock();
+		mid = clock();
 
 		/* Assign photon position in the grid */
 		for (int ii = 0; ii <= imax + 1; ii++)
 		{
-			std::cout << "rdisk[" << ii << "] = " << rdisk[ii] << std::endl;
+			if (progress_check != 0)
+			{
+				// Update progress for every progress_check robs
+				if (ii % progress_check == 0)
+				{
+					// Calculate expected time usage
+					iteration_time = double(clock() - mid) / double(CLOCKS_PER_SEC);
+					mid = clock();
+					expected_time = iteration_time * (imax - ii) / double(progress_check);
+					printf("rdisk = %f; expected time left: %f minutes\n", rdisk[ii], expected_time / 60.0);
+				}
+			}
+
+			// Skip first n radii
+			if (ii < 50)
+			{
+				fprintf(foutput, "%.15Le %.15Le %.15Le %.15Le %.15Le 0.0 0.0 0.0 0.0 0.0 0.0\n", rdisk[ii], 0.0, 0.0, 0.0, 0.0);
+				continue;
+			}
 
 			/* ------- Search over pscr to get quick estimate of gmin and gmax ------- */
 			pstep = Pi / 5.0;
@@ -115,7 +145,7 @@ int main(int argc, char *argv[])
 			{
 				rayprecise(rdisk[ii], rerrtol, pscrmax - pstep / 2.0, traced); // search at values of phi_screen lower than estimated
 
-				printf("%Le %Le %Le\n", traced[2], gmin, gmax);
+				// printf("%Le %Le %Le\n", traced[2], gmin, gmax);
 
 				if (traced[2] > gmax)
 				{
@@ -174,6 +204,8 @@ int main(int argc, char *argv[])
 
 				pstep /= 2.0;
 			}
+
+			printf("%d gmin = %.15Le, gmax = %.15Le\n", ii, gmin, gmax);
 
 			//*_*_*_*_*_*_*_*		CALCULATING CONSTANTLY SPACED g* GRID		*_*_*_*_*_*_*//
 
@@ -278,7 +310,7 @@ int main(int argc, char *argv[])
 			xyfromrphi(rscrmax, pscrmax, rdisk[ii]);
 
 			fprintf(foutput, "%.15Le %.15Le %.15Le %.15Le %.15Le 0.0 0.0 0.0 0.0 0.0 0.0\n", rdiskmax, gmax, xscr, yscr, cosemmax);
-			// printf("%d B1:MAX %.6Le %.6Le %.6Le %.6Le %.6Le\n",ii,rdiskmax,gmax,xscr,yscr,cosemmax);
+			printf("%d B1:MAX %.6Le %.6Le %.6Le %.6Le %.6Le\n",ii,rdiskmax,gmax,xscr,yscr,cosemmax);
 
 			/*---------- Branch 2 ------------*/
 
@@ -383,7 +415,7 @@ int main(int argc, char *argv[])
 			xyfromrphi(rscrmax, pscrmax, rdisk[ii]);
 
 			fprintf(foutput, "%.15Le %.15Le %.15Le %.15Le %.15Le 0.0 0.0 0.0 0.0 0.0 0.0\n", rdiskmax, gmax, xscr, yscr, cosemmax);
-			// printf("%d B2:MAX %.6Le %.6Le %.6Le %.6Le %.6Le\n",ii,rdiskmax,gmax,xscr,yscr,cosemmax);
+			printf("%d B2:MAX %.6Le %.6Le %.6Le %.6Le %.6Le\n",ii,rdiskmax,gmax,xscr,yscr,cosemmax);
 		}
 
 		fclose(foutput);
