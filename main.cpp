@@ -19,9 +19,9 @@ int main(int argc, char *argv[])
 	FILE *foutput;
 
 	/* Set default computational values */
-	spin = 0.1;
-	Mdl = 0.1;
-	defpar = 0.005;
+	spin = 0.5;
+	Mdl = 0.0;
+	defpar = 5;
 	gerrtol = 1.0e-2;
 	rerrtol = 1.0e-2;
 	pdiff = 1.0e-4;

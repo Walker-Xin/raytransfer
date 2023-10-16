@@ -6,6 +6,7 @@
 #include <cmath>
 #include <iostream>
 #include <algorithm>
+#include <time.h>
 using namespace std;
 
 #define imax 100 //Number of radial values
