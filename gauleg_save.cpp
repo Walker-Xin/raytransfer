@@ -3,6 +3,7 @@
 int main()
 {
 	double rdisk_f = 1000, rdisk[imax+2];
+	spin = 0.1;
 	isco = find_isco();
 	printf("isco = %.15Le\n", isco);
 
