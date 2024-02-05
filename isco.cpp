@@ -25,12 +25,14 @@ int main(int argc, char *argv[])
 	{
 		spin = a[i];
 
-		// highbound = pow(1.0+sqrt(1.0-spin*spin),4.0)/(spin*spin); //Upper bound if needed
-		// lowbound = -2.0/3.0*1.0/2.0*pow(1.0+sqrt(1.0-spin*spin),4.0); //Lower bound if needed
+		//highbound = pow(1.0+sqrt(1.0-spin*spin),4.0)/(spin*spin); //Upper bound if needed
+		lowbound = -2.0/3.0*1.0/2.0*pow(1.0+sqrt(1.0-spin*spin),4.0); //Lower bound if needed
 
-		// Set upper and lower bounds if cutting off at some value
-		defparmin = -10.0;
-		defparmax = 10.0;
+		//Set upper and lower bounds if cutting off at some value
+		defparmin = max(-5.0, lowbound);
+		//defparmin = -5.0;
+		//defparmax = min(5.0l, highbound);
+		defparmax = 5.0;
 
 		// Find isco for Kerr
 		defpar = 0.0;

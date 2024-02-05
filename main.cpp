@@ -13,7 +13,7 @@ int main(int argc, char *argv[])
 	int mu_len;
 
 	double time_taken, iteration_time, expected_time;
-	int progress_check;
+	int progress_check, skip, skip_end;
 
 	char filename_o[128];
 	FILE *foutput;
@@ -21,11 +21,13 @@ int main(int argc, char *argv[])
 	/* Set default computational values */
 	spin = 0.5;
 	Mdl = 0;
-	defpar = 0;
-	gerrtol = 1.0e-2;
-	rerrtol = 1.0e-2;
-	pdiff = 1.0e-4;
-	progress_check = 0;
+	defpar = 0; // default = 0
+	gerrtol = 1.0e-6; // default = 1.0e-6
+	rerrtol = 1.0e-7; // default = 1.0e-7
+	pdiff = 1.0e-4; // default = 1.0e-4
+	progress_check = 1;
+	skip = 0; // default = 0
+	skip_end = imax - 1; // default = imax - 1
 
 	// Set computation parameters from user input if provided
 	if (argc > 1)
@@ -36,11 +38,11 @@ int main(int argc, char *argv[])
 		gerrtol = atof(argv[4]); // error tolerance for RK45
 		rerrtol = atof(argv[5]); // error tolerance for redshift factor
 		progress_check = atoi(argv[6]); // progress check interval, also used to determine whether to print progress
-		printf("Using user input parameters. spin=%f, accretion rate=%f, deformation=%f, error tolerance=%e\n, rerrtol=%e", spin, Mdl, defpar, gerrtol, rerrtol);
+		printf("Using user input parameters. spin=%.5e, accretion rate=%.5e, deformation=%.5e, gerrtol=%.5e, rerrtol=%.5e\n", spin, Mdl, defpar, gerrtol, rerrtol);
 	}
 	else
 	{
-		printf("Using preset parameters. spin=%f, accretion rate=%f, deformation=%f, error tolerance=%e\n, rerrtol=%e", spin, Mdl, defpar, gerrtol, rerrtol);
+		printf("Using user input parameters. spin=%.5e, accretion rate=%.5e, deformation=%.5e, gerrtol=%.5e, rerrtol=%.5e\n", spin, Mdl, defpar, gerrtol, rerrtol);
 	}
 
 	spin2 = spin * spin;
@@ -49,7 +51,8 @@ int main(int argc, char *argv[])
 	double g_star[40] = {0.002, 0.02753846, 0.05307692, 0.07861538, 0.10415385, 0.12969231, 0.15523077, 0.18076923, 0.20630769, 0.23184615, 0.25738462, 0.28292308, 0.30846154, 0.334, 0.35953846, 0.38507692, 0.41061538, 0.43615385, 0.46169231, 0.48723077, 0.51276923, 0.53830769, 0.56384615, 0.58938462, 0.61492308, 0.64046154, 0.666, 0.69153846, 0.71707692, 0.74261538, 0.76815385, 0.79369231, 0.81923077, 0.84476923, 0.87030769, 0.89584615, 0.92138462, 0.94692308, 0.97246154, 0.998};
 
 	/* Loop over inclination angles when running on cluster */
-	double mu0[] = {0.0349447653, 0.09718278, 0.15948, 0.2165542, 0.270481, 0.3221819, 0.3721757, 0.420793, 0.4682622, 0.5147499, 0.5603828, 0.6052601, 0.6494616, 0.6930526, 0.7360878, 0.7786132, 0.8206683, 0.8622873, 0.9035001, 0.9443328, 0.9848086238, 0.9986296296};
+	// double mu0[] = {0.0349447653, 0.09718278, 0.15948, 0.2165542, 0.270481, 0.3221819, 0.3721757, 0.420793, 0.4682622, 0.5147499, 0.5603828, 0.6052601, 0.6494616, 0.6930526, 0.7360878, 0.7786132, 0.8206683, 0.8622873, 0.9035001, 0.9443328, 0.9848086238, 0.9986296296};
+	double mu0[] = {0.707106};
 	mu_len = sizeof(mu0) / sizeof(mu0[0]);
 
 	/* Set inner radius of the disk */
@@ -64,7 +67,7 @@ int main(int argc, char *argv[])
 	{
 		cosinc = mu0[jj];
 		inc = acos(cosinc); // inclination angle of the observer in rad
-		printf("spin = %.15Le, inc = %.15Le, defpar = %.15Le\n", spin, inc, defpar);
+		printf("spin = %.5e, inc = %.5e (rad)/%.5e (deg) defpar = %.5e\n", spin, inc, inc * 180.0 / Pi, defpar);
 
 		// /* Set inner radius of the disk */
 		// isco = find_isco();
@@ -95,7 +98,7 @@ int main(int argc, char *argv[])
 		printf("----------------\n");
 
 		/* Assign photon position in the grid */
-		for (int ii = 0; ii <= imax + 1; ii++)
+		for (int ii = skip; ii <= skip_end; ii++)
 		{
 			if (progress_check != 0)
 			{
