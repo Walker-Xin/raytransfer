@@ -10,7 +10,7 @@ int main(int argc, char *argv[])
 	double traced[4];
 	double gerrtol, rerrtol, pdiff;
 
-	int mu_len;
+	int mu_len, rdisk_len;
 
 	double time_taken, iteration_time, expected_time;
 	int progress_check, skip, skip_end;
@@ -26,8 +26,8 @@ int main(int argc, char *argv[])
 	rerrtol = 1.0e-7; // default = 1.0e-7
 	pdiff = 1.0e-4; // default = 1.0e-4
 	progress_check = 1;
-	skip = 0; // default = 0
-	skip_end = imax - 1; // default = imax - 1
+	skip = 79; // default = 0
+	skip_end = 81; // default = imax - 1
 
 	// Set computation parameters from user input if provided
 	if (argc > 1)
@@ -63,6 +63,14 @@ int main(int argc, char *argv[])
 	eta = 1.0 - specific_energy(isco);
 	printf("eta = %.15Le\n", eta);
 
+	// Start timer
+	clock_t start, end, mid;
+	start = clock();
+	mid = clock();
+
+	printf("SIMULATION START\n");
+	printf("----------------\n");
+
 	for (int jj = 0; jj < mu_len; jj++)
 	{
 		cosinc = mu0[jj];
@@ -83,19 +91,12 @@ int main(int argc, char *argv[])
 
 		/* Compute emission radii with gauleg */
 		gauleg(rdisk_i, rdisk_f, rdisk); // a grid of 100 emission radii stored in rdisk; c.f. Section 3.4 in Public Release
+		rdisk_len = sizeof(rdisk) / sizeof(rdisk[0]);
 
 		/* Open output file */
 		sprintf(filename_o, "photons/photons4trf_a%.05Le.i%.02Le.Mdl_%.02Le.dp_%.02Le.dat", spin, cosinc, Mdl, defpar);
 
 		foutput = fopen(filename_o, "w");
-
-		// Start timer
-		clock_t start, end, mid;
-		start = clock();
-		mid = clock();
-
-		printf("SIMULATION START\n");
-		printf("----------------\n");
 
 		/* Assign photon position in the grid */
 		for (int ii = skip; ii <= skip_end; ii++)
@@ -108,7 +109,7 @@ int main(int argc, char *argv[])
 					// Calculate expected time usage
 					iteration_time = double(clock() - mid) / double(CLOCKS_PER_SEC);
 					mid = clock();
-					expected_time = iteration_time * (imax - ii) / double(progress_check);
+					expected_time = iteration_time * (rdisk_len - ii) / double(progress_check);
 					printf("rdisk = %f; expected time left: %f minutes\n", rdisk[ii], expected_time / 60.0);
 				}
 			}
@@ -262,8 +263,25 @@ int main(int argc, char *argv[])
 					else if (traced[2] > gcur) // Value above gcur
 						pscrhigh = pscrcur;
 
-					pscrcur = 0.5 * (pscrlow + pscrhigh); // Set phi_screen_current to midpoint of high and low values
+					// Set phi_screen_current to midpoint of high and low values
+					// Possible truncation error here, especially for higher values of j
+					pscrcur = 0.5 * (pscrlow + pscrhigh);
 
+					if (pscrcur == pscrhigh) // some truncation error has occured
+					{
+						printf("pscrcur = pscrhigh, j = %d\n", j);
+						printf("pscrcur = %.16Le, pscrhigh = %.16Le\n, pscrlow = %.16Le", pscrcur, pscrhigh, pscrlow);
+						printf("breaking\n");
+						break;
+					}
+					else if (pscrcur == pscrlow)
+					{
+						printf("pscrcur = pscrlow, j = %d\n", j);
+						printf("pscrcur = %.16Le, pscrhigh = %.16Le\n, pscrlow = %.16Le", pscrcur, pscrhigh, pscrlow);
+						printf("breaking\n");
+						break;
+					}
+		
 					if (pscrhigh - pscrlow < 1.0e-10) // Raise error tolerance if can't find the correct value
 						gerrttol *= 2.0;
 				}
@@ -309,7 +327,16 @@ int main(int argc, char *argv[])
 				} while (gplus == 0.0);
 
 				fprintf(foutput, "%.15Le %.15Le %.15Le %.15Le %.15Le %.15Le %.15Le %.15Le %.15Le %.15Le %.15Le\n", rdiskcur, gcur, xscrcur, yscrcur, cosem, gminus, xscrminus, yscrminus, gplus, xscrplus, yscrplus);
-				// printf("%d B1:%d %.6Le %.6Le %.6Le %.6Le %.6Le %.6Le %.6Le %.6Le %.6Le %.6Le %.6Le\n",ii,j+1,rdiskcur,gcur,xscrcur,yscrcur,cosem,gminus,xscrminus,yscrminus,gplus,xscrplus,yscrplus);
+
+				if (progress_check != 0)
+				{
+					printf("%d B1:%d %.6Le %.6Le %.6Le %.6Le %.6Le %.6Le %.6Le %.6Le %.6Le %.6Le %.6Le\r",ii,j+1,rdiskcur,gcur,xscrcur,yscrcur,cosem,gminus,xscrminus,yscrminus,gplus,xscrplus,yscrplus);
+				}
+
+				if (j == 38)
+				{
+					printf("test\n");
+				}
 			}
 
 			xyfromrphi(rscrmax, pscrmax, rdisk[ii]);
@@ -375,6 +402,21 @@ int main(int argc, char *argv[])
 
 					pscrcur = 0.5 * (pscrlow + pscrhigh); // Set phi_screen_current to midpoint of high and low values
 
+					if (pscrcur == pscrhigh) // some truncation error has occured
+					{
+						printf("pscrcur = pscrhigh, j = %d\n", j);
+						printf("pscrcur = %.16Le, pscrhigh = %.16Le\n, pscrlow = %.16Le", pscrcur, pscrhigh, pscrlow);
+						printf("breaking\n");
+						break;
+					}
+					else if (pscrcur == pscrlow)
+					{
+						printf("pscrcur = pscrlow, j = %d\n", j);
+						printf("pscrcur = %.16Le, pscrhigh = %.16Le\n, pscrlow = %.16Le", pscrcur, pscrhigh, pscrlow);
+						printf("breaking\n");
+						break;
+					}
+
 					if (pscrlow - pscrhigh < 1.0e-10) // Raise error tolerance if can't find the correct value
 						gerrttol *= 2.0;
 				}
@@ -422,7 +464,12 @@ int main(int argc, char *argv[])
 				} while (gplus == 0.0);
 
 				fprintf(foutput, "%.15Le %.15Le %.15Le %.15Le %.15Le %.15Le %.15Le %.15Le %.15Le %.15Le %.15Le\n", rdiskcur, gcur, xscrcur, yscrcur, cosem, gminus, xscrminus, yscrminus, gplus, xscrplus, yscrplus);
-				// printf("%d B2:%d %.6Le %.6Le %.6Le %.6Le %.6Le %.6Le %.6Le %.6Le %.6Le %.6Le %.6Le\n",ii,j+1,rdiskcur,gcur,xscrcur,yscrcur,cosem,gminus,xscrminus,yscrminus,gplus,xscrplus,yscrplus);
+				
+				if (progress_check != 0)
+				{
+				// Use /r to overwrite the line
+					printf("%d B2:%d %.6Le %.6Le %.6Le %.6Le %.6Le %.6Le %.6Le %.6Le %.6Le %.6Le %.6Le\r",ii,j+1,rdiskcur,gcur,xscrcur,yscrcur,cosem,gminus,xscrminus,yscrminus,gplus,xscrplus,yscrplus);
+				}
 			}
 
 			xyfromrphi(rscrmax, pscrmax, rdisk[ii]);
@@ -435,6 +482,8 @@ int main(int argc, char *argv[])
 			}
 		}
 
+		printf("----------------\n");
+		printf("SIMULATION END\n");
 		fclose(foutput);
 	}
 
