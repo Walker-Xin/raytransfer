@@ -265,8 +265,10 @@ int main(int argc, char *argv[])
 
 					// Set phi_screen_current to midpoint of high and low values
 					// Possible truncation error here, especially for higher values of j
+					// For example, low = 2.8624560870942282, high = 2.8624560870942286 gives cur = 2.8624560870942286 which is incorrect
 					pscrcur = 0.5 * (pscrlow + pscrhigh);
 
+					// Fix by breaking if cur = high or low after taking midpoint
 					if (pscrcur == pscrhigh) // some truncation error has occured
 					{
 						printf("pscrcur = pscrhigh, j = %d\n", j);
@@ -331,11 +333,6 @@ int main(int argc, char *argv[])
 				if (progress_check != 0)
 				{
 					printf("%d B1:%d %.6Le %.6Le %.6Le %.6Le %.6Le %.6Le %.6Le %.6Le %.6Le %.6Le %.6Le\r",ii,j+1,rdiskcur,gcur,xscrcur,yscrcur,cosem,gminus,xscrminus,yscrminus,gplus,xscrplus,yscrplus);
-				}
-
-				if (j == 38)
-				{
-					printf("test\n");
 				}
 			}
 
