@@ -274,7 +274,7 @@ void raytrace(double xscr, double yscr, double traced[4], double rdisk)
     } while (stop_integration == 0);
 
     thmid = acos(chimid);
-    kth =  kth/sqrt(1 - chi * chi);
+    kth =  kchi/sqrt(1 - chi * chi);
 
     /* ----- Calculate redshift, cosem, and return values ----- */
 
@@ -286,11 +286,10 @@ void raytrace(double xscr, double yscr, double traced[4], double rdisk)
     else /* photon crossed horizon, missed disk, or other issue */
     {
         rmid = 0.0;
-        thmid = acos(chi0);
         gfactor = 0.0;
     }
 
-    traced[0] = rmid * sin(thmid);
+    traced[0] = rmid * sqrt(1 - chimid * chimid);
     traced[1] = cosem;
     traced[2] = gfactor;
 }
