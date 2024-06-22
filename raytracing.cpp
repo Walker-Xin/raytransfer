@@ -224,7 +224,7 @@ void raytrace(double xscr, double yscr, double traced[4], double rdisk)
             if (acccheck == 1) /* set final values */
             {
                 kr = vars_4th[5];
-                kth = vars_4th[6];
+                kchi = vars_4th[6];
 
                 /* calculate average/midpoint values */
                 rmid = 0.5 * (r + rau);
@@ -246,7 +246,7 @@ void raytrace(double xscr, double yscr, double traced[4], double rdisk)
             else if (crosscheck == 1) /* did not achieve accuracy; go back a step, and decrease step size */
             {
                 r = rau;
-                th = thau;
+                chi = chiau;
                 phi = phiau;
                 h /= 2.0;
             }
@@ -267,7 +267,7 @@ void raytrace(double xscr, double yscr, double traced[4], double rdisk)
         {
             kt = vars_4th[4];
             kr = vars_4th[5];
-            kth = vars_4th[6];
+            kchi = vars_4th[6];
             kphi = vars_4th[7];
         }
     } while (stop_integration == 0);

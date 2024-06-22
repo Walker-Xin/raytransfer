@@ -8,25 +8,25 @@
    "metadata": {},
    "executionSummary": {
     "timing": {
-     "startTime": 1719033240445,
-     "endTime": 1719033240526
+     "startTime": 1719034156101,
+     "endTime": 1719034156182
     },
-    "executionOrder": 848,
+    "executionOrder": 969,
     "success": true
    }
   },
   {
    "kind": 2,
-   "value": "f = epsi*M*M*M/r;\r\nA1 = 1 + a13*(M/r)*(M/r)*(M/r);\r\nA2 = 1 + a22*(M/r)*(M/r);\r\nA5 = 1 + a52*(M/r)*(M/r);\r\n\r\n(* chi = Cos[theta]; *)\r\n\r\nB = (r*r + a*a)*A1 - a*a*A2*Sin[theta]*Sin[theta];\r\nSigma = r*r + a*a*Cos[theta]*Cos[theta];\r\n\r\n(* Redefine B and Sigma using chi variable *)\r\nB = (r*r + a*a)*A1 - a*a*A2*(1 - chi*chi);\r\nSigma = r*r + a*a*chi*chi;\r\n\r\nSigmavar = Sigma + f;\r\nDelta = r*r - 2*M*r + a*a;",
+   "value": "f = epsi*M*M*M/r;\r\nA1 = 1 + a13*(M/r)*(M/r)*(M/r);\r\nA2 = 1 + a22*(M/r)*(M/r);\r\nA5 = 1 + a52*(M/r)*(M/r);\r\n\r\n(* chi = Cos[theta]; *)\r\n\r\n(* B = (r*r + a*a)*A1 - a*a*A2*Sin[theta]*Sin[theta];\r\nSigma = r*r + a*a*Cos[theta]*Cos[theta]; *)\r\n\r\n(* Redefine B and Sigma using chi variable *)\r\nB = (r*r + a*a)*A1 - a*a*A2*(1 - chi*chi);\r\nSigma = r*r + a*a*chi*chi;\r\n\r\nSigmavar = Sigma + f;\r\nDelta = r*r - 2*M*r + a*a;",
    "languageId": "wolfram",
    "outputs": [],
    "metadata": {},
    "executionSummary": {
     "timing": {
-     "startTime": 1719033240527,
-     "endTime": 1719033241368
+     "startTime": 1719034156182,
+     "endTime": 1719034156824
     },
-    "executionOrder": 849,
+    "executionOrder": 970,
     "success": true
    }
   },
@@ -38,10 +38,10 @@
    "metadata": {},
    "executionSummary": {
     "timing": {
-     "startTime": 1719033241368,
-     "endTime": 1719033242017
+     "startTime": 1719034156824,
+     "endTime": 1719034157473
     },
-    "executionOrder": 859,
+    "executionOrder": 978,
     "success": true
    }
   },
@@ -53,32 +53,32 @@
    "metadata": {},
    "executionSummary": {
     "timing": {
-     "startTime": 1719033242017,
-     "endTime": 1719033242092
+     "startTime": 1719034157473,
+     "endTime": 1719034157539
     },
-    "executionOrder": 867,
+    "executionOrder": 986,
     "success": true
    }
   },
   {
    "kind": 2,
-   "value": "gtt = -Sigmavar*(Delta - a*a*A2*A2*(1 - chi*chi))/(B*B);\r\ngrr = Sigmavar/(Delta*A5);\r\ngthth = Sigmavar/(1 - chi*chi); (* Note the extra denominator due to dtheta = dchi/(1 - chi^2)^(1/2) *)\r\ngpp = ((r*r + a*a)*(r*r + a*a)*A1*A1 - a*a*Delta*(1 - chi*chi))*Sigmavar*(1 - chi*chi)/(B*B);\r\ngtp = -a*((r^2 + a^2)*A1*A2 - Delta)*Sigmavar*(1 - chi*chi)/B^2;\r\ngtr = b1*a/(2*r) + b2*a*M/r^2;\r\ngrp = c1*a*(1 - chi*chi)/(2*r) + c2*a*M*(1 - chi*chi)/r^2;\r\n\r\nG = Simplify[{{gtt, gtr, 0, gtp}, {gtr, grr, 0, grp}, {0, 0, gthth, \r\n     0}, {gtp, grp, 0, gpp}}];\r\nG // MatrixForm",
+   "value": "gtt = -Sigmavar*(Delta - a*a*A2*A2*(1 - chi*chi))/(B*B);\r\ngrr = Sigmavar/(Delta*A5);\r\ngthth = Sigmavar;\r\ngpp = ((r*r + a*a)*(r*r + a*a)*A1*A1 - a*a*Delta*(1 - chi*chi))*Sigmavar*(1 - chi*chi)/(B*B);\r\ngtp = -a*((r^2 + a^2)*A1*A2 - Delta)*Sigmavar*(1 - chi*chi)/B^2;\r\ngtr = b1*a/(2*r) + b2*a*M/r^2;\r\ngrp = c1*a*(1 - chi*chi)/(2*r) + c2*a*M*(1 - chi*chi)/r^2;\r\n\r\nG = Simplify[{{gtt, gtr, 0, gtp}, {gtr, grr, 0, grp}, {0, 0, gthth, \r\n     0}, {gtp, grp, 0, gpp}}];\r\nG // MatrixForm",
    "languageId": "wolfram",
    "outputs": [
     {
      "items": [
       {
-       "data": "<div class=\"wexpr\"><wrow><w></w><wb>(</wb><w>⁠</w><wgrid style=\"grid-template-columns:repeat(4,max-content);\"><w><wrow><w></w><w>-</w><wfrac><w><wrow><w></w><wrow><w></w><wsup><w></w><w>a</w><w><w>2</w></w></wsup><w></w><wsup><w></w><w>chi</w><w><w>2</w></w></wsup></wrow><w>-</w><wrow><w></w><w>2</w><w></w><w>M</w><w></w><w>r</w></wrow><w>+</w><wsup><w></w><w>r</w><w><w>2</w></w></wsup></wrow></w><w><w></w><w><wrow><w></w><wrow><w></w><wsup><w></w><w>a</w><w><w>2</w></w></wsup><w></w><wsup><w></w><w>chi</w><w><w>2</w></w></wsup></wrow><w>+</w><wsup><w></w><w>r</w><w><w>2</w></w></wsup></wrow></w></w></wfrac></wrow></w><w><wfrac><w><wrow><w></w><w>a</w><w></w><w>defpar</w></wrow></w><w><w></w><w><wrow><w></w><w>2</w><w></w><w>r</w></wrow></w></w></wfrac></w><w><w>0</w></w><w><wfrac><w><wrow><w></w><w>2</w><w></w><w>a</w><w></w><wrow><w></w><wb>(</wb><wrow><w></w><wrow><w></w><w>-</w><w>1</w></wrow><w>+</w><wsup><w></w><w>chi</w><w><w>2</w></w></wsup></wrow><wb>)</wb></wrow><w></w><w>M</w><w></w><w>r</w></wrow></w><w><w></w><w><wrow><w></w><wrow><w></w><wsup><w></w><w>a</w><w><w>2</w></w></wsup><w></w><wsup><w></w><w>chi</w><w><w>2</w></w></wsup></wrow><w>+</w><wsup><w></w><w>r</w><w><w>2</w></w></wsup></wrow></w></w></wfrac></w><w><wfrac><w><wrow><w></w><w>a</w><w></w><w>defpar</w></wrow></w><w><w></w><w><wrow><w></w><w>2</w><w></w><w>r</w></wrow></w></w></wfrac></w><w><wfrac><w><wrow><w></w><wrow><w></w><wsup><w></w><w>a</w><w><w>2</w></w></wsup><w></w><wsup><w></w><w>chi</w><w><w>2</w></w></wsup></wrow><w>+</w><wsup><w></w><w>r</w><w><w>2</w></w></wsup></wrow></w><w><w></w><w><wrow><w></w><wsup><w></w><w>a</w><w><w>2</w></w></wsup><w>-</w><wrow><w></w><w>2</w><w></w><w>M</w><w></w><w>r</w></wrow><w>+</w><wsup><w></w><w>r</w><w><w>2</w></w></wsup></wrow></w></w></wfrac></w><w><w>0</w></w><w><w>0</w></w><w><w>0</w></w><w><w>0</w></w><w><wfrac><w><wrow><w></w><wrow><w></w><wsup><w></w><w>a</w><w><w>2</w></w></wsup><w></w><wsup><w></w><w>chi</w><w><w>2</w></w></wsup></wrow><w>+</w><wsup><w></w><w>r</w><w><w>2</w></w></wsup></wrow></w><w><w></w><w><wrow><w></w><w>1</w><w>-</w><wsup><w></w><w>chi</w><w><w>2</w></w></wsup></wrow></w></w></wfrac></w><w><w>0</w></w><w><wfrac><w><wrow><w></w><w>2</w><w></w><w>a</w><w></w><wrow><w></w><wb>(</wb><wrow><w></w><wrow><w></w><w>-</w><w>1</w></wrow><w>+</w><wsup><w></w><w>chi</w><w><w>2</w></w></wsup></wrow><wb>)</wb></wrow><w></w><w>M</w><w></w><w>r</w></wrow></w><w><w></w><w><wrow><w></w><wrow><w></w><wsup><w></w><w>a</w><w><w>2</w></w></wsup><w></w><wsup><w></w><w>chi</w><w><w>2</w></w></wsup></wrow><w>+</w><wsup><w></w><w>r</w><w><w>2</w></w></wsup></wrow></w></w></wfrac></w><w><w>0</w></w><w><w>0</w></w><w><wrow><w></w><w>-</w><wfrac><w><wrow><w></w><wrow><w></w><wb>(</wb><wrow><w></w><wrow><w></w><w>-</w><w>1</w></wrow><w>+</w><wsup><w></w><w>chi</w><w><w>2</w></w></wsup></wrow><wb>)</wb></wrow><w></w><wrow><w></w><wb>(</wb><wrow><w></w><wrow><w></w><wsup><w></w><w>a</w><w><w>4</w></w></wsup><w></w><wsup><w></w><w>chi</w><w><w>2</w></w></wsup></wrow><w>+</w><wsup><w></w><w>r</w><w><w>4</w></w></wsup><w>+</w><wrow><w></w><wsup><w></w><w>a</w><w><w>2</w></w></wsup><w></w><w>r</w><w></w><wrow><w></w><wb>(</wb><wrow><w></w><wrow><w></w><w>2</w><w></w><w>M</w></wrow><w>-</w><wrow><w></w><w>2</w><w></w><wsup><w></w><w>chi</w><w><w>2</w></w></wsup><w></w><w>M</w></wrow><w>+</w><w>r</w><w>+</w><wrow><w></w><wsup><w></w><w>chi</w><w><w>2</w></w></wsup><w></w><w>r</w></wrow></wrow><wb>)</wb></wrow></wrow></wrow><wb>)</wb></wrow></wrow></w><w><w></w><w><wrow><w></w><wrow><w></w><wsup><w></w><w>a</w><w><w>2</w></w></wsup><w></w><wsup><w></w><w>chi</w><w><w>2</w></w></wsup></wrow><w>+</w><wsup><w></w><w>r</w><w><w>2</w></w></wsup></wrow></w></w></wfrac></wrow></w></wgrid><w>⁠</w><wb>)</wb></wrow></div>",
+       "data": "<div class=\"wexpr\"><wrow><w></w><wb>(</wb><w>⁠</w><wgrid style=\"grid-template-columns:repeat(4,max-content);\"><w><wrow><w></w><w>-</w><wfrac><w><wrow><w></w><wrow><w></w><wsup><w></w><w>a</w><w><w>2</w></w></wsup><w></w><wsup><w></w><w>chi</w><w><w>2</w></w></wsup></wrow><w>-</w><wrow><w></w><w>2</w><w></w><w>M</w><w></w><w>r</w></wrow><w>+</w><wsup><w></w><w>r</w><w><w>2</w></w></wsup></wrow></w><w><w></w><w><wrow><w></w><wrow><w></w><wsup><w></w><w>a</w><w><w>2</w></w></wsup><w></w><wsup><w></w><w>chi</w><w><w>2</w></w></wsup></wrow><w>+</w><wsup><w></w><w>r</w><w><w>2</w></w></wsup></wrow></w></w></wfrac></wrow></w><w><wfrac><w><wrow><w></w><w>a</w><w></w><w>defpar</w></wrow></w><w><w></w><w><wrow><w></w><w>2</w><w></w><w>r</w></wrow></w></w></wfrac></w><w><w>0</w></w><w><wfrac><w><wrow><w></w><w>2</w><w></w><w>a</w><w></w><wrow><w></w><wb>(</wb><wrow><w></w><wrow><w></w><w>-</w><w>1</w></wrow><w>+</w><wsup><w></w><w>chi</w><w><w>2</w></w></wsup></wrow><wb>)</wb></wrow><w></w><w>M</w><w></w><w>r</w></wrow></w><w><w></w><w><wrow><w></w><wrow><w></w><wsup><w></w><w>a</w><w><w>2</w></w></wsup><w></w><wsup><w></w><w>chi</w><w><w>2</w></w></wsup></wrow><w>+</w><wsup><w></w><w>r</w><w><w>2</w></w></wsup></wrow></w></w></wfrac></w><w><wfrac><w><wrow><w></w><w>a</w><w></w><w>defpar</w></wrow></w><w><w></w><w><wrow><w></w><w>2</w><w></w><w>r</w></wrow></w></w></wfrac></w><w><wfrac><w><wrow><w></w><wrow><w></w><wsup><w></w><w>a</w><w><w>2</w></w></wsup><w></w><wsup><w></w><w>chi</w><w><w>2</w></w></wsup></wrow><w>+</w><wsup><w></w><w>r</w><w><w>2</w></w></wsup></wrow></w><w><w></w><w><wrow><w></w><wsup><w></w><w>a</w><w><w>2</w></w></wsup><w>-</w><wrow><w></w><w>2</w><w></w><w>M</w><w></w><w>r</w></wrow><w>+</w><wsup><w></w><w>r</w><w><w>2</w></w></wsup></wrow></w></w></wfrac></w><w><w>0</w></w><w><w>0</w></w><w><w>0</w></w><w><w>0</w></w><w><wrow><w></w><wrow><w></w><wsup><w></w><w>a</w><w><w>2</w></w></wsup><w></w><wsup><w></w><w>chi</w><w><w>2</w></w></wsup></wrow><w>+</w><wsup><w></w><w>r</w><w><w>2</w></w></wsup></wrow></w><w><w>0</w></w><w><wfrac><w><wrow><w></w><w>2</w><w></w><w>a</w><w></w><wrow><w></w><wb>(</wb><wrow><w></w><wrow><w></w><w>-</w><w>1</w></wrow><w>+</w><wsup><w></w><w>chi</w><w><w>2</w></w></wsup></wrow><wb>)</wb></wrow><w></w><w>M</w><w></w><w>r</w></wrow></w><w><w></w><w><wrow><w></w><wrow><w></w><wsup><w></w><w>a</w><w><w>2</w></w></wsup><w></w><wsup><w></w><w>chi</w><w><w>2</w></w></wsup></wrow><w>+</w><wsup><w></w><w>r</w><w><w>2</w></w></wsup></wrow></w></w></wfrac></w><w><w>0</w></w><w><w>0</w></w><w><wrow><w></w><w>-</w><wfrac><w><wrow><w></w><wrow><w></w><wb>(</wb><wrow><w></w><wrow><w></w><w>-</w><w>1</w></wrow><w>+</w><wsup><w></w><w>chi</w><w><w>2</w></w></wsup></wrow><wb>)</wb></wrow><w></w><wrow><w></w><wb>(</wb><wrow><w></w><wrow><w></w><wsup><w></w><w>a</w><w><w>4</w></w></wsup><w></w><wsup><w></w><w>chi</w><w><w>2</w></w></wsup></wrow><w>+</w><wsup><w></w><w>r</w><w><w>4</w></w></wsup><w>+</w><wrow><w></w><wsup><w></w><w>a</w><w><w>2</w></w></wsup><w></w><w>r</w><w></w><wrow><w></w><wb>(</wb><wrow><w></w><wrow><w></w><w>2</w><w></w><w>M</w></wrow><w>-</w><wrow><w></w><w>2</w><w></w><wsup><w></w><w>chi</w><w><w>2</w></w></wsup><w></w><w>M</w></wrow><w>+</w><w>r</w><w>+</w><wrow><w></w><wsup><w></w><w>chi</w><w><w>2</w></w></wsup><w></w><w>r</w></wrow></wrow><wb>)</wb></wrow></wrow></wrow><wb>)</wb></wrow></wrow></w><w><w></w><w><wrow><w></w><wrow><w></w><wsup><w></w><w>a</w><w><w>2</w></w></wsup><w></w><wsup><w></w><w>chi</w><w><w>2</w></w></wsup></wrow><w>+</w><wsup><w></w><w>r</w><w><w>2</w></w></wsup></wrow></w></w></wfrac></wrow></w></wgrid><w>⁠</w><wb>)</wb></wrow></div>",
        "mime": "x-application/wolfram-language-html"
       },
       {
-       "data": "MatrixForm[{{-((a^2*chi^2 - 2*M*r + r^2)/(a^2*chi^2 + r^2)), (a*defpar)/(2*r), 0, (2*a*(-1 + chi^2)*M*r)/(a^2*chi^2 + r^2)}, {(a*defpar)/(2*r), (a^2*chi^2 + r^2)/(a^2 - 2*M*r + r^2), 0, 0}, {0, 0, (a^2*chi^2 + r^2)/(1 - chi^2), 0}, {(2*a*(-1 + chi^2)*M*r)/(a^2*chi^2 + r^2), 0, 0, -(((-1 + chi^2)*(a^4*chi^2 + r^4 + a^2*r*(2*M - 2*chi^2*M + r + chi^2*r)))/(a^2*chi^2 + r^2))}}]",
+       "data": "MatrixForm[{{-((a^2*chi^2 - 2*M*r + r^2)/(a^2*chi^2 + r^2)), (a*defpar)/(2*r), 0, (2*a*(-1 + chi^2)*M*r)/(a^2*chi^2 + r^2)}, {(a*defpar)/(2*r), (a^2*chi^2 + r^2)/(a^2 - 2*M*r + r^2), 0, 0}, {0, 0, a^2*chi^2 + r^2, 0}, {(2*a*(-1 + chi^2)*M*r)/(a^2*chi^2 + r^2), 0, 0, -(((-1 + chi^2)*(a^4*chi^2 + r^4 + a^2*r*(2*M - 2*chi^2*M + r + chi^2*r)))/(a^2*chi^2 + r^2))}}]",
        "mime": "text/plain"
       }
      ],
-     "id": "92cf2fd6-faff-4649-93b1-52178d391821",
+     "id": "2f84bd9c-5254-4fbb-b6bd-244aa0f5cb44",
      "metadata": {
-      "cellLabel": "Out[876]//MatrixForm= ",
+      "cellLabel": "Out[995]//MatrixForm= ",
       "isBoxData": false
      }
     }
@@ -86,10 +86,10 @@
    "metadata": {},
    "executionSummary": {
     "timing": {
-     "startTime": 1719033242092,
-     "endTime": 1719033242885
+     "startTime": 1719034157539,
+     "endTime": 1719034158353
     },
-    "executionOrder": 868,
+    "executionOrder": 987,
     "success": true
    }
   },
@@ -101,10 +101,10 @@
    "metadata": {},
    "executionSummary": {
     "timing": {
-     "startTime": 1719033242885,
-     "endTime": 1719033243218
+     "startTime": 1719034158353,
+     "endTime": 1719034158657
     },
-    "executionOrder": 877,
+    "executionOrder": 996,
     "success": true
    }
   },
@@ -116,10 +116,10 @@
    "metadata": {},
    "executionSummary": {
     "timing": {
-     "startTime": 1719033243218,
-     "endTime": 1719033243333
+     "startTime": 1719034158657,
+     "endTime": 1719034158773
     },
-    "executionOrder": 881,
+    "executionOrder": 1000,
     "success": true
    }
   },
@@ -131,10 +131,10 @@
    "metadata": {},
    "executionSummary": {
     "timing": {
-     "startTime": 1719033243334,
-     "endTime": 1719033243837
+     "startTime": 1719034158773,
+     "endTime": 1719034159347
     },
-    "executionOrder": 882,
+    "executionOrder": 1001,
     "success": true
    }
   },
@@ -146,10 +146,10 @@
    "metadata": {},
    "executionSummary": {
     "timing": {
-     "startTime": 1719033243837,
-     "endTime": 1719033244319
+     "startTime": 1719034159347,
+     "endTime": 1719034159852
     },
-    "executionOrder": 889,
+    "executionOrder": 1008,
     "success": true
    }
   },
@@ -161,10 +161,10 @@
    "metadata": {},
    "executionSummary": {
     "timing": {
-     "startTime": 1719033244319,
-     "endTime": 1719033244397
+     "startTime": 1719034159852,
+     "endTime": 1719034159939
     },
-    "executionOrder": 891,
+    "executionOrder": 1010,
     "success": true
    }
   },
@@ -177,10 +177,10 @@
    "metadata": {},
    "executionSummary": {
     "timing": {
-     "startTime": 1719033244398,
-     "endTime": 1719033244478
+     "startTime": 1719034159940,
+     "endTime": 1719034160026
     },
-    "executionOrder": 892,
+    "executionOrder": 1011,
     "success": true
    }
   },
@@ -201,9 +201,9 @@
        "mime": "text/plain"
       }
      ],
-     "id": "19b2440c-a96c-4276-8b3d-9496b4f97150",
+     "id": "4a9d6372-d7b1-40ba-aeb9-38f95170316c",
      "metadata": {
-      "cellLabel": "Out[893]= ",
+      "cellLabel": "Out[1012]= ",
       "isBoxData": false
      }
     }
@@ -211,10 +211,10 @@
    "metadata": {},
    "executionSummary": {
     "timing": {
-     "startTime": 1719033244478,
-     "endTime": 1719033244680
+     "startTime": 1719034160026,
+     "endTime": 1719034160245
     },
-    "executionOrder": 893,
+    "executionOrder": 1012,
     "success": true
    }
   },
@@ -226,10 +226,10 @@
    "metadata": {},
    "executionSummary": {
     "timing": {
-     "startTime": 1719033244680,
-     "endTime": 1719033244758
+     "startTime": 1719034160246,
+     "endTime": 1719034160322
     },
-    "executionOrder": 894,
+    "executionOrder": 1013,
     "success": true
    }
   },
@@ -241,10 +241,10 @@
    "metadata": {},
    "executionSummary": {
     "timing": {
-     "startTime": 1719033244758,
-     "endTime": 1719033244837
+     "startTime": 1719034160322,
+     "endTime": 1719034160398
     },
-    "executionOrder": 895,
+    "executionOrder": 1014,
     "success": true
    }
   },
@@ -264,9 +264,9 @@
        "mime": "text/plain"
       }
      ],
-     "id": "35052ca3-223f-4bf5-a058-a70a0d62d449",
+     "id": "17f891b0-8b37-4f1b-9efa-cfeb4343d6d7",
      "metadata": {
-      "cellLabel": "Out[896]= ",
+      "cellLabel": "Out[1015]= ",
       "isBoxData": false
      }
     },
@@ -281,9 +281,9 @@
        "mime": "text/plain"
       }
      ],
-     "id": "1bccff1c-21b0-4545-b0ad-8ee05491d00b",
+     "id": "eb775c9f-92bf-456a-a9f2-29fbc2bee9c8",
      "metadata": {
-      "cellLabel": "Out[902]= ",
+      "cellLabel": "Out[1021]= ",
       "isBoxData": false
      }
     },
@@ -298,9 +298,9 @@
        "mime": "text/plain"
       }
      ],
-     "id": "515f34c5-b91f-431e-b619-7e2885dbff56",
+     "id": "98a80dce-c8ee-4f39-96a6-dd7c119e35e1",
      "metadata": {
-      "cellLabel": "Out[904]= ",
+      "cellLabel": "Out[1023]= ",
       "isBoxData": false
      }
     }
@@ -308,10 +308,10 @@
    "metadata": {},
    "executionSummary": {
     "timing": {
-     "startTime": 1719033244838,
-     "endTime": 1719033246148
+     "startTime": 1719034160398,
+     "endTime": 1719034161684
     },
-    "executionOrder": 896,
+    "executionOrder": 1015,
     "success": true
    }
   },
@@ -323,10 +323,10 @@
    "metadata": {},
    "executionSummary": {
     "timing": {
-     "startTime": 1719033246148,
-     "endTime": 1719033246302
+     "startTime": 1719034161684,
+     "endTime": 1719034161867
     },
-    "executionOrder": 911,
+    "executionOrder": 1030,
     "success": true
    }
   },
@@ -338,10 +338,10 @@
    "metadata": {},
    "executionSummary": {
     "timing": {
-     "startTime": 1719033246303,
-     "endTime": 1719033246664
+     "startTime": 1719034161867,
+     "endTime": 1719034162251
     },
-    "executionOrder": 913,
+    "executionOrder": 1032,
     "success": true
    }
   },
@@ -353,10 +353,10 @@
    "metadata": {},
    "executionSummary": {
     "timing": {
-     "startTime": 1719033246664,
-     "endTime": 1719033247057
+     "startTime": 1719034162251,
+     "endTime": 1719034162687
     },
-    "executionOrder": 918,
+    "executionOrder": 1037,
     "success": true
    }
   },
@@ -368,10 +368,10 @@
    "metadata": {},
    "executionSummary": {
     "timing": {
-     "startTime": 1719033247058,
-     "endTime": 1719033247457
+     "startTime": 1719034162687,
+     "endTime": 1719034163093
     },
-    "executionOrder": 923,
+    "executionOrder": 1042,
     "success": true
    }
   },
@@ -383,10 +383,10 @@
    "metadata": {},
    "executionSummary": {
     "timing": {
-     "startTime": 1719033247458,
-     "endTime": 1719033247852
+     "startTime": 1719034163094,
+     "endTime": 1719034163490
     },
-    "executionOrder": 928,
+    "executionOrder": 1047,
     "success": true
    }
   },
@@ -406,9 +406,9 @@
        "mime": "text/plain"
       }
      ],
-     "id": "35d05579-2715-4a8e-823f-5ac581c2c828",
+     "id": "41fb4c29-18cd-4934-b551-14da3b0708b8",
      "metadata": {
-      "cellLabel": "Out[935]= ",
+      "cellLabel": "Out[1054]= ",
       "isBoxData": false
      }
     }
@@ -416,10 +416,10 @@
    "metadata": {},
    "executionSummary": {
     "timing": {
-     "startTime": 1719033247852,
-     "endTime": 1719033248148
+     "startTime": 1719034163490,
+     "endTime": 1719034163806
     },
-    "executionOrder": 933,
+    "executionOrder": 1052,
     "success": true
    }
   },
@@ -431,10 +431,10 @@
    "metadata": {},
    "executionSummary": {
     "timing": {
-     "startTime": 1719033248148,
-     "endTime": 1719033248585
+     "startTime": 1719034163806,
+     "endTime": 1719034164244
     },
-    "executionOrder": 936,
+    "executionOrder": 1055,
     "success": true
    }
   },
@@ -446,10 +446,10 @@
    "metadata": {},
    "executionSummary": {
     "timing": {
-     "startTime": 1719033248585,
-     "endTime": 1719033248741
+     "startTime": 1719034164244,
+     "endTime": 1719034164409
     },
-    "executionOrder": 941,
+    "executionOrder": 1060,
     "success": true
    }
   },
@@ -461,10 +461,10 @@
    "metadata": {},
    "executionSummary": {
     "timing": {
-     "startTime": 1719033248741,
-     "endTime": 1719033249159
+     "startTime": 1719034164409,
+     "endTime": 1719034164786
     },
-    "executionOrder": 943,
+    "executionOrder": 1062,
     "success": true
    }
   },
@@ -476,10 +476,10 @@
    "metadata": {},
    "executionSummary": {
     "timing": {
-     "startTime": 1719033249159,
-     "endTime": 1719033249570
+     "startTime": 1719034164786,
+     "endTime": 1719034165178
     },
-    "executionOrder": 948,
+    "executionOrder": 1067,
     "success": true
    }
   },
@@ -491,10 +491,10 @@
    "metadata": {},
    "executionSummary": {
     "timing": {
-     "startTime": 1719033249570,
-     "endTime": 1719033249960
+     "startTime": 1719034165178,
+     "endTime": 1719034165603
     },
-    "executionOrder": 953,
+    "executionOrder": 1072,
     "success": true
    }
   },
@@ -514,9 +514,9 @@
        "mime": "text/plain"
       }
      ],
-     "id": "4670772e-f16c-4e7b-a3bf-6725ca287875",
+     "id": "874fd556-0ee9-4565-86b4-20e146a509fc",
      "metadata": {
-      "cellLabel": "Out[960]= ",
+      "cellLabel": "Out[1079]= ",
       "isBoxData": false
      }
     }
@@ -524,10 +524,10 @@
    "metadata": {},
    "executionSummary": {
     "timing": {
-     "startTime": 1719033249960,
-     "endTime": 1719033250275
+     "startTime": 1719034165603,
+     "endTime": 1719034165915
     },
-    "executionOrder": 958,
+    "executionOrder": 1077,
     "success": true
    }
   },
@@ -539,10 +539,10 @@
    "metadata": {},
    "executionSummary": {
     "timing": {
-     "startTime": 1719033250275,
-     "endTime": 1719033250652
+     "startTime": 1719034165915,
+     "endTime": 1719034166319
     },
-    "executionOrder": 961,
+    "executionOrder": 1080,
     "success": true
    }
   },
@@ -562,9 +562,9 @@
        "mime": "text/plain"
       }
      ],
-     "id": "ca29e7d2-96a2-4289-a43f-bc371b85f2b0",
+     "id": "ed6d4c1d-8d72-431d-92ea-390e4fce1dbb",
      "metadata": {
-      "cellLabel": "Out[968]= ",
+      "cellLabel": "Out[1087]= ",
       "isBoxData": false
      }
     }
@@ -572,10 +572,10 @@
    "metadata": {},
    "executionSummary": {
     "timing": {
-     "startTime": 1719033250652,
-     "endTime": 1719033250967
+     "startTime": 1719034166319,
+     "endTime": 1719034166650
     },
-    "executionOrder": 966,
+    "executionOrder": 1085,
     "success": true
    }
   }
