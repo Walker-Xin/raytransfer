@@ -8,10 +8,10 @@
    "metadata": {},
    "executionSummary": {
     "timing": {
-     "startTime": 1719023374901,
-     "endTime": 1719023374978
+     "startTime": 1719027503177,
+     "endTime": 1719027503274
     },
-    "executionOrder": 186,
+    "executionOrder": 470,
     "success": true
    }
   },
@@ -23,10 +23,10 @@
    "metadata": {},
    "executionSummary": {
     "timing": {
-     "startTime": 1719023375504,
-     "endTime": 1719023376275
+     "startTime": 1719027503274,
+     "endTime": 1719027503978
     },
-    "executionOrder": 187,
+    "executionOrder": 471,
     "success": true
    }
   },
@@ -38,10 +38,25 @@
    "metadata": {},
    "executionSummary": {
     "timing": {
-     "startTime": 1719023376333,
-     "endTime": 1719023376943
+     "startTime": 1719027503978,
+     "endTime": 1719027504610
     },
-    "executionOrder": 197,
+    "executionOrder": 481,
+    "success": true
+   }
+  },
+  {
+   "kind": 2,
+   "value": "b1 = defpar;",
+   "languageId": "wolfram",
+   "outputs": [],
+   "metadata": {},
+   "executionSummary": {
+    "timing": {
+     "startTime": 1719027504610,
+     "endTime": 1719027504686
+    },
+    "executionOrder": 489,
     "success": true
    }
   },
@@ -53,17 +68,17 @@
     {
      "items": [
       {
-       "data": "<div class=\"wexpr\"><wrow><w></w><wb>(</wb><w>⁠</w><wgrid style=\"grid-template-columns:repeat(4,max-content);\"><w><wrow><w></w><w>-</w><wfrac><w><wrow><w></w><wrow><w></w><wsup><w></w><w>a</w><w><w>2</w></w></wsup><w></w><wsup><w></w><w>chi</w><w><w>2</w></w></wsup></wrow><w>-</w><wrow><w></w><w>2</w><w></w><w>M</w><w></w><w>r</w></wrow><w>+</w><wsup><w></w><w>r</w><w><w>2</w></w></wsup></wrow></w><w><w></w><w><wrow><w></w><wrow><w></w><wsup><w></w><w>a</w><w><w>2</w></w></wsup><w></w><wsup><w></w><w>chi</w><w><w>2</w></w></wsup></wrow><w>+</w><wsup><w></w><w>r</w><w><w>2</w></w></wsup></wrow></w></w></wfrac></wrow></w><w><w>0</w></w><w><w>0</w></w><w><wfrac><w><wrow><w></w><w>2</w><w></w><w>a</w><w></w><wrow><w></w><wb>(</wb><wrow><w></w><wrow><w></w><w>-</w><w>1</w></wrow><w>+</w><wsup><w></w><w>chi</w><w><w>2</w></w></wsup></wrow><wb>)</wb></wrow><w></w><w>M</w><w></w><w>r</w></wrow></w><w><w></w><w><wrow><w></w><wrow><w></w><wsup><w></w><w>a</w><w><w>2</w></w></wsup><w></w><wsup><w></w><w>chi</w><w><w>2</w></w></wsup></wrow><w>+</w><wsup><w></w><w>r</w><w><w>2</w></w></wsup></wrow></w></w></wfrac></w><w><w>0</w></w><w><wfrac><w><wrow><w></w><wrow><w></w><wsup><w></w><w>a</w><w><w>2</w></w></wsup><w></w><wsup><w></w><w>chi</w><w><w>2</w></w></wsup></wrow><w>+</w><wsup><w></w><w>r</w><w><w>2</w></w></wsup></wrow></w><w><w></w><w><wrow><w></w><wsup><w></w><w>a</w><w><w>2</w></w></wsup><w>-</w><wrow><w></w><w>2</w><w></w><w>M</w><w></w><w>r</w></wrow><w>+</w><wsup><w></w><w>r</w><w><w>2</w></w></wsup></wrow></w></w></wfrac></w><w><w>0</w></w><w><w>0</w></w><w><w>0</w></w><w><w>0</w></w><w><wfrac><w><wrow><w></w><wrow><w></w><wsup><w></w><w>a</w><w><w>2</w></w></wsup><w></w><wsup><w></w><w>chi</w><w><w>2</w></w></wsup></wrow><w>+</w><wsup><w></w><w>r</w><w><w>2</w></w></wsup></wrow></w><w><w></w><w><wrow><w></w><w>1</w><w>-</w><wsup><w></w><w>chi</w><w><w>2</w></w></wsup></wrow></w></w></wfrac></w><w><w>0</w></w><w><wfrac><w><wrow><w></w><w>2</w><w></w><w>a</w><w></w><wrow><w></w><wb>(</wb><wrow><w></w><wrow><w></w><w>-</w><w>1</w></wrow><w>+</w><wsup><w></w><w>chi</w><w><w>2</w></w></wsup></wrow><wb>)</wb></wrow><w></w><w>M</w><w></w><w>r</w></wrow></w><w><w></w><w><wrow><w></w><wrow><w></w><wsup><w></w><w>a</w><w><w>2</w></w></wsup><w></w><wsup><w></w><w>chi</w><w><w>2</w></w></wsup></wrow><w>+</w><wsup><w></w><w>r</w><w><w>2</w></w></wsup></wrow></w></w></wfrac></w><w><w>0</w></w><w><w>0</w></w><w><wrow><w></w><w>-</w><wfrac><w><wrow><w></w><wrow><w></w><wb>(</wb><wrow><w></w><wrow><w></w><w>-</w><w>1</w></wrow><w>+</w><wsup><w></w><w>chi</w><w><w>2</w></w></wsup></wrow><wb>)</wb></wrow><w></w><wrow><w></w><wb>(</wb><wrow><w></w><wrow><w></w><wsup><w></w><w>a</w><w><w>4</w></w></wsup><w></w><wsup><w></w><w>chi</w><w><w>2</w></w></wsup></wrow><w>+</w><wsup><w></w><w>r</w><w><w>4</w></w></wsup><w>+</w><wrow><w></w><wsup><w></w><w>a</w><w><w>2</w></w></wsup><w></w><w>r</w><w></w><wrow><w></w><wb>(</wb><wrow><w></w><wrow><w></w><w>2</w><w></w><w>M</w></wrow><w>-</w><wrow><w></w><w>2</w><w></w><wsup><w></w><w>chi</w><w><w>2</w></w></wsup><w></w><w>M</w></wrow><w>+</w><w>r</w><w>+</w><wrow><w></w><wsup><w></w><w>chi</w><w><w>2</w></w></wsup><w></w><w>r</w></wrow></wrow><wb>)</wb></wrow></wrow></wrow><wb>)</wb></wrow></wrow></w><w><w></w><w><wrow><w></w><wrow><w></w><wsup><w></w><w>a</w><w><w>2</w></w></wsup><w></w><wsup><w></w><w>chi</w><w><w>2</w></w></wsup></wrow><w>+</w><wsup><w></w><w>r</w><w><w>2</w></w></wsup></wrow></w></w></wfrac></wrow></w></wgrid><w>⁠</w><wb>)</wb></wrow></div>",
+       "data": "<div class=\"wexpr\"><wrow><w></w><wb>(</wb><w>⁠</w><wgrid style=\"grid-template-columns:repeat(4,max-content);\"><w><wrow><w></w><w>-</w><wfrac><w><wrow><w></w><wrow><w></w><wsup><w></w><w>a</w><w><w>2</w></w></wsup><w></w><wsup><w></w><w>chi</w><w><w>2</w></w></wsup></wrow><w>-</w><wrow><w></w><w>2</w><w></w><w>M</w><w></w><w>r</w></wrow><w>+</w><wsup><w></w><w>r</w><w><w>2</w></w></wsup></wrow></w><w><w></w><w><wrow><w></w><wrow><w></w><wsup><w></w><w>a</w><w><w>2</w></w></wsup><w></w><wsup><w></w><w>chi</w><w><w>2</w></w></wsup></wrow><w>+</w><wsup><w></w><w>r</w><w><w>2</w></w></wsup></wrow></w></w></wfrac></wrow></w><w><wfrac><w><wrow><w></w><w>a</w><w></w><w>defpar</w></wrow></w><w><w></w><w><wrow><w></w><w>2</w><w></w><w>r</w></wrow></w></w></wfrac></w><w><w>0</w></w><w><wfrac><w><wrow><w></w><w>2</w><w></w><w>a</w><w></w><wrow><w></w><wb>(</wb><wrow><w></w><wrow><w></w><w>-</w><w>1</w></wrow><w>+</w><wsup><w></w><w>chi</w><w><w>2</w></w></wsup></wrow><wb>)</wb></wrow><w></w><w>M</w><w></w><w>r</w></wrow></w><w><w></w><w><wrow><w></w><wrow><w></w><wsup><w></w><w>a</w><w><w>2</w></w></wsup><w></w><wsup><w></w><w>chi</w><w><w>2</w></w></wsup></wrow><w>+</w><wsup><w></w><w>r</w><w><w>2</w></w></wsup></wrow></w></w></wfrac></w><w><wfrac><w><wrow><w></w><w>a</w><w></w><w>defpar</w></wrow></w><w><w></w><w><wrow><w></w><w>2</w><w></w><w>r</w></wrow></w></w></wfrac></w><w><wfrac><w><wrow><w></w><wrow><w></w><wsup><w></w><w>a</w><w><w>2</w></w></wsup><w></w><wsup><w></w><w>chi</w><w><w>2</w></w></wsup></wrow><w>+</w><wsup><w></w><w>r</w><w><w>2</w></w></wsup></wrow></w><w><w></w><w><wrow><w></w><wsup><w></w><w>a</w><w><w>2</w></w></wsup><w>-</w><wrow><w></w><w>2</w><w></w><w>M</w><w></w><w>r</w></wrow><w>+</w><wsup><w></w><w>r</w><w><w>2</w></w></wsup></wrow></w></w></wfrac></w><w><w>0</w></w><w><w>0</w></w><w><w>0</w></w><w><w>0</w></w><w><wfrac><w><wrow><w></w><wrow><w></w><wsup><w></w><w>a</w><w><w>2</w></w></wsup><w></w><wsup><w></w><w>chi</w><w><w>2</w></w></wsup></wrow><w>+</w><wsup><w></w><w>r</w><w><w>2</w></w></wsup></wrow></w><w><w></w><w><wrow><w></w><w>1</w><w>-</w><wsup><w></w><w>chi</w><w><w>2</w></w></wsup></wrow></w></w></wfrac></w><w><w>0</w></w><w><wfrac><w><wrow><w></w><w>2</w><w></w><w>a</w><w></w><wrow><w></w><wb>(</wb><wrow><w></w><wrow><w></w><w>-</w><w>1</w></wrow><w>+</w><wsup><w></w><w>chi</w><w><w>2</w></w></wsup></wrow><wb>)</wb></wrow><w></w><w>M</w><w></w><w>r</w></wrow></w><w><w></w><w><wrow><w></w><wrow><w></w><wsup><w></w><w>a</w><w><w>2</w></w></wsup><w></w><wsup><w></w><w>chi</w><w><w>2</w></w></wsup></wrow><w>+</w><wsup><w></w><w>r</w><w><w>2</w></w></wsup></wrow></w></w></wfrac></w><w><w>0</w></w><w><w>0</w></w><w><wrow><w></w><w>-</w><wfrac><w><wrow><w></w><wrow><w></w><wb>(</wb><wrow><w></w><wrow><w></w><w>-</w><w>1</w></wrow><w>+</w><wsup><w></w><w>chi</w><w><w>2</w></w></wsup></wrow><wb>)</wb></wrow><w></w><wrow><w></w><wb>(</wb><wrow><w></w><wrow><w></w><wsup><w></w><w>a</w><w><w>4</w></w></wsup><w></w><wsup><w></w><w>chi</w><w><w>2</w></w></wsup></wrow><w>+</w><wsup><w></w><w>r</w><w><w>4</w></w></wsup><w>+</w><wrow><w></w><wsup><w></w><w>a</w><w><w>2</w></w></wsup><w></w><w>r</w><w></w><wrow><w></w><wb>(</wb><wrow><w></w><wrow><w></w><w>2</w><w></w><w>M</w></wrow><w>-</w><wrow><w></w><w>2</w><w></w><wsup><w></w><w>chi</w><w><w>2</w></w></wsup><w></w><w>M</w></wrow><w>+</w><w>r</w><w>+</w><wrow><w></w><wsup><w></w><w>chi</w><w><w>2</w></w></wsup><w></w><w>r</w></wrow></wrow><wb>)</wb></wrow></wrow></wrow><wb>)</wb></wrow></wrow></w><w><w></w><w><wrow><w></w><wrow><w></w><wsup><w></w><w>a</w><w><w>2</w></w></wsup><w></w><wsup><w></w><w>chi</w><w><w>2</w></w></wsup></wrow><w>+</w><wsup><w></w><w>r</w><w><w>2</w></w></wsup></wrow></w></w></wfrac></wrow></w></wgrid><w>⁠</w><wb>)</wb></wrow></div>",
        "mime": "x-application/wolfram-language-html"
       },
       {
-       "data": "MatrixForm[{{-((a^2*chi^2 - 2*M*r + r^2)/(a^2*chi^2 + r^2)), 0, 0, (2*a*(-1 + chi^2)*M*r)/(a^2*chi^2 + r^2)}, {0, (a^2*chi^2 + r^2)/(a^2 - 2*M*r + r^2), 0, 0}, {0, 0, (a^2*chi^2 + r^2)/(1 - chi^2), 0}, {(2*a*(-1 + chi^2)*M*r)/(a^2*chi^2 + r^2), 0, 0, -(((-1 + chi^2)*(a^4*chi^2 + r^4 + a^2*r*(2*M - 2*chi^2*M + r + chi^2*r)))/(a^2*chi^2 + r^2))}}]",
+       "data": "MatrixForm[{{-((a^2*chi^2 - 2*M*r + r^2)/(a^2*chi^2 + r^2)), (a*defpar)/(2*r), 0, (2*a*(-1 + chi^2)*M*r)/(a^2*chi^2 + r^2)}, {(a*defpar)/(2*r), (a^2*chi^2 + r^2)/(a^2 - 2*M*r + r^2), 0, 0}, {0, 0, (a^2*chi^2 + r^2)/(1 - chi^2), 0}, {(2*a*(-1 + chi^2)*M*r)/(a^2*chi^2 + r^2), 0, 0, -(((-1 + chi^2)*(a^4*chi^2 + r^4 + a^2*r*(2*M - 2*chi^2*M + r + chi^2*r)))/(a^2*chi^2 + r^2))}}]",
        "mime": "text/plain"
       }
      ],
-     "id": "ef90266c-4f33-44f7-9836-b71935fc3628",
+     "id": "c856cf92-110b-4964-a8e0-ce88bba801b0",
      "metadata": {
-      "cellLabel": "Out[213]//MatrixForm= ",
+      "cellLabel": "Out[498]//MatrixForm= ",
       "isBoxData": false
      }
     }
@@ -71,10 +86,496 @@
    "metadata": {},
    "executionSummary": {
     "timing": {
-     "startTime": 1719023377292,
-     "endTime": 1719023378071
+     "startTime": 1719027504686,
+     "endTime": 1719027505521
     },
-    "executionOrder": 205,
+    "executionOrder": 490,
+    "success": true
+   }
+  },
+  {
+   "kind": 2,
+   "value": "dGdr = Simplify[D[G, r]];\r\ndGdchi = Simplify[D[G, chi]];\r\ndGdr2 = Simplify[D[dGdr, r]];\r\ndGdchi2 = Simplify[D[dGdr, chi]];",
+   "languageId": "wolfram",
+   "outputs": [],
+   "metadata": {},
+   "executionSummary": {
+    "timing": {
+     "startTime": 1719027505521,
+     "endTime": 1719027505838
+    },
+    "executionOrder": 499,
+    "success": true
+   }
+  },
+  {
+   "kind": 2,
+   "value": "Ginv = Simplify[Inverse[G]];\r\n(* Ginv // MatrixForm *)",
+   "languageId": "wolfram",
+   "outputs": [],
+   "metadata": {},
+   "executionSummary": {
+    "timing": {
+     "startTime": 1719027505838,
+     "endTime": 1719027505964
+    },
+    "executionOrder": 503,
+    "success": true
+   }
+  },
+  {
+   "kind": 2,
+   "value": "gutt = Ginv[[1]][[1]];\r\ngurr = Ginv[[2]][[2]];\r\nguthth = Ginv[[3]][[3]];\r\ngupp = Ginv[[4]][[4]];\r\ngutr = Ginv[[1]][[2]];\r\ngutp = Ginv[[1]][[4]];\r\ngurp = Ginv[[2]][[4]];",
+   "languageId": "wolfram",
+   "outputs": [],
+   "metadata": {},
+   "executionSummary": {
+    "timing": {
+     "startTime": 1719027505964,
+     "endTime": 1719027506550
+    },
+    "executionOrder": 504,
+    "success": true
+   }
+  },
+  {
+   "kind": 2,
+   "value": "Christ = ResourceFunction[\"ChristoffelSymbol\"][G, {t, r, chi, phi}, \"Kind\" -> \"Second\"];\r\nChrist = Simplify[Christ];",
+   "languageId": "wolfram",
+   "outputs": [],
+   "metadata": {},
+   "executionSummary": {
+    "timing": {
+     "startTime": 1719027506550,
+     "endTime": 1719027507024
+    },
+    "executionOrder": 511,
+    "success": true
+   }
+  },
+  {
+   "kind": 2,
+   "value": "omega = (-dGdr[[1]][[4]] + Sqrt[dGdr[[1]][[4]]*dGdr[[1]][[4]] - dGdr[[1]][[1]]*dGdr[[4]][[4]]])/dGdr[[4]][[4]];",
+   "languageId": "wolfram",
+   "outputs": [],
+   "metadata": {},
+   "executionSummary": {
+    "timing": {
+     "startTime": 1719027507025,
+     "endTime": 1719027507102
+    },
+    "executionOrder": 513,
+    "success": true
+   }
+  },
+  {
+   "kind": 2,
+   "value": "uet = 1/Sqrt[-(G[[1]][[1]] + 2*G[[1]][[4]]*omega + G[[4]][[4]]*omega*omega)];",
+   "languageId": "wolfram",
+   "mime": "text/plain",
+   "outputs": [],
+   "metadata": {},
+   "executionSummary": {
+    "timing": {
+     "startTime": 1719027507102,
+     "endTime": 1719027507181
+    },
+    "executionOrder": 514,
+    "success": true
+   }
+  },
+  {
+   "kind": 2,
+   "value": "g = 1/(uet*(1 - omega*ktkp))",
+   "languageId": "wolfram",
+   "mime": "text/plain",
+   "outputs": [
+    {
+     "items": [
+      {
+       "data": "<div class=\"wexpr\"><wfrac><w><wsqrt><w><w>\\</w></w><w></w><w><wrow><w></w><wfrac class=\"script\"><w><wrow><w></w><wrow><w></w><wsup><w></w><w>a</w><w><w>2</w></w></wsup><w></w><wsup><w></w><w>chi</w><w><w>2</w></w></wsup></wrow><w>-</w><wrow><w></w><w>2</w><w></w><w>M</w><w></w><w>r</w></wrow><w>+</w><wsup><w></w><w>r</w><w><w>2</w></w></wsup></wrow></w><w><w></w><w><wrow><w></w><wrow><w></w><wsup><w></w><w>a</w><w><w>2</w></w></wsup><w></w><wsup><w></w><w>chi</w><w><w>2</w></w></wsup></wrow><w>+</w><wsup><w></w><w>r</w><w><w>2</w></w></wsup></wrow></w></w></wfrac><w>+</w><wfrac class=\"script\"><w><wrow><w></w><w>2</w><w></w><w>a</w><w></w><w>M</w><w></w><w>r</w><w></w><wrow><w></w><wb>(</wb><wrow><w></w><wrow><w></w><wsup><w></w><w>a</w><w><w>2</w></w></wsup><w></w><wsup><w></w><w>chi</w><w><w>2</w></w></wsup></wrow><w>+</w><wsup><w></w><w>r</w><w><w>2</w></w></wsup></wrow><wb>)</wb></wrow><w></w><wrow><w></w><wb>(</wb><wrow><w></w><wrow><w></w><w>-</w><wfrac class=\"script\"><w><wrow><w></w><w>2</w><w></w><w>a</w><w></w><wrow><w></w><wb>(</wb><wrow><w></w><wrow><w></w><w>-</w><w>1</w></wrow><w>+</w><wsup><w></w><w>chi</w><w><w>2</w></w></wsup></wrow><wb>)</wb></wrow><w></w><w>M</w><w></w><wrow><w></w><wb>(</wb><wrow><w></w><wrow><w></w><wsup><w></w><w>a</w><w><w>2</w></w></wsup><w></w><wsup><w></w><w>chi</w><w><w>2</w></w></wsup></wrow><w>-</w><wsup><w></w><w>r</w><w><w>2</w></w></wsup></wrow><wb>)</wb></wrow></wrow></w><w><w></w><w><wsup><w></w><wrow><w></w><wb>(</wb><wrow><w></w><wrow><w></w><wsup><w></w><w>a</w><w><w>2</w></w></wsup><w></w><wsup><w></w><w>chi</w><w><w>2</w></w></wsup></wrow><w>+</w><wsup><w></w><w>r</w><w><w>2</w></w></wsup></wrow><wb>)</wb></wrow><w><w>2</w></w></wsup></w></w></wfrac></wrow><w>+</w><wsqrt><w><w>\\</w></w><w></w><w><wrow><w></w><wfrac class=\"script\"><w><wrow><w></w><w>4</w><w></w><wsup><w></w><w>a</w><w><w>2</w></w></wsup><w></w><wsup><w></w><wrow><w></w><wb>(</wb><wrow><w></w><wrow><w></w><w>-</w><w>1</w></wrow><w>+</w><wsup><w></w><w>chi</w><w><w>2</w></w></wsup></wrow><wb>)</wb></wrow><w><w>2</w></w></wsup><w></w><wsup><w></w><w>M</w><w><w>2</w></w></wsup><w></w><wsup><w></w><wrow><w></w><wb>(</wb><wrow><w></w><wrow><w></w><wsup><w></w><w>a</w><w><w>2</w></w></wsup><w></w><wsup><w></w><w>chi</w><w><w>2</w></w></wsup></wrow><w>-</w><wsup><w></w><w>r</w><w><w>2</w></w></wsup></wrow><wb>)</wb></wrow><w><w>2</w></w></wsup></wrow></w><w><w></w><w><wsup><w></w><wrow><w></w><wb>(</wb><wrow><w></w><wrow><w></w><wsup><w></w><w>a</w><w><w>2</w></w></wsup><w></w><wsup><w></w><w>chi</w><w><w>2</w></w></wsup></wrow><w>+</w><wsup><w></w><w>r</w><w><w>2</w></w></wsup></wrow><wb>)</wb></wrow><w><w>4</w></w></wsup></w></w></wfrac><w>+</w><wfrac class=\"script\"><w><wrow><w></w><w>4</w><w></w><wrow><w></w><wb>(</wb><wrow><w></w><wrow><w></w><w>-</w><w>1</w></wrow><w>+</w><wsup><w></w><w>chi</w><w><w>2</w></w></wsup></wrow><wb>)</wb></wrow><w></w><w>M</w><w></w><wrow><w></w><wb>(</wb><wrow><w></w><wrow><w></w><wsup><w></w><w>a</w><w><w>2</w></w></wsup><w></w><wsup><w></w><w>chi</w><w><w>2</w></w></wsup></wrow><w>-</w><wsup><w></w><w>r</w><w><w>2</w></w></wsup></wrow><wb>)</wb></wrow><w></w><wrow><w></w><wb>(</wb><wrow><w></w><wsup><w></w><w>r</w><w><w>5</w></w></wsup><w>+</w><wrow><w></w><wsup><w></w><w>a</w><w><w>2</w></w></wsup><w></w><wsup><w></w><w>r</w><w><w>2</w></w></wsup><w></w><wrow><w></w><wb>(</wb><wrow><w></w><wrow><w></w><wrow><w></w><wb>(</wb><wrow><w></w><wrow><w></w><w>-</w><w>1</w></wrow><w>+</w><wsup><w></w><w>chi</w><w><w>2</w></w></wsup></wrow><wb>)</wb></wrow><w></w><w>M</w></wrow><w>+</w><wrow><w></w><w>2</w><w></w><wsup><w></w><w>chi</w><w><w>2</w></w></wsup><w></w><w>r</w></wrow></wrow><wb>)</wb></wrow></wrow><w>+</w><wrow><w></w><wsup><w></w><w>a</w><w><w>4</w></w></wsup><w></w><wrow><w></w><wb>(</wb><wrow><w></w><wrow><w></w><wsup><w></w><w>chi</w><w><w>2</w></w></wsup><w></w><w>M</w></wrow><w>+</w><wrow><w></w><wsup><w></w><w>chi</w><w><w>4</w></w></wsup><w></w><wrow><w></w><wb>(</wb><wrow><w></w><wrow><w></w><w>-</w><w>M</w></wrow><w>+</w><w>r</w></wrow><wb>)</wb></wrow></wrow></wrow><wb>)</wb></wrow></wrow></wrow><wb>)</wb></wrow></wrow></w><w><w></w><w><wsup><w></w><wrow><w></w><wb>(</wb><wrow><w></w><wrow><w></w><wsup><w></w><w>a</w><w><w>2</w></w></wsup><w></w><wsup><w></w><w>chi</w><w><w>2</w></w></wsup></wrow><w>+</w><wsup><w></w><w>r</w><w><w>2</w></w></wsup></wrow><wb>)</wb></wrow><w><w>4</w></w></wsup></w></w></wfrac></wrow></w></wsqrt></wrow><wb>)</wb></wrow></wrow></w><w><w></w><w><wrow><w></w><wsup><w></w><w>r</w><w><w>5</w></w></wsup><w>+</w><wrow><w></w><wsup><w></w><w>a</w><w><w>2</w></w></wsup><w></w><wsup><w></w><w>r</w><w><w>2</w></w></wsup><w></w><wrow><w></w><wb>(</wb><wrow><w></w><wrow><w></w><wrow><w></w><wb>(</wb><wrow><w></w><wrow><w></w><w>-</w><w>1</w></wrow><w>+</w><wsup><w></w><w>chi</w><w><w>2</w></w></wsup></wrow><wb>)</wb></wrow><w></w><w>M</w></wrow><w>+</w><wrow><w></w><w>2</w><w></w><wsup><w></w><w>chi</w><w><w>2</w></w></wsup><w></w><w>r</w></wrow></wrow><wb>)</wb></wrow></wrow><w>+</w><wrow><w></w><wsup><w></w><w>a</w><w><w>4</w></w></wsup><w></w><wrow><w></w><wb>(</wb><wrow><w></w><wrow><w></w><wsup><w></w><w>chi</w><w><w>2</w></w></wsup><w></w><w>M</w></wrow><w>+</w><wrow><w></w><wsup><w></w><w>chi</w><w><w>4</w></w></wsup><w></w><wrow><w></w><wb>(</wb><wrow><w></w><wrow><w></w><w>-</w><w>M</w></wrow><w>+</w><w>r</w></wrow><wb>)</wb></wrow></wrow></wrow><wb>)</wb></wrow></wrow></wrow></w></w></wfrac><w>+</w><wfrac class=\"script\"><w><wrow><w></w><wsup><w></w><wrow><w></w><wb>(</wb><wrow><w></w><wrow><w></w><wsup><w></w><w>a</w><w><w>2</w></w></wsup><w></w><wsup><w></w><w>chi</w><w><w>2</w></w></wsup></wrow><w>+</w><wsup><w></w><w>r</w><w><w>2</w></w></wsup></wrow><wb>)</wb></wrow><w><w>3</w></w></wsup><w></w><wrow><w></w><wb>(</wb><wrow><w></w><wrow><w></w><wsup><w></w><w>a</w><w><w>4</w></w></wsup><w></w><wsup><w></w><w>chi</w><w><w>2</w></w></wsup></wrow><w>+</w><wsup><w></w><w>r</w><w><w>4</w></w></wsup><w>+</w><wrow><w></w><wsup><w></w><w>a</w><w><w>2</w></w></wsup><w></w><w>r</w><w></w><wrow><w></w><wb>(</wb><wrow><w></w><wrow><w></w><w>2</w><w></w><w>M</w></wrow><w>-</w><wrow><w></w><w>2</w><w></w><wsup><w></w><w>chi</w><w><w>2</w></w></wsup><w></w><w>M</w></wrow><w>+</w><w>r</w><w>+</w><wrow><w></w><wsup><w></w><w>chi</w><w><w>2</w></w></wsup><w></w><w>r</w></wrow></wrow><wb>)</wb></wrow></wrow></wrow><wb>)</wb></wrow><w></w><wsup><w></w><wrow><w></w><wb>(</wb><wrow><w></w><wrow><w></w><w>-</w><wfrac class=\"script\"><w><wrow><w></w><w>2</w><w></w><w>a</w><w></w><wrow><w></w><wb>(</wb><wrow><w></w><wrow><w></w><w>-</w><w>1</w></wrow><w>+</w><wsup><w></w><w>chi</w><w><w>2</w></w></wsup></wrow><wb>)</wb></wrow><w></w><w>M</w><w></w><wrow><w></w><wb>(</wb><wrow><w></w><wrow><w></w><wsup><w></w><w>a</w><w><w>2</w></w></wsup><w></w><wsup><w></w><w>chi</w><w><w>2</w></w></wsup></wrow><w>-</w><wsup><w></w><w>r</w><w><w>2</w></w></wsup></wrow><wb>)</wb></wrow></wrow></w><w><w></w><w><wsup><w></w><wrow><w></w><wb>(</wb><wrow><w></w><wrow><w></w><wsup><w></w><w>a</w><w><w>2</w></w></wsup><w></w><wsup><w></w><w>chi</w><w><w>2</w></w></wsup></wrow><w>+</w><wsup><w></w><w>r</w><w><w>2</w></w></wsup></wrow><wb>)</wb></wrow><w><w>2</w></w></wsup></w></w></wfrac></wrow><w>+</w><wsqrt><w><w>\\</w></w><w></w><w><wrow><w></w><wfrac class=\"script\"><w><wrow><w></w><w>4</w><w></w><wsup><w></w><w>a</w><w><w>2</w></w></wsup><w></w><wsup><w></w><wrow><w></w><wb>(</wb><wrow><w></w><wrow><w></w><w>-</w><w>1</w></wrow><w>+</w><wsup><w></w><w>chi</w><w><w>2</w></w></wsup></wrow><wb>)</wb></wrow><w><w>2</w></w></wsup><w></w><wsup><w></w><w>M</w><w><w>2</w></w></wsup><w></w><wsup><w></w><wrow><w></w><wb>(</wb><wrow><w></w><wrow><w></w><wsup><w></w><w>a</w><w><w>2</w></w></wsup><w></w><wsup><w></w><w>chi</w><w><w>2</w></w></wsup></wrow><w>-</w><wsup><w></w><w>r</w><w><w>2</w></w></wsup></wrow><wb>)</wb></wrow><w><w>2</w></w></wsup></wrow></w><w><w></w><w><wsup><w></w><wrow><w></w><wb>(</wb><wrow><w></w><wrow><w></w><wsup><w></w><w>a</w><w><w>2</w></w></wsup><w></w><wsup><w></w><w>chi</w><w><w>2</w></w></wsup></wrow><w>+</w><wsup><w></w><w>r</w><w><w>2</w></w></wsup></wrow><wb>)</wb></wrow><w><w>4</w></w></wsup></w></w></wfrac><w>+</w><wfrac class=\"script\"><w><wrow><w></w><w>4</w><w></w><wrow><w></w><wb>(</wb><wrow><w></w><wrow><w></w><w>-</w><w>1</w></wrow><w>+</w><wsup><w></w><w>chi</w><w><w>2</w></w></wsup></wrow><wb>)</wb></wrow><w></w><w>M</w><w></w><wrow><w></w><wb>(</wb><wrow><w></w><wrow><w></w><wsup><w></w><w>a</w><w><w>2</w></w></wsup><w></w><wsup><w></w><w>chi</w><w><w>2</w></w></wsup></wrow><w>-</w><wsup><w></w><w>r</w><w><w>2</w></w></wsup></wrow><wb>)</wb></wrow><w></w><wrow><w></w><wb>(</wb><wrow><w></w><wsup><w></w><w>r</w><w><w>5</w></w></wsup><w>+</w><wrow><w></w><wsup><w></w><w>a</w><w><w>2</w></w></wsup><w></w><wsup><w></w><w>r</w><w><w>2</w></w></wsup><w></w><wrow><w></w><wb>(</wb><wrow><w></w><wrow><w></w><wrow><w></w><wb>(</wb><wrow><w></w><wrow><w></w><w>-</w><w>1</w></wrow><w>+</w><wsup><w></w><w>chi</w><w><w>2</w></w></wsup></wrow><wb>)</wb></wrow><w></w><w>M</w></wrow><w>+</w><wrow><w></w><w>2</w><w></w><wsup><w></w><w>chi</w><w><w>2</w></w></wsup><w></w><w>r</w></wrow></wrow><wb>)</wb></wrow></wrow><w>+</w><wrow><w></w><wsup><w></w><w>a</w><w><w>4</w></w></wsup><w></w><wrow><w></w><wb>(</wb><wrow><w></w><wrow><w></w><wsup><w></w><w>chi</w><w><w>2</w></w></wsup><w></w><w>M</w></wrow><w>+</w><wrow><w></w><wsup><w></w><w>chi</w><w><w>4</w></w></wsup><w></w><wrow><w></w><wb>(</wb><wrow><w></w><wrow><w></w><w>-</w><w>M</w></wrow><w>+</w><w>r</w></wrow><wb>)</wb></wrow></wrow></wrow><wb>)</wb></wrow></wrow></wrow><wb>)</wb></wrow></wrow></w><w><w></w><w><wsup><w></w><wrow><w></w><wb>(</wb><wrow><w></w><wrow><w></w><wsup><w></w><w>a</w><w><w>2</w></w></wsup><w></w><wsup><w></w><w>chi</w><w><w>2</w></w></wsup></wrow><w>+</w><wsup><w></w><w>r</w><w><w>2</w></w></wsup></wrow><wb>)</wb></wrow><w><w>4</w></w></wsup></w></w></wfrac></wrow></w></wsqrt></wrow><wb>)</wb></wrow><w><w>2</w></w></wsup></wrow></w><w><w></w><w><wrow><w></w><w>4</w><w></w><wrow><w></w><wb>(</wb><wrow><w></w><wrow><w></w><w>-</w><w>1</w></wrow><w>+</w><wsup><w></w><w>chi</w><w><w>2</w></w></wsup></wrow><wb>)</wb></wrow><w></w><wsup><w></w><wrow><w></w><wb>(</wb><wrow><w></w><wsup><w></w><w>r</w><w><w>5</w></w></wsup><w>+</w><wrow><w></w><wsup><w></w><w>a</w><w><w>2</w></w></wsup><w></w><wsup><w></w><w>r</w><w><w>2</w></w></wsup><w></w><wrow><w></w><wb>(</wb><wrow><w></w><wrow><w></w><wrow><w></w><wb>(</wb><wrow><w></w><wrow><w></w><w>-</w><w>1</w></wrow><w>+</w><wsup><w></w><w>chi</w><w><w>2</w></w></wsup></wrow><wb>)</wb></wrow><w></w><w>M</w></wrow><w>+</w><wrow><w></w><w>2</w><w></w><wsup><w></w><w>chi</w><w><w>2</w></w></wsup><w></w><w>r</w></wrow></wrow><wb>)</wb></wrow></wrow><w>+</w><wrow><w></w><wsup><w></w><w>a</w><w><w>4</w></w></wsup><w></w><wrow><w></w><wb>(</wb><wrow><w></w><wrow><w></w><wsup><w></w><w>chi</w><w><w>2</w></w></wsup><w></w><w>M</w></wrow><w>+</w><wrow><w></w><wsup><w></w><w>chi</w><w><w>4</w></w></wsup><w></w><wrow><w></w><wb>(</wb><wrow><w></w><wrow><w></w><w>-</w><w>M</w></wrow><w>+</w><w>r</w></wrow><wb>)</wb></wrow></wrow></wrow><wb>)</wb></wrow></wrow></wrow><wb>)</wb></wrow><w><w>2</w></w></wsup></wrow></w></w></wfrac></wrow></w></wsqrt></w><w><w></w><w><wrow><w></w><w>1</w><w>+</w><wfrac class=\"script\"><w><wrow><w></w><w>ktkp</w><w></w><wsup><w></w><wrow><w></w><wb>(</wb><wrow><w></w><wrow><w></w><wsup><w></w><w>a</w><w><w>2</w></w></wsup><w></w><wsup><w></w><w>chi</w><w><w>2</w></w></wsup></wrow><w>+</w><wsup><w></w><w>r</w><w><w>2</w></w></wsup></wrow><wb>)</wb></wrow><w><w>2</w></w></wsup><w></w><wrow><w></w><wb>(</wb><wrow><w></w><wrow><w></w><w>-</w><wfrac class=\"script\"><w><wrow><w></w><w>2</w><w></w><w>a</w><w></w><wrow><w></w><wb>(</wb><wrow><w></w><wrow><w></w><w>-</w><w>1</w></wrow><w>+</w><wsup><w></w><w>chi</w><w><w>2</w></w></wsup></wrow><wb>)</wb></wrow><w></w><w>M</w><w></w><wrow><w></w><wb>(</wb><wrow><w></w><wrow><w></w><wsup><w></w><w>a</w><w><w>2</w></w></wsup><w></w><wsup><w></w><w>chi</w><w><w>2</w></w></wsup></wrow><w>-</w><wsup><w></w><w>r</w><w><w>2</w></w></wsup></wrow><wb>)</wb></wrow></wrow></w><w><w></w><w><wsup><w></w><wrow><w></w><wb>(</wb><wrow><w></w><wrow><w></w><wsup><w></w><w>a</w><w><w>2</w></w></wsup><w></w><wsup><w></w><w>chi</w><w><w>2</w></w></wsup></wrow><w>+</w><wsup><w></w><w>r</w><w><w>2</w></w></wsup></wrow><wb>)</wb></wrow><w><w>2</w></w></wsup></w></w></wfrac></wrow><w>+</w><wsqrt><w><w>\\</w></w><w></w><w><wrow><w></w><wfrac class=\"script\"><w><wrow><w></w><w>4</w><w></w><wsup><w></w><w>a</w><w><w>2</w></w></wsup><w></w><wsup><w></w><wrow><w></w><wb>(</wb><wrow><w></w><wrow><w></w><w>-</w><w>1</w></wrow><w>+</w><wsup><w></w><w>chi</w><w><w>2</w></w></wsup></wrow><wb>)</wb></wrow><w><w>2</w></w></wsup><w></w><wsup><w></w><w>M</w><w><w>2</w></w></wsup><w></w><wsup><w></w><wrow><w></w><wb>(</wb><wrow><w></w><wrow><w></w><wsup><w></w><w>a</w><w><w>2</w></w></wsup><w></w><wsup><w></w><w>chi</w><w><w>2</w></w></wsup></wrow><w>-</w><wsup><w></w><w>r</w><w><w>2</w></w></wsup></wrow><wb>)</wb></wrow><w><w>2</w></w></wsup></wrow></w><w><w></w><w><wsup><w></w><wrow><w></w><wb>(</wb><wrow><w></w><wrow><w></w><wsup><w></w><w>a</w><w><w>2</w></w></wsup><w></w><wsup><w></w><w>chi</w><w><w>2</w></w></wsup></wrow><w>+</w><wsup><w></w><w>r</w><w><w>2</w></w></wsup></wrow><wb>)</wb></wrow><w><w>4</w></w></wsup></w></w></wfrac><w>+</w><wfrac class=\"script\"><w><wrow><w></w><w>4</w><w></w><wrow><w></w><wb>(</wb><wrow><w></w><wrow><w></w><w>-</w><w>1</w></wrow><w>+</w><wsup><w></w><w>chi</w><w><w>2</w></w></wsup></wrow><wb>)</wb></wrow><w></w><w>M</w><w></w><wrow><w></w><wb>(</wb><wrow><w></w><wrow><w></w><wsup><w></w><w>a</w><w><w>2</w></w></wsup><w></w><wsup><w></w><w>chi</w><w><w>2</w></w></wsup></wrow><w>-</w><wsup><w></w><w>r</w><w><w>2</w></w></wsup></wrow><wb>)</wb></wrow><w></w><wrow><w></w><wb>(</wb><wrow><w></w><wsup><w></w><w>r</w><w><w>5</w></w></wsup><w>+</w><wrow><w></w><wsup><w></w><w>a</w><w><w>2</w></w></wsup><w></w><wsup><w></w><w>r</w><w><w>2</w></w></wsup><w></w><wrow><w></w><wb>(</wb><wrow><w></w><wrow><w></w><wrow><w></w><wb>(</wb><wrow><w></w><wrow><w></w><w>-</w><w>1</w></wrow><w>+</w><wsup><w></w><w>chi</w><w><w>2</w></w></wsup></wrow><wb>)</wb></wrow><w></w><w>M</w></wrow><w>+</w><wrow><w></w><w>2</w><w></w><wsup><w></w><w>chi</w><w><w>2</w></w></wsup><w></w><w>r</w></wrow></wrow><wb>)</wb></wrow></wrow><w>+</w><wrow><w></w><wsup><w></w><w>a</w><w><w>4</w></w></wsup><w></w><wrow><w></w><wb>(</wb><wrow><w></w><wrow><w></w><wsup><w></w><w>chi</w><w><w>2</w></w></wsup><w></w><w>M</w></wrow><w>+</w><wrow><w></w><wsup><w></w><w>chi</w><w><w>4</w></w></wsup><w></w><wrow><w></w><wb>(</wb><wrow><w></w><wrow><w></w><w>-</w><w>M</w></wrow><w>+</w><w>r</w></wrow><wb>)</wb></wrow></wrow></wrow><wb>)</wb></wrow></wrow></wrow><wb>)</wb></wrow></wrow></w><w><w></w><w><wsup><w></w><wrow><w></w><wb>(</wb><wrow><w></w><wrow><w></w><wsup><w></w><w>a</w><w><w>2</w></w></wsup><w></w><wsup><w></w><w>chi</w><w><w>2</w></w></wsup></wrow><w>+</w><wsup><w></w><w>r</w><w><w>2</w></w></wsup></wrow><wb>)</wb></wrow><w><w>4</w></w></wsup></w></w></wfrac></wrow></w></wsqrt></wrow><wb>)</wb></wrow></wrow></w><w><w></w><w><wrow><w></w><w>2</w><w></w><wrow><w></w><wb>(</wb><wrow><w></w><wrow><w></w><w>-</w><w>1</w></wrow><w>+</w><wsup><w></w><w>chi</w><w><w>2</w></w></wsup></wrow><wb>)</wb></wrow><w></w><wrow><w></w><wb>(</wb><wrow><w></w><wsup><w></w><w>r</w><w><w>5</w></w></wsup><w>+</w><wrow><w></w><wsup><w></w><w>a</w><w><w>2</w></w></wsup><w></w><wsup><w></w><w>r</w><w><w>2</w></w></wsup><w></w><wrow><w></w><wb>(</wb><wrow><w></w><wrow><w></w><wrow><w></w><wb>(</wb><wrow><w></w><wrow><w></w><w>-</w><w>1</w></wrow><w>+</w><wsup><w></w><w>chi</w><w><w>2</w></w></wsup></wrow><wb>)</wb></wrow><w></w><w>M</w></wrow><w>+</w><wrow><w></w><w>2</w><w></w><wsup><w></w><w>chi</w><w><w>2</w></w></wsup><w></w><w>r</w></wrow></wrow><wb>)</wb></wrow></wrow><w>+</w><wrow><w></w><wsup><w></w><w>a</w><w><w>4</w></w></wsup><w></w><wrow><w></w><wb>(</wb><wrow><w></w><wrow><w></w><wsup><w></w><w>chi</w><w><w>2</w></w></wsup><w></w><w>M</w></wrow><w>+</w><wrow><w></w><wsup><w></w><w>chi</w><w><w>4</w></w></wsup><w></w><wrow><w></w><wb>(</wb><wrow><w></w><wrow><w></w><w>-</w><w>M</w></wrow><w>+</w><w>r</w></wrow><wb>)</wb></wrow></wrow></wrow><wb>)</wb></wrow></wrow></wrow><wb>)</wb></wrow></wrow></w></w></wfrac></wrow></w></w></wfrac></div>",
+       "mime": "x-application/wolfram-language-html"
+      },
+      {
+       "data": "Sqrt[(a^2*chi^2 - 2*M*r + r^2)/(a^2*chi^2 + r^2) + (2*a*M*r*(a^2*chi^2 + r^2)*((-2*a*(-1 + chi^2)*M*(a^2*chi^2 - r^2))/(a^2*chi^2 + r^2)^2 + Sqrt[(4*a^2*(-1 + chi^2)^2*M^2*(a^2*chi^2 - r^2)^2)/(a^2*chi^2 + r^2)^4 + (4*(-1 + chi^2)*M*(a^2*chi^2 - r^2)*(r^5 + a^2*r^2*((-1 + chi^2)*M + 2*chi^2*r) + a^4*(chi^2*M + chi^4*(-M + r))))/(a^2*chi^2 + r^2)^4]))/(r^5 + a^2*r^2*((-1 + chi^2)*M + 2*chi^2*r) + a^4*(chi^2*M + chi^4*(-M + r))) + ((a^2*chi^2 + r^2)^3*(a^4*chi^2 + r^4 + a^2*r*(2*M - 2*chi^2*M + r + chi^2*r))*((-2*a*(-1 + chi^2)*M*(a^2*chi^2 - r^2))/(a^2*chi^2 + r^2)^2 + Sqrt[(4*a^2*(-1 + chi^2)^2*M^2*(a^2*chi^2 - r^2)^2)/(a^2*chi^2 + r^2)^4 + (4*(-1 + chi^2)*M*(a^2*chi^2 - r^2)*(r^5 + a^2*r^2*((-1 + chi^2)*M + 2*chi^2*r) + a^4*(chi^2*M + chi^4*(-M + r))))/(a^2*chi^2 + r^2)^4])^2)/(4*(-1 + chi^2)*(r^5 + a^2*r^2*((-1 + chi^2)*M + 2*chi^2*r) + a^4*(chi^2*M + chi^4*(-M + r)))^2)]/(1 + (ktkp*(a^2*chi^2 + r^2)^2*((-2*a*(-1 + chi^2)*M*(a^2*chi^2 - r^2))/(a^2*chi^2 + r^2)^2 + Sqrt[(4*a^2*(-1 + chi^2)^2*M^2*(a^2*chi^2 - r^2)^2)/(a^2*chi^2 + r^2)^4 + (4*(-1 + chi^2)*M*(a^2*chi^2 - r^2)*(r^5 + a^2*r^2*((-1 + chi^2)*M + 2*chi^2*r) + a^4*(chi^2*M + chi^4*(-M + r))))/(a^2*chi^2 + r^2)^4]))/(2*(-1 + chi^2)*(r^5 + a^2*r^2*((-1 + chi^2)*M + 2*chi^2*r) + a^4*(chi^2*M + chi^4*(-M + r)))))",
+       "mime": "text/plain"
+      }
+     ],
+     "id": "c63dd088-ab59-4003-8466-97f99c158529",
+     "metadata": {
+      "cellLabel": "Out[515]= ",
+      "isBoxData": false
+     }
+    }
+   ],
+   "metadata": {},
+   "executionSummary": {
+    "timing": {
+     "startTime": 1719027507181,
+     "endTime": 1719027507395
+    },
+    "executionOrder": 515,
+    "success": true
+   }
+  },
+  {
+   "kind": 2,
+   "value": "se = -(G[[1]][[1]] + G[[1]][[4]]*omega)*uet /. theta -> Pi/2;",
+   "languageId": "wolfram",
+   "outputs": [],
+   "metadata": {},
+   "executionSummary": {
+    "timing": {
+     "startTime": 1719027507396,
+     "endTime": 1719027507462
+    },
+    "executionOrder": 516,
+    "success": true
+   }
+  },
+  {
+   "kind": 2,
+   "value": "Lzsub = -(G[[1]][[4]] + G[[4]][[4]]*omega)*uet /. theta -> Pi/2;",
+   "languageId": "wolfram",
+   "outputs": [],
+   "metadata": {},
+   "executionSummary": {
+    "timing": {
+     "startTime": 1719027507462,
+     "endTime": 1719027507540
+    },
+    "executionOrder": 517,
+    "success": true
+   }
+  },
+  {
+   "kind": 2,
+   "value": "(* ::Package:: *)\r\n\r\nBeginPackage[ \"OptimizeExpressionToC`\"]\r\n\r\nOptimizeExpressionToC::usage = \"Generates optimized version of expression in C\";\r\n\r\nExtractTags::usage = \"\";\r\nClearTagText::usage = \"\";\r\nTagExistQ::usage = \"\";\r\nAppendToTag::usage = \"\";\r\n\r\nBegin[ \"Private`\"]\r\n\r\nOptimizeExpressionToC[expr_List] :=\r\n\tModule[ {optimizedExpr, mainExpr, n, m, defs, output},\r\n\t\toptimizedExpr = Experimental`OptimizeExpression[expr];\r\n\t\tIf[ ToString@optimizedExpr[[1, 0]] == \"Block\",\r\n\t\t    {n = Length[optimizedExpr[[1, 1]]];\r\n\t\t     mainExpr = optimizedExpr[[1, 2, n + 1]];},\r\n\t\t    {n = 0;\r\n\t\t     mainExpr = Flatten@{optimizedExpr[[1]]};}\r\n\t\t];\r\n\t\tm = Length[mainExpr];\r\n\t\t\r\n\t\tdefs  = \r\n\t\tTable[ \"double \" <>\r\n\t\t\t       ToString@CForm@optimizedExpr[[1, 2, i, 1]]  <>\r\n\t\t\t       \" = \" <>\r\n\t\t\t       ToString@CForm@optimizedExpr[[1, 2, i, 2]] <>\r\n     \t\t\t       \";\",\r\n    \t\t       {i, 1, n}];\r\n\t\t\r\n\t\toutput = \r\n\r\n\t\t       MapIndexed[ \"out(\"<>StringJoin@Riffle[ToString/@(#2-1),\"\"]<>\") = \" <> ToString@CForm@#1 <>\";\" &,\r\n\t\t\t\t\t mainExpr, {ArrayDepth[mainExpr]}];\r\n\t\t\r\n\t\tStringReplace[Join[defs,output], \"Compile_$\" -> \"t\"]\r\n\t];\r\n\r\nEnd[]\r\n\r\n\r\nExtractTags[string_String] :=\r\n\tModule[ {regex, extractTag},\r\n\t\tregex = RegularExpression[\"\\\\n([^\\\\n]*)// (\\\\[|</?)([^\\\\]\\\\n]*)(\\\\]|>)[^\\\\n]*\\\\n\"];\r\n\t\t\r\n\t\textractTag[bounds_] := Module[{substring, indentation, tagType, tag},\r\n\t\t\t\t\t      substring = StringTake[string, bounds];\r\n\t\t\t\t\t      {{indentation, tagType, tag}} = \r\n\t\t\t\t\t      StringCases[substring, regex -> {\"$1\", \"$2\", \"$3\"}];\r\n\t\t\t\t\t      Association[\"indentation\" -> indentation,\r\n\t\t\t\t\t\t\t  \"tagType\" -> tagType, \r\n\t\t\t\t\t\t\t  \"tag\" -> tag , \"start\" -> bounds[[1]] + 1, \r\n\t\t\t\t\t\t\t  \"end\" -> bounds[[2]]]\r\n\t\t\t\t       ];\r\n\t\t\r\n\t\textractTag[#] & /@ StringPosition[string, regex]\r\n\t];\r\n\r\nTagExistQ[string_String, tag_String] := AnyTrue[ExtractTags[string], #[[\"tag\"]]==tag &];\r\n\r\nClearTagText[string_String, tag_String] :=\r\n\tModule[{tags, startTag, endTag, x},\r\n\t       tags = ExtractTags[string];\r\n\t       startTag = FirstCase[tags, x_ /; x[[\"tag\"]] == tag  && x[[\"tagType\"]] == \"<\"];\r\n\t       endTag = FirstCase[tags, x_ /; x[[\"tag\"]] == tag  && x[[\"tagType\"]] == \"</\"];\r\n\t       \r\n\t       StringTake[string, {1, startTag[[\"end\"]]}] <> \r\n\t\t\t StringTake[string, {endTag[[\"start\"]], StringLength[string]}]\r\n\t]\r\n\r\nAppendToTag[string_String,  tag_String, linesToAppend_List] := \r\n\tModule[{tags, startTag, indent, x},\r\n\t       tags = ExtractTags[string];\r\n\t       startTag = FirstCase[tags, x_ /; x[[\"tag\"]] == tag  && x[[\"tagType\"]] == \"<\"];\r\n\t       indent = startTag[[\"indentation\"]];\r\n\t       \r\n\t       StringTake[string, {1, startTag[[\"end\"]]}] <> \r\n\t\t\t StringRiffle[ linesToAppend, {indent, \"\\n\" <> indent, \"\\n\"}] <>\r\n\t\t\t StringTake[ string, {startTag[[\"end\"]] + 1, StringLength[string]}]\r\n\t];\r\n\r\nAppendToTag[string_String,  tag_String, stringToAppend_String] :=\r\n\tAppendToTag[string, tag, StringSplit[stringToAppend,\"\\n\"]];\r\n\r\n\r\nEndPackage[]",
+   "languageId": "wolfram",
+   "outputs": [
+    {
+     "items": [
+      {
+       "data": "<div class=\"wexpr\"><w>OptimizeExpressionToC`</w></div>",
+       "mime": "x-application/wolfram-language-html"
+      },
+      {
+       "data": "\"OptimizeExpressionToC`\"",
+       "mime": "text/plain"
+      }
+     ],
+     "id": "d5e02f82-9350-4ee3-bedf-97467f3afa26",
+     "metadata": {
+      "cellLabel": "Out[518]= ",
+      "isBoxData": false
+     }
+    },
+    {
+     "items": [
+      {
+       "data": "<div class=\"wexpr\"><w>Private`</w></div>",
+       "mime": "x-application/wolfram-language-html"
+      },
+      {
+       "data": "\"Private`\"",
+       "mime": "text/plain"
+      }
+     ],
+     "id": "dd556c15-8e23-463e-9c86-4504a1dcaa90",
+     "metadata": {
+      "cellLabel": "Out[524]= ",
+      "isBoxData": false
+     }
+    },
+    {
+     "items": [
+      {
+       "data": "<div class=\"wexpr\"><w>Private`</w></div>",
+       "mime": "x-application/wolfram-language-html"
+      },
+      {
+       "data": "\"Private`\"",
+       "mime": "text/plain"
+      }
+     ],
+     "id": "ec2293fc-df69-4ff4-b0af-9191a9bbf3d6",
+     "metadata": {
+      "cellLabel": "Out[526]= ",
+      "isBoxData": false
+     }
+    }
+   ],
+   "metadata": {},
+   "executionSummary": {
+    "timing": {
+     "startTime": 1719027507540,
+     "endTime": 1719027508837
+    },
+    "executionOrder": 518,
+    "success": true
+   }
+  },
+  {
+   "kind": 2,
+   "value": "M = 1;\r\na = spin;",
+   "languageId": "wolfram",
+   "outputs": [],
+   "metadata": {},
+   "executionSummary": {
+    "timing": {
+     "startTime": 1719027508837,
+     "endTime": 1719027509010
+    },
+    "executionOrder": 533,
+    "success": true
+   }
+  },
+  {
+   "kind": 2,
+   "value": "OptimizeExpressionToC[{\r\n   G[[1]][[1]], G[[1]][[2]], G[[1]][[3]], G[[1]][[4]], \r\n   G[[2]][[1]], G[[2]][[2]], G[[2]][[3]], G[[2]][[4]],\r\n   G[[3]][[1]], G[[3]][[2]], G[[3]][[3]], G[[3]][[4]],\r\n   G[[4]][[1]], G[[4]][[2]], G[[4]][[3]], G[[4]][[4]]\r\n   }];\r\nmeat = ToString[Column[StringReplace[%, {\r\n   \"Sqrt\" -> \"sqrt\", \"Power(E,\" -> \"exp(\", \"Power\" -> \"pow\", \"Sin\" -> \"sin\", \"Cos\" -> \"cos\", \"Csc\" -> \"1/sin\", \"Cot\" -> \"1/tan\",\r\n   \"double\" -> \"double\", \";,\" -> \";\\n    \",\r\n   \"out(0)\" -> \"g[0][0]\", \"out(1)\" -> \"g[0][1]\", \"out(2)\" -> \"g[0][2]\", \"out(3)\" -> \"g[0][3]\",\r\n   \"out(4)\" -> \"g[1][0]\", \"out(5)\" -> \"g[1][1]\", \"out(6)\" -> \"g[1][2]\", \"out(7)\" -> \"g[1][3]\",\r\n   \"out(8)\" -> \"g[2][0]\", \"out(9)\" -> \"g[2][1]\", \"out(10)\" -> \"g[2][2]\", \"out(11)\" -> \"g[2][3]\",\r\n   \"out(12)\" -> \"g[3][0]\", \"out(13)\" -> \"g[3][1]\", \"out(14)\" -> \"g[3][2]\", \"out(15)\" -> \"g[3][3]\"\r\n   }]]];\r\nheader = \"void metric(double r, double chi, double g[4][4])\\n{\\n\";\r\nfooter = \"\\n}\";\r\nmetric = header <> meat <> footer;",
+   "languageId": "wolfram",
+   "outputs": [],
+   "metadata": {},
+   "executionSummary": {
+    "timing": {
+     "startTime": 1719027509010,
+     "endTime": 1719027509400
+    },
+    "executionOrder": 535,
+    "success": true
+   }
+  },
+  {
+   "kind": 2,
+   "value": "OptimizeExpressionToC[{\r\n   dGdr[[1]][[1]], dGdr[[1]][[2]], dGdr[[1]][[3]], dGdr[[1]][[4]], \r\n   dGdr[[2]][[1]], dGdr[[2]][[2]], dGdr[[2]][[3]], dGdr[[2]][[4]],\r\n   dGdr[[3]][[1]], dGdr[[3]][[2]], dGdr[[3]][[3]], dGdr[[3]][[4]],\r\n   dGdr[[4]][[1]], dGdr[[4]][[2]], dGdr[[4]][[3]], dGdr[[4]][[4]]\r\n   }];\r\nmeat = ToString[Column[StringReplace[%, {\r\n   \"Sqrt\" -> \"sqrt\", \"Power(E,\" -> \"exp(\", \"Power\" -> \"pow\", \"Sin\" -> \"sin\", \"Cos\" -> \"cos\", \"Csc\" -> \"1/sin\", \"Cot\" -> \"1/tan\",\r\n   \"double\" -> \"double\", \";,\" -> \";\\n    \",\r\n   \"out(0)\" -> \"dg[0][0]\", \"out(1)\" -> \"dg[0][1]\", \"out(2)\" -> \"dg[0][2]\", \"out(3)\" -> \"dg[0][3]\",\r\n   \"out(4)\" -> \"dg[1][0]\", \"out(5)\" -> \"dg[1][1]\", \"out(6)\" -> \"dg[1][2]\", \"out(7)\" -> \"dg[1][3]\",\r\n   \"out(8)\" -> \"dg[2][0]\", \"out(9)\" -> \"dg[2][1]\", \"out(10)\" -> \"dg[2][2]\", \"out(11)\" -> \"dg[2][3]\",\r\n   \"out(12)\" -> \"dg[3][0]\", \"out(13)\" -> \"dg[3][1]\", \"out(14)\" -> \"dg[3][2]\", \"out(15)\" -> \"dg[3][3]\"\r\n   }]]];\r\nheader = \"void metric_rderivatives(double r, double chi, double dg[4][4])\\n{\\n\";\r\nfooter = \"\\n}\";\r\nmetricdr = header <> meat <> footer;",
+   "languageId": "wolfram",
+   "outputs": [],
+   "metadata": {},
+   "executionSummary": {
+    "timing": {
+     "startTime": 1719027509400,
+     "endTime": 1719027509805
+    },
+    "executionOrder": 540,
+    "success": true
+   }
+  },
+  {
+   "kind": 2,
+   "value": "OptimizeExpressionToC[{\r\n   dGdr2[[1]][[1]], dGdr2[[1]][[2]], dGdr2[[1]][[3]], dGdr2[[1]][[4]], \r\n   dGdr2[[2]][[1]], dGdr2[[2]][[2]], dGdr2[[2]][[3]], dGdr2[[2]][[4]],\r\n   dGdr2[[3]][[1]], dGdr2[[3]][[2]], dGdr2[[3]][[3]], dGdr2[[3]][[4]],\r\n   dGdr2[[4]][[1]], dGdr2[[4]][[2]], dGdr2[[4]][[3]], dGdr2[[4]][[4]]\r\n   }];\r\nmeat = ToString[Column[StringReplace[%, {\r\n   \"Sqrt\" -> \"sqrt\", \"Power(E,\" -> \"exp(\", \"Power\" -> \"pow\", \"Sin\" -> \"sin\", \"Cos\" -> \"cos\", \"Csc\" -> \"1/sin\", \"Cot\" -> \"1/tan\",\r\n   \"double\" -> \"double\", \";,\" -> \";\\n    \",\r\n   \"out(0)\" -> \"dg2[0][0]\", \"out(1)\" -> \"dg2[0][1]\", \"out(2)\" -> \"dg2[0][2]\", \"out(3)\" -> \"dg2[0][3]\",\r\n   \"out(4)\" -> \"dg2[1][0]\", \"out(5)\" -> \"dg2[1][1]\", \"out(6)\" -> \"dg2[1][2]\", \"out(7)\" -> \"dg2[1][3]\",\r\n   \"out(8)\" -> \"dg2[2][0]\", \"out(9)\" -> \"dg2[2][1]\", \"out(10)\" -> \"dg2[2][2]\", \"out(11)\" -> \"dg2[2][3]\",\r\n   \"out(12)\" -> \"dg2[3][0]\", \"out(13)\" -> \"dg2[3][1]\", \"out(14)\" -> \"dg2[3][2]\", \"out(15)\" -> \"dg2[3][3]\"\r\n   }]]];\r\nheader = \"void metric_r2derivatives(double r, double chi, double dg2[4][4])\\n{\\n\";\r\nfooter = \"\\n}\";\r\nmetricdr2 = header <> meat <> footer;",
+   "languageId": "wolfram",
+   "outputs": [],
+   "metadata": {},
+   "executionSummary": {
+    "timing": {
+     "startTime": 1719027509805,
+     "endTime": 1719027510233
+    },
+    "executionOrder": 545,
+    "success": true
+   }
+  },
+  {
+   "kind": 2,
+   "value": "OptimizeExpressionToC[{\r\n   Ginv[[1]][[1]], Ginv[[1]][[2]], Ginv[[1]][[3]], Ginv[[1]][[4]], \r\n   Ginv[[2]][[1]], Ginv[[2]][[2]], Ginv[[2]][[3]], Ginv[[2]][[4]],\r\n   Ginv[[3]][[1]], Ginv[[3]][[2]], Ginv[[3]][[3]], Ginv[[3]][[4]],\r\n   Ginv[[4]][[1]], Ginv[[4]][[2]], Ginv[[4]][[3]], Ginv[[4]][[4]]\r\n   }];\r\nmeet = ToString[Column[StringReplace[%, {\r\n   \"Sqrt\" -> \"sqrt\", \"Power(E,\" -> \"exp(\", \"Power\" -> \"pow\", \"Sin\" -> \"sin\", \"Cos\" -> \"cos\", \"Csc\" -> \"1/sin\", \"Cot\" -> \"1/tan\",\r\n   \"double\" -> \"double\", \";,\" -> \";\\n    \",\r\n   \"out(0)\" -> \"gu[0][0]\", \"out(1)\" -> \"gu[0][1]\", \"out(2)\" -> \"gu[0][2]\", \"out(3)\" -> \"gu[0][3]\",\r\n   \"out(4)\" -> \"gu[1][0]\", \"out(5)\" -> \"gu[1][1]\", \"out(6)\" -> \"gu[1][2]\", \"out(7)\" -> \"gu[1][3]\",\r\n   \"out(8)\" -> \"gu[2][0]\", \"out(9)\" -> \"gu[2][1]\", \"out(10)\" -> \"gu[2][2]\", \"out(11)\" -> \"gu[2][3]\",\r\n   \"out(12)\" -> \"gu[3][0]\", \"out(13)\" -> \"gu[3][1]\", \"out(14)\" -> \"gu[3][2]\", \"out(15)\" -> \"gu[3][3]\"\r\n   }]]];\r\nheader = \"void uppermetric(double r, double chi, double gu[4][4])\\n{\\n\";\r\nfooter = \"\\n}\";\r\nmetricupper = header <> meet <> footer;",
+   "languageId": "wolfram",
+   "outputs": [],
+   "metadata": {},
+   "executionSummary": {
+    "timing": {
+     "startTime": 1719027510233,
+     "endTime": 1719027510620
+    },
+    "executionOrder": 550,
+    "success": true
+   }
+  },
+  {
+   "kind": 2,
+   "value": "output = metric <> \"\\n\\n\" <> metricupper <> \"\\n\\n\" <> metricdr <> \"\\n\\n\" <> metricdr2;\r\n\r\n(* write to metric.cpp file *)\r\nSetDirectory[\"C:\\\\Users\\\\WalkerXin\\\\Documents\\\\Scripts\\\\raytransfer\"];\r\nExport[\"metric.cpp\", output, \"Text\"]",
+   "languageId": "wolfram",
+   "outputs": [
+    {
+     "items": [
+      {
+       "data": "<div class=\"wexpr\"><w>metric.cpp</w></div>",
+       "mime": "x-application/wolfram-language-html"
+      },
+      {
+       "data": "\"metric.cpp\"",
+       "mime": "text/plain"
+      }
+     ],
+     "id": "4d8e9acb-e138-4784-9598-ded4b50c7131",
+     "metadata": {
+      "cellLabel": "Out[557]= ",
+      "isBoxData": false
+     }
+    }
+   ],
+   "metadata": {},
+   "executionSummary": {
+    "timing": {
+     "startTime": 1719027510620,
+     "endTime": 1719027510931
+    },
+    "executionOrder": 555,
+    "success": true
+   }
+  },
+  {
+   "kind": 2,
+   "value": "OptimizeExpressionToC[{\r\n   Christ[[1]][[1]][[1]], Christ[[1]][[1]][[2]], Christ[[1]][[1]][[3]], Christ[[1]][[1]][[4]],\r\n   Christ[[1]][[2]][[1]], Christ[[1]][[2]][[2]], Christ[[1]][[2]][[3]], Christ[[1]][[2]][[4]],\r\n   Christ[[1]][[3]][[1]], Christ[[1]][[3]][[2]], Christ[[1]][[3]][[3]], Christ[[1]][[3]][[4]],\r\n   Christ[[1]][[4]][[1]], Christ[[1]][[4]][[2]], Christ[[1]][[4]][[3]], Christ[[1]][[4]][[4]],\r\n   Christ[[2]][[1]][[1]], Christ[[2]][[1]][[2]], Christ[[2]][[1]][[3]], Christ[[2]][[1]][[4]],\r\n   Christ[[2]][[2]][[1]], Christ[[2]][[2]][[2]], Christ[[2]][[2]][[3]], Christ[[2]][[2]][[4]],\r\n   Christ[[2]][[3]][[1]], Christ[[2]][[3]][[2]], Christ[[2]][[3]][[3]], Christ[[2]][[3]][[4]],\r\n   Christ[[2]][[4]][[1]], Christ[[2]][[4]][[2]], Christ[[2]][[4]][[3]], Christ[[2]][[4]][[4]],\r\n   Christ[[3]][[1]][[1]], Christ[[3]][[1]][[2]], Christ[[3]][[1]][[3]], Christ[[3]][[1]][[4]],\r\n   Christ[[3]][[2]][[1]], Christ[[3]][[2]][[2]], Christ[[3]][[2]][[3]], Christ[[3]][[2]][[4]],\r\n   Christ[[3]][[3]][[1]], Christ[[3]][[3]][[2]], Christ[[3]][[3]][[3]], Christ[[3]][[3]][[4]],\r\n   Christ[[3]][[4]][[1]], Christ[[3]][[4]][[2]], Christ[[3]][[4]][[3]], Christ[[3]][[4]][[4]],\r\n   Christ[[4]][[1]][[1]], Christ[[4]][[1]][[2]], Christ[[4]][[1]][[3]], Christ[[4]][[1]][[4]],\r\n   Christ[[4]][[2]][[1]], Christ[[4]][[2]][[2]], Christ[[4]][[2]][[3]], Christ[[4]][[2]][[4]],\r\n   Christ[[4]][[3]][[1]], Christ[[4]][[3]][[2]], Christ[[4]][[3]][[3]], Christ[[4]][[3]][[4]],\r\n   Christ[[4]][[4]][[1]], Christ[[4]][[4]][[2]], Christ[[4]][[4]][[3]], Christ[[4]][[4]][[4]]\r\n   }];\r\nmeat = ToString[Column[StringReplace[%, {\r\n   \"Sqrt\" -> \"sqrt\", \"Power(E,\" -> \"exp(\", \"Power\" -> \"pow\", \"Sin\" -> \"sin\", \"Cos\" -> \"cos\", \"Csc\" -> \"1/sin\", \"Cot\" -> \"1/tan\",\r\n   \"double\" -> \"double\", \";,\" -> \";\\n    \",\r\n   \"out(0)\" -> \"christ[0][0][0]\", \"out(1)\" -> \"christ[0][0][1]\", \"out(2)\" -> \"christ[0][0][2]\", \"out(3)\" -> \"christ[0][0][3]\",\r\n   \"out(4)\" -> \"christ[0][1][0]\", \"out(5)\" -> \"christ[0][1][1]\", \"out(6)\" -> \"christ[0][1][2]\", \"out(7)\" -> \"christ[0][1][3]\",\r\n   \"out(8)\" -> \"christ[0][2][0]\", \"out(9)\" -> \"christ[0][2][1]\", \"out(10)\" -> \"christ[0][2][2]\", \"out(11)\" -> \"christ[0][2][3]\",\r\n   \"out(12)\" -> \"christ[0][3][0]\", \"out(13)\" -> \"christ[0][3][1]\", \"out(14)\" -> \"christ[0][3][2]\", \"out(15)\" -> \"christ[0][3][3]\",\r\n   \"out(16)\" -> \"christ[1][0][0]\", \"out(17)\" -> \"christ[1][0][1]\", \"out(18)\" -> \"christ[1][0][2]\", \"out(19)\" -> \"christ[1][0][3]\",\r\n   \"out(20)\" -> \"christ[1][1][0]\", \"out(21)\" -> \"christ[1][1][1]\", \"out(22)\" -> \"christ[1][1][2]\", \"out(23)\" -> \"christ[1][1][3]\",\r\n   \"out(24)\" -> \"christ[1][2][0]\", \"out(25)\" -> \"christ[1][2][1]\", \"out(26)\" -> \"christ[1][2][2]\", \"out(27)\" -> \"christ[1][2][3]\",\r\n   \"out(28)\" -> \"christ[1][3][0]\", \"out(29)\" -> \"christ[1][3][1]\", \"out(30)\" -> \"christ[1][3][2]\", \"out(31)\" -> \"christ[1][3][3]\",\r\n   \"out(32)\" -> \"christ[2][0][0]\", \"out(33)\" -> \"christ[2][0][1]\", \"out(34)\" -> \"christ[2][0][2]\", \"out(35)\" -> \"christ[2][0][3]\",\r\n   \"out(36)\" -> \"christ[2][1][0]\", \"out(37)\" -> \"christ[2][1][1]\", \"out(38)\" -> \"christ[2][1][2]\", \"out(39)\" -> \"christ[2][1][3]\",\r\n   \"out(40)\" -> \"christ[2][2][0]\", \"out(41)\" -> \"christ[2][2][1]\", \"out(42)\" -> \"christ[2][2][2]\", \"out(43)\" -> \"christ[2][2][3]\",\r\n   \"out(44)\" -> \"christ[2][3][0]\", \"out(45)\" -> \"christ[2][3][1]\", \"out(46)\" -> \"christ[2][3][2]\", \"out(47)\" -> \"christ[2][3][3]\",\r\n   \"out(48)\" -> \"christ[3][0][0]\", \"out(49)\" -> \"christ[3][0][1]\", \"out(50)\" -> \"christ[3][0][2]\", \"out(51)\" -> \"christ[3][0][3]\",\r\n   \"out(52)\" -> \"christ[3][1][0]\", \"out(53)\" -> \"christ[3][1][1]\", \"out(54)\" -> \"christ[3][1][2]\", \"out(55)\" -> \"christ[3][1][3]\",\r\n   \"out(56)\" -> \"christ[3][2][0]\", \"out(57)\" -> \"christ[3][2][1]\", \"out(58)\" -> \"christ[3][2][2]\", \"out(59)\" -> \"christ[3][2][3]\",\r\n   \"out(60)\" -> \"christ[3][3][0]\", \"out(61)\" -> \"christ[3][3][1]\", \"out(62)\" -> \"christ[3][3][2]\", \"out(63)\" -> \"christ[3][3][3]\"\r\n   }]]];\r\nheader = \"void christoffel(double r, double chi, double christ[4][4][4])\\n{\\n\";\r\nfooter = \"\\n}\";\r\nchristoffel = header <> meat <> footer;",
+   "languageId": "wolfram",
+   "outputs": [],
+   "metadata": {},
+   "executionSummary": {
+    "timing": {
+     "startTime": 1719027510931,
+     "endTime": 1719027511356
+    },
+    "executionOrder": 558,
+    "success": true
+   }
+  },
+  {
+   "kind": 2,
+   "value": "output = christoffel;\r\n\r\n(* write to christoffel file *)\r\nExport[\"christoffel.cpp\", output, \"Text\"];",
+   "languageId": "wolfram",
+   "outputs": [],
+   "metadata": {},
+   "executionSummary": {
+    "timing": {
+     "startTime": 1719027511356,
+     "endTime": 1719027511525
+    },
+    "executionOrder": 563,
+    "success": true
+   }
+  },
+  {
+   "kind": 2,
+   "value": "OptimizeExpressionToC[{g}];\r\nmeat = ToString[Column[StringReplace[%, {\r\n   \"Sqrt\" -> \"sqrt\", \"Power(E,\" -> \"exp(\", \"Power\" -> \"pow\", \"Sin\" -> \"sin\", \"Cos\" -> \"cos\", \"Csc\" -> \"1/sin\", \"Cot\" -> \"1/tan\",\r\n   \"double\" -> \"double\", \";,\" -> \";\\n    \",\r\n   \"out(0)\" -> \"gg\"}]]];\r\nheader = \"void redshift(double r, double chi, double ktkp, double &gg)\\n{\\n\";\r\nfooter = \"\\n}\";\r\nred = header <> meat <> footer;",
+   "languageId": "wolfram",
+   "outputs": [],
+   "metadata": {},
+   "executionSummary": {
+    "timing": {
+     "startTime": 1719027511525,
+     "endTime": 1719027511924
+    },
+    "executionOrder": 565,
+    "success": true
+   }
+  },
+  {
+   "kind": 2,
+   "value": "OptimizeExpressionToC[{se}];\r\nmeat = ToString[Column[StringReplace[%, {\r\n   \"Sqrt\" -> \"sqrt\", \"Power(E,\" -> \"exp(\", \"Power\" -> \"pow\", \"Sin\" -> \"sin\", \"Cos\" -> \"cos\", \"Csc\" -> \"1/sin\", \"Cot\" -> \"1/tan\",\r\n   \"double\" -> \"double\", \";,\" -> \";\\n    \",\r\n   \"out(0)\" -> \"double se\"}]]];\r\nheader = \"double specific_energy(double r)\\n{\\n\";\r\nfooter = \"\\nreturn se;\\n}\";\r\nspecificE = header <> meat <> footer;",
+   "languageId": "wolfram",
+   "outputs": [],
+   "metadata": {},
+   "executionSummary": {
+    "timing": {
+     "startTime": 1719027511925,
+     "endTime": 1719027512306
+    },
+    "executionOrder": 570,
+    "success": true
+   }
+  },
+  {
+   "kind": 2,
+   "value": "OptimizeExpressionToC[{Lzsub}];\r\nmeat = ToString[Column[StringReplace[%, {\r\n   \"Sqrt\" -> \"sqrt\", \"Power(E,\" -> \"exp(\", \"Power\" -> \"pow\", \"Sin\" -> \"sin\", \"Cos\" -> \"cos\", \"Csc\" -> \"1/sin\", \"Cot\" -> \"1/tan\",\r\n   \"double\" -> \"double\", \";,\" -> \";\\n    \",\r\n   \"out(0)\" -> \"double Lz\"}]]];\r\nheader = \"double specific_momentum(double r)\\n{\\n\";\r\nfooter = \"\\nreturn Lz;\\n}\";\r\nspecificL = header <> meat <> footer;",
+   "languageId": "wolfram",
+   "outputs": [],
+   "metadata": {},
+   "executionSummary": {
+    "timing": {
+     "startTime": 1719027512306,
+     "endTime": 1719027512683
+    },
+    "executionOrder": 575,
+    "success": true
+   }
+  },
+  {
+   "kind": 2,
+   "value": "output = red <> \"\\n\\n\" <> specificE <> \"\\n\\n\" <> specificL;\r\n\r\n(* write to metric.cpp file *)\r\nSetDirectory[\"C:\\\\Users\\\\WalkerXin\\\\Documents\\\\Scripts\\\\raytransfer\"];\r\nExport[\"redshift.cpp\", output, \"Text\"]",
+   "languageId": "wolfram",
+   "outputs": [
+    {
+     "items": [
+      {
+       "data": "<div class=\"wexpr\"><w>redshift.cpp</w></div>",
+       "mime": "x-application/wolfram-language-html"
+      },
+      {
+       "data": "\"redshift.cpp\"",
+       "mime": "text/plain"
+      }
+     ],
+     "id": "58261942-65a1-439a-9e78-23a517fd1c90",
+     "metadata": {
+      "cellLabel": "Out[582]= ",
+      "isBoxData": false
+     }
+    }
+   ],
+   "metadata": {},
+   "executionSummary": {
+    "timing": {
+     "startTime": 1719027512683,
+     "endTime": 1719027513008
+    },
+    "executionOrder": 580,
+    "success": true
+   }
+  },
+  {
+   "kind": 2,
+   "value": "OptimizeExpressionToC[{d2Veffsub}];\r\nmeat = ToString[Column[StringReplace[%, {\r\n   \"Sqrt\" -> \"sqrt\", \"Power(E,\" -> \"exp(\", \"Power\" -> \"pow\", \"Sin\" -> \"sin\", \"Cos\" -> \"cos\", \"Csc\" -> \"1/sin\", \"Cot\" -> \"1/tan\",\r\n   \"double\" -> \"double\", \";,\" -> \";\\n    \",\r\n   \"out(0)\" -> \"double d2Veff\"\r\n   }]]];\r\nheader = \"double Veff_deri2(double r, double E, double Lz)\\n{\\n\";\r\nfooter = \"\\nreturn d2Veff;\\n}\";\r\nVeffderi2 = header <> meat <> footer;",
+   "languageId": "wolfram",
+   "outputs": [],
+   "metadata": {},
+   "executionSummary": {
+    "timing": {
+     "startTime": 1719027513008,
+     "endTime": 1719027513430
+    },
+    "executionOrder": 583,
+    "success": true
+   }
+  },
+  {
+   "kind": 2,
+   "value": "output = Veffderi2;\r\n\r\n(* write to metric.cpp file *)\r\nSetDirectory[\"C:\\\\Users\\\\WalkerXin\\\\Documents\\\\Scripts\\\\raytransfer\"];\r\nExport[\"effective_potential.cpp\", output, \"Text\"]",
+   "languageId": "wolfram",
+   "outputs": [
+    {
+     "items": [
+      {
+       "data": "<div class=\"wexpr\"><w>effective_potential.cpp</w></div>",
+       "mime": "x-application/wolfram-language-html"
+      },
+      {
+       "data": "\"effective_potential.cpp\"",
+       "mime": "text/plain"
+      }
+     ],
+     "id": "78a73a4c-a5ff-417b-b168-46349e439df6",
+     "metadata": {
+      "cellLabel": "Out[590]= ",
+      "isBoxData": false
+     }
+    }
+   ],
+   "metadata": {},
+   "executionSummary": {
+    "timing": {
+     "startTime": 1719027513430,
+     "endTime": 1719027513745
+    },
+    "executionOrder": 588,
     "success": true
    }
   }

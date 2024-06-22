@@ -52,18 +52,18 @@ void xyfromrphi(double rscr, double pscr, double rdisk);
 void raytrace(double xscr, double yscr, double traced[], double rdisk);
 void rayprecise(double rdisk, double germtol, double pscr, double traced[]);
 void diffeqs(double vars[], double diffs[]);
-void redshift(double r, double th, double ktkp, double& gg);
+void redshift(double r, double chi, double ktkp, double& gg);
 double specific_energy(double r);
 double specific_momentum(double r);
 double emis_angle(double r, double th, double kr, double kth);
-void metric(double r, double th, double g[][4]);
-void metric_rderivatives(double r, double th, double dg[][4]);
-void metric_r2derivatives(double r, double th, double dg2[][4]);
-void uppermetric(double r, double th, double gu[4][4]);
+void metric(double r, double chi, double g[][4]);
+void metric_rderivatives(double r, double chi, double dg[][4]);
+void metric_r2derivatives(double r, double chi, double dg2[][4]);
+void uppermetric(double r, double chi, double gu[4][4]);
 double Veff_deri2(double r, double E, double Lz);
 double find_isco();
 void gauleg(double rdisk_i, double rdisk_f, double rdisk[]);
-void christoffel(double r, double th, double christ[4][4][4]);
+void christoffel(double r, double chi, double christ[4][4][4]);
 
 #include "diffeqs.cpp"
 #include "rayprecise.cpp"

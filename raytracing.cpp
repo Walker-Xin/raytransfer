@@ -1,12 +1,10 @@
-// TODO: check validity of fact3
-
 void raytrace(double xscr, double yscr, double traced[4], double rdisk)
 {
     double dscr, xscr2, yscr2;
-    double t, r, th, phi, tau, rau, thau, phiau;
-    double t0, r0, th0, phi0;
-    double kt, kr, kth, kphi;
-    double kt0, kr0, kth0, kphi0;
+    double t, r, th, chi, phi, tau, rau, thau, chiau, phiau;
+    double t0, r0, chi0, th0, phi0;
+    double kt, kr, kth, kchi, kphi;
+    double kt0, kr0, kth0, kchi0, kphi0;
     double s0, r02, s02;
     double fact1, fact2, fact3, B, C, omega;
     double h;
@@ -19,7 +17,7 @@ void raytrace(double xscr, double yscr, double traced[4], double rdisk)
     double g[4][4]; // metric tensor
     // double diffs[5], vars[5], vars_temp[5], vars_4th[5], vars_5th[5], k1[5], k2[5], k3[5], k4[5], k5[5], k6[5];
     double diffs[8], vars[8], vars_temp[8], vars_4th[8], vars_5th[8], k1[8], k2[8], k3[8], k4[8], k5[8], k6[8];
-    double rgap, rmid, thmid;
+    double rgap, rmid, thmid, chimid;
     double gfactor;
     double err, errmin, errmax;
     double cross_tol;
@@ -34,11 +32,14 @@ void raytrace(double xscr, double yscr, double traced[4], double rdisk)
     errmax = 1.0e-7;
     cross_tol = 1.0e-8; // sought accuracy at disk crossing
 
-    // Set disk height
+    // Set disk height (could be wrong, check this)
     if (rdisk >= isco)
         height = 3.0 * Mdl * (1.0 - sqrt(isco / rdisk)) / eta;
     else
         height = 0.0;
+
+    // Fix height at zero
+    height = 0.0;
 
     h = -1.0; // initial step size, negative sign for backwards integration
 
@@ -55,14 +56,16 @@ void raytrace(double xscr, double yscr, double traced[4], double rdisk)
     t0 = 0.0;
     r0 = sqrt(r02); 
     th0 = acos(fact1 / r0);
+    chi0 = fact1 / r0; // chi = cos(theta)
     phi0 = atan2(xscr, fact2); // atan2 used to get principal value
 
     // Initial r, theta, and phi momentum; c.f. Eqs (33)-(35)
     kr0 = dscr / r0;
     kth0 = -(cos(inc) - dscr * fact1 / r02) / sqrt(r02 - fact1 * fact1);
+    kchi0 = sqrt(1.0 - chi0 * chi0) * kth0;
     kphi0 = -xscr * sin(inc) / (xscr2 + fact2 * fact2);
 
-    metric(r0, th0, g); // compute initial metric tensor
+    metric(r0, chi0, g); // compute initial metric tensor
     fact3 = sqrt(g[0][3] * g[0][3] * kphi0 * kphi0 - g[0][0] * (g[1][1] * kr0 * kr0 + g[2][2] * kth0 * kth0 + g[3][3] * kphi0 * kphi0));
     B = 2.0 * g[0][1] * kr0 + 2 * g[0][3] * kphi0;                                                         // B
     C = g[1][1] * kr0 * kr0 + 2 * g[1][3] * kr0 * kphi0 + g[2][2] * kth0 * kth0 + g[3][3] * kphi0 * kphi0; // C
@@ -76,6 +79,7 @@ void raytrace(double xscr, double yscr, double traced[4], double rdisk)
     // Scale by Energy
     kr0 /= fact3;
     kth0 /= fact3;
+    kchi0 /= fact3;
 
     /* ----- RK45 ----- */
 
@@ -83,11 +87,13 @@ void raytrace(double xscr, double yscr, double traced[4], double rdisk)
     t = t0;
     r = r0;
     th = th0;
+    chi = chi0;
     phi = phi0;
 
     kt = kt0;
     kr = kr0;
     kth = kth0;
+    kchi = kchi0;
     kphi = kphi0;
 
     s0 = sin(th0);
@@ -100,11 +106,11 @@ void raytrace(double xscr, double yscr, double traced[4], double rdisk)
 
         vars[0] = t;
         vars[1] = r;
-        vars[2] = th;
+        vars[2] = chi;
         vars[3] = phi;
         vars[4] = kt;
         vars[5] = kr;
-        vars[6] = kth;
+        vars[6] = kchi;
         vars[7] = kphi;
 
         do
@@ -196,17 +202,17 @@ void raytrace(double xscr, double yscr, double traced[4], double rdisk)
 
         tau = t;
         rau = r;
-        thau = th;
+        chiau = chi;
         phiau = phi;
         t = vars_4th[0];
         r = vars_4th[1];
-        th = vars_4th[2];
+        chi = vars_4th[2];
         phi = vars_4th[3];
 
-        if (r * cos(th) < height) // check if photon has crossed disk
+        if (r * chi < height) // check if photon has crossed disk
         {
             /* check if accuracy achieved; if so, move on to setting final values */
-            if (sqrt(r * r + rau * rau - 2.0 * r * rau * (cos(th) * cos(thau) + sin(th) * sin(thau) * cos(phi - phiau))) <= cross_tol)
+            if (sqrt(r * r + rau * rau - 2.0 * r * rau * (chi * chiau + sqrt(1 - chi*chi) * sqrt(1 - chiau*chiau) * cos(phi - phiau))) <= cross_tol)
             {
                 acccheck = 1;
                 // printf("Crossed disk near desired radius and within error tolerance. Exit.\n");
@@ -225,11 +231,11 @@ void raytrace(double xscr, double yscr, double traced[4], double rdisk)
 
                 /* calculate average/midpoint values */
                 rmid = 0.5 * (r + rau);
-                thmid = 0.5 * (th + thau);
+                chimid = 0.5 * (chi + chiau);
 
                 // printf("%Le %Le\n", rmid, thmid);
 
-                if (rmid * sin(thmid) >= isco - 0.001 && rmid * sin(thmid) < 1.05 * dscr)
+                if (rmid * sqrt(1 - chimid*chimid) >= isco - 0.001 && rmid * sqrt(1 - chimid*chimid) < 1.05 * dscr)
                 {
                     stop_integration = 1; /* the photon hits the disk */
                     break;
@@ -273,7 +279,9 @@ void raytrace(double xscr, double yscr, double traced[4], double rdisk)
 
     if (stop_integration == 1) /* photon hit disk, no issues */
     {
-        redshift(rmid, thmid, omega, gfactor);
+        redshift(rmid, chimid, omega, gfactor);
+        thmid = acos(chimid);
+        kth =  kth/sqrt(1 - chimid * chimid);
         cosem = gfactor * emis_angle(rmid, thmid, kr, kth);
     }
     else /* photon crossed horizon, missed disk, or other issue */
