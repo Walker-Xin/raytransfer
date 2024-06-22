@@ -97,6 +97,7 @@ void raytrace(double xscr, double yscr, double traced[4], double rdisk)
     s02 = s0 * s0;
 
     omega = r02 * s02 * kphi0 / kt0; /* disk angular velocity */
+    // printf("omega = %Le\n", omega);
 
     do
     {
@@ -272,18 +273,20 @@ void raytrace(double xscr, double yscr, double traced[4], double rdisk)
         }
     } while (stop_integration == 0);
 
+    thmid = acos(chimid);
+    kth =  kth/sqrt(1 - chi * chi);
+
     /* ----- Calculate redshift, cosem, and return values ----- */
 
     if (stop_integration == 1) /* photon hit disk, no issues */
     {
-        redshift(rmid, chimid, omega, gfactor);
-        thmid = acos(chimid);
-        kth =  kth/sqrt(1 - chimid * chimid);
+        redshift(rmid, thmid, omega, gfactor);
         cosem = gfactor * emis_angle(rmid, thmid, kr, kth);
     }
     else /* photon crossed horizon, missed disk, or other issue */
     {
         rmid = 0.0;
+        thmid = acos(chi0);
         gfactor = 0.0;
     }
 

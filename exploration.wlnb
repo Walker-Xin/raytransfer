@@ -8,10 +8,10 @@
    "metadata": {},
    "executionSummary": {
     "timing": {
-     "startTime": 1719034156101,
-     "endTime": 1719034156182
+     "startTime": 1719036437257,
+     "endTime": 1719036437341
     },
-    "executionOrder": 969,
+    "executionOrder": 1088,
     "success": true
    }
   },
@@ -23,10 +23,10 @@
    "metadata": {},
    "executionSummary": {
     "timing": {
-     "startTime": 1719034156182,
-     "endTime": 1719034156824
+     "startTime": 1719036437341,
+     "endTime": 1719036437885
     },
-    "executionOrder": 970,
+    "executionOrder": 1089,
     "success": true
    }
   },
@@ -38,10 +38,10 @@
    "metadata": {},
    "executionSummary": {
     "timing": {
-     "startTime": 1719034156824,
-     "endTime": 1719034157473
+     "startTime": 1719036437885,
+     "endTime": 1719036438400
     },
-    "executionOrder": 978,
+    "executionOrder": 1097,
     "success": true
    }
   },
@@ -53,32 +53,32 @@
    "metadata": {},
    "executionSummary": {
     "timing": {
-     "startTime": 1719034157473,
-     "endTime": 1719034157539
+     "startTime": 1719036438400,
+     "endTime": 1719036438485
     },
-    "executionOrder": 986,
+    "executionOrder": 1105,
     "success": true
    }
   },
   {
    "kind": 2,
-   "value": "gtt = -Sigmavar*(Delta - a*a*A2*A2*(1 - chi*chi))/(B*B);\r\ngrr = Sigmavar/(Delta*A5);\r\ngthth = Sigmavar;\r\ngpp = ((r*r + a*a)*(r*r + a*a)*A1*A1 - a*a*Delta*(1 - chi*chi))*Sigmavar*(1 - chi*chi)/(B*B);\r\ngtp = -a*((r^2 + a^2)*A1*A2 - Delta)*Sigmavar*(1 - chi*chi)/B^2;\r\ngtr = b1*a/(2*r) + b2*a*M/r^2;\r\ngrp = c1*a*(1 - chi*chi)/(2*r) + c2*a*M*(1 - chi*chi)/r^2;\r\n\r\nG = Simplify[{{gtt, gtr, 0, gtp}, {gtr, grr, 0, grp}, {0, 0, gthth, \r\n     0}, {gtp, grp, 0, gpp}}];\r\nG // MatrixForm",
+   "value": "gtt = -Sigmavar*(Delta - a*a*A2*A2*(1 - chi*chi))/(B*B);\r\ngrr = Sigmavar/(Delta*A5);\r\ngthth = Sigmavar/(1 - chi*chi);\r\ngpp = ((r*r + a*a)*(r*r + a*a)*A1*A1 - a*a*Delta*(1 - chi*chi))*Sigmavar*(1 - chi*chi)/(B*B);\r\ngtp = -a*((r^2 + a^2)*A1*A2 - Delta)*Sigmavar*(1 - chi*chi)/B^2;\r\ngtr = b1*a/(2*r) + b2*a*M/r^2;\r\ngrp = c1*a*(1 - chi*chi)/(2*r) + c2*a*M*(1 - chi*chi)/r^2;\r\n\r\nG = Simplify[{{gtt, gtr, 0, gtp}, {gtr, grr, 0, grp}, {0, 0, gthth, \r\n     0}, {gtp, grp, 0, gpp}}];\r\nG // MatrixForm",
    "languageId": "wolfram",
    "outputs": [
     {
      "items": [
       {
-       "data": "<div class=\"wexpr\"><wrow><w></w><wb>(</wb><w>⁠</w><wgrid style=\"grid-template-columns:repeat(4,max-content);\"><w><wrow><w></w><w>-</w><wfrac><w><wrow><w></w><wrow><w></w><wsup><w></w><w>a</w><w><w>2</w></w></wsup><w></w><wsup><w></w><w>chi</w><w><w>2</w></w></wsup></wrow><w>-</w><wrow><w></w><w>2</w><w></w><w>M</w><w></w><w>r</w></wrow><w>+</w><wsup><w></w><w>r</w><w><w>2</w></w></wsup></wrow></w><w><w></w><w><wrow><w></w><wrow><w></w><wsup><w></w><w>a</w><w><w>2</w></w></wsup><w></w><wsup><w></w><w>chi</w><w><w>2</w></w></wsup></wrow><w>+</w><wsup><w></w><w>r</w><w><w>2</w></w></wsup></wrow></w></w></wfrac></wrow></w><w><wfrac><w><wrow><w></w><w>a</w><w></w><w>defpar</w></wrow></w><w><w></w><w><wrow><w></w><w>2</w><w></w><w>r</w></wrow></w></w></wfrac></w><w><w>0</w></w><w><wfrac><w><wrow><w></w><w>2</w><w></w><w>a</w><w></w><wrow><w></w><wb>(</wb><wrow><w></w><wrow><w></w><w>-</w><w>1</w></wrow><w>+</w><wsup><w></w><w>chi</w><w><w>2</w></w></wsup></wrow><wb>)</wb></wrow><w></w><w>M</w><w></w><w>r</w></wrow></w><w><w></w><w><wrow><w></w><wrow><w></w><wsup><w></w><w>a</w><w><w>2</w></w></wsup><w></w><wsup><w></w><w>chi</w><w><w>2</w></w></wsup></wrow><w>+</w><wsup><w></w><w>r</w><w><w>2</w></w></wsup></wrow></w></w></wfrac></w><w><wfrac><w><wrow><w></w><w>a</w><w></w><w>defpar</w></wrow></w><w><w></w><w><wrow><w></w><w>2</w><w></w><w>r</w></wrow></w></w></wfrac></w><w><wfrac><w><wrow><w></w><wrow><w></w><wsup><w></w><w>a</w><w><w>2</w></w></wsup><w></w><wsup><w></w><w>chi</w><w><w>2</w></w></wsup></wrow><w>+</w><wsup><w></w><w>r</w><w><w>2</w></w></wsup></wrow></w><w><w></w><w><wrow><w></w><wsup><w></w><w>a</w><w><w>2</w></w></wsup><w>-</w><wrow><w></w><w>2</w><w></w><w>M</w><w></w><w>r</w></wrow><w>+</w><wsup><w></w><w>r</w><w><w>2</w></w></wsup></wrow></w></w></wfrac></w><w><w>0</w></w><w><w>0</w></w><w><w>0</w></w><w><w>0</w></w><w><wrow><w></w><wrow><w></w><wsup><w></w><w>a</w><w><w>2</w></w></wsup><w></w><wsup><w></w><w>chi</w><w><w>2</w></w></wsup></wrow><w>+</w><wsup><w></w><w>r</w><w><w>2</w></w></wsup></wrow></w><w><w>0</w></w><w><wfrac><w><wrow><w></w><w>2</w><w></w><w>a</w><w></w><wrow><w></w><wb>(</wb><wrow><w></w><wrow><w></w><w>-</w><w>1</w></wrow><w>+</w><wsup><w></w><w>chi</w><w><w>2</w></w></wsup></wrow><wb>)</wb></wrow><w></w><w>M</w><w></w><w>r</w></wrow></w><w><w></w><w><wrow><w></w><wrow><w></w><wsup><w></w><w>a</w><w><w>2</w></w></wsup><w></w><wsup><w></w><w>chi</w><w><w>2</w></w></wsup></wrow><w>+</w><wsup><w></w><w>r</w><w><w>2</w></w></wsup></wrow></w></w></wfrac></w><w><w>0</w></w><w><w>0</w></w><w><wrow><w></w><w>-</w><wfrac><w><wrow><w></w><wrow><w></w><wb>(</wb><wrow><w></w><wrow><w></w><w>-</w><w>1</w></wrow><w>+</w><wsup><w></w><w>chi</w><w><w>2</w></w></wsup></wrow><wb>)</wb></wrow><w></w><wrow><w></w><wb>(</wb><wrow><w></w><wrow><w></w><wsup><w></w><w>a</w><w><w>4</w></w></wsup><w></w><wsup><w></w><w>chi</w><w><w>2</w></w></wsup></wrow><w>+</w><wsup><w></w><w>r</w><w><w>4</w></w></wsup><w>+</w><wrow><w></w><wsup><w></w><w>a</w><w><w>2</w></w></wsup><w></w><w>r</w><w></w><wrow><w></w><wb>(</wb><wrow><w></w><wrow><w></w><w>2</w><w></w><w>M</w></wrow><w>-</w><wrow><w></w><w>2</w><w></w><wsup><w></w><w>chi</w><w><w>2</w></w></wsup><w></w><w>M</w></wrow><w>+</w><w>r</w><w>+</w><wrow><w></w><wsup><w></w><w>chi</w><w><w>2</w></w></wsup><w></w><w>r</w></wrow></wrow><wb>)</wb></wrow></wrow></wrow><wb>)</wb></wrow></wrow></w><w><w></w><w><wrow><w></w><wrow><w></w><wsup><w></w><w>a</w><w><w>2</w></w></wsup><w></w><wsup><w></w><w>chi</w><w><w>2</w></w></wsup></wrow><w>+</w><wsup><w></w><w>r</w><w><w>2</w></w></wsup></wrow></w></w></wfrac></wrow></w></wgrid><w>⁠</w><wb>)</wb></wrow></div>",
+       "data": "<div class=\"wexpr\"><wrow><w></w><wb>(</wb><w>⁠</w><wgrid style=\"grid-template-columns:repeat(4,max-content);\"><w><wrow><w></w><w>-</w><wfrac><w><wrow><w></w><wrow><w></w><wsup><w></w><w>a</w><w><w>2</w></w></wsup><w></w><wsup><w></w><w>chi</w><w><w>2</w></w></wsup></wrow><w>-</w><wrow><w></w><w>2</w><w></w><w>M</w><w></w><w>r</w></wrow><w>+</w><wsup><w></w><w>r</w><w><w>2</w></w></wsup></wrow></w><w><w></w><w><wrow><w></w><wrow><w></w><wsup><w></w><w>a</w><w><w>2</w></w></wsup><w></w><wsup><w></w><w>chi</w><w><w>2</w></w></wsup></wrow><w>+</w><wsup><w></w><w>r</w><w><w>2</w></w></wsup></wrow></w></w></wfrac></wrow></w><w><wfrac><w><wrow><w></w><w>a</w><w></w><w>defpar</w></wrow></w><w><w></w><w><wrow><w></w><w>2</w><w></w><w>r</w></wrow></w></w></wfrac></w><w><w>0</w></w><w><wfrac><w><wrow><w></w><w>2</w><w></w><w>a</w><w></w><wrow><w></w><wb>(</wb><wrow><w></w><wrow><w></w><w>-</w><w>1</w></wrow><w>+</w><wsup><w></w><w>chi</w><w><w>2</w></w></wsup></wrow><wb>)</wb></wrow><w></w><w>M</w><w></w><w>r</w></wrow></w><w><w></w><w><wrow><w></w><wrow><w></w><wsup><w></w><w>a</w><w><w>2</w></w></wsup><w></w><wsup><w></w><w>chi</w><w><w>2</w></w></wsup></wrow><w>+</w><wsup><w></w><w>r</w><w><w>2</w></w></wsup></wrow></w></w></wfrac></w><w><wfrac><w><wrow><w></w><w>a</w><w></w><w>defpar</w></wrow></w><w><w></w><w><wrow><w></w><w>2</w><w></w><w>r</w></wrow></w></w></wfrac></w><w><wfrac><w><wrow><w></w><wrow><w></w><wsup><w></w><w>a</w><w><w>2</w></w></wsup><w></w><wsup><w></w><w>chi</w><w><w>2</w></w></wsup></wrow><w>+</w><wsup><w></w><w>r</w><w><w>2</w></w></wsup></wrow></w><w><w></w><w><wrow><w></w><wsup><w></w><w>a</w><w><w>2</w></w></wsup><w>-</w><wrow><w></w><w>2</w><w></w><w>M</w><w></w><w>r</w></wrow><w>+</w><wsup><w></w><w>r</w><w><w>2</w></w></wsup></wrow></w></w></wfrac></w><w><w>0</w></w><w><w>0</w></w><w><w>0</w></w><w><w>0</w></w><w><wfrac><w><wrow><w></w><wrow><w></w><wsup><w></w><w>a</w><w><w>2</w></w></wsup><w></w><wsup><w></w><w>chi</w><w><w>2</w></w></wsup></wrow><w>+</w><wsup><w></w><w>r</w><w><w>2</w></w></wsup></wrow></w><w><w></w><w><wrow><w></w><w>1</w><w>-</w><wsup><w></w><w>chi</w><w><w>2</w></w></wsup></wrow></w></w></wfrac></w><w><w>0</w></w><w><wfrac><w><wrow><w></w><w>2</w><w></w><w>a</w><w></w><wrow><w></w><wb>(</wb><wrow><w></w><wrow><w></w><w>-</w><w>1</w></wrow><w>+</w><wsup><w></w><w>chi</w><w><w>2</w></w></wsup></wrow><wb>)</wb></wrow><w></w><w>M</w><w></w><w>r</w></wrow></w><w><w></w><w><wrow><w></w><wrow><w></w><wsup><w></w><w>a</w><w><w>2</w></w></wsup><w></w><wsup><w></w><w>chi</w><w><w>2</w></w></wsup></wrow><w>+</w><wsup><w></w><w>r</w><w><w>2</w></w></wsup></wrow></w></w></wfrac></w><w><w>0</w></w><w><w>0</w></w><w><wrow><w></w><w>-</w><wfrac><w><wrow><w></w><wrow><w></w><wb>(</wb><wrow><w></w><wrow><w></w><w>-</w><w>1</w></wrow><w>+</w><wsup><w></w><w>chi</w><w><w>2</w></w></wsup></wrow><wb>)</wb></wrow><w></w><wrow><w></w><wb>(</wb><wrow><w></w><wrow><w></w><wsup><w></w><w>a</w><w><w>4</w></w></wsup><w></w><wsup><w></w><w>chi</w><w><w>2</w></w></wsup></wrow><w>+</w><wsup><w></w><w>r</w><w><w>4</w></w></wsup><w>+</w><wrow><w></w><wsup><w></w><w>a</w><w><w>2</w></w></wsup><w></w><w>r</w><w></w><wrow><w></w><wb>(</wb><wrow><w></w><wrow><w></w><w>2</w><w></w><w>M</w></wrow><w>-</w><wrow><w></w><w>2</w><w></w><wsup><w></w><w>chi</w><w><w>2</w></w></wsup><w></w><w>M</w></wrow><w>+</w><w>r</w><w>+</w><wrow><w></w><wsup><w></w><w>chi</w><w><w>2</w></w></wsup><w></w><w>r</w></wrow></wrow><wb>)</wb></wrow></wrow></wrow><wb>)</wb></wrow></wrow></w><w><w></w><w><wrow><w></w><wrow><w></w><wsup><w></w><w>a</w><w><w>2</w></w></wsup><w></w><wsup><w></w><w>chi</w><w><w>2</w></w></wsup></wrow><w>+</w><wsup><w></w><w>r</w><w><w>2</w></w></wsup></wrow></w></w></wfrac></wrow></w></wgrid><w>⁠</w><wb>)</wb></wrow></div>",
        "mime": "x-application/wolfram-language-html"
       },
       {
-       "data": "MatrixForm[{{-((a^2*chi^2 - 2*M*r + r^2)/(a^2*chi^2 + r^2)), (a*defpar)/(2*r), 0, (2*a*(-1 + chi^2)*M*r)/(a^2*chi^2 + r^2)}, {(a*defpar)/(2*r), (a^2*chi^2 + r^2)/(a^2 - 2*M*r + r^2), 0, 0}, {0, 0, a^2*chi^2 + r^2, 0}, {(2*a*(-1 + chi^2)*M*r)/(a^2*chi^2 + r^2), 0, 0, -(((-1 + chi^2)*(a^4*chi^2 + r^4 + a^2*r*(2*M - 2*chi^2*M + r + chi^2*r)))/(a^2*chi^2 + r^2))}}]",
+       "data": "MatrixForm[{{-((a^2*chi^2 - 2*M*r + r^2)/(a^2*chi^2 + r^2)), (a*defpar)/(2*r), 0, (2*a*(-1 + chi^2)*M*r)/(a^2*chi^2 + r^2)}, {(a*defpar)/(2*r), (a^2*chi^2 + r^2)/(a^2 - 2*M*r + r^2), 0, 0}, {0, 0, (a^2*chi^2 + r^2)/(1 - chi^2), 0}, {(2*a*(-1 + chi^2)*M*r)/(a^2*chi^2 + r^2), 0, 0, -(((-1 + chi^2)*(a^4*chi^2 + r^4 + a^2*r*(2*M - 2*chi^2*M + r + chi^2*r)))/(a^2*chi^2 + r^2))}}]",
        "mime": "text/plain"
       }
      ],
-     "id": "2f84bd9c-5254-4fbb-b6bd-244aa0f5cb44",
+     "id": "4c18a4dd-e8e7-4671-9300-a0951d0595d0",
      "metadata": {
-      "cellLabel": "Out[995]//MatrixForm= ",
+      "cellLabel": "Out[1114]//MatrixForm= ",
       "isBoxData": false
      }
     }
@@ -86,10 +86,10 @@
    "metadata": {},
    "executionSummary": {
     "timing": {
-     "startTime": 1719034157539,
-     "endTime": 1719034158353
+     "startTime": 1719036438485,
+     "endTime": 1719036439284
     },
-    "executionOrder": 987,
+    "executionOrder": 1106,
     "success": true
    }
   },
@@ -101,10 +101,10 @@
    "metadata": {},
    "executionSummary": {
     "timing": {
-     "startTime": 1719034158353,
-     "endTime": 1719034158657
+     "startTime": 1719036439284,
+     "endTime": 1719036439570
     },
-    "executionOrder": 996,
+    "executionOrder": 1115,
     "success": true
    }
   },
@@ -116,10 +116,10 @@
    "metadata": {},
    "executionSummary": {
     "timing": {
-     "startTime": 1719034158657,
-     "endTime": 1719034158773
+     "startTime": 1719036439570,
+     "endTime": 1719036439680
     },
-    "executionOrder": 1000,
+    "executionOrder": 1119,
     "success": true
    }
   },
@@ -131,10 +131,10 @@
    "metadata": {},
    "executionSummary": {
     "timing": {
-     "startTime": 1719034158773,
-     "endTime": 1719034159347
+     "startTime": 1719036439681,
+     "endTime": 1719036440212
     },
-    "executionOrder": 1001,
+    "executionOrder": 1120,
     "success": true
    }
   },
@@ -146,10 +146,10 @@
    "metadata": {},
    "executionSummary": {
     "timing": {
-     "startTime": 1719034159347,
-     "endTime": 1719034159852
+     "startTime": 1719036440213,
+     "endTime": 1719036440711
     },
-    "executionOrder": 1008,
+    "executionOrder": 1127,
     "success": true
    }
   },
@@ -161,10 +161,10 @@
    "metadata": {},
    "executionSummary": {
     "timing": {
-     "startTime": 1719034159852,
-     "endTime": 1719034159939
+     "startTime": 1719036440712,
+     "endTime": 1719036440789
     },
-    "executionOrder": 1010,
+    "executionOrder": 1129,
     "success": true
    }
   },
@@ -177,10 +177,10 @@
    "metadata": {},
    "executionSummary": {
     "timing": {
-     "startTime": 1719034159940,
-     "endTime": 1719034160026
+     "startTime": 1719036440790,
+     "endTime": 1719036440867
     },
-    "executionOrder": 1011,
+    "executionOrder": 1130,
     "success": true
    }
   },
@@ -201,9 +201,9 @@
        "mime": "text/plain"
       }
      ],
-     "id": "4a9d6372-d7b1-40ba-aeb9-38f95170316c",
+     "id": "69a897ab-4d04-40ea-94a4-27bb6138b6b1",
      "metadata": {
-      "cellLabel": "Out[1012]= ",
+      "cellLabel": "Out[1131]= ",
       "isBoxData": false
      }
     }
@@ -211,10 +211,10 @@
    "metadata": {},
    "executionSummary": {
     "timing": {
-     "startTime": 1719034160026,
-     "endTime": 1719034160245
+     "startTime": 1719036440867,
+     "endTime": 1719036441081
     },
-    "executionOrder": 1012,
+    "executionOrder": 1131,
     "success": true
    }
   },
@@ -226,10 +226,10 @@
    "metadata": {},
    "executionSummary": {
     "timing": {
-     "startTime": 1719034160246,
-     "endTime": 1719034160322
+     "startTime": 1719036441082,
+     "endTime": 1719036441149
     },
-    "executionOrder": 1013,
+    "executionOrder": 1132,
     "success": true
    }
   },
@@ -241,10 +241,10 @@
    "metadata": {},
    "executionSummary": {
     "timing": {
-     "startTime": 1719034160322,
-     "endTime": 1719034160398
+     "startTime": 1719036441149,
+     "endTime": 1719036441230
     },
-    "executionOrder": 1014,
+    "executionOrder": 1133,
     "success": true
    }
   },
@@ -264,9 +264,9 @@
        "mime": "text/plain"
       }
      ],
-     "id": "17f891b0-8b37-4f1b-9efa-cfeb4343d6d7",
+     "id": "edfd500f-dfdc-4b91-87a8-be136b445aa0",
      "metadata": {
-      "cellLabel": "Out[1015]= ",
+      "cellLabel": "Out[1134]= ",
       "isBoxData": false
      }
     },
@@ -281,9 +281,9 @@
        "mime": "text/plain"
       }
      ],
-     "id": "eb775c9f-92bf-456a-a9f2-29fbc2bee9c8",
+     "id": "a9ef3a5b-f629-4fa5-9c41-b4cf923a6575",
      "metadata": {
-      "cellLabel": "Out[1021]= ",
+      "cellLabel": "Out[1140]= ",
       "isBoxData": false
      }
     },
@@ -298,9 +298,9 @@
        "mime": "text/plain"
       }
      ],
-     "id": "98a80dce-c8ee-4f39-96a6-dd7c119e35e1",
+     "id": "e63c6b8a-57c4-4690-8f9b-c1d91a1dccda",
      "metadata": {
-      "cellLabel": "Out[1023]= ",
+      "cellLabel": "Out[1142]= ",
       "isBoxData": false
      }
     }
@@ -308,10 +308,10 @@
    "metadata": {},
    "executionSummary": {
     "timing": {
-     "startTime": 1719034160398,
-     "endTime": 1719034161684
+     "startTime": 1719036441230,
+     "endTime": 1719036442521
     },
-    "executionOrder": 1015,
+    "executionOrder": 1134,
     "success": true
    }
   },
@@ -323,10 +323,10 @@
    "metadata": {},
    "executionSummary": {
     "timing": {
-     "startTime": 1719034161684,
-     "endTime": 1719034161867
+     "startTime": 1719036442521,
+     "endTime": 1719036442649
     },
-    "executionOrder": 1030,
+    "executionOrder": 1149,
     "success": true
    }
   },
@@ -338,10 +338,10 @@
    "metadata": {},
    "executionSummary": {
     "timing": {
-     "startTime": 1719034161867,
-     "endTime": 1719034162251
+     "startTime": 1719036442649,
+     "endTime": 1719036443037
     },
-    "executionOrder": 1032,
+    "executionOrder": 1151,
     "success": true
    }
   },
@@ -353,10 +353,10 @@
    "metadata": {},
    "executionSummary": {
     "timing": {
-     "startTime": 1719034162251,
-     "endTime": 1719034162687
+     "startTime": 1719036443038,
+     "endTime": 1719036443408
     },
-    "executionOrder": 1037,
+    "executionOrder": 1156,
     "success": true
    }
   },
@@ -368,10 +368,10 @@
    "metadata": {},
    "executionSummary": {
     "timing": {
-     "startTime": 1719034162687,
-     "endTime": 1719034163093
+     "startTime": 1719036443408,
+     "endTime": 1719036443798
     },
-    "executionOrder": 1042,
+    "executionOrder": 1161,
     "success": true
    }
   },
@@ -383,10 +383,10 @@
    "metadata": {},
    "executionSummary": {
     "timing": {
-     "startTime": 1719034163094,
-     "endTime": 1719034163490
+     "startTime": 1719036443798,
+     "endTime": 1719036444168
     },
-    "executionOrder": 1047,
+    "executionOrder": 1166,
     "success": true
    }
   },
@@ -406,9 +406,9 @@
        "mime": "text/plain"
       }
      ],
-     "id": "41fb4c29-18cd-4934-b551-14da3b0708b8",
+     "id": "ac50ac18-e388-4bb5-9b1f-09d71e6380a2",
      "metadata": {
-      "cellLabel": "Out[1054]= ",
+      "cellLabel": "Out[1173]= ",
       "isBoxData": false
      }
     }
@@ -416,10 +416,10 @@
    "metadata": {},
    "executionSummary": {
     "timing": {
-     "startTime": 1719034163490,
-     "endTime": 1719034163806
+     "startTime": 1719036444168,
+     "endTime": 1719036444477
     },
-    "executionOrder": 1052,
+    "executionOrder": 1171,
     "success": true
    }
   },
@@ -431,10 +431,10 @@
    "metadata": {},
    "executionSummary": {
     "timing": {
-     "startTime": 1719034163806,
-     "endTime": 1719034164244
+     "startTime": 1719036444478,
+     "endTime": 1719036444841
     },
-    "executionOrder": 1055,
+    "executionOrder": 1174,
     "success": true
    }
   },
@@ -446,10 +446,10 @@
    "metadata": {},
    "executionSummary": {
     "timing": {
-     "startTime": 1719034164244,
-     "endTime": 1719034164409
+     "startTime": 1719036444841,
+     "endTime": 1719036444979
     },
-    "executionOrder": 1060,
+    "executionOrder": 1179,
     "success": true
    }
   },
@@ -461,10 +461,10 @@
    "metadata": {},
    "executionSummary": {
     "timing": {
-     "startTime": 1719034164409,
-     "endTime": 1719034164786
+     "startTime": 1719036444979,
+     "endTime": 1719036445370
     },
-    "executionOrder": 1062,
+    "executionOrder": 1181,
     "success": true
    }
   },
@@ -476,10 +476,10 @@
    "metadata": {},
    "executionSummary": {
     "timing": {
-     "startTime": 1719034164786,
-     "endTime": 1719034165178
+     "startTime": 1719036445370,
+     "endTime": 1719036445780
     },
-    "executionOrder": 1067,
+    "executionOrder": 1186,
     "success": true
    }
   },
@@ -491,10 +491,10 @@
    "metadata": {},
    "executionSummary": {
     "timing": {
-     "startTime": 1719034165178,
-     "endTime": 1719034165603
+     "startTime": 1719036445781,
+     "endTime": 1719036446165
     },
-    "executionOrder": 1072,
+    "executionOrder": 1191,
     "success": true
    }
   },
@@ -514,9 +514,9 @@
        "mime": "text/plain"
       }
      ],
-     "id": "874fd556-0ee9-4565-86b4-20e146a509fc",
+     "id": "649fdc0b-1dc7-4363-9862-3b0c03599d3f",
      "metadata": {
-      "cellLabel": "Out[1079]= ",
+      "cellLabel": "Out[1198]= ",
       "isBoxData": false
      }
     }
@@ -524,58 +524,10 @@
    "metadata": {},
    "executionSummary": {
     "timing": {
-     "startTime": 1719034165603,
-     "endTime": 1719034165915
+     "startTime": 1719036446165,
+     "endTime": 1719036446447
     },
-    "executionOrder": 1077,
-    "success": true
-   }
-  },
-  {
-   "kind": 2,
-   "value": "OptimizeExpressionToC[{d2Veffsub}];\r\nmeat = ToString[Column[StringReplace[%, {\r\n   \"Sqrt\" -> \"sqrt\", \"Power(E,\" -> \"exp(\", \"Power\" -> \"pow\", \"Sin\" -> \"sin\", \"Cos\" -> \"cos\", \"Csc\" -> \"1/sin\", \"Cot\" -> \"1/tan\",\r\n   \"double\" -> \"double\", \";,\" -> \";\\n    \",\r\n   \"out(0)\" -> \"double d2Veff\"\r\n   }]]];\r\nheader = \"double Veff_deri2(double r, double E, double Lz)\\n{\\n\";\r\nfooter = \"\\nreturn d2Veff;\\n}\";\r\nVeffderi2 = header <> meat <> footer;",
-   "languageId": "wolfram",
-   "outputs": [],
-   "metadata": {},
-   "executionSummary": {
-    "timing": {
-     "startTime": 1719034165915,
-     "endTime": 1719034166319
-    },
-    "executionOrder": 1080,
-    "success": true
-   }
-  },
-  {
-   "kind": 2,
-   "value": "output = Veffderi2;\r\n\r\n(* write to metric.cpp file *)\r\nSetDirectory[\"C:\\\\Users\\\\WalkerXin\\\\Documents\\\\Scripts\\\\raytransfer\"];\r\nExport[\"effective_potential.cpp\", output, \"Text\"]",
-   "languageId": "wolfram",
-   "outputs": [
-    {
-     "items": [
-      {
-       "data": "<div class=\"wexpr\"><w>effective_potential.cpp</w></div>",
-       "mime": "x-application/wolfram-language-html"
-      },
-      {
-       "data": "\"effective_potential.cpp\"",
-       "mime": "text/plain"
-      }
-     ],
-     "id": "ed6d4c1d-8d72-431d-92ea-390e4fce1dbb",
-     "metadata": {
-      "cellLabel": "Out[1087]= ",
-      "isBoxData": false
-     }
-    }
-   ],
-   "metadata": {},
-   "executionSummary": {
-    "timing": {
-     "startTime": 1719034166319,
-     "endTime": 1719034166650
-    },
-    "executionOrder": 1085,
+    "executionOrder": 1196,
     "success": true
    }
   }
