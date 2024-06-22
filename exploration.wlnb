@@ -1,0 +1,82 @@
+{
+ "cells": [
+  {
+   "kind": 2,
+   "value": "Remove[\"Global`*\"]",
+   "languageId": "wolfram",
+   "outputs": [],
+   "metadata": {},
+   "executionSummary": {
+    "timing": {
+     "startTime": 1719023374901,
+     "endTime": 1719023374978
+    },
+    "executionOrder": 186,
+    "success": true
+   }
+  },
+  {
+   "kind": 2,
+   "value": "f = epsi*M*M*M/r;\r\nA1 = 1 + a13*(M/r)*(M/r)*(M/r);\r\nA2 = 1 + a22*(M/r)*(M/r);\r\nA5 = 1 + a52*(M/r)*(M/r);\r\n\r\n(* chi = Cos[theta]; *)\r\n\r\nB = (r*r + a*a)*A1 - a*a*A2*Sin[theta]*Sin[theta];\r\nSigma = r*r + a*a*Cos[theta]*Cos[theta];\r\n\r\n(* Redefine B and Sigma using chi variable *)\r\nB = (r*r + a*a)*A1 - a*a*A2*(1 - chi*chi);\r\nSigma = r*r + a*a*chi*chi;\r\n\r\nSigmavar = Sigma + f;\r\nDelta = r*r - 2*M*r + a*a;",
+   "languageId": "wolfram",
+   "outputs": [],
+   "metadata": {},
+   "executionSummary": {
+    "timing": {
+     "startTime": 1719023375504,
+     "endTime": 1719023376275
+    },
+    "executionOrder": 187,
+    "success": true
+   }
+  },
+  {
+   "kind": 2,
+   "value": "epsi = 0;\r\na13 = 0;\r\na22 = 0;\r\na52 = 0;\r\nb1 = 0;\r\nb2 = 0;\r\nc1 = 0;\r\nc2 = 0;",
+   "languageId": "wolfram",
+   "outputs": [],
+   "metadata": {},
+   "executionSummary": {
+    "timing": {
+     "startTime": 1719023376333,
+     "endTime": 1719023376943
+    },
+    "executionOrder": 197,
+    "success": true
+   }
+  },
+  {
+   "kind": 2,
+   "value": "gtt = -Sigmavar*(Delta - a*a*A2*A2*(1 - chi*chi))/(B*B);\r\ngrr = Sigmavar/(Delta*A5);\r\ngthth = Sigmavar/(1 - chi*chi); (* Note the extra denominator due to dtheta = dchi/(1 - chi^2)^(1/2) *)\r\ngpp = ((r*r + a*a)*(r*r + a*a)*A1*A1 - a*a*Delta*(1 - chi*chi))*Sigmavar*(1 - chi*chi)/(B*B);\r\ngtp = -a*((r^2 + a^2)*A1*A2 - Delta)*Sigmavar*(1 - chi*chi)/B^2;\r\ngtr = b1*a/(2*r) + b2*a*M/r^2;\r\ngrp = c1*a*(1 - chi*chi)/(2*r) + c2*a*M*(1 - chi*chi)/r^2;\r\n\r\nG = Simplify[{{gtt, gtr, 0, gtp}, {gtr, grr, 0, grp}, {0, 0, gthth, \r\n     0}, {gtp, grp, 0, gpp}}];\r\nG // MatrixForm",
+   "languageId": "wolfram",
+   "outputs": [
+    {
+     "items": [
+      {
+       "data": "<div class=\"wexpr\"><wrow><w></w><wb>(</wb><w>⁠</w><wgrid style=\"grid-template-columns:repeat(4,max-content);\"><w><wrow><w></w><w>-</w><wfrac><w><wrow><w></w><wrow><w></w><wsup><w></w><w>a</w><w><w>2</w></w></wsup><w></w><wsup><w></w><w>chi</w><w><w>2</w></w></wsup></wrow><w>-</w><wrow><w></w><w>2</w><w></w><w>M</w><w></w><w>r</w></wrow><w>+</w><wsup><w></w><w>r</w><w><w>2</w></w></wsup></wrow></w><w><w></w><w><wrow><w></w><wrow><w></w><wsup><w></w><w>a</w><w><w>2</w></w></wsup><w></w><wsup><w></w><w>chi</w><w><w>2</w></w></wsup></wrow><w>+</w><wsup><w></w><w>r</w><w><w>2</w></w></wsup></wrow></w></w></wfrac></wrow></w><w><w>0</w></w><w><w>0</w></w><w><wfrac><w><wrow><w></w><w>2</w><w></w><w>a</w><w></w><wrow><w></w><wb>(</wb><wrow><w></w><wrow><w></w><w>-</w><w>1</w></wrow><w>+</w><wsup><w></w><w>chi</w><w><w>2</w></w></wsup></wrow><wb>)</wb></wrow><w></w><w>M</w><w></w><w>r</w></wrow></w><w><w></w><w><wrow><w></w><wrow><w></w><wsup><w></w><w>a</w><w><w>2</w></w></wsup><w></w><wsup><w></w><w>chi</w><w><w>2</w></w></wsup></wrow><w>+</w><wsup><w></w><w>r</w><w><w>2</w></w></wsup></wrow></w></w></wfrac></w><w><w>0</w></w><w><wfrac><w><wrow><w></w><wrow><w></w><wsup><w></w><w>a</w><w><w>2</w></w></wsup><w></w><wsup><w></w><w>chi</w><w><w>2</w></w></wsup></wrow><w>+</w><wsup><w></w><w>r</w><w><w>2</w></w></wsup></wrow></w><w><w></w><w><wrow><w></w><wsup><w></w><w>a</w><w><w>2</w></w></wsup><w>-</w><wrow><w></w><w>2</w><w></w><w>M</w><w></w><w>r</w></wrow><w>+</w><wsup><w></w><w>r</w><w><w>2</w></w></wsup></wrow></w></w></wfrac></w><w><w>0</w></w><w><w>0</w></w><w><w>0</w></w><w><w>0</w></w><w><wfrac><w><wrow><w></w><wrow><w></w><wsup><w></w><w>a</w><w><w>2</w></w></wsup><w></w><wsup><w></w><w>chi</w><w><w>2</w></w></wsup></wrow><w>+</w><wsup><w></w><w>r</w><w><w>2</w></w></wsup></wrow></w><w><w></w><w><wrow><w></w><w>1</w><w>-</w><wsup><w></w><w>chi</w><w><w>2</w></w></wsup></wrow></w></w></wfrac></w><w><w>0</w></w><w><wfrac><w><wrow><w></w><w>2</w><w></w><w>a</w><w></w><wrow><w></w><wb>(</wb><wrow><w></w><wrow><w></w><w>-</w><w>1</w></wrow><w>+</w><wsup><w></w><w>chi</w><w><w>2</w></w></wsup></wrow><wb>)</wb></wrow><w></w><w>M</w><w></w><w>r</w></wrow></w><w><w></w><w><wrow><w></w><wrow><w></w><wsup><w></w><w>a</w><w><w>2</w></w></wsup><w></w><wsup><w></w><w>chi</w><w><w>2</w></w></wsup></wrow><w>+</w><wsup><w></w><w>r</w><w><w>2</w></w></wsup></wrow></w></w></wfrac></w><w><w>0</w></w><w><w>0</w></w><w><wrow><w></w><w>-</w><wfrac><w><wrow><w></w><wrow><w></w><wb>(</wb><wrow><w></w><wrow><w></w><w>-</w><w>1</w></wrow><w>+</w><wsup><w></w><w>chi</w><w><w>2</w></w></wsup></wrow><wb>)</wb></wrow><w></w><wrow><w></w><wb>(</wb><wrow><w></w><wrow><w></w><wsup><w></w><w>a</w><w><w>4</w></w></wsup><w></w><wsup><w></w><w>chi</w><w><w>2</w></w></wsup></wrow><w>+</w><wsup><w></w><w>r</w><w><w>4</w></w></wsup><w>+</w><wrow><w></w><wsup><w></w><w>a</w><w><w>2</w></w></wsup><w></w><w>r</w><w></w><wrow><w></w><wb>(</wb><wrow><w></w><wrow><w></w><w>2</w><w></w><w>M</w></wrow><w>-</w><wrow><w></w><w>2</w><w></w><wsup><w></w><w>chi</w><w><w>2</w></w></wsup><w></w><w>M</w></wrow><w>+</w><w>r</w><w>+</w><wrow><w></w><wsup><w></w><w>chi</w><w><w>2</w></w></wsup><w></w><w>r</w></wrow></wrow><wb>)</wb></wrow></wrow></wrow><wb>)</wb></wrow></wrow></w><w><w></w><w><wrow><w></w><wrow><w></w><wsup><w></w><w>a</w><w><w>2</w></w></wsup><w></w><wsup><w></w><w>chi</w><w><w>2</w></w></wsup></wrow><w>+</w><wsup><w></w><w>r</w><w><w>2</w></w></wsup></wrow></w></w></wfrac></wrow></w></wgrid><w>⁠</w><wb>)</wb></wrow></div>",
+       "mime": "x-application/wolfram-language-html"
+      },
+      {
+       "data": "MatrixForm[{{-((a^2*chi^2 - 2*M*r + r^2)/(a^2*chi^2 + r^2)), 0, 0, (2*a*(-1 + chi^2)*M*r)/(a^2*chi^2 + r^2)}, {0, (a^2*chi^2 + r^2)/(a^2 - 2*M*r + r^2), 0, 0}, {0, 0, (a^2*chi^2 + r^2)/(1 - chi^2), 0}, {(2*a*(-1 + chi^2)*M*r)/(a^2*chi^2 + r^2), 0, 0, -(((-1 + chi^2)*(a^4*chi^2 + r^4 + a^2*r*(2*M - 2*chi^2*M + r + chi^2*r)))/(a^2*chi^2 + r^2))}}]",
+       "mime": "text/plain"
+      }
+     ],
+     "id": "ef90266c-4f33-44f7-9836-b71935fc3628",
+     "metadata": {
+      "cellLabel": "Out[213]//MatrixForm= ",
+      "isBoxData": false
+     }
+    }
+   ],
+   "metadata": {},
+   "executionSummary": {
+    "timing": {
+     "startTime": 1719023377292,
+     "endTime": 1719023378071
+    },
+    "executionOrder": 205,
+    "success": true
+   }
+  }
+ ]
+}
