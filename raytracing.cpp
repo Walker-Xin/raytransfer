@@ -38,9 +38,6 @@ void raytrace(double xscr, double yscr, double traced[4], double rdisk)
     else
         height = 0.0;
 
-    // Fix height at zero
-    height = 0.0;
-
     h = -1.0; // initial step size, negative sign for backwards integration
 
     /* ----- Compute photon initial conditions ----- */
