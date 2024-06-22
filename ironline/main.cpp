@@ -34,6 +34,7 @@ int main(int argc, char *argv[])
 
 	char filename_i[128];
 	char filename_o[128];
+	char filename_tab[128];
 
 	double time_taken, iteration_time, expected_time;
 	int progress_check, first_check = 0;
@@ -46,15 +47,15 @@ int main(int argc, char *argv[])
 	FILE *fgoal;
 
 	// Set default computation parameters
-	spin = 0.998; // spin parameter
+	spin = 0.5; // spin parameter
 	defpar = 0.0;	 // deformation parameter
-	iobs_deg = 70.0; // inclination angle of the observer in degrees
+	iobs_deg = 20.0; // inclination angle of the observer in degrees
 	dobs = 1.0e+6; // distance Earth-binary system in kpc
 	errtol = 1.0e-6; // error tolerance
 	rstep = 1.008; // step size for robs
 	pstep = 2 * Pi / 800; // step size for pobs
 	progress_check = 1; // check progress for every 20 robs
-	ode_solver = 2; // 0 for RK45, 1 for RKN, 2 for RKN_bambi
+	ode_solver = 0; // 0 for RK45, 1 for RKN, 2 for RKN_bambi
 
 	// Set computation parameters from user input if provided
 	if (argc > 1)
@@ -163,6 +164,9 @@ int main(int argc, char *argv[])
 		exit(0);
 	}
 
+	// Create output observation file
+	sprintf(filename_tab, "observed_a%.03f.def%.02f.i%.02f.dat", spin, defpar, iobs_deg);
+
 	// Start timer
 	clock_t start, end, mid;
 	start = clock();
@@ -223,6 +227,11 @@ int main(int argc, char *argv[])
 
 			if (stop_integration == 1 && traced[1] != 0)
 			{
+				// Record initial photon positions
+				foutput = fopen(filename_tab, "a");
+				fprintf(foutput, "%f %f\n", xobs, yobs);
+				fclose(foutput);
+
 				if (first_check == 0)
 				{
 					printf("First check: robs = %f, pobs = %f, rmid = %f, gfactor = %f, xem[1] = %f\n", robs, pobs, traced[0], traced[1], traced[2]);
