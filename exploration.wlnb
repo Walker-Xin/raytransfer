@@ -8,10 +8,10 @@
    "metadata": {},
    "executionSummary": {
     "timing": {
-     "startTime": 1719027503177,
-     "endTime": 1719027503274
+     "startTime": 1719033240445,
+     "endTime": 1719033240526
     },
-    "executionOrder": 470,
+    "executionOrder": 848,
     "success": true
    }
   },
@@ -23,10 +23,10 @@
    "metadata": {},
    "executionSummary": {
     "timing": {
-     "startTime": 1719027503274,
-     "endTime": 1719027503978
+     "startTime": 1719033240527,
+     "endTime": 1719033241368
     },
-    "executionOrder": 471,
+    "executionOrder": 849,
     "success": true
    }
   },
@@ -38,10 +38,10 @@
    "metadata": {},
    "executionSummary": {
     "timing": {
-     "startTime": 1719027503978,
-     "endTime": 1719027504610
+     "startTime": 1719033241368,
+     "endTime": 1719033242017
     },
-    "executionOrder": 481,
+    "executionOrder": 859,
     "success": true
    }
   },
@@ -53,10 +53,10 @@
    "metadata": {},
    "executionSummary": {
     "timing": {
-     "startTime": 1719027504610,
-     "endTime": 1719027504686
+     "startTime": 1719033242017,
+     "endTime": 1719033242092
     },
-    "executionOrder": 489,
+    "executionOrder": 867,
     "success": true
    }
   },
@@ -76,9 +76,9 @@
        "mime": "text/plain"
       }
      ],
-     "id": "c856cf92-110b-4964-a8e0-ce88bba801b0",
+     "id": "92cf2fd6-faff-4649-93b1-52178d391821",
      "metadata": {
-      "cellLabel": "Out[498]//MatrixForm= ",
+      "cellLabel": "Out[876]//MatrixForm= ",
       "isBoxData": false
      }
     }
@@ -86,10 +86,10 @@
    "metadata": {},
    "executionSummary": {
     "timing": {
-     "startTime": 1719027504686,
-     "endTime": 1719027505521
+     "startTime": 1719033242092,
+     "endTime": 1719033242885
     },
-    "executionOrder": 490,
+    "executionOrder": 868,
     "success": true
    }
   },
@@ -101,10 +101,10 @@
    "metadata": {},
    "executionSummary": {
     "timing": {
-     "startTime": 1719027505521,
-     "endTime": 1719027505838
+     "startTime": 1719033242885,
+     "endTime": 1719033243218
     },
-    "executionOrder": 499,
+    "executionOrder": 877,
     "success": true
    }
   },
@@ -116,10 +116,10 @@
    "metadata": {},
    "executionSummary": {
     "timing": {
-     "startTime": 1719027505838,
-     "endTime": 1719027505964
+     "startTime": 1719033243218,
+     "endTime": 1719033243333
     },
-    "executionOrder": 503,
+    "executionOrder": 881,
     "success": true
    }
   },
@@ -131,10 +131,10 @@
    "metadata": {},
    "executionSummary": {
     "timing": {
-     "startTime": 1719027505964,
-     "endTime": 1719027506550
+     "startTime": 1719033243334,
+     "endTime": 1719033243837
     },
-    "executionOrder": 504,
+    "executionOrder": 882,
     "success": true
    }
   },
@@ -146,10 +146,10 @@
    "metadata": {},
    "executionSummary": {
     "timing": {
-     "startTime": 1719027506550,
-     "endTime": 1719027507024
+     "startTime": 1719033243837,
+     "endTime": 1719033244319
     },
-    "executionOrder": 511,
+    "executionOrder": 889,
     "success": true
    }
   },
@@ -161,10 +161,10 @@
    "metadata": {},
    "executionSummary": {
     "timing": {
-     "startTime": 1719027507025,
-     "endTime": 1719027507102
+     "startTime": 1719033244319,
+     "endTime": 1719033244397
     },
-    "executionOrder": 513,
+    "executionOrder": 891,
     "success": true
    }
   },
@@ -177,10 +177,10 @@
    "metadata": {},
    "executionSummary": {
     "timing": {
-     "startTime": 1719027507102,
-     "endTime": 1719027507181
+     "startTime": 1719033244398,
+     "endTime": 1719033244478
     },
-    "executionOrder": 514,
+    "executionOrder": 892,
     "success": true
    }
   },
@@ -201,9 +201,9 @@
        "mime": "text/plain"
       }
      ],
-     "id": "c63dd088-ab59-4003-8466-97f99c158529",
+     "id": "19b2440c-a96c-4276-8b3d-9496b4f97150",
      "metadata": {
-      "cellLabel": "Out[515]= ",
+      "cellLabel": "Out[893]= ",
       "isBoxData": false
      }
     }
@@ -211,40 +211,40 @@
    "metadata": {},
    "executionSummary": {
     "timing": {
-     "startTime": 1719027507181,
-     "endTime": 1719027507395
+     "startTime": 1719033244478,
+     "endTime": 1719033244680
     },
-    "executionOrder": 515,
+    "executionOrder": 893,
     "success": true
    }
   },
   {
    "kind": 2,
-   "value": "se = -(G[[1]][[1]] + G[[1]][[4]]*omega)*uet /. theta -> Pi/2;",
+   "value": "se = -(G[[1]][[1]] + G[[1]][[4]]*omega)*uet /. chi -> 0;",
    "languageId": "wolfram",
    "outputs": [],
    "metadata": {},
    "executionSummary": {
     "timing": {
-     "startTime": 1719027507396,
-     "endTime": 1719027507462
+     "startTime": 1719033244680,
+     "endTime": 1719033244758
     },
-    "executionOrder": 516,
+    "executionOrder": 894,
     "success": true
    }
   },
   {
    "kind": 2,
-   "value": "Lzsub = -(G[[1]][[4]] + G[[4]][[4]]*omega)*uet /. theta -> Pi/2;",
+   "value": "Lzsub = -(G[[1]][[4]] + G[[4]][[4]]*omega)*uet /. chi -> 0;",
    "languageId": "wolfram",
    "outputs": [],
    "metadata": {},
    "executionSummary": {
     "timing": {
-     "startTime": 1719027507462,
-     "endTime": 1719027507540
+     "startTime": 1719033244758,
+     "endTime": 1719033244837
     },
-    "executionOrder": 517,
+    "executionOrder": 895,
     "success": true
    }
   },
@@ -264,9 +264,9 @@
        "mime": "text/plain"
       }
      ],
-     "id": "d5e02f82-9350-4ee3-bedf-97467f3afa26",
+     "id": "35052ca3-223f-4bf5-a058-a70a0d62d449",
      "metadata": {
-      "cellLabel": "Out[518]= ",
+      "cellLabel": "Out[896]= ",
       "isBoxData": false
      }
     },
@@ -281,9 +281,9 @@
        "mime": "text/plain"
       }
      ],
-     "id": "dd556c15-8e23-463e-9c86-4504a1dcaa90",
+     "id": "1bccff1c-21b0-4545-b0ad-8ee05491d00b",
      "metadata": {
-      "cellLabel": "Out[524]= ",
+      "cellLabel": "Out[902]= ",
       "isBoxData": false
      }
     },
@@ -298,9 +298,9 @@
        "mime": "text/plain"
       }
      ],
-     "id": "ec2293fc-df69-4ff4-b0af-9191a9bbf3d6",
+     "id": "515f34c5-b91f-431e-b619-7e2885dbff56",
      "metadata": {
-      "cellLabel": "Out[526]= ",
+      "cellLabel": "Out[904]= ",
       "isBoxData": false
      }
     }
@@ -308,10 +308,10 @@
    "metadata": {},
    "executionSummary": {
     "timing": {
-     "startTime": 1719027507540,
-     "endTime": 1719027508837
+     "startTime": 1719033244838,
+     "endTime": 1719033246148
     },
-    "executionOrder": 518,
+    "executionOrder": 896,
     "success": true
    }
   },
@@ -323,10 +323,10 @@
    "metadata": {},
    "executionSummary": {
     "timing": {
-     "startTime": 1719027508837,
-     "endTime": 1719027509010
+     "startTime": 1719033246148,
+     "endTime": 1719033246302
     },
-    "executionOrder": 533,
+    "executionOrder": 911,
     "success": true
    }
   },
@@ -338,10 +338,10 @@
    "metadata": {},
    "executionSummary": {
     "timing": {
-     "startTime": 1719027509010,
-     "endTime": 1719027509400
+     "startTime": 1719033246303,
+     "endTime": 1719033246664
     },
-    "executionOrder": 535,
+    "executionOrder": 913,
     "success": true
    }
   },
@@ -353,10 +353,10 @@
    "metadata": {},
    "executionSummary": {
     "timing": {
-     "startTime": 1719027509400,
-     "endTime": 1719027509805
+     "startTime": 1719033246664,
+     "endTime": 1719033247057
     },
-    "executionOrder": 540,
+    "executionOrder": 918,
     "success": true
    }
   },
@@ -368,10 +368,10 @@
    "metadata": {},
    "executionSummary": {
     "timing": {
-     "startTime": 1719027509805,
-     "endTime": 1719027510233
+     "startTime": 1719033247058,
+     "endTime": 1719033247457
     },
-    "executionOrder": 545,
+    "executionOrder": 923,
     "success": true
    }
   },
@@ -383,10 +383,10 @@
    "metadata": {},
    "executionSummary": {
     "timing": {
-     "startTime": 1719027510233,
-     "endTime": 1719027510620
+     "startTime": 1719033247458,
+     "endTime": 1719033247852
     },
-    "executionOrder": 550,
+    "executionOrder": 928,
     "success": true
    }
   },
@@ -406,9 +406,9 @@
        "mime": "text/plain"
       }
      ],
-     "id": "4d8e9acb-e138-4784-9598-ded4b50c7131",
+     "id": "35d05579-2715-4a8e-823f-5ac581c2c828",
      "metadata": {
-      "cellLabel": "Out[557]= ",
+      "cellLabel": "Out[935]= ",
       "isBoxData": false
      }
     }
@@ -416,10 +416,10 @@
    "metadata": {},
    "executionSummary": {
     "timing": {
-     "startTime": 1719027510620,
-     "endTime": 1719027510931
+     "startTime": 1719033247852,
+     "endTime": 1719033248148
     },
-    "executionOrder": 555,
+    "executionOrder": 933,
     "success": true
    }
   },
@@ -431,10 +431,10 @@
    "metadata": {},
    "executionSummary": {
     "timing": {
-     "startTime": 1719027510931,
-     "endTime": 1719027511356
+     "startTime": 1719033248148,
+     "endTime": 1719033248585
     },
-    "executionOrder": 558,
+    "executionOrder": 936,
     "success": true
    }
   },
@@ -446,10 +446,10 @@
    "metadata": {},
    "executionSummary": {
     "timing": {
-     "startTime": 1719027511356,
-     "endTime": 1719027511525
+     "startTime": 1719033248585,
+     "endTime": 1719033248741
     },
-    "executionOrder": 563,
+    "executionOrder": 941,
     "success": true
    }
   },
@@ -461,10 +461,10 @@
    "metadata": {},
    "executionSummary": {
     "timing": {
-     "startTime": 1719027511525,
-     "endTime": 1719027511924
+     "startTime": 1719033248741,
+     "endTime": 1719033249159
     },
-    "executionOrder": 565,
+    "executionOrder": 943,
     "success": true
    }
   },
@@ -476,10 +476,10 @@
    "metadata": {},
    "executionSummary": {
     "timing": {
-     "startTime": 1719027511925,
-     "endTime": 1719027512306
+     "startTime": 1719033249159,
+     "endTime": 1719033249570
     },
-    "executionOrder": 570,
+    "executionOrder": 948,
     "success": true
    }
   },
@@ -491,10 +491,10 @@
    "metadata": {},
    "executionSummary": {
     "timing": {
-     "startTime": 1719027512306,
-     "endTime": 1719027512683
+     "startTime": 1719033249570,
+     "endTime": 1719033249960
     },
-    "executionOrder": 575,
+    "executionOrder": 953,
     "success": true
    }
   },
@@ -514,9 +514,9 @@
        "mime": "text/plain"
       }
      ],
-     "id": "58261942-65a1-439a-9e78-23a517fd1c90",
+     "id": "4670772e-f16c-4e7b-a3bf-6725ca287875",
      "metadata": {
-      "cellLabel": "Out[582]= ",
+      "cellLabel": "Out[960]= ",
       "isBoxData": false
      }
     }
@@ -524,10 +524,10 @@
    "metadata": {},
    "executionSummary": {
     "timing": {
-     "startTime": 1719027512683,
-     "endTime": 1719027513008
+     "startTime": 1719033249960,
+     "endTime": 1719033250275
     },
-    "executionOrder": 580,
+    "executionOrder": 958,
     "success": true
    }
   },
@@ -539,10 +539,10 @@
    "metadata": {},
    "executionSummary": {
     "timing": {
-     "startTime": 1719027513008,
-     "endTime": 1719027513430
+     "startTime": 1719033250275,
+     "endTime": 1719033250652
     },
-    "executionOrder": 583,
+    "executionOrder": 961,
     "success": true
    }
   },
@@ -562,9 +562,9 @@
        "mime": "text/plain"
       }
      ],
-     "id": "78a73a4c-a5ff-417b-b168-46349e439df6",
+     "id": "ca29e7d2-96a2-4289-a43f-bc371b85f2b0",
      "metadata": {
-      "cellLabel": "Out[590]= ",
+      "cellLabel": "Out[968]= ",
       "isBoxData": false
      }
     }
@@ -572,10 +572,10 @@
    "metadata": {},
    "executionSummary": {
     "timing": {
-     "startTime": 1719027513430,
-     "endTime": 1719027513745
+     "startTime": 1719033250652,
+     "endTime": 1719033250967
     },
-    "executionOrder": 588,
+    "executionOrder": 966,
     "success": true
    }
   }
