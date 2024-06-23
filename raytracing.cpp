@@ -59,7 +59,7 @@ void raytrace(double xscr, double yscr, double traced[4], double rdisk)
     // Initial r, theta, and phi momentum; c.f. Eqs (33)-(35)
     kr0 = dscr / r0;
     kth0 = -(cos(inc) - dscr * fact1 / r02) / sqrt(r02 - fact1 * fact1);
-    kchi0 = sqrt(1.0 - chi0 * chi0) * kth0;
+    kchi0 = -sqrt(1.0 - chi0 * chi0) * kth0;
     kphi0 = -xscr * sin(inc) / (xscr2 + fact2 * fact2);
 
     metric(r0, chi0, g); // compute initial metric tensor
@@ -273,15 +273,12 @@ void raytrace(double xscr, double yscr, double traced[4], double rdisk)
         }
     } while (stop_integration == 0);
 
-    thmid = acos(chimid);
-    kth =  kchi/sqrt(1 - chi * chi);
-
     /* ----- Calculate redshift, cosem, and return values ----- */
 
     if (stop_integration == 1) /* photon hit disk, no issues */
     {
-        redshift(rmid, thmid, omega, gfactor);
-        cosem = gfactor * emis_angle(rmid, thmid, kr, kth);
+        redshift(rmid, acos(chimid), omega, gfactor);
+        cosem = gfactor * emis_angle(rmid, acos(chimid), kr, -kchi/sqrt(1 - chi * chi));
     }
     else /* photon crossed horizon, missed disk, or other issue */
     {
