@@ -164,7 +164,7 @@ int main(int argc, char *argv[])
 		exit(0);
 	}
 
-	// Create output observation file
+	// Create output observation file that records the impacting photons' positions at observation plane
 	sprintf(filename_tab, "observed_a%.03f.def%.02f.i%.02f.dat", spin, defpar, iobs_deg);
 
 	// Start timer
