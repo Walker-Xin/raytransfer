@@ -57,7 +57,7 @@ int main(int argc, char *argv[])
 
 	/* Set inner radius of the disk */
 	isco = find_isco();
-	isco = 4.23300253002633;
+	// isco = 4.23300253002633;
 	printf("isco = %.15Le\n", double(isco));
 
 	/* Calculate radiative efficiency */
@@ -69,8 +69,8 @@ int main(int argc, char *argv[])
 	start = clock();
 	mid = clock();
 
-	printf("SIMULATION START\n");
-	printf("----------------\n");
+	printf("\nSIMULATION START\n");
+	printf("----------------\n\n");
 
 	for (int jj = 0; jj < mu_len; jj++)
 	{
