@@ -93,10 +93,10 @@ def data_generation_para(spin_list: list, mdl_list: list, defpar_list: list,
 
 
 if __name__ == '__main__':
-    spins = [0.998]
+    spins = [0.5, 0.9, 0.998]
     mdls = [0.0]
     # defpars = [0.0, 1.0, 5.0, 10.0, 20.0]
-    defpars = [0.0, 0.5, 1, 2]
+    defpars = [0.0]
     
     PATH_TO_EXECUTABLE = r'C:\Users\WalkerXin\Documents\Scripts\raytransfer'
     PATH_TO_OUTPUT = r'C:\Users\WalkerXin\Documents\Scripts\raytransfer\photons'
@@ -124,12 +124,12 @@ if __name__ == '__main__':
     os.system('g++ main.cpp -o main.exe')
 
     # Generate data
-    # for defpar in defpars:
-    #     data_generation_para(spins, mdls, [defpar], r'C:\Users\WalkerXin\Documents\Scripts\raytransfer\main.exe',
-    #                          gerrtol=1.0e-6, rerrtol=1.0e-7, progress_check=0)
+    for defpar in defpars:
+        data_generation_para(spins, mdls, [defpar], r'C:\Users\WalkerXin\Documents\Scripts\raytransfer\main.exe',
+                             gerrtol=1.0e-6, rerrtol=1.0e-7, progress_check=0)
     
-    data_generation_para(spins, mdls, defpars, r'C:\Users\WalkerXin\Documents\Scripts\raytransfer\main.exe',
-                              gerrtol=1.0e-6, rerrtol=1.0e-7, progress_check=1)
+    # data_generation_para(spins, mdls, defpars, r'C:\Users\WalkerXin\Documents\Scripts\raytransfer\main.exe',
+    #                           gerrtol=1.0e-6, rerrtol=1.0e-7, progress_check=1)
 
     # Turn off computer 60 seconds after completion
     # os.system('shutdown /s /t 60')
