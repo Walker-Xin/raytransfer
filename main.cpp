@@ -19,15 +19,15 @@ int main(int argc, char *argv[])
 	FILE *foutput;
 
 	/* Set default computational values */
-	spin = 0.5;
+	spin = 0.95;
 	Mdl = 0;
 	defpar = 0;		  // default = 0
 	gerrtol = 1.0e-6; // default = 1.0e-6
 	rerrtol = 1.0e-7; // default = 1.0e-7
 	pdiff = 1.0e-4;	  // default = 1.0e-4
 	progress_check = 1;
-	skip = 79;	   // default = 0
-	skip_end = 81; // default = imax - 1
+	skip = 49;	   // default = 0
+	skip_end = 51; // default = imax - 1
 
 	// Set computation parameters from user input if provided
 	if (argc > 1)
@@ -482,6 +482,12 @@ int main(int argc, char *argv[])
 
 		printf("----------------\n");
 		printf("SIMULATION END\n");
+
+		// Calculate total time taken
+		end = clock();
+		time_taken = double(end - start) / double(CLOCKS_PER_SEC);
+		printf("Total time taken: %Le minutes\n", double(time_taken / 60.0));
+		
 		fclose(foutput);
 	}
 
