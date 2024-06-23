@@ -339,11 +339,11 @@ int main(int argc, char *argv[])
 
 			xyfromrphi(rscrmax, pscrmax, rdisk[ii]);
 
-			fprintf(foutput, "%.15Le %.15Le %.15Le %.15Le %.15Le 0.0 0.0 0.0 0.0 0.0 0.0\n", double(rdiskmin), double(gmin), double(xscr), double(yscr), double(cosemmin));
+			fprintf(foutput, "%.15Le %.15Le %.15Le %.15Le %.15Le 0.0 0.0 0.0 0.0 0.0 0.0\n", double(rdiskmax), double(gmax), double(xscr), double(yscr), double(cosemmax));
 
 			if (progress_check != 0)
 			{
-				printf("%d B1:MAX %.6Le %.6Le %.6Le %.6Le %.6Le\n", ii, double(rdiskmin), double(gmin), double(xscr), double(yscr), double(cosemmin));
+				printf("%d B1:MAX %.6Le %.6Le %.6Le %.6Le %.6Le\n", ii, double(rdiskmax), double(gmax), double(xscr), double(yscr), double(cosemmax));
 			}
 
 			/*---------- Branch 2 ------------*/
@@ -472,11 +472,11 @@ int main(int argc, char *argv[])
 
 			xyfromrphi(rscrmax, pscrmax, rdisk[ii]);
 
-			fprintf(foutput, "%.15Le %.15Le %.15Le %.15Le %.15Le 0.0 0.0 0.0 0.0 0.0 0.0\n", double(rdiskmin), double(gmin), double(xscr), double(yscr), double(cosemmin));
+			fprintf(foutput, "%.15Le %.15Le %.15Le %.15Le %.15Le 0.0 0.0 0.0 0.0 0.0 0.0\n", double(rdiskmax), double(gmax), double(xscr), double(yscr), double(cosemmax));
 
 			if (progress_check != 0)
 			{
-				printf("%d B2:MAX %.6Le %.6Le %.6Le %.6Le %.6Le\n", ii, double(rdiskmin), double(gmin), double(xscr), double(yscr), double(cosemmin));
+				printf("%d B2:MAX %.6Le %.6Le %.6Le %.6Le %.6Le\n", ii, double(rdiskmax), double(gmax), double(xscr), double(yscr), double(cosemmax));
 			}
 		}
 
