@@ -23,8 +23,8 @@ int main(int argc, char *argv[])
 	rerrtol = 1.0e-7; // default = 1.0e-7
 	pdiff = 1.0e-4;	  // default = 1.0e-4
 	progress_check = 1;
-	skip = 49;	   // default = 0
-	skip_end = 51; // default = imax - 1
+	skip = 0;	   // default = 0
+	skip_end = imax - 1; // default = imax - 1
 
 	// Set computation parameters from user input if provided
 	if (argc > 1)
@@ -54,7 +54,6 @@ int main(int argc, char *argv[])
 
 	/* Set inner radius of the disk */
 	isco = find_isco();
-	// isco = 4.23300253002633;
 	printf("isco = %.15Le\n", double(isco));
 
 	/* Calculate radiative efficiency */
