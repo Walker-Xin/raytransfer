@@ -4,9 +4,6 @@ int main(int argc, char *argv[])
 {
 	double cosinc;
 	double rdisk_i, rdisk_f, rdisk[imax + 2];
-	double pscr, pstep, pscrcur, pscrhigh, pscrlow, rscr, rdiskcur, cosem, gcur, gstar, pdifft, gerrttol;
-	double xscrcur, yscrcur, xscrplus, xscrminus, yscrplus, yscrminus, gplus, gminus;
-	double gmax = 0.0, gmin = 10.0, pscrmax, pscrmin, rscrmax, rscrmin, cosemmax, cosemmin, rdiskmax, rdiskmin;
 	double traced[4];
 	double gerrtol, rerrtol, pdiff;
 
@@ -102,6 +99,12 @@ int main(int argc, char *argv[])
 		/* Assign photon position in the grid */
 		for (int ii = skip; ii <= skip_end; ii++)
 		{
+			// !!NB!!
+			// Redefining the variables at each loop is necessary for resetting the values
+			double pscr, pstep, pscrcur, pscrhigh, pscrlow, rscr, rdiskcur, cosem, gcur, gstar, pdifft, gerrttol;
+			double xscrcur, yscrcur, xscrplus, xscrminus, yscrplus, yscrminus, gplus, gminus;
+			double gmax = 0.0, gmin = 10.0, pscrmax, pscrmin, rscrmax, rscrmin, cosemmax, cosemmin, rdiskmax, rdiskmin;
+
 			if (progress_check != 0)
 			{
 				// Update progress for every progress_check robs
