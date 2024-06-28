@@ -150,7 +150,8 @@ def data_generation_para(spin_list: list, defpar_list: list, inc_list: list, ode
 
                     command = command_generation(
                         param_dict, executable_path, errtol, rstep, pstep, progress_check)
-                    process_list.append(subprocess.Popen(command))
+                    print(command)
+                    process_list.append(subprocess.Popen(command, shell=True))
 
     # Wait for processes to finish
     exit_codes = [p.wait() for p in process_list]
@@ -160,7 +161,7 @@ def data_generation_para(spin_list: list, defpar_list: list, inc_list: list, ode
 if __name__ == '__main__':
     spins = [0.10, 0.50, 0.998]
     defpars = [0.0, 5.00, 10.00]
-    incs = [20.0, 45.0, 70.0]
+    incs = [45.0]
 
     # spins = [0.10, 0.50, 0.998]
     # defpars = [5.00, 10.00]
@@ -168,9 +169,10 @@ if __name__ == '__main__':
 
     odes = [1]
 
-    PATH_TO_EXECUTABLE = r'C:\Users\WalkerXin\Documents\Scripts\raytransfer\ironline'
+    PATH_TO_EXECUTABLE = r'/workspaces/raytransfer'
     PATH_TO_OUTPUT = r'C:\Users\WalkerXin\Documents\Scripts\raytransfer\ironline\data'
     os.chdir(PATH_TO_EXECUTABLE)
+    print(os.getcwd())
 
     # Estimate time taken, with each run taking ~ 8 minutes
     size = len(spins)*len(defpars)*len(incs)*len(odes)
@@ -185,35 +187,32 @@ if __name__ == '__main__':
     else:
         exit()
 
-    # Compile new main.cpp file
-    # os.system('g++ main.cpp -o main.exe')
-
     # Generate data
-    # for defpar in defpars:
-    #         data_generation_para(
-    #             spins, [defpar], incs, [1], r'C:\Users\WalkerXin\Downloads\compare\main_ori.exe',
-    #             errtol=1.0e-10, rstep=1.008, pstep=2*np.pi/800, progress_check=2)
+    for defpar in defpars:
+            data_generation_para(
+                spins, [defpar], incs, [0], r'ironline/main',
+                errtol=1.0e-10, rstep=1.008, pstep=2*np.pi/800, progress_check=2)
 
-    for ode in odes:
-            if ode == 0:
-                for defpar in defpars:
-                    data_generation_para(
-                        spins, [defpar], incs, [ode], r'C:\Users\WalkerXin\Documents\Scripts\raytransfer\ironline\main.exe',
-                        errtol=1.0e-10, rstep=1.008, pstep=2*np.pi/800, progress_check=0)
-            else:
-                for defpar in defpars:
-                    data_generation_para(
-                        spins, [defpar], incs, [ode], r'C:\Users\WalkerXin\Documents\Scripts\raytransfer\ironline\main.exe',
-                        errtol=1.0e-10, rstep=1.008, pstep=2*np.pi/800, progress_check=2)
+    # for ode in odes:
+    #         if ode == 0:
+    #             for defpar in defpars:
+    #                 data_generation_para(
+    #                     spins, [defpar], incs, [ode], r'/workspaces/raytransfer/ironline/main',
+    #                     errtol=1.0e-10, rstep=1.008, pstep=2*np.pi/800, progress_check=0)
+    #         else:
+    #             for defpar in defpars:
+    #                 data_generation_para(
+    #                     spins, [defpar], incs, [ode], r'C:\Users\WalkerXin\Documents\Scripts\raytransfer\ironline\main.exe',
+    #                     errtol=1.0e-10, rstep=1.008, pstep=2*np.pi/800, progress_check=2)
 
     
 
     # Turn off computer 60 seconds after completion
-    os.system('shutdown /s /t 60')
+    # os.system('shutdown /s /t 60')
 
-    # Ask for user input to cancel shutdown
-    check = input('Shutdown in 60 seconds. Cancel? (y/n): ') or 'n'
-    if check == 'Y' or 'y':
-        os.system('shutdown /a')
-    else:
-        pass
+    # # Ask for user input to cancel shutdown
+    # check = input('Shutdown in 60 seconds. Cancel? (y/n): ') or 'n'
+    # if check == 'Y' or 'y':
+    #     os.system('shutdown /a')
+    # else:
+    #     pass
