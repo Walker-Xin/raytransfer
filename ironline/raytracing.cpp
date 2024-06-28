@@ -1,10 +1,10 @@
 int raytrace(double errmin, double errmax, double xscr, double yscr, double traced[4])
 {
     double dscr, xscr2, yscr2;
-    double t, r, th, phi, tau, rau, thau, phiau;
-    double t0, r0, th0, phi0;
-    double kt, kr, kth, kphi, ktau, krau, kthau, kphiau;
-    double kt0, kr0, kth0, kphi0;
+    double t, r, th, chi, phi, tau, rau, thau, chiau, phiau;
+    double t0, r0, th0, chi0, phi0;
+    double kt, kr, kth, kchi, kphi, ktau, krau, kthau, kchiau, kphiau;
+    double kt0, kr0, kth0, kchi0, kphi0;
     double s0, r02, s02;
     double fact1, fact2, fact3, const1;
     double h;
@@ -14,7 +14,7 @@ int raytrace(double errmin, double errmax, double xscr, double yscr, double trac
 
     double g[4][4]; // metric tensor
     double diffs[8], vars[8], vars_temp[8], vars_4th[8], vars_5th[8], k1[8], k2[8], k3[8], k4[8], k5[8], k6[8];
-    double rmid, thmid;
+    double rmid, thmid, chimid;
     double gfactor, limbdark;
     double err, errtol, errs[8];
     double cross_tol;
@@ -45,14 +45,16 @@ int raytrace(double errmin, double errmax, double xscr, double yscr, double trac
     t0 = 0.0;
     r0 = sqrt(r02); 
     th0 = acos(fact1 / r0);
+    chi0 = fact1 / r0; // chi = cos(theta)
     phi0 = atan2(xscr, fact2); // atan2 used to get principal value
 
     // Initial r, theta, and phi momentum; c.f. Eqs (33)-(35)
     kr0 = dscr / r0;
     kth0 = -(cos(inc) - dscr * fact1 / r02) / sqrt(r02 - fact1 * fact1);
+    kchi0 = -sqrt(1.0 - chi0 * chi0) * kth0;
     kphi0 = -xscr * sin(inc) / (xscr2 + fact2 * fact2);
 
-    metric(r0, th0, g); // compute initial metric tensor
+    metric(r0, chi0, g); // compute initial metric tensor
     fact3 = sqrt(g[0][3] * g[0][3] * kphi0 * kphi0 - g[0][0] * (g[1][1] * kr0 * kr0 + g[2][2] * kth0 * kth0 + g[3][3] * kphi0 * kphi0));
     kt0 = -sqrt(kr0 * kr0 + r02 * kth0 * kth0 + r02 * sin(th0) * sin(th0) * kphi0 * kphi0);
 
@@ -69,11 +71,13 @@ int raytrace(double errmin, double errmax, double xscr, double yscr, double trac
     t = t0;
     r = r0;
     th = th0;
+    chi = chi0;
     phi = phi0;
 
     kt = kt0;
     kr = kr0;
     kth = kth0;
+    kchi = kchi0;
     kphi = kphi0;
 
     s0 = sin(th0);
@@ -86,11 +90,11 @@ int raytrace(double errmin, double errmax, double xscr, double yscr, double trac
 
         vars[0] = t;
         vars[1] = r;
-        vars[2] = th;
+        vars[2] = chi;
         vars[3] = phi;
         vars[4] = kt;
         vars[5] = kr;
-        vars[6] = kth;
+        vars[6] = kchi;
         vars[7] = kphi;
 
         do
@@ -206,28 +210,28 @@ int raytrace(double errmin, double errmax, double xscr, double yscr, double trac
 
         tau = t;
         rau = r;
-        thau = th;
+        chiau = chi;
         phiau = phi;
         ktau = kt;
         krau = kr;
-        kthau = kth;
+        kchiau = kchi;
         kphiau = kphi;
 
         t = vars_4th[0];
         r = vars_4th[1];
-        th = vars_4th[2];
+        chi = vars_4th[2];
         phi = vars_4th[3];
         kt = vars_4th[4];
         kr = vars_4th[5];
-        kth = vars_4th[6];
+        kchi = vars_4th[6];
         kphi = vars_4th[7];
 
-        if (cos(th) < 0.0) // check if photon has crossed disk
+        if (chi < 0.0) // check if photon has crossed disk
         {
             rmid = (rau + r) / 2.0;
-            thmid = (thau + th) / 2.0;
+            chimid = 0.5 * (chi + chiau);
 
-            intersection(rau, thau, phiau, r, th, phi, xem);
+            intersection(rau, acos(chiau), phiau, r, acos(chi), phi, xem);
 
             if (xem[1] > isco && xem[1] < isco+250.0) {
                 stop_integration = 1;   /* the photon hits the disk */

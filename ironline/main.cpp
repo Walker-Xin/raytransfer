@@ -49,7 +49,7 @@ int main(int argc, char *argv[])
 	// Set default computation parameters
 	spin = 0.5; // spin parameter
 	defpar = 0.0;	 // deformation parameter
-	iobs_deg = 20.0; // inclination angle of the observer in degrees
+	iobs_deg = 45.0; // inclination angle of the observer in degrees
 	dobs = 1.0e+6; // distance Earth-binary system in kpc
 	errtol = 1.0e-6; // error tolerance
 	rstep = 1.008; // step size for robs
@@ -165,7 +165,7 @@ int main(int argc, char *argv[])
 	}
 
 	// Create output observation file that records the impacting photons' positions at observation plane
-	sprintf(filename_tab, "observed_a%.03f.def%.02f.i%.02f.dat", spin, defpar, iobs_deg);
+	// sprintf(filename_tab, "observed_a%.03f.def%.02f.i%.02f.dat", spin, defpar, iobs_deg);
 
 	// Start timer
 	clock_t start, end, mid;
@@ -228,9 +228,9 @@ int main(int argc, char *argv[])
 			if (stop_integration == 1 && traced[1] != 0)
 			{
 				// Record initial photon positions
-				foutput = fopen(filename_tab, "a");
-				fprintf(foutput, "%f %f\n", xobs, yobs);
-				fclose(foutput);
+				// foutput = fopen(filename_tab, "a");
+				// fprintf(foutput, "%f %f\n", xobs, yobs);
+				// fclose(foutput);
 
 				if (first_check == 0)
 				{

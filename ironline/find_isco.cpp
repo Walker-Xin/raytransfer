@@ -1,11 +1,13 @@
+/* Calculate ISCO radius */
+// TODO: improve this with a more modular approach
+// TODO: optimise expressions
 // const double Pi  = 3.14159265358979323846264338327950288419716939937510L;
+
+// double spin = 0.1;
+// double defpar = 0.005, epsi3 = 0.0, a13 = 0.0, a22 = 0.0;
 
 // #include <stdio.h>
 // #include <math.h>
-// #include <iostream>
-
-// double spin = 0.1, isco;
-// double defpar = 0.0, epsi3 = 0.0, a13 = 0.0, a22 = 0.0;
 
 // #include "metric.cpp"
 
@@ -27,9 +29,9 @@ double find_isco(double spin, double defpar)
         r = j;
 
 		/* Calculate 2nd-derivative of the effective potential - d2Veff */
-        metric(r, Pi/2., m);
-        metric_rderivatives(r, Pi/2., dmdr);
-        metric_r2derivatives(r, Pi/2., dmdr2);
+        metric(r, 0, m);
+        metric_rderivatives(r, 0, dmdr);
+        metric_r2derivatives(r, 0, dmdr2);
 
         Omega_var = (-dmdr[0][3] + sqrt(dmdr[0][3]*dmdr[0][3] - dmdr[0][0]*dmdr[3][3])) / dmdr[3][3]; // angular velocity; c.f. Eq (13) in Public Release
         denom = sqrt(-(m[0][0] + 2.0*m[0][3]*Omega_var + m[3][3]*Omega_var*Omega_var)); // common denominator in Eq (11) and (12)
@@ -64,9 +66,9 @@ double find_isco(double spin, double defpar)
                     r = l;
 
 					/* Calculate 2nd-derivative of the effective potential - d2Veff */
-                    metric(r, Pi/2., m);
-                    metric_rderivatives(r, Pi/2., dmdr);
-                    metric_r2derivatives(r, Pi/2., dmdr2);
+                    metric(r, 0, m);
+                    metric_rderivatives(r, 0, dmdr);
+                    metric_r2derivatives(r, 0, dmdr2);
 
                     Omega_var = (-dmdr[0][3] + sqrt(dmdr[0][3]*dmdr[0][3] - dmdr[0][0]*dmdr[3][3])) / dmdr[3][3];
                     denom = sqrt(-(m[0][0] + 2.0*m[0][3]*Omega_var + m[3][3]*Omega_var*Omega_var));
@@ -103,12 +105,9 @@ double find_isco(double spin, double defpar)
     return rin;
 }
 
-// int main()
-// {
-//     double spin = 0.5, isco;
-//     double defpar = 0.0, epsi3 = 0.0, a13 = 0.0, a22 = 0.0;
+// int main(){
+//     double isco;
 //     isco = find_isco();
-//     std::cout << "isco = " << isco << std::endl;
+//     printf("ISCO radius = %Lf\n", isco);
 //     return 0;
 // }
-	
