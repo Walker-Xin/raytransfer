@@ -16,15 +16,15 @@ int main(int argc, char *argv[])
 	FILE *foutput;
 
 	/* Set default computational values */
-	spin = 0.9;
+	spin = 0.998;
 	Mdl = 0;
 	inc = Pi/4; 	  // inclination angle in rad, default = Pi/4
-	defpar = 0;		  // default = 0
+	defpar = 5;		  // default = 0
 	gerrtol = 1.0e-6; // default = 1.0e-6
 	rerrtol = 1.0e-7; // default = 1.0e-7
 	pdiff = 1.0e-4;	  // default = 1.0e-4
 	progress_check = 1;
-	skip = 0;	   // default = 0
+	skip = 96;	   // default = 0
 	skip_end = imax - 1; // default = imax - 1
 
 	// Set computation parameters from user input if provided
@@ -55,11 +55,11 @@ int main(int argc, char *argv[])
 
 	/* Set inner radius of the disk */
 	isco = find_isco();
-	printf("isco = %.15Le\n", double(isco));
+	printf("isco = %.15e\n", double(isco));
 
 	/* Calculate radiative efficiency */
 	eta = 1.0 - specific_energy(isco);
-	printf("eta = %.15Le\n", double(eta));
+	printf("eta = %.15e\n", double(eta));
 
 	// Start timer
 	clock_t start, end, mid;
@@ -77,11 +77,11 @@ int main(int argc, char *argv[])
 
 		// /* Set inner radius of the disk */
 		// isco = find_isco();
-		// printf("isco = %.15Le\n", isco);
+		// printf("isco = %.15e\n", isco);
 
 		// /* Calculate radiative efficiency */
 		// eta = 1.0 - specific_energy(isco);
-		// printf("eta = %.15Le\n", eta);
+		// printf("eta = %.15e\n", eta);
 
 		/* Set inner/outer disk radii */
 		rdisk_i = isco;
@@ -92,7 +92,7 @@ int main(int argc, char *argv[])
 		rdisk_len = sizeof(rdisk) / sizeof(rdisk[0]);
 
 		/* Open output file */
-		sprintf(filename_o, "photons/photons4trf_a%.05Le.i%.02Le.Mdl_%.02Le.dp_%.02Le.dat", spin, cosinc, Mdl, defpar);
+		sprintf(filename_o, "photons/photons4trf_a%.05e.i%.02e.Mdl_%.02e.dp_%.02e.dat", spin, cosinc, Mdl, defpar);
 
 		foutput = fopen(filename_o, "w");
 
@@ -126,7 +126,7 @@ int main(int argc, char *argv[])
 			{
 				rayprecise(rdisk[ii], rerrtol, pscr, traced);
 
-				// printf("%Le %Le %Le\n", traced[2], gmin, gmax);
+				// printf("%e %e %e\n", traced[2], gmin, gmax);
 
 				if (traced[2] > gmax && traced[0] != 0.0) // set gmax if g is larger than current gmax
 				{
@@ -142,13 +142,23 @@ int main(int argc, char *argv[])
 				pscr += pstep;
 			}
 
+			// !NB! For high spin, high def and low rdisk, pscrmax can be < pscrmin, leading to problems
+			// Fix by swapping pscrmax and pscrmin if pscrmax < pscrmin
+			if (pscrmax < pscrmin)
+			{
+				printf("Swapping pscrmax and pscrmin\n");
+				double temp = pscrmax;
+				pscrmax = pscrmin;
+				pscrmin = temp;
+			}
+
 			/* ------- Search for gmax -------- */
 
 			while (pstep > gerrtol)
 			{
 				rayprecise(rdisk[ii], rerrtol, pscrmax - pstep / 2.0, traced); // search at values of phi_screen lower than estimated
 
-				// printf("%Le %Le %Le\n", traced[2], gmin, gmax);
+				// printf("%e %e %e\n", traced[2], gmin, gmax);
 
 				if (traced[2] > gmax)
 				{
@@ -210,7 +220,7 @@ int main(int argc, char *argv[])
 
 			if (progress_check != 0)
 			{
-				printf("%d gmin = %.15Le, gmax = %.15Le\n", ii, gmin, gmax);
+				printf("%d gmin = %.15e, gmax = %.15e\n", ii, gmin, gmax);
 			}
 
 			//*_*_*_*_*_*_*_*		CALCULATING CONSTANTLY SPACED g* GRID		*_*_*_*_*_*_*//
@@ -221,11 +231,11 @@ int main(int argc, char *argv[])
 
 			xyfromrphi(rscrmin, pscrmin, rdisk[ii]);
 
-			fprintf(foutput, "%.15Le %.15Le %.15Le %.15Le %.15Le 0.0 0.0 0.0 0.0 0.0 0.0\n", rdiskmin, gmin, xscr, yscr, cosemmin);
+			fprintf(foutput, "%.15e %.15e %.15e %.15e %.15e 0.0 0.0 0.0 0.0 0.0 0.0\n", rdiskmin, gmin, xscr, yscr, cosemmin);
 
 			if (progress_check != 0)
 			{
-				printf("%d B1:MIN %.6Le %.6Le %.6Le %.6Le %.6Le\n", ii, rdiskmin, gmin, xscr, yscr, cosemmin);
+				printf("%d B1:MIN %.6e %.6e %.6e %.6e %.6e\n", ii, rdiskmin, gmin, xscr, yscr, cosemmin);
 			}
 
 			// set values for phi_screen variables
@@ -273,23 +283,29 @@ int main(int argc, char *argv[])
 					pscrcur = 0.5 * (pscrlow + pscrhigh);
 
 					// Fix by breaking if cur = high or low after taking midpoint
-					if (pscrcur == pscrhigh) // some truncation error has occured
-					{
-						printf("pscrcur = pscrhigh, j = %d\n", j);
-						printf("pscrcur = %.16Le, pscrhigh = %.16Le\n, pscrlow = %.16Le", pscrcur, pscrhigh, pscrlow);
-						printf("breaking\n");
-						break;
-					}
-					else if (pscrcur == pscrlow)
-					{
-						printf("pscrcur = pscrlow, j = %d\n", j);
-						printf("pscrcur = %.16Le, pscrhigh = %.16Le\n, pscrlow = %.16Le", pscrcur, pscrhigh, pscrlow);
-						printf("breaking\n");
-						break;
-					}
+					// if (pscrcur == pscrhigh) // some truncation error has occured
+					// {
+					// 	printf("pscrcur = pscrhigh, j = %d\n", j);
+					// 	printf("pscrcur = %.16e, pscrhigh = %.16e\n, pscrlow = %.16e", pscrcur, pscrhigh, pscrlow);
+					// 	printf("breaking\n");
+					// 	break;
+					// }
+					// else if (pscrcur == pscrlow)
+					// {
+					// 	printf("pscrcur = pscrlow, j = %d\n", j);
+					// 	printf("pscrcur = %.16e, pscrhigh = %.16e\n, pscrlow = %.16e", pscrcur, pscrhigh, pscrlow);
+					// 	printf("breaking\n");
+					// 	break;
+					// }
 
-					if (pscrhigh - pscrlow < 1.0e-10) // Raise error tolerance if can't find the correct value
+					if (abs(pscrhigh - pscrlow) < 1.0e-10) // Raise error tolerance if can't find the correct value
 						gerrttol *= 2.0;
+
+					if (pscrhigh < pscrlow)
+					{
+						printf("pscrhigh < pscrlow\n");
+						break;
+					}
 				}
 
 				// Set/Reset variables as necessary after finding gcur
@@ -332,21 +348,21 @@ int main(int argc, char *argv[])
 					pdifft *= 2.0;
 				} while (gplus == 0.0);
 
-				fprintf(foutput, "%.15Le %.15Le %.15Le %.15Le %.15Le %.15Le %.15Le %.15Le %.15Le %.15Le %.15Le\n", rdiskcur, gcur, xscrcur, yscrcur, cosem, gminus, xscrminus, yscrminus, gplus, xscrplus, yscrplus);
+				fprintf(foutput, "%.15e %.15e %.15e %.15e %.15e %.15e %.15e %.15e %.15e %.15e %.15e\n", rdiskcur, gcur, xscrcur, yscrcur, cosem, gminus, xscrminus, yscrminus, gplus, xscrplus, yscrplus);
 
 				if (progress_check != 0)
 				{
-					printf("%d B1:%d %.6Le %.6Le %.6Le %.6Le %.6Le %.6Le %.6Le %.6Le %.6Le %.6Le %.6Le\r", ii, j + 1, rdiskcur, gcur, xscrcur, yscrcur, cosem, gminus, xscrminus, yscrminus, gplus, xscrplus, yscrplus);
+					printf("%d B1:%d %.6e %.6e %.6e %.6e %.6e %.6e %.6e %.6e %.6e %.6e %.6e\r", ii, j + 1, rdiskcur, gcur, xscrcur, yscrcur, cosem, gminus, xscrminus, yscrminus, gplus, xscrplus, yscrplus);
 				}
 			}
 
 			xyfromrphi(rscrmax, pscrmax, rdisk[ii]);
 
-			fprintf(foutput, "%.15Le %.15Le %.15Le %.15Le %.15Le 0.0 0.0 0.0 0.0 0.0 0.0\n", rdiskmax, gmax, xscr, yscr, cosemmax);
+			fprintf(foutput, "%.15e %.15e %.15e %.15e %.15e 0.0 0.0 0.0 0.0 0.0 0.0\n", rdiskmax, gmax, xscr, yscr, cosemmax);
 
 			if (progress_check != 0)
 			{
-				printf("%d B1:MAX %.6Le %.6Le %.6Le %.6Le %.6Le\n", ii, rdiskmax, gmax, xscr, yscr, cosemmax);
+				printf("%d B1:MAX %.6e %.6e %.6e %.6e %.6e\n", ii, rdiskmax, gmax, xscr, yscr, cosemmax);
 			}
 
 			/*---------- Branch 2 ------------*/
@@ -355,11 +371,11 @@ int main(int argc, char *argv[])
 
 			xyfromrphi(rscrmin, pscrmin, rdisk[ii]);
 
-			fprintf(foutput, "%.15Le %.15Le %.15Le %.15Le %.15Le 0.0 0.0 0.0 0.0 0.0 0.0\n", rdiskmin, gmin, xscr, yscr, cosemmin);
+			fprintf(foutput, "%.15e %.15e %.15e %.15e %.15e 0.0 0.0 0.0 0.0 0.0 0.0\n", rdiskmin, gmin, xscr, yscr, cosemmin);
 
 			if (progress_check != 0)
 			{
-				printf("%d B2:MIN %.6Le %.6Le %.6Le %.6Le %.6Le\n", ii, rdiskmin, gmin, xscr, yscr, cosemmin);
+				printf("%d B2:MIN %.6e %.6e %.6e %.6e %.6e\n", ii, rdiskmin, gmin, xscr, yscr, cosemmin);
 			}
 
 			// set values for phi_screen variables
@@ -403,22 +419,22 @@ int main(int argc, char *argv[])
 
 					pscrcur = 0.5 * (pscrlow + pscrhigh); // Set phi_screen_current to midpoint of high and low values
 
-					if (pscrcur == pscrhigh) // some truncation error has occured
-					{
-						printf("pscrcur = pscrhigh, j = %d\n", j);
-						printf("pscrcur = %.16Le, pscrhigh = %.16Le\n, pscrlow = %.16Le", pscrcur, pscrhigh, pscrlow);
-						printf("breaking\n");
-						break;
-					}
-					else if (pscrcur == pscrlow)
-					{
-						printf("pscrcur = pscrlow, j = %d\n", j);
-						printf("pscrcur = %.16Le, pscrhigh = %.16Le\n, pscrlow = %.16Le", pscrcur, pscrhigh, pscrlow);
-						printf("breaking\n");
-						break;
-					}
+					// if (pscrcur == pscrhigh) // some truncation error has occured
+					// {
+					// 	printf("pscrcur = pscrhigh, j = %d\n", j);
+					// 	printf("pscrcur = %.16e, pscrhigh = %.16e\n, pscrlow = %.16e", pscrcur, pscrhigh, pscrlow);
+					// 	printf("breaking\n");
+					// 	break;
+					// }
+					// else if (pscrcur == pscrlow)
+					// {
+					// 	printf("pscrcur = pscrlow, j = %d\n", j);
+					// 	printf("pscrcur = %.16e, pscrhigh = %.16e\n, pscrlow = %.16e", pscrcur, pscrhigh, pscrlow);
+					// 	printf("breaking\n");
+					// 	break;
+					// }
 
-					if (pscrlow - pscrhigh < 1.0e-10) // Raise error tolerance if can't find the correct value
+					if (abs(pscrlow - pscrhigh) < 1.0e-10) // Raise error tolerance if can't find the correct value
 						gerrttol *= 2.0;
 				}
 
@@ -464,22 +480,22 @@ int main(int argc, char *argv[])
 					pdifft *= 2.0;
 				} while (gplus == 0.0);
 
-				fprintf(foutput, "%.15Le %.15Le %.15Le %.15Le %.15Le %.15Le %.15Le %.15Le %.15Le %.15Le %.15Le\n", rdiskcur, gcur, xscrcur, yscrcur, cosem, gminus, xscrminus, yscrminus, gplus, xscrplus, yscrplus);
+				fprintf(foutput, "%.15e %.15e %.15e %.15e %.15e %.15e %.15e %.15e %.15e %.15e %.15e\n", rdiskcur, gcur, xscrcur, yscrcur, cosem, gminus, xscrminus, yscrminus, gplus, xscrplus, yscrplus);
 
 				if (progress_check != 0)
 				{
 					// Use /r to overwrite the line
-					printf("%d B2:%d %.6Le %.6Le %.6Le %.6Le %.6Le %.6Le %.6Le %.6Le %.6Le %.6Le %.6Le\r", ii, j + 1, rdiskcur, gcur, xscrcur, yscrcur, cosem, gminus, xscrminus, yscrminus, gplus, xscrplus, yscrplus);
+					printf("%d B2:%d %.6e %.6e %.6e %.6e %.6e %.6e %.6e %.6e %.6e %.6e %.6e\r", ii, j + 1, rdiskcur, gcur, xscrcur, yscrcur, cosem, gminus, xscrminus, yscrminus, gplus, xscrplus, yscrplus);
 				}
 			}
 
 			xyfromrphi(rscrmax, pscrmax, rdisk[ii]);
 
-			fprintf(foutput, "%.15Le %.15Le %.15Le %.15Le %.15Le 0.0 0.0 0.0 0.0 0.0 0.0\n", rdiskmax, gmax, xscr, yscr, cosemmax);
+			fprintf(foutput, "%.15e %.15e %.15e %.15e %.15e 0.0 0.0 0.0 0.0 0.0 0.0\n", rdiskmax, gmax, xscr, yscr, cosemmax);
 
 			if (progress_check != 0)
 			{
-				printf("%d B2:MAX %.6Le %.6Le %.6Le %.6Le %.6Le\n", ii, rdiskmax, gmax, xscr, yscr, cosemmax);
+				printf("%d B2:MAX %.6e %.6e %.6e %.6e %.6e\n", ii, rdiskmax, gmax, xscr, yscr, cosemmax);
 			}
 		}
 
@@ -489,7 +505,7 @@ int main(int argc, char *argv[])
 		// Calculate total time taken
 		end = clock();
 		time_taken = double(end - start) / double(CLOCKS_PER_SEC);
-		printf("Total time taken: %Le minutes\n", double(time_taken / 60.0));
+		printf("Total time taken: %e minutes\n", double(time_taken / 60.0));
 		
 		fclose(foutput);
 	}
