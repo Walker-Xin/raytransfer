@@ -16,7 +16,7 @@ int main(int argc, char *argv[])
 	FILE *foutput;
 
 	/* Set default computational values */
-	spin = 0.95;
+	spin = 0.9;
 	Mdl = 0;
 	defpar = 0;		  // default = 0
 	gerrtol = 1.0e-6; // default = 1.0e-6
@@ -30,16 +30,16 @@ int main(int argc, char *argv[])
 	if (argc > 1)
 	{
 		spin = atof(argv[1]); // spin parameter
-		Mdl = atof(argv[2]);  // accretion rate parameter - disk thickness
+		inc = atof(argv[2]);  // inclination angle in degrees
 		defpar = atof(argv[3]);
 		gerrtol = atof(argv[4]);		// error tolerance for RK45
 		rerrtol = atof(argv[5]);		// error tolerance for redshift factor
 		progress_check = atoi(argv[6]); // progress check interval, also used to determine whether to print progress
-		printf("Using user input parameters. spin=%.5e, accretion rate=%.5e, deformation=%.5e, gerrtol=%.5e, rerrtol=%.5e\n", double(spin), double(Mdl), double(defpar), double(gerrtol), double(rerrtol));
+		printf("Using user input parameters. spin=%.5e, inc=%.5e, deformation=%.5e, gerrtol=%.5e, rerrtol=%.5e\n", double(spin), double(inc), double(defpar), double(gerrtol), double(rerrtol));
 	}
 	else
 	{
-		printf("Using user input parameters. spin=%.5e, accretion rate=%.5e, deformation=%.5e, gerrtol=%.5e, rerrtol=%.5e\n", double(spin), double(Mdl), double(defpar), double(gerrtol), double(rerrtol));
+		printf("Using user input parameters. spin=%.5e, inc=%.5e, deformation=%.5e, gerrtol=%.5e, rerrtol=%.5e\n", double(spin), double(inc), double(defpar), double(gerrtol), double(rerrtol));
 	}
 
 	spin2 = spin * spin;
@@ -49,7 +49,7 @@ int main(int argc, char *argv[])
 
 	/* Loop over inclination angles when running on cluster */
 	// double mu0[] = {0.0349447653, 0.09718278, 0.15948, 0.2165542, 0.270481, 0.3221819, 0.3721757, 0.420793, 0.4682622, 0.5147499, 0.5603828, 0.6052601, 0.6494616, 0.6930526, 0.7360878, 0.7786132, 0.8206683, 0.8622873, 0.9035001, 0.9443328, 0.9848086238, 0.9986296296};
-	double mu0[] = {0.707106};
+	double mu0[] = {cos(inc)};
 	mu_len = sizeof(mu0) / sizeof(mu0[0]);
 
 	/* Set inner radius of the disk */
