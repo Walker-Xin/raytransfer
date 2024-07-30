@@ -92,7 +92,7 @@ int main(int argc, char *argv[])
 		rdisk_len = sizeof(rdisk) / sizeof(rdisk[0]);
 
 		/* Open output file */
-		sprintf(filename_o, "photons/photons4trf_a%.05Le.i%.02Le.Mdl_%.02Le.dp_%.02Le.dat", double(spin), double(cosinc), double(Mdl), double(defpar));
+		sprintf(filename_o, "photons/photons4trf_a%.05Le.i%.02Le.Mdl_%.02Le.dp_%.02Le.dat", spin, cosinc, Mdl, defpar);
 
 		foutput = fopen(filename_o, "w");
 
@@ -114,7 +114,7 @@ int main(int argc, char *argv[])
 					iteration_time = double(clock() - mid) / double(CLOCKS_PER_SEC);
 					mid = clock();
 					expected_time = iteration_time * (rdisk_len - ii) / double(progress_check);
-					printf("rdisk = %Le; expected time left: %Le minutes\n", double(rdisk[ii]), double(expected_time / 60.0));
+					printf("rdisk = %e; expected time left: %e minutes\n", double(rdisk[ii]), double(expected_time / 60.0));
 				}
 			}
 
@@ -221,11 +221,11 @@ int main(int argc, char *argv[])
 
 			xyfromrphi(rscrmin, pscrmin, rdisk[ii]);
 
-			fprintf(foutput, "%.15Le %.15Le %.15Le %.15Le %.15Le 0.0 0.0 0.0 0.0 0.0 0.0\n", double(rdiskmin), double(gmin), double(xscr), double(yscr), double(cosemmin));
+			fprintf(foutput, "%.15Le %.15Le %.15Le %.15Le %.15Le 0.0 0.0 0.0 0.0 0.0 0.0\n", rdiskmin, gmin, xscr, yscr, cosemmin);
 
 			if (progress_check != 0)
 			{
-				printf("%d B1:MIN %.6Le %.6Le %.6Le %.6Le %.6Le\n", ii, double(rdiskmin), double(gmin), double(xscr), double(yscr), double(cosemmin));
+				printf("%d B1:MIN %.6Le %.6Le %.6Le %.6Le %.6Le\n", ii, rdiskmin, gmin, xscr, yscr, cosemmin);
 			}
 
 			// set values for phi_screen variables
@@ -332,21 +332,21 @@ int main(int argc, char *argv[])
 					pdifft *= 2.0;
 				} while (gplus == 0.0);
 
-				fprintf(foutput, "%.15Le %.15Le %.15Le %.15Le %.15Le %.15Le %.15Le %.15Le %.15Le %.15Le %.15Le\n", double(rdiskcur), double(gcur), double(xscrcur), double(yscrcur), double(cosem), double(gminus), double(xscrminus), double(yscrminus), double(gplus), double(xscrplus), double(yscrplus));
+				fprintf(foutput, "%.15Le %.15Le %.15Le %.15Le %.15Le %.15Le %.15Le %.15Le %.15Le %.15Le %.15Le\n", rdiskcur, gcur, xscrcur, yscrcur, cosem, gminus, xscrminus, yscrminus, gplus, xscrplus, yscrplus);
 
 				if (progress_check != 0)
 				{
-					printf("%d B1:%d %.6Le %.6Le %.6Le %.6Le %.6Le %.6Le %.6Le %.6Le %.6Le %.6Le %.6Le\r", ii, j + 1, double(rdiskcur), double(gcur), double(xscrcur), double(yscrcur), double(cosem), double(gminus), double(xscrminus), double(yscrminus), double(gplus), double(xscrplus), double(yscrplus));
+					printf("%d B1:%d %.6Le %.6Le %.6Le %.6Le %.6Le %.6Le %.6Le %.6Le %.6Le %.6Le %.6Le\r", ii, j + 1, rdiskcur, gcur, xscrcur, yscrcur, cosem, gminus, xscrminus, yscrminus, gplus, xscrplus, yscrplus);
 				}
 			}
 
 			xyfromrphi(rscrmax, pscrmax, rdisk[ii]);
 
-			fprintf(foutput, "%.15Le %.15Le %.15Le %.15Le %.15Le 0.0 0.0 0.0 0.0 0.0 0.0\n", double(rdiskmax), double(gmax), double(xscr), double(yscr), double(cosemmax));
+			fprintf(foutput, "%.15Le %.15Le %.15Le %.15Le %.15Le 0.0 0.0 0.0 0.0 0.0 0.0\n", rdiskmax, gmax, xscr, yscr, cosemmax);
 
 			if (progress_check != 0)
 			{
-				printf("%d B1:MAX %.6Le %.6Le %.6Le %.6Le %.6Le\n", ii, double(rdiskmax), double(gmax), double(xscr), double(yscr), double(cosemmax));
+				printf("%d B1:MAX %.6Le %.6Le %.6Le %.6Le %.6Le\n", ii, rdiskmax, gmax, xscr, yscr, cosemmax);
 			}
 
 			/*---------- Branch 2 ------------*/
@@ -355,11 +355,11 @@ int main(int argc, char *argv[])
 
 			xyfromrphi(rscrmin, pscrmin, rdisk[ii]);
 
-			fprintf(foutput, "%.15Le %.15Le %.15Le %.15Le %.15Le 0.0 0.0 0.0 0.0 0.0 0.0\n", double(rdiskmin), double(gmin), double(xscr), double(yscr), double(cosemmin));
+			fprintf(foutput, "%.15Le %.15Le %.15Le %.15Le %.15Le 0.0 0.0 0.0 0.0 0.0 0.0\n", rdiskmin, gmin, xscr, yscr, cosemmin);
 
 			if (progress_check != 0)
 			{
-				printf("%d B2:MIN %.6Le %.6Le %.6Le %.6Le %.6Le\n", ii, double(rdiskmin), double(gmin), double(xscr), double(yscr), double(cosemmin));
+				printf("%d B2:MIN %.6Le %.6Le %.6Le %.6Le %.6Le\n", ii, rdiskmin, gmin, xscr, yscr, cosemmin);
 			}
 
 			// set values for phi_screen variables
@@ -464,22 +464,22 @@ int main(int argc, char *argv[])
 					pdifft *= 2.0;
 				} while (gplus == 0.0);
 
-				fprintf(foutput, "%.15Le %.15Le %.15Le %.15Le %.15Le %.15Le %.15Le %.15Le %.15Le %.15Le %.15Le\n", double(rdiskcur), double(gcur), double(xscrcur), double(yscrcur), double(cosem), double(gminus), double(xscrminus), double(yscrminus), double(gplus), double(xscrplus), double(yscrplus));
+				fprintf(foutput, "%.15Le %.15Le %.15Le %.15Le %.15Le %.15Le %.15Le %.15Le %.15Le %.15Le %.15Le\n", rdiskcur, gcur, xscrcur, yscrcur, cosem, gminus, xscrminus, yscrminus, gplus, xscrplus, yscrplus);
 
 				if (progress_check != 0)
 				{
 					// Use /r to overwrite the line
-					printf("%d B2:%d %.6Le %.6Le %.6Le %.6Le %.6Le %.6Le %.6Le %.6Le %.6Le %.6Le %.6Le\r", ii, j + 1, double(rdiskcur), double(gcur), double(xscrcur), double(yscrcur), double(cosem), double(gminus), double(xscrminus), double(yscrminus), double(gplus), double(xscrplus), double(yscrplus));
+					printf("%d B2:%d %.6Le %.6Le %.6Le %.6Le %.6Le %.6Le %.6Le %.6Le %.6Le %.6Le %.6Le\r", ii, j + 1, rdiskcur, gcur, xscrcur, yscrcur, cosem, gminus, xscrminus, yscrminus, gplus, xscrplus, yscrplus);
 				}
 			}
 
 			xyfromrphi(rscrmax, pscrmax, rdisk[ii]);
 
-			fprintf(foutput, "%.15Le %.15Le %.15Le %.15Le %.15Le 0.0 0.0 0.0 0.0 0.0 0.0\n", double(rdiskmax), double(gmax), double(xscr), double(yscr), double(cosemmax));
+			fprintf(foutput, "%.15Le %.15Le %.15Le %.15Le %.15Le 0.0 0.0 0.0 0.0 0.0 0.0\n", rdiskmax, gmax, xscr, yscr, cosemmax);
 
 			if (progress_check != 0)
 			{
-				printf("%d B2:MAX %.6Le %.6Le %.6Le %.6Le %.6Le\n", ii, double(rdiskmax), double(gmax), double(xscr), double(yscr), double(cosemmax));
+				printf("%d B2:MAX %.6Le %.6Le %.6Le %.6Le %.6Le\n", ii, rdiskmax, gmax, xscr, yscr, cosemmax);
 			}
 		}
 
