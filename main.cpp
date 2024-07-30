@@ -18,6 +18,7 @@ int main(int argc, char *argv[])
 	/* Set default computational values */
 	spin = 0.9;
 	Mdl = 0;
+	inc = Pi/4; 	  // inclination angle in rad, default = Pi/4
 	defpar = 0;		  // default = 0
 	gerrtol = 1.0e-6; // default = 1.0e-6
 	rerrtol = 1.0e-7; // default = 1.0e-7
@@ -30,7 +31,7 @@ int main(int argc, char *argv[])
 	if (argc > 1)
 	{
 		spin = atof(argv[1]); // spin parameter
-		inc = atof(argv[2]);  // inclination angle in degrees
+		inc = atof(argv[2]);  // inclination angle in rad
 		defpar = atof(argv[3]);
 		gerrtol = atof(argv[4]);		// error tolerance for RK45
 		rerrtol = atof(argv[5]);		// error tolerance for redshift factor
