@@ -16,15 +16,15 @@ int main(int argc, char *argv[])
 	FILE *foutput;
 
 	/* Set default computational values */
-	spin = 0.998;
+	spin = 0.960550;
 	Mdl = 0;
-	inc = Pi/4; 	  // inclination angle in rad, default = Pi/4
-	defpar = 5;		  // default = 0
+	inc = 0.9035001; 	  // inclination angle in rad, default = Pi/4
+	defpar = 15;		  // default = 0
 	gerrtol = 1.0e-6; // default = 1.0e-6
 	rerrtol = 1.0e-7; // default = 1.0e-7
 	pdiff = 1.0e-4;	  // default = 1.0e-4
 	progress_check = 1;
-	skip = 96;	   // default = 0
+	skip = 92;	   // default = 0
 	skip_end = imax - 1; // default = imax - 1
 
 	// Set computation parameters from user input if provided
@@ -434,8 +434,14 @@ int main(int argc, char *argv[])
 					// 	break;
 					// }
 
-					if (abs(pscrlow - pscrhigh) < 1.0e-10) // Raise error tolerance if can't find the correct value
+					if (abs(pscrhigh - pscrlow) < 1.0e-10) // Raise error tolerance if can't find the correct value
 						gerrttol *= 2.0;
+
+					if (pscrhigh < pscrlow)
+					{
+						printf("pscrhigh < pscrlow\n");
+						break;
+					}
 				}
 
 				// Set/Reset variables as necessary after finding gcur
